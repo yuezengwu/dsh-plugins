@@ -1,24 +1,51 @@
+**简体中文** | [English](README.en.md)
+
 # 52DSH Plugin Registry — DeepSeek Harness (DSH) Plugins
+
+**52DSH 社区插件注册表：开放、机器可读、证据分级的 DeepSeek Harness（DSH）插件目录。**
 
 [![Registry validation](https://github.com/tuofangzhe/dsh-plugins/actions/workflows/validate.yml/badge.svg)](https://github.com/tuofangzhe/dsh-plugins/actions/workflows/validate.yml)
 [![52DSH 中文插件中心](https://img.shields.io/badge/52DSH-中文插件中心-356ae6)](https://52dsh.com/plugins/)
 
-An open, machine-readable and evidence-graded community registry for DeepSeek Harness / DSH plugins. 每条稳定记录都保存固定提交、许可证、兼容声明、权限提示、证据等级，以及对应的 52DSH 中文详情或配置教程。
+本仓库收录 DeepSeek Harness / DSH 生态的插件、Skills 与 MCP Server。每条稳定记录都保存固定提交、许可证、兼容声明、权限提示、证据等级，以及对应的 52DSH 中文详情页和安装配置教程。
 
-> **Independent community project.** 52DSH is not the official DeepSeek Harness repository. A listing is not a security endorsement, and `manifest_checked` or `source_reviewed` does not mean the plugin has been installed or run by 52DSH.
+An open, machine-readable and evidence-graded community registry for DeepSeek Harness (DSH) plugins, Skills and MCP servers. Each stable record pins a commit, license, compatibility claim, permission hints and an evidence level, and links to a Chinese detail page and installation guide on [52dsh.com](https://52dsh.com/plugins/). English overview: [README.en.md](README.en.md).
 
-## Use the registry
+> **独立社区项目 / Independent community project.** 52DSH 不是 DeepSeek Harness 官方仓库，收录不构成安全背书；`manifest_checked` 或 `source_reviewed` 不代表 52DSH 安装或运行过该插件。52DSH is not the official DeepSeek Harness repository. A listing is not a security endorsement, and `manifest_checked` or `source_reviewed` does not mean the plugin has been installed or run by 52DSH.
 
-- Human-readable catalog: browse the generated category index below.
-- Machine-readable JSON: [`generated/registry.json`](generated/registry.json)
-- Compact JSON: [`generated/registry.min.json`](generated/registry.min.json)
-- NDJSON: [`generated/registry.ndjson`](generated/registry.ndjson)
-- Schema: [`schemas/plugin.schema.json`](schemas/plugin.schema.json)
-- Chinese installation and configuration guides: [52dsh.com/plugins/](https://52dsh.com/plugins/)
+<!-- REGISTRY_STATS_START -->
 
-The stable registry only includes records that reached `manifest_checked`, `source_reviewed`, or `runtime_verified`. Discovery leads live in `candidates/` and are not included in the stable output.
+**281** 个稳定收录 · 源码审阅 **142** · 清单核验 **139** · 中文配置教程 **50** 篇 · 数据核验至 2026-08-22
 
-## DeepSeek Harness / DSH plugin catalog
+Stable records: **281** · source-reviewed: **142** · manifest-checked: **139** · Chinese install guides: **50** · data checked through 2026-08-22
+
+<!-- REGISTRY_STATS_END -->
+
+## 使用注册表数据
+
+- 人类可读目录：浏览下方按分类生成的插件索引；
+- 完整 JSON：[`generated/registry.json`](generated/registry.json)（[raw](https://raw.githubusercontent.com/tuofangzhe/dsh-plugins/main/generated/registry.json)）
+- 精简 JSON：[`generated/registry.min.json`](generated/registry.min.json)（[raw](https://raw.githubusercontent.com/tuofangzhe/dsh-plugins/main/generated/registry.min.json)）
+- NDJSON：[`generated/registry.ndjson`](generated/registry.ndjson)（[raw](https://raw.githubusercontent.com/tuofangzhe/dsh-plugins/main/generated/registry.ndjson)）
+- 字段定义 Schema：[`schemas/plugin.schema.json`](schemas/plugin.schema.json)
+- 数据统计：[`generated/stats.json`](generated/stats.json)
+- 中文安装与配置教程：[52dsh.com/plugins/](https://52dsh.com/plugins/)
+
+稳定注册表只包含达到 `manifest_checked`、`source_reviewed` 或 `runtime_verified` 的记录；自动发现的线索保存在 `candidates/`，不进入稳定输出。
+
+## 证据等级
+
+| 等级 | 含义 |
+|---|---|
+| `community_listed` | 仅记录发现来源与基本仓库信息，不进入稳定注册表 |
+| `manifest_checked` | 已按固定 commit 核对 Manifest、包名与许可证 |
+| `source_reviewed` | 已按固定 commit 审阅关键源码与权限边界 |
+| `runtime_verified` | 已在记录环境中完成独立运行验证并保存结果 |
+| `deprecated` | 已归档、失效、存在严重问题或停止维护 |
+
+任何等级都不等于安全认证。完整定义见 [docs/verification-levels.md](docs/verification-levels.md)。
+
+## DSH 插件目录
 
 <!-- REGISTRY_INDEX_START -->
 
@@ -365,16 +392,23 @@ The stable registry only includes records that reached `manifest_checked`, `sour
 
 <!-- REGISTRY_INDEX_END -->
 
-## Contribute
+## 参与贡献
 
-Plugin authors can submit a record, claim an existing record, or correct evidence through an Issue or Pull Request. Read [CONTRIBUTING.md](CONTRIBUTING.md) and the [plugin author guide](docs/plugin-author-guide.md) first.
+插件作者可以通过 Issue 或 Pull Request 提交新条目、认领已有条目或更正证据。请先阅读 [CONTRIBUTING.md](CONTRIBUTING.md) 和[插件作者指南](docs/plugin-author-guide.md)。
 
-Validation never installs or executes submitted third-party plugins. Review levels and permission terms are defined in [`docs/`](docs/).
+自动校验只检查元数据，不会安装或执行提交的第三方插件。审核等级与权限术语定义见 [`docs/`](docs/)。
 
-## Licenses
+已收录的插件作者欢迎在自己的 README 中加入回链，方便用户找到中文说明：
 
-- Code, scripts and documentation scaffolding: [MIT](LICENSE-CODE)
-- Registry records and generated datasets: [CC BY 4.0](LICENSE-DATA)
+```markdown
+中文介绍、权限说明与配置教程：
+[52DSH 插件详情](https://52dsh.com/plugins/<slug>/)
+```
 
-When reusing the data, attribute **52DSH Plugin Registry** and link to both this repository and [52dsh.com](https://52dsh.com/).
+## 许可证
+
+- 代码、脚本与文档骨架：[MIT](LICENSE-CODE)
+- 注册表记录与生成数据集：[CC BY 4.0](LICENSE-DATA)
+
+复用数据时请署名 **52DSH Plugin Registry**，并同时链接本仓库与 [52dsh.com](https://52dsh.com/)。
 
