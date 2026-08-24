@@ -1,0 +1,49 @@
+schema_version: 1
+id: github:dshplugin/dsh-plugin-hub
+slug: dshplugin-dsh-plugin-hub
+name: dsh-plugin-hub
+repository:
+  url: https://github.com/dshplugin/dsh-plugin-hub
+  commit: 4017055dcb0dbc06548f195618ea5410ac445af3
+package:
+  ecosystem: npm
+  name: dsh-plugin
+  version: 1.0.0
+  install_spec: github:dshplugin/dsh-plugin-hub#4017055dcb0d
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 1.0.0、MIT，要求 Node.js ^22.19 或 24+，DSH host/client peer 为 0.1.0-rc.7；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、真实目录服务、失败恢复、原生构建或 Profile 重启下运行
+category: management
+topics:
+  - management
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_write
+    - command_execution
+    - ui_injection
+    - plugin_management
+  notes: 同源本机页面可调用官方 dsh plugin CLI 安装任意合法 GitHub owner/repo 或 npm 包名、更新和卸载当前 Profile 插件，并在 pnpm 阻止 Git prepare 时自动加入精确 allowBuilds 键；可终止并重启 dsh web
+  data_flow: 远端社区目录和用户确认 → 本机同源 POST、目标语法与包入口预检 → 串行 dsh plugin 子进程和 Profile/pnpm-workspace 写入 → 安装日志、状态和待重启记录返回页面；安装的第三方代码在重启后进入 DSH Host。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的同源门禁、目标语法、安装前 tarball 检查、任务队列、参数数组调用、Profile 写入与重启脚本。写操作只接受 Origin 与 Host 一致且 hostname 为 localhost/127.0.0.1/::1，请求体有 4KB 上限，命令目标不经 shell 拼接；但市场仍可安装未经本站源码审核的任意 npm/GitHub 包，并可能自动放行其 prepare 构建，属于高风险供应链入口。只在 loopback DSH 使用，逐项阅读固定提交源码，先备份 Profile，不要把目录收录等同安全认证。
+summary:
+  zh: 在 DSH 内浏览、搜索并安装社区插件目录，支持安装、更新、卸载、任务队列、进度日志、安装前入口校验和宿主重启。
+links:
+  source: https://github.com/dshplugin/dsh-plugin-hub
+  detail_zh: https://52dsh.com/plugins/dshplugin-dsh-plugin-hub/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:chenruot/dsh-sidebar-qa
+slug: chenruot-dsh-sidebar-qa
+name: dsh-sidebar-qa
+repository:
+  url: https://github.com/ChenRuoT/dsh-sidebar-qa
+  commit: 51e151f854ae6ea2db07e49a0f26d878dca05ce1
+package:
+  ecosystem: npm
+  name: dsh-sidebar-qa
+  version: 0.4.0
+  install_spec: github:ChenRuoT/dsh-sidebar-qa#51e151f854ae
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.1.0-rc.8；本站尚未运行实测
+category: interface
+topics:
+  - interface
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 注入 Web 客户端并改变界面或交互；核对浏览器侧数据访问范围
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 在侧边栏加入独立提问标签页，提供类似 Codex 侧边提问或 Claude Code /btw 的交互。
+links:
+  source: https://github.com/ChenRuoT/dsh-sidebar-qa
+  detail_zh: https://52dsh.com/plugins/chenruot-dsh-sidebar-qa/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

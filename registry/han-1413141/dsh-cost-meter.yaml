@@ -1,0 +1,53 @@
+schema_version: 1
+id: github:han-1413141/dsh-cost-meter
+slug: han-1413141-dsh-cost-meter
+name: dsh-cost-meter
+repository:
+  url: https://github.com/Han-1413141/dsh-cost-meter
+  commit: 239b4c07c24a1685c9bb9f0fd2ccbe3bc275e8bf
+package:
+  ecosystem: npm
+  name: dsh-cost-meter
+  version: 1.5.35
+  install_spec: github:Han-1413141/dsh-cost-meter#239b4c07c24a
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 1.5.35，元数据声明 DSH >=0.1.0-rc.5，依赖部分 rc.6 组件；本站完成固定提交静态审阅，未用真实 Provider 凭据核对余额、额度和价格同步结果
+category: interface
+topics:
+  - usage
+  - interface
+permissions:
+  status: reviewed
+  capabilities:
+    - command_execution
+    - network_access
+    - credentials
+    - session_data
+  notes: 读取 DSH 会话用量和多种 API Key/OAuth Token，并向 DeepSeek、Anthropic、智谱、MiniMax、Kimi、OpenRouter、SiliconFlow、CommandCode、SCNet 或用户自配余额端点发送查询
+  data_flow: DSH 模型用量事件 → 本机 $DSH_HOME/storages/cost-meter/ledger.json → 成本、预算、热力图与通知；启用余额或套餐查询时，本机凭据 → 对应官方白名单或用户显式配置端点 → 剩余额度返回设置页。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的主入口、价格表、账本、网络重试、Coding Plan、自定义余额和安全说明。账本与配置保存在本机，官方查询限制到预设端点；自定义余额则会把用户选择的凭据占位符发送到自定义 URL。价格、峰谷规则和非公开套餐接口都可能变化，显示金额只能作为估算，配置自定义端点前必须确认域名归属。
+summary:
+  zh: 在 DSH 中统计会话与每日 Token 成本、预算和历史，并查询官方余额、自定义 Provider 余额及多家 Coding Plan 订阅额度。
+  en: Per-session and daily API cost, budget with usage %, official balance, history dashboard, and one-click official price sync with peak/off-peak pricing.
+links:
+  source: https://github.com/Han-1413141/dsh-cost-meter
+  detail_zh: https://52dsh.com/plugins/han-1413141-dsh-cost-meter/
+  tutorial_zh: https://52dsh.com/tutorials/han-1413141-dsh-cost-meter-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

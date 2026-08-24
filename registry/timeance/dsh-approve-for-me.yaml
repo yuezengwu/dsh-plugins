@@ -1,0 +1,46 @@
+schema_version: 1
+id: github:timeance/dsh-approve-for-me
+slug: timeance-dsh-approve-for-me
+name: dsh-approve-for-me
+repository:
+  url: https://github.com/timeance/dsh-approve-for-me
+  commit: a72c8d24dd64f59644b2b0bdb5985edc9bf3c66b
+package:
+  ecosystem: npm
+  name: dsh-approve-for-me
+  version: 0.2.2
+  install_spec: github:timeance/dsh-approve-for-me#a72c8d24dd64
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.2.2、MIT，要求 Node.js ^22.19 或 >=24，peer 精确绑定 DSH 0.1.1-rc.1；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、复杂跨平台 Shell 语法、别名/wrapper 或真实恶意提示下运行
+category: security
+topics:
+  - security
+permissions:
+  status: reviewed
+  capabilities:
+    - command_execution
+  notes: 仅在用户选择 approve-for-me Access preset 后拦截与当前 callId 严格关联的 Shell/Pwsh 扩权；成功只返回当前请求 allowed-once，不提供持久授权，默认正向规则为空
+  data_flow: 沙箱扩权请求、关联工具调用和有界直接用户/开发者 transcript → 本地解析、高风险分类和用户 allowlist → 可选无工具 Reviewer → allowed-once 或 DSH 原生人工审批；Reviewer 使用当前或指定 Provider。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的安全默认值、调用关联、Shell 解析、高风险规则、Reviewer 隔离/脱敏、严格输出和 loopback 设置 RPC。安装本身不会自动批准，失败、超时、歧义和高风险均转人工；但任何自动审批器都可能漏判新命令、参数、wrapper 或平台差异，且当前 peer 精确锁定 rc.1。仅添加最窄的只读前缀，重要仓库保留模型复核和人工抽查，在 0.1.1-rc.2 安装前先做隔离兼容测试，绝不把它等同于安全证明。
+summary:
+  zh: 为 DSH Shell 与 PowerShell 沙箱扩权提供受控自动审批：先做固定高风险检查和用户字面前缀匹配，再可选调用无工具模型复核，不确定时回到人工审批。
+links:
+  source: https://github.com/timeance/dsh-approve-for-me
+  detail_zh: https://52dsh.com/plugins/timeance-dsh-approve-for-me/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

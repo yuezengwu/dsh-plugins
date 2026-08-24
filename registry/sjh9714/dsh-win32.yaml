@@ -1,0 +1,50 @@
+schema_version: 1
+id: github:sjh9714/dsh-win32
+slug: sjh9714-dsh-win32
+name: dsh-win32
+repository:
+  url: https://github.com/sjh9714/dsh-win32
+  commit: 07eb4fda852c7bcf2b318a6c2d1bd0347e20e499
+package:
+  ecosystem: npm
+  name: dsh-win32
+  version: 0.15.1
+  install_spec: github:sjh9714/dsh-win32#07eb4fda852c
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.15.1、MIT，要求 Node.js ^22.19 或 >=24；peer 要求 Cordis >=4 <5、fs-local/fs-sandbox rc.5..<0.2、subprocess-local rc.5..<rc.7，README 主要按 DSH rc.6 验证；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、真实 Windows 10/11、WSL、企业 EDR 或全部 Shell 组合下运行
+category: development
+topics:
+  - dev
+  - development
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_write
+    - command_execution
+  notes: 替换 Windows 下部分 subprocess 与 filesystem 实现，必要时用 taskkill /T /F 终止进程树；安装器可写入 DSH Profile/Preset，显式 sandboxed setup 还会下载 BusyBox，普通 Git Bash Preset 标注需要 danger-full-access
+  data_flow: DSH Shell、进程与文件请求 → Windows 专用进程检查、终端封装、编码探测和 fs-sandbox 路径围栏 → 当前工作区或受控子进程；安装阶段只在用户选择后写入 Preset，并且不覆盖已有同名配置。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的进程检查、taskkill 回退、文件围栏、编码读取、终端包装、Preset 安装和 setup。实现针对 Windows 的已知兼容缺口，sandboxed Preset 比完整 Git Bash 权限更稳妥；但强制杀进程可能丢失未保存状态，danger-full-access 会扩大 Shell 权限，下载 BusyBox 与改 Profile 也属于高影响操作，且 subprocess peer 上限较窄。优先采用 sandboxed Preset，在独立 Profile 验证版本，安装前备份配置并人工确认下载来源。
+summary:
+  zh: 为 Windows 上的 DSH 补充进程树检查、PTY 信号、GBK/UTF-16 文件解码和受限文件系统，并提供 Git Bash 与 BusyBox 沙箱 Preset。
+  en: Makes Minimal mode work on Windows by supplying the missing win32 process inspector, so the persistent shell actually starts. Adds a busybox-based preset whose persistent shell survives the workspace-write restricted token (MSYS shells die there), ConPTY console-list foreground resolution, GBK/UTF-16 file reads, and an install-trap doctor.
+links:
+  source: https://github.com/sjh9714/dsh-win32
+  detail_zh: https://52dsh.com/plugins/sjh9714-dsh-win32/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

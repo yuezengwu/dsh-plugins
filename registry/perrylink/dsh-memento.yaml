@@ -1,0 +1,54 @@
+schema_version: 1
+id: github:perrylink/dsh-memento
+slug: perrylink-dsh-memento
+name: dsh-memento
+repository:
+  url: https://github.com/PerryLink/dsh-memento
+  commit: 6a87b7e67ac5487598c591b5f17204aa30496dc5
+package:
+  ecosystem: npm
+  name: dsh-memento
+  version: 0.4.3
+  install_spec: github:PerryLink/dsh-memento#6a87b7e67ac5
+license:
+  spdx: Apache-2.0
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.4.3，要求 Node.js 22.19 或 24+，peer 依赖明确覆盖 DSH Session/Tools 0.1.0-rc.8 至 <0.2.0；本站完成固定提交静态审阅，未运行长期迁移、双进程并发、跨平台权限或记忆投毒测试
+category: knowledge
+topics:
+  - memory
+  - knowledge
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_write
+    - command_execution
+    - network_access
+    - credentials
+    - session_data
+  notes: 注册 memory/memory_recall 工具、命令和只读 Web 面板，读写本机 SQLite 记忆库并向系统提示词注入冻结记忆；默认写策略 ask，也可配置 auto 直接一次放行或 off
+  data_flow: 模型、命令或适配器提出的记忆变更 → ask/auto/off 写入门与审批审计 → 权限 0600 的本机 SQLite → 按会话 cwd、轨道与层级筛选的冻结快照 → 后续 Agent 系统提示词；召回还可匹配近期本机会话历史。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的协议、写入门、SQLite Store、预算、匹配、适配器、快照注入和 Web 路由。默认 ask 且失败关闭，零外部网络、零凭据并记录审批链；但 auto 策略会自动允许持久写入，被污染或过期的记忆会跨会话进入系统提示词，导入数据同样可能影响行为。保持 writePolicy=ask，定期审阅审计与导出，按工作区隔离敏感记忆，并在导入前检查来源和提示注入内容。
+summary:
+  zh: 为 DSH 提供有字符预算、分用户/Agent 与全局/工作区层级、可审批和可审计的跨会话记忆，并把冻结快照注入后续会话。
+  en: "Bounded, layered, approval-gated, auditable cross-session memory: a typed `ctx.memory` seam with a zero-dependency SQLite provider, a `memory` tool, and frozen snapshot injection, plus the dsh-memory-protocol v1 rehearsal with an adapter registry and a distributable conformance suite."
+links:
+  source: https://github.com/PerryLink/dsh-memento
+  detail_zh: https://52dsh.com/plugins/perrylink-dsh-memento/
+  tutorial_zh: https://52dsh.com/tutorials/perrylink-dsh-memento-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

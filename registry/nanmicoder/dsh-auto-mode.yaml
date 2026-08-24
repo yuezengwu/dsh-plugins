@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:nanmicoder/dsh-auto-mode
+slug: nanmicoder-dsh-auto-mode
+name: dsh-auto-mode
+repository:
+  url: https://github.com/NanmiCoder/dsh-auto-mode
+  commit: a87533e638a88b1dec6eab2dc3a1d32815811a4a
+package:
+  ecosystem: npm
+  name: "@nanmicoder/dsh-auto-mode"
+  version: 0.1.4
+  install_spec: github:NanmiCoder/dsh-auto-mode#a87533e638a8
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 清单声明并由作者针对 DSH 0.1.0-rc.6 组合开发；本站完成固定提交静态审阅，未运行跨平台沙箱测试
+category: security
+topics:
+  - security
+permissions:
+  status: reviewed
+  capabilities:
+    - command_execution
+    - network_access
+  notes: 拦截 DSH 工具调用、读取最近的直接用户消息，并可能为同一调用授予一次 danger-full-access；分类器可使用当前模型或外部 HTTPS Endpoint
+  data_flow: DSH 工具调用与最多四条直接用户消息 → 本地硬规则与安全分类器 → allow、deny 或 ask → 原工具在官方沙箱或一次性扩权下执行。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的工具守卫、策略、Shell 分析、分类器与一次性授权逻辑。它默认保留 workspace-write 并对失败关闭，但会把脱敏后的调用语义交给当前模型或配置的 HTTPS 分类器，也无法拦截其他 Host 插件直接执行的 Node 代码。
+summary:
+  zh: 在官方 workspace-write 沙箱上增加自动权限策略，对高风险工具调用进行确定性拦截、模型分类或一次性人工审批。
+links:
+  source: https://github.com/NanmiCoder/dsh-auto-mode
+  detail_zh: https://52dsh.com/plugins/nanmicoder-dsh-auto-mode/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

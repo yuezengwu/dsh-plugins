@@ -1,0 +1,48 @@
+schema_version: 1
+id: github:liceses/dsh-gitbash-preset
+slug: liceses-dsh-gitbash-preset
+name: dsh-gitbash-preset
+repository:
+  url: https://github.com/liceses/dsh-gitbash-preset
+  commit: db21575b52e249f6a2eeeef0eb9ff92dc72943c8
+package:
+  ecosystem: npm
+  name: "@icelily/dsh-gitbash-preset"
+  version: 0.1.2
+  install_spec: github:liceses/dsh-gitbash-preset#db21575b52e2
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: review
+  compatibility_notes: 插件版本 0.1.2，面向 Windows Git for Windows 环境；本站完成固定提交静态审阅，未在 Windows、MSYS 路径转换或真实沙箱后端运行
+category: development
+topics:
+  - development
+permissions:
+  status: reviewed
+  capabilities:
+    - command_execution
+    - credentials
+    - session_data
+  notes: 安装三个 Preset 文件到 DSH Home，并通过宿主 subprocess 以 Git Bash -c 执行模型生成的任意命令；受限 Windows Token 无法启动 Git Bash，因此要求单次 danger-full-access 或全访问模式
+  data_flow: DSH Agent 的 bash 工具调用 → Git Bash Executor 与沙箱策略检查 → Git for Windows bash.exe -c → 工作区和本机进程/文件系统 → stdout、stderr 与退出状态返回会话。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的安装入口、Preset、Git Bash 路径探测、命令执行、取消和输出上限。实现会拒绝非 danger-full-access 策略并要求用户对同一命令显式升级，但升级后命令拥有桌面用户权限；它不是额外安全沙箱。仅在已安装可信 Git for Windows 的机器使用，并逐次阅读升级理由和命令。
+summary:
+  zh: 为 Windows 安装 Git Bash 版极简 Agent Preset，把 DSH 的 bash 工具映射到 Git for Windows，并保留编辑器工具和单次命令超时控制。
+links:
+  source: https://github.com/liceses/dsh-gitbash-preset
+  detail_zh: https://52dsh.com/plugins/liceses-dsh-gitbash-preset/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

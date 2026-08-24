@@ -1,0 +1,48 @@
+schema_version: 1
+id: github:arkme-senx/arkme-dsh-plugin
+slug: dsh-arkme
+name: Arkme DSH Plugin
+repository:
+  url: https://github.com/arkme-senx/arkme-dsh-plugin
+  commit: 5b04536139a3bde2c4cb22945988ef1ebc4a76c4
+package:
+  ecosystem: npm
+  name: "@senguoyun/dsh-arkme"
+  version: 0.1.13
+  install_spec: "@senguoyun/dsh-arkme@0.1.13"
+license:
+  spdx: UNLICENSED
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 多个包声明 DSH ^0.1.0-rc.5；当前基线未实测
+category: integration
+topics:
+  - integration
+permissions:
+  status: reviewed
+  capabilities:
+    - network_access
+    - credentials
+    - plugin_management
+  notes: 账号、业务数据、外部服务、对象存储和扩展安装
+  data_flow: DSH Agent Tools → Arkme Host Service 与账号凭据 → Arkme 外部 API、对象存储或扩展市场 → 业务记录、聊天与任务结果返回 DSH。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交中的 Host Service、Agent Tools 与扩展安装路径；插件可访问 Arkme 账号及业务数据并连接外部服务，许可证字段为 UNLICENSED，本站仅保留事实性迁移审计，不作安装推荐。
+summary:
+  zh: 把 Arkme 账号、记录、聊天、Bot、通话和扩展市场包装为 DSH Host Service 与 Agent Tools。
+links:
+  source: https://github.com/arkme-senx/arkme-dsh-plugin
+  detail_zh: https://52dsh.com/cases/arkme-dsh-desktop-migration/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

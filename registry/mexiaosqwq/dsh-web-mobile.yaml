@@ -1,0 +1,58 @@
+schema_version: 1
+id: github:mexiaosqwq/dsh-web-mobile
+slug: mexiaosqwq-dsh-web-mobile
+name: dsh-web-mobile
+repository:
+  url: https://github.com/mexiaosqwq/dsh-web-mobile
+  commit: e1910533484bed85dd5afbbb8dd1206de3b32132
+package:
+  ecosystem: npm
+  name: "@dsh-external/dsh-mobile-nav"
+  version: 2.0.0
+  install_spec: github:mexiaosqwq/dsh-web-mobile#e1910533484b
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 2.0.0，客户端 peer 依赖明确覆盖 DSH 0.1.0-rc.6 以及 0.1.1-rc.0 至 <0.2.0；本站完成固定提交静态审阅，未对全部手机浏览器、桌面壳、横竖屏和第三方 UI 插件组合进行真机测试
+category: interface
+topics:
+  - remote
+  - interface
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - filesystem_write
+    - command_execution
+    - network_access
+    - credentials
+    - browser_control
+    - session_data
+    - ui_injection
+    - plugin_management
+  notes: 仅在 DSH 浏览器客户端读取现有 DOM、视口和会话状态并注入样式、导航按钮与布局协调逻辑；未发现宿主命令、文件写入、外部网络或凭据处理能力
+  data_flow: 当前 DSH 页面 DOM、视口尺寸、运行状态和本机 UI 偏好 → 客户端重排、响应式样式与移动导航 → 同一浏览器页面；未发现数据离开浏览器或写入工作区的路径。
+risk_level: medium
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的客户端入口、样式、移动抽屉、状态行、phone chrome 和 AionUI 兼容层。该插件属于纯界面适配，没有 Host 网络、文件或工具能力；主要风险是依赖 DSH 内部 DOM 与槽位，和其他主题、侧栏或移动插件同时启用时可能出现布局冲突。先单独启用并在常用手机宽度测试，遇到遮挡时关闭重复 UI 插件，不把视觉兼容误当作官方移动端支持。
+summary:
+  zh: 为 DSH Web 提供响应式移动端导航、抽屉、标题栏、状态行和对话布局，在窄屏手机上改善菜单、输入区、统计信息与子 Agent 控件的可用性。
+  en: "Mobile-adaptive layout for the DSH Web UI: the sidebar becomes a content-hugging overlay drawer, the conversation gets the full width, and the settings panel becomes a near-full-width sheet."
+links:
+  source: https://github.com/mexiaosqwq/dsh-web-mobile
+  detail_zh: https://52dsh.com/plugins/mexiaosqwq-dsh-web-mobile/
+  tutorial_zh: https://52dsh.com/tutorials/mexiaosqwq-dsh-web-mobile-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

@@ -1,0 +1,49 @@
+schema_version: 1
+id: github:xiaoxianyu-office/dsh-router-flash
+slug: xiaoxianyu-office-dsh-router-flash
+name: dsh-router-flash
+repository:
+  url: https://github.com/xiaoxianyu-office/dsh-router-flash
+  commit: 554d3aedf76202f82eb263833f55d934774cc58f
+package:
+  ecosystem: npm
+  name: dsh-router-flash
+  version: 0.1.0
+  install_spec: github:xiaoxianyu-office/dsh-router-flash#554d3aedf762
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.1.0、MIT，未声明 Node 或 DSH peer 版本，README 要求 DSH rc.6+ 与 opencode-go deepseek-v4-flash；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、真实 Flash/Pro 模型、Plan Mode、跨平台 Shell 或长会话下运行
+category: agent
+topics:
+  - agent
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_write
+    - command_execution
+    - agent_orchestration
+    - plugin_management
+  notes: 插件启动时用 danger-full-access 策略把随包固定 Preset 文件同步到 $DSH_HOME/.agent-presets/router-flash；只有用户随后把它设为默认/选择该 Preset 才生效，Preset 包含 Standard 文件、Shell、Skill、Goal、多 Agent 和工作流工具
+  data_flow: 随包 Preset 固定文件 → DSH Home 目标目录内容比对与覆盖 → 用户选择 router-flash → 模型 ID 和首条用户消息本地分类 → Persona 与首轮核心工具投影；首个工具调用后恢复 Preset 的完整工具目录，不外发额外数据。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 Preset 同步、路由分类、Persona 注入、首轮工具筛选、跨平台 Shell 和衍生来源 NOTICE。写入目标固定且只复制包内文件，不删除额外文件，也不会自动选择 Preset；但启动写 DSH Home 不经过逐次批准，升级会覆盖同名手改文件，Preset 在首个工具调用后开放完整 Standard/子 Agent/工作流能力，提示中的效果描述也只是作者经验。安装前备份同名 Preset，核对衍生许可链，在独立 Profile 选择使用，并保留宿主 Sandbox 与 Approval。
+summary:
+  zh: 分发一个面向 opencode-go DeepSeek V4 Flash 的 Agent Preset，通过固定 Persona、任务分类和首轮精简工具集改善规划深度与执行收敛。
+links:
+  source: https://github.com/xiaoxianyu-office/dsh-router-flash
+  detail_zh: https://52dsh.com/plugins/xiaoxianyu-office-dsh-router-flash/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

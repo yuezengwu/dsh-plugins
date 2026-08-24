@@ -1,0 +1,48 @@
+schema_version: 1
+id: github:laplace-bit/dsh-smooth-stream
+slug: laplace-bit-dsh-smooth-stream
+name: dsh-smooth-stream
+repository:
+  url: https://github.com/Laplace-bit/dsh-smooth-stream
+  commit: 97866e7143b844995bc7490f3a5a40f968fe9441
+package:
+  ecosystem: npm
+  name: dsh-smooth-stream
+  version: 0.3.4
+  install_spec: github:Laplace-bit/dsh-smooth-stream#97866e7143b8
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 *；本站尚未运行实测
+category: interface
+topics:
+  - ui
+  - interface
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 注入 Web 客户端并改变界面或交互；核对浏览器侧数据访问范围
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 优化 DSH Web 流式回复的显示节奏和视觉连贯性。
+  en: Fluid streaming rendering and smooth scrolling for the DeepSeek Harness Web UI.
+links:
+  source: https://github.com/Laplace-bit/dsh-smooth-stream
+  detail_zh: https://52dsh.com/plugins/laplace-bit-dsh-smooth-stream/
+  tutorial_zh: https://52dsh.com/tutorials/laplace-bit-dsh-smooth-stream-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

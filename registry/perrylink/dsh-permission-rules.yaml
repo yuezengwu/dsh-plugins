@@ -1,0 +1,49 @@
+schema_version: 1
+id: github:perrylink/dsh-permission-rules
+slug: perrylink-dsh-permission-rules
+name: dsh-permission-rules
+repository:
+  url: https://github.com/PerryLink/dsh-permission-rules
+  commit: 50e50ee3836032676bbcff4b386be70d282d79b8
+package:
+  ecosystem: npm
+  name: dsh-permission-rules
+  version: 0.5.3
+  install_spec: github:PerryLink/dsh-permission-rules#50e50ee38360
+license:
+  spdx: Apache-2.0
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.5.3、Apache-2.0，要求 Node.js ^22.19 或 24+，DSH peer >=0.1.0-rc.8 <0.2.0；版本范围覆盖本站 0.1.1-rc.2 基线。本站完成固定提交静态审阅，未运行其 139 项测试、真实 sandbox、CONNECT 代理、Windows 路径或多插件审批链
+category: security
+topics:
+  - security
+permissions:
+  status: reviewed
+  capabilities:
+    - network_access
+    - session_data
+  notes: 读取、监听并经设置页写入已知 .dsh/rules.yaml，挂接 tools/pre-execute、官方 approval 与 Session audit；可在 127.0.0.1 启动 HTTP/CONNECT 代理并临时改写宿主进程的代理环境变量
+  data_flow: 工具名、参数、Agent 身份、cwd、环境和候选网络目标 → 有界规则解析与首条命中决策 → allow 继续下游、deny 阻断、ask 交给官方审批 → 决策及网络阻断以 ignorable Session 事件和本机设置状态呈现；规则不发送给模型或外部服务。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的规则解析、运行时、Typert 设置桥、已知路径写入限制、代理监听和环境恢复。规则语法拒绝未知字段、危险正则和越界路径，代理默认绑定 loopback，ask 不自行调用模型，失效规则可配置为响亮失败；但它是策略层而非内核隔离，路径和 URL 来自启发式参数提取，不遵守代理环境变量的程序可绕过网络代理，无 sandboxPolicy 时 autoFallback 默认为 allow-all。先用 enforce=false 审计，再启用 deny/ask；关键边界仍依赖 DSH sandbox 和操作系统权限。
+summary:
+  zh: 在每次 DSH 工具执行前按 YAML 规则匹配工具、Agent、参数、路径、环境和网络目标，执行 allow、deny 或 ask，并提供审计日志、热重载、试运行模式和本机网络代理。
+  en: "Claude Code-style declarative permission rules: ordered allow/deny/ask YAML rules matching tool names, arguments, workspace paths, and agent identity on the tools/pre-execute waterfall, with full session-log audit, dry-run mode, and hot reload."
+links:
+  source: https://github.com/PerryLink/dsh-permission-rules
+  detail_zh: https://52dsh.com/plugins/perrylink-dsh-permission-rules/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

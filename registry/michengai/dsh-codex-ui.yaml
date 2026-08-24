@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:michengai/dsh-codex-ui
+slug: michengai-dsh-codex-ui
+name: dsh-codex-ui
+repository:
+  url: https://github.com/MichengAI/dsh-codex-ui
+  commit: a56be292043aff8e0a95c78ed498e956a05f3266
+package:
+  ecosystem: npm
+  name: "@michengai/dsh-codex-ui"
+  version: 0.2.68
+  install_spec: github:MichengAI/dsh-codex-ui#a56be292043a
+license:
+  spdx: Apache-2.0
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 >=0.1.0-rc.0 <0.2.0；本站尚未运行实测
+category: interface
+topics:
+  - ui
+  - interface
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 注入 Web 客户端并改变界面或交互；核对浏览器侧数据访问范围
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 为 DeepSeek Harness 提供仿 Codex 的 Web UI 外观和交互细节。
+  en: Rebuilds the DeepSeek Harness web sidebar, workspace tree, search, and turn navigation in a Codex-style layout.
+links:
+  source: https://github.com/MichengAI/dsh-codex-ui
+  detail_zh: https://52dsh.com/plugins/michengai-dsh-codex-ui/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

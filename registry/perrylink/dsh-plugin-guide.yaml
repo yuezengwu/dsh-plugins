@@ -1,0 +1,55 @@
+schema_version: 1
+id: github:perrylink/dsh-plugin-guide
+slug: perrylink-dsh-plugin-guide
+name: dsh-plugin-guide
+repository:
+  url: https://github.com/PerryLink/dsh-plugin-guide
+  commit: 6f9b50d72cbf101995063654d2c64a39ebc73720
+package:
+  ecosystem: npm
+  name: dsh-plugin-guide
+  version: 0.1.1
+  install_spec: github:PerryLink/dsh-plugin-guide#6f9b50d72cbf
+license:
+  spdx: Apache-2.0
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.1.1，声明 DSH >=0.1.0-rc.8 <0.2.0、Node.js ^22.19 或 24+，纯 ESM 且无原生依赖；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2 基线加载 Skill 或逐项核对其 114 个社区仓库档案的新鲜度
+category: knowledge
+topics:
+  - skill
+  - knowledge
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - command_execution
+    - network_access
+    - session_data
+    - ui_injection
+    - plugin_management
+  notes: Bundle 入口只读取包内 SKILL.md、guide 和 references，并注册一个按需 Skill；运行时不写文件、不联网、不启动子进程、不直接调用模型或工具
+  data_flow: 包内 SKILL.md 与本地参考资料 → DSH skills 服务目录 → 用户触发插件开发任务时按需载入当前 Agent 上下文；无运行时外部网络和用户数据持久化。
+risk_level: low
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的包清单、入口、SECURITY、中文说明和参考目录边界。运行入口只读自身文件并注册可卸载 Skill，权限面较小；主要风险是文档快照会过期、社区材料未必等同官方事实，且 Skill 指令会影响 Agent 的实现决策。使用时优先核对当前官方仓库和版本，不把社区深读当安全认证，更新 DSH 后重新同步快照。
+summary:
+  zh: 把 DSH 插件开发红线、Cordis 入门、官方文档快照、社区深读和常见踩坑打包为按需加载的 dsh-plugin-guide Agent Skill。
+  en: "The DSH plugin-development knowledge base as an on-demand agent skill: official constraints, task workflows, API reference and community gotchas, installed with the bundle so the agent can look things up while building a plugin."
+links:
+  source: https://github.com/PerryLink/dsh-plugin-guide
+  detail_zh: https://52dsh.com/plugins/perrylink-dsh-plugin-guide/
+  tutorial_zh: https://52dsh.com/tutorials/perrylink-dsh-plugin-guide-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

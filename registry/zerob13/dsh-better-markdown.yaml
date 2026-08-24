@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:zerob13/dsh-better-markdown
+slug: zerob13-dsh-better-markdown
+name: dsh-better-markdown
+repository:
+  url: https://github.com/zerob13/dsh-better-markdown
+  commit: 2241facb67ad88632e256ca6341b831c56b9dd30
+package:
+  ecosystem: npm
+  name: dsh-better-markdown
+  version: 0.1.2
+  install_spec: github:zerob13/dsh-better-markdown#2241facb67ad
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 >=0.1.0-rc.5；本站尚未运行实测
+category: interface
+topics:
+  - interface
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 注入 Web 客户端并改变界面或交互；核对浏览器侧数据访问范围
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 使用 markstream-react 改善流式 Markdown 渲染，支持 Mermaid、KaTeX 和渲染失败回退。
+links:
+  source: https://github.com/zerob13/dsh-better-markdown
+  detail_zh: https://52dsh.com/plugins/zerob13-dsh-better-markdown/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

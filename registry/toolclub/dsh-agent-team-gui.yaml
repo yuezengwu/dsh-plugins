@@ -1,0 +1,51 @@
+schema_version: 1
+id: github:toolclub/dsh-agent-team-gui
+slug: toolclub-dsh-agent-team-gui
+name: dsh-agent-team-gui
+repository:
+  url: https://github.com/toolclub/dsh-agent-team-gui
+  commit: 3b56aa4dbe20cc128d710928d20c80404ec7fff6
+package:
+  ecosystem: npm
+  name: dsh-agent-team-gui
+  version: 1.0.0
+  install_spec: github:toolclub/dsh-agent-team-gui#3b56aa4dbe20
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 1.0.0，要求 Node.js 22.19 或 24+，peer 依赖覆盖 DSH 0.1.0-rc.5 至 0.2.0 之前版本；本站完成固定提交静态审阅，未运行真实多模型小队或长期后台任务
+category: agent
+topics:
+  - workflow
+  - agent
+permissions:
+  status: reviewed
+  capabilities:
+    - credentials
+    - session_data
+    - agent_orchestration
+  notes: 调用 DSH subagent、模型、Session、工具、任务和存储服务；成员会继承各自允许的工具与工作区能力，Git 源安装还可能执行仓库 prepare 构建
+  data_flow: 用户请求与已保存小队定义 → 主模型生成有界 DAG → DSH 子 Agent 按成员模型、工具和依赖执行 → 结果、错误、审核轮次和 Token 用量写入运行历史 → 主 Agent 汇总返回会话。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 Bundle 入口、小队派发、编排、RPC、定义事务和运行中心。实现会禁止被委派成员再次调用小队/subagent 工具，并设置并发、重试、质量轮次和软 Token 上限；但成员仍会处理用户内容并使用被授权工具，持久配方和运行历史也会落在本机。建议只给每个成员最小工具集，固定安装版本，并在启用 Git prepare 前审阅构建脚本。
+summary:
+  zh: 为 DSH 提供可持久复用的多模型 Agent 小队，让主 Agent 按有界依赖图拆分任务，并为每个成员配置模型、角色、工具策略、Token 上限、重试和审核门禁。
+  en: Persistent multi-model squads configured in Settings and selected in the Composer, with per-member model/tool policies; the main Agent dynamically plans each send as a bounded DAG with bounded reviewer/repair loops, while Run Center tracks retries and per-member tokens from official Harness usage events.
+links:
+  source: https://github.com/toolclub/dsh-agent-team-gui
+  detail_zh: https://52dsh.com/plugins/toolclub-dsh-agent-team-gui/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

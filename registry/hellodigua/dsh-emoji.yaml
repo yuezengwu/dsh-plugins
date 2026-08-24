@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:hellodigua/dsh-emoji
+slug: hellodigua-dsh-emoji
+name: dsh-emoji
+repository:
+  url: https://github.com/hellodigua/dsh-emoji
+  commit: 96b653a473c978a474dd7d42e86e5b2c79e6dc7c
+package:
+  ecosystem: npm
+  name: dsh-emoji
+  version: 0.3.1
+  install_spec: github:hellodigua/dsh-emoji#96b653a473c9
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.1.0-rc.7；本站尚未运行实测
+category: interface
+topics:
+  - fun
+  - interface
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 注入 Web 客户端并改变界面或交互；核对浏览器侧数据访问范围
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 让 AI 回复使用自定义表情，支持导入哔哩哔哩、小红书、贴吧和知乎等平台的表情资源。
+  en: Automatically add emojis to AI replies.
+links:
+  source: https://github.com/hellodigua/dsh-emoji
+  detail_zh: https://52dsh.com/plugins/hellodigua-dsh-emoji/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

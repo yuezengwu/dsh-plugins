@@ -1,0 +1,48 @@
+schema_version: 1
+id: github:liustack/modsearch
+slug: liustack-modsearch
+name: modsearch
+repository:
+  url: https://github.com/liustack/modsearch
+  commit: 05ee10dbc9c99508914e42616ba16790fd642031
+package:
+  ecosystem: npm
+  name: "@liustack/modsearch"
+  version: 5.8.0
+  install_spec: github:liustack/modsearch#05ee10dbc9c9
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 包含 dsh.bundle；未声明明确 DSH peer 版本，本站尚未运行实测
+category: tools
+topics:
+  - browser
+  - tools
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取用户提供的内容或调用外部工具；核对数据流、依赖和输出边界
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 为没有原生联网能力的模型提供网页与 X 搜索，并返回包含抓取结果和引用的结构化 JSON 证据。
+  en: "Web search bridge for text-only agents: ask the web or X, get structured JSON evidence (search, fetch, citations)."
+links:
+  source: https://github.com/liustack/modsearch
+  detail_zh: https://52dsh.com/plugins/liustack-modsearch/
+  tutorial_zh: https://52dsh.com/tutorials/liustack-modsearch-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

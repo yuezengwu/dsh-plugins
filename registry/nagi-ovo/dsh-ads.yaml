@@ -1,0 +1,48 @@
+schema_version: 1
+id: github:nagi-ovo/dsh-ads
+slug: nagi-ovo-dsh-ads
+name: dsh-ads
+repository:
+  url: https://github.com/Nagi-ovo/dsh-ads
+  commit: 3a2ba704bc383099c686d3288ff6e0d61fc391e5
+package:
+  ecosystem: npm
+  name: "@dsh-external/dsh-ads"
+  version: 0.1.0
+  install_spec: github:Nagi-ovo/dsh-ads#3a2ba704bc38
+license:
+  spdx: BSD-3-Clause
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.1.0-rc.6；本站尚未运行实测
+category: interface
+topics:
+  - fun
+  - interface
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 注入 Web 客户端并改变界面或交互；核对浏览器侧数据访问范围
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 给 DSH Web UI 增加仿 2005 年门户网站的戏仿广告、小游戏和弹窗效果。
+  en: "Parody ads in 2005-Chinese-web style: sidebar banners, in-chat feeds, corner popups, and a close button whose hit area is smaller than it looks. All fictional."
+links:
+  source: https://github.com/Nagi-ovo/dsh-ads
+  detail_zh: https://52dsh.com/plugins/nagi-ovo-dsh-ads/
+  tutorial_zh: https://52dsh.com/tutorials/nagi-ovo-dsh-ads-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

@@ -1,0 +1,53 @@
+schema_version: 1
+id: github:xmanrui/dsh-im
+slug: xmanrui-dsh-im
+name: dsh-im
+repository:
+  url: https://github.com/xmanrui/dsh-im
+  commit: 2ad6f1a44e87a104059a46d1c86fe61e5ac295c2
+package:
+  ecosystem: npm
+  name: "@xmanrui/dsh-im"
+  version: 0.19.0
+  install_spec: github:xmanrui/dsh-im#2ad6f1a44e87
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件声明 Node.js >=22.19 并采用 DSH Bundle/Web Client 格式；本站完成固定提交静态审阅，未使用九个平台的真实账号进行端到端连接测试
+category: remote
+topics:
+  - notify
+  - remote
+permissions:
+  status: reviewed
+  capabilities:
+    - credentials
+    - remote_control
+    - session_data
+    - ui_injection
+  notes: 需要各消息平台的 Bot Token、Secret、扫码会话或 Device Token；远程联系人可按渠道访问控制进入选定工作区和会话，并触发模型、工具、提问或审批流程
+  data_flow: 消息平台的文本、图片或文件 → 对应渠道长连接/轮询与本机 dsh-im Host → 绑定的 DSH 工作区、会话、模型和工具 → 思考进度、工具状态与回答返回原消息平台；凭据写入本机 DSH Credential Provider。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 Host 入口、管理 RPC 权限、会话协调、共享 Harness Client、凭据存储和主要渠道实现。管理 RPC 只接受 loopback 或 trusted-host，Secret 单向写入本机凭据存储且状态响应不回传；但机器人本质上是远程 DSH 入口，应逐个平台启用私聊白名单、@ 触发或最小可见范围，并把媒体和会话内容视为会发送到所选消息平台与模型 Provider。
+summary:
+  zh: 把飞书、微信、钉钉、企业微信、QQ、Slack、Telegram、Discord 和 WhatsApp 机器人接入 DSH，支持工作区与会话绑定、流式回复和远程交互处理。
+  en: "Connect IM bots to DeepSeek Harness via QR codes or bot credentials (9 channels: Feishu, WeChat, DingTalk, WeCom, QQ, Slack, Telegram, Discord, and WhatsApp)."
+links:
+  source: https://github.com/xmanrui/dsh-im
+  detail_zh: https://52dsh.com/plugins/xmanrui-dsh-im/
+  tutorial_zh: https://52dsh.com/tutorials/xmanrui-dsh-im-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:mooling0602/dsh-web-file-uploader
+slug: mooling0602-dsh-web-file-uploader
+name: dsh-web-file-uploader
+repository:
+  url: https://github.com/Mooling0602/dsh-web-file-uploader
+  commit: 60071be3607d7fcd6531531d7bc007cdfdf3a6ee
+package:
+  ecosystem: npm
+  name: dsh-web-file-uploader
+  version: 0.3.0
+  install_spec: github:Mooling0602/dsh-web-file-uploader#60071be3607d
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 包含 dsh.bundle；未声明明确 DSH peer 版本，本站尚未运行实测
+category: tools
+topics:
+  - tools
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取用户提供的内容或调用外部工具；核对数据流、依赖和输出边界
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 为 DeepSeek Harness Web UI 增加文件上传能力；支持范围和存储位置以仓库文档为准。
+links:
+  source: https://github.com/Mooling0602/dsh-web-file-uploader
+  detail_zh: https://52dsh.com/plugins/mooling0602-dsh-web-file-uploader/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

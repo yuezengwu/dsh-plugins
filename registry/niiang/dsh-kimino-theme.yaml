@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:niiang/dsh-kimino-theme
+slug: niiang-dsh-kimino-theme
+name: dsh-kimino-theme
+repository:
+  url: https://github.com/niiang/dsh-kimino-theme
+  commit: 4c01c9701690c5e4ccfe0253225f4cba9254414f
+package:
+  ecosystem: npm
+  name: dsh-kimino-theme
+  version: 66.2.0
+  install_spec: github:niiang/dsh-kimino-theme#4c01c9701690
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 包含 dsh.bundle；未声明明确 DSH peer 版本，本站尚未运行实测
+category: interface
+topics:
+  - theme
+  - interface
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 注入 Web 客户端并改变界面或交互；核对浏览器侧数据访问范围
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 为 DeepSeek Harness Web GUI 提供《你的名字》风格主题。
+  en: "Kimi no Na wa (Your Name) theme: cinematic wallpaper, comet-blue glassmorphism, movie logo swap and unified scrollbars for the DSH Web GUI."
+links:
+  source: https://github.com/niiang/dsh-kimino-theme
+  detail_zh: https://52dsh.com/plugins/niiang-dsh-kimino-theme/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

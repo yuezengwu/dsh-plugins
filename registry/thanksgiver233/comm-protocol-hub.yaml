@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:thanksgiver233/comm-protocol-hub
+slug: thanksgiver233-comm-protocol-hub
+name: comm-protocol-hub
+repository:
+  url: https://github.com/Thanksgiver233/comm-protocol-hub
+  commit: 8b7b07d88315ffe85ead1d680e72f9b83f07853d
+package:
+  ecosystem: npm
+  name: dsh-comm-protocol-hub
+  version: 1.0.0
+  install_spec: github:Thanksgiver233/comm-protocol-hub#8b7b07d88315
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 >=0.1.0；本站尚未运行实测
+category: knowledge
+topics:
+  - knowledge
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取并持久化会话、项目或记忆数据；核对存储位置和清理方式
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 把 3GPP Release 15 至 18 的通信协议按八个维度结构化整理，并提供关键词搜索、分类浏览和详情查询工具。
+links:
+  source: https://github.com/Thanksgiver233/comm-protocol-hub
+  detail_zh: https://52dsh.com/plugins/thanksgiver233-comm-protocol-hub/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

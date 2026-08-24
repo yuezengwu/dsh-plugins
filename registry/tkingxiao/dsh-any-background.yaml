@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:tkingxiao/dsh-any-background
+slug: tkingxiao-dsh-any-background
+name: dsh-any-background
+repository:
+  url: https://github.com/Tkingxiao/dsh-any-background
+  commit: 2f8020788479f2a5d05db302f64ceaed958f99f3
+package:
+  ecosystem: npm
+  name: dsh-any-background
+  version: 0.1.9
+  install_spec: github:Tkingxiao/dsh-any-background#2f8020788479
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.1.0-rc.6；本站尚未运行实测
+category: interface
+topics:
+  - theme
+  - interface
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 注入 Web 客户端并改变界面或交互；核对浏览器侧数据访问范围
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 自定义 DSH 的图片或视频壁纸、对话框和侧边栏透明度、模糊度及全局主题色。
+  en: Custom theme plugin with video and image wallpapers, free positioning, and scale/fill modes. Extracts wallpaper colours and switches text to light or dark automatically. Per-area blur across 6 UI regions, per-area opacity, and one-click theme export/import.
+links:
+  source: https://github.com/Tkingxiao/dsh-any-background
+  detail_zh: https://52dsh.com/plugins/tkingxiao-dsh-any-background/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

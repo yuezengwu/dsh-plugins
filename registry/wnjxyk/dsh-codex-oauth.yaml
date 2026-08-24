@@ -1,0 +1,51 @@
+schema_version: 1
+id: github:wnjxyk/dsh-codex-oauth
+slug: wnjxyk-dsh-codex-oauth
+name: dsh-codex-oauth
+repository:
+  url: https://github.com/WNJXYK/dsh-codex-oauth
+  commit: 06bc69cea6e92f86c59c50d41d785303d38bf51d
+package:
+  ecosystem: npm
+  name: "@wnjxyk/dsh-codex-oauth"
+  version: 0.4.2
+  install_spec: github:WNJXYK/dsh-codex-oauth#06bc69cea6e9
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.4.2、MIT，要求 Node.js >=20，直接依赖 DSH rc.6 系列组件且 README 声明只在 DSH 0.1.0-rc.6 验证；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、真实 OpenAI 登录、Token 轮换、套餐限额或协议变更下运行
+category: integration
+topics:
+  - model
+  - integration
+permissions:
+  status: reviewed
+  capabilities:
+    - network_access
+    - credentials
+    - browser_control
+  notes: 在 127.0.0.1:1456 提供 OAuth 控制页，在 127.0.0.1:1455 接收带 state 的回调；保存 access/refresh token、注入 DSH Credential，并默认启用托管搜索和图片工具，设置页可退出登录和调整模型/功能
+  data_flow: 用户浏览器或设备码 → auth.openai.com OAuth/PKCE → 0600 原子凭据文件与 DSH Credential → ChatGPT Codex Responses/usage backend；模型提示、搜索词与图片提示会发送到 OpenAI，搜索结果、图片和额度摘要返回 DSH。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 PKCE/state、设备码、loopback 控制/回调服务器、随机 CSRF、64KB 请求限制、0600/0700 原子写入、Token 刷新、用量、搜索和图片工具。敏感状态接口要求 localhost Origin 与 CSRF，凭据不会返回页面；但任意 localhost 端口均被视为本地 Origin，登录触发入口允许无 Origin，issuer/usageUrl 可配置，且插件依赖非公开 ChatGPT Codex 后端与消费订阅，存在服务条款、封号、协议变化和额度成本风险。只在个人受控主机使用，保持默认 OpenAI endpoint，不经代理公开 1455/1456，先核对账号政策并关闭不需要的搜索/图片功能。
+summary:
+  zh: 通过 ChatGPT/Codex OAuth 订阅向 DSH 提供 GPT 模型凭据、托管网页搜索、图片生成、模型可见性和订阅用量面板。
+  en: Use a ChatGPT/Codex subscription in DeepSeek Harness with GPT models, image generation, web search, subscription quota reporting, model and feature controls, and browser or device-code OAuth sign-in.
+links:
+  source: https://github.com/WNJXYK/dsh-codex-oauth
+  detail_zh: https://52dsh.com/plugins/wnjxyk-dsh-codex-oauth/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

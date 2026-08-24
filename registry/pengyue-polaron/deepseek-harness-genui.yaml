@@ -1,0 +1,48 @@
+schema_version: 1
+id: github:pengyue-polaron/deepseek-harness-genui
+slug: pengyue-polaron-deepseek-harness-genui
+name: deepseek-harness-genui
+repository:
+  url: https://github.com/pengyue-polaron/deepseek-harness-genui
+  commit: 59fa47b01281bf34dd1234f153ae60d2dc30a759
+package:
+  ecosystem: npm
+  name: dsh-plugin-genui
+  version: 0.13.1
+  install_spec: github:pengyue-polaron/deepseek-harness-genui#59fa47b01281
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.1.0-rc.6；本站尚未运行实测
+category: interface
+topics:
+  - ui
+  - interface
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 注入 Web 客户端并改变界面或交互；核对浏览器侧数据访问范围
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 在 DSH 中生成面向具体任务的 React 应用，并把界面状态带入下一轮 Agent 对话。
+  en: Code-first React and TypeScript task apps rendered inline, in Canvas, full screen, or on localhost, with interaction state available to later agent turns and approval-gated MCP and API access.
+links:
+  source: https://github.com/pengyue-polaron/deepseek-harness-genui
+  detail_zh: https://52dsh.com/plugins/pengyue-polaron-deepseek-harness-genui/
+  tutorial_zh: https://52dsh.com/tutorials/pengyue-polaron-deepseek-harness-genui-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

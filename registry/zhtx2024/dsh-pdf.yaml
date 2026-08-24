@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:zhtx2024/dsh-pdf
+slug: dsh-pdf
+name: DSH PDF
+repository:
+  url: https://github.com/zhtx2024/dsh-pdf
+  commit: 38bfbc0dcd2eae0c3ad6a1d4340b91d01b04f8fe
+package:
+  ecosystem: npm
+  name: "@zhtx2026/dsh-pdf"
+  version: 0.1.1
+  install_spec: "@zhtx2026/dsh-pdf@0.1.1"
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 要求 Node.js ^22.19 或 24+；未声明明确 DSH peer 版本
+category: tools
+topics:
+  - docs
+  - tools
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 读取本地 PDF，并加载原生渲染依赖
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 为 DSH 增加 PDF 文本提取与页面渲染能力，包含原生 Canvas 依赖。
+  en: "PDF parsing tools for DSH: pdf_info, pdf_extract_text, and pdf_render_page with dual pdfjs and built-in rendering engines, including system-font rendering for PDFs with non-embedded CJK fonts."
+links:
+  source: https://github.com/zhtx2024/dsh-pdf
+  detail_zh: https://52dsh.com/plugins/dsh-pdf/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

@@ -1,0 +1,52 @@
+schema_version: 1
+id: github:loongsuite/dsh-plugin
+slug: loongsuite-dsh-plugin
+name: dsh-plugin
+repository:
+  url: https://github.com/loongsuite/dsh-plugin
+  commit: 5e893af6172beb703a98b56ccc5e443495287732
+package:
+  ecosystem: npm
+  name: "@loongsuite/dsh-plugin"
+  version: 0.1.1
+  install_spec: github:loongsuite/dsh-plugin#5e893af6172b
+license:
+  spdx: Apache-2.0
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.1.1、Apache-2.0，要求 Node.js >=22.19；README 声明 DSH >=0.1.0-rc.6 <0.2.0 并以 rc.6 验证，package 未声明 DSH peer 依赖；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、真实 OTLP Collector、高并发或长会话下运行
+category: infrastructure
+topics:
+  - dev
+  - infrastructure
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_write
+    - command_execution
+    - network_access
+    - credentials
+  notes: 启用后监听 DSH 模型、Agent 和工具生命周期并向配置的 OTLP Trace/Metrics endpoint 发出遥测；默认不采集提示、回复与工具正文，只有显式打开 captureContent 或设置标准环境变量时才包含内容
+  data_flow: DSH 运行事件、模型/Provider、时延、Token 与工具结构元数据 → 本地批处理与有界队列 → 用户配置的 OTLP 服务；启用正文采集后还会发送 system、messages、工具参数与结果，单字段默认最多 128KB。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的配置默认值、事件协调、GenAI 映射、OTLP exporter、队列、关闭清理和测试。插件不执行命令或修改业务文件，内容采集默认关闭；但结构化遥测仍会暴露主机、服务和调用模式，开启正文后可能把源码、密钥或个人数据发送到 Collector。只使用受信任的 OTLP endpoint，限制 headers、保留期和访问权限，生产环境先关闭正文采集并核对脱敏与费用。
+summary:
+  zh: 把 DSH 的模型请求、Agent 回合、工具调用和 Token 用量转换为 OpenTelemetry GenAI Trace 与 Metrics，并通过可配置的 OTLP endpoint 接入自建或第三方可观测平台。
+  en: Converts session, agent-loop, LLM, and tool lifecycle events into OpenTelemetry GenAI traces and metrics, exported over standard OTLP/HTTP to any compatible backend, with content capture off by default.
+links:
+  source: https://github.com/loongsuite/dsh-plugin
+  detail_zh: https://52dsh.com/plugins/loongsuite-dsh-plugin/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

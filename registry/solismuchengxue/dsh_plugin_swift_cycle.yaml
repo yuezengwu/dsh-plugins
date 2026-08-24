@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:solismuchengxue/dsh_plugin_swift_cycle
+slug: solismuchengxue-dsh-plugin-swift-cycle
+name: dsh_plugin_swift_cycle
+repository:
+  url: https://github.com/Solismuchengxue/dsh_plugin_swift_cycle
+  commit: 23a49ee423e1dc42c790b0b3dd1f1923ae06598c
+package:
+  ecosystem: npm
+  name: dsh-plugin-swift-cycle
+  version: 0.1.1
+  install_spec: github:Solismuchengxue/dsh_plugin_swift_cycle#23a49ee423e1
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 包含 dsh.bundle；未声明明确 DSH peer 版本，本站尚未运行实测
+category: development
+topics:
+  - development
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取或修改工作区；核对文件写入、命令执行和回滚方式
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 把 Swift Cycle 治理 Skill 适配到 DSH，作者声明由用户主动调用、固定版本并可离线核验。
+links:
+  source: https://github.com/Solismuchengxue/dsh_plugin_swift_cycle
+  detail_zh: https://52dsh.com/plugins/solismuchengxue-dsh-plugin-swift-cycle/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

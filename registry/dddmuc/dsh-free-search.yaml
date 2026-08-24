@@ -1,0 +1,52 @@
+schema_version: 1
+id: github:dddmuc/dsh-free-search
+slug: dddmuc-dsh-free-search
+name: dsh-free-search
+repository:
+  url: https://github.com/DDDMUC/dsh-free-search
+  commit: 998fcebbebb7f08a972d3a9efb53a56cd6e1bcf5
+package:
+  ecosystem: npm
+  name: dsh-free-search
+  version: 0.4.12
+  install_spec: github:DDDMUC/dsh-free-search#998fcebbebb7
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.4.12，peer 依赖要求 dsh-settings 和 dsh-tools >=0.1.0-rc.6；本站完成固定提交静态审阅，未对所有搜索引擎、匿名额度、地区限制、付费账号或一键更新运行真实查询
+category: tools
+topics:
+  - browser
+  - tools
+permissions:
+  status: reviewed
+  capabilities:
+    - command_execution
+    - network_access
+    - credentials
+    - plugin_management
+  notes: 把用户搜索词发送给选定或回退的外部搜索服务，可读取 Exa、Tavily、Keenable、Perplexity 与 DeepSeek 密钥；回环设置路由还可修改插件配置并执行固定的 pnpm add dsh-free-search@latest 自更新命令
+  data_flow: DSH 搜索请求与可选时间范围 → 本机缓存和引擎选择 → 外部搜索/MCP/模型端点 → 来源、摘要与实际 Provider 返回 Agent；API Key 从 settings、credentials 或环境变量读取，只以已配置状态返回页面。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的各引擎请求、30 秒总预算、缓存、密钥解析、脱敏设置桥和自更新。设置、搜索测试和更新路由只接受 POST 与 loopback socket，请求变量没有进入更新 shell；但同一查询可能在失败回退时依次发送给多家第三方，匿名服务仍可记录 IP/查询，自更新直接安装 latest 也不满足固定版本供应链要求。敏感查询禁用自动回退并选择可信自建 SearXNG，密钥使用 credentials，生产环境不要使用一键 latest 更新。
+summary:
+  zh: 为 DSH 提供 DuckDuckGo、Bing、SearXNG、AnySearch、Exa、Tavily、Keenable、Perplexity 和 DeepSeek 等多引擎 Web 搜索，支持匿名额度、密钥、回退、缓存、时间过滤与引擎测试。
+  en: "Free, keyless web search for DSH: 7 engines (DuckDuckGo/Bing/SearXNG free + Exa/Perplexity/DeepSeek paid), auto-failover, settings-page UI with API key inputs and official links, web_fetch, and an engine test tool."
+links:
+  source: https://github.com/DDDMUC/dsh-free-search
+  detail_zh: https://52dsh.com/plugins/dddmuc-dsh-free-search/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

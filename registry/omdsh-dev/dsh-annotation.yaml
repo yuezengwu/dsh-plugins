@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:omdsh-dev/dsh-annotation
+slug: omdsh-dev-dsh-annotation
+name: dsh-annotation
+repository:
+  url: https://github.com/omdsh-dev/dsh-annotation
+  commit: fd24ef92c66bed7c5ab54b530bed245b1a2575fb
+package:
+  ecosystem: npm
+  name: "@omdsh-dev/dsh-annotation"
+  version: 1.4.1
+  install_spec: github:omdsh-dev/dsh-annotation#fd24ef92c66b
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 包含 dsh.bundle；未声明明确 DSH peer 版本，本站尚未运行实测
+category: interface
+topics:
+  - ui
+  - interface
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 注入 Web 客户端并改变界面或交互；核对浏览器侧数据访问范围
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 在 DSH Web 中选中文字添加批注，并随消息发送，让回复按批注编号逐条对应。
+  en: Select text → annotate → send with your message; replies map back to each annotation.
+links:
+  source: https://github.com/omdsh-dev/dsh-annotation
+  detail_zh: https://52dsh.com/plugins/omdsh-dev-dsh-annotation/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

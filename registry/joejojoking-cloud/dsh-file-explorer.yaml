@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:joejojoking-cloud/dsh-file-explorer
+slug: joejojoking-cloud-dsh-file-explorer
+name: dsh-file-explorer
+repository:
+  url: https://github.com/joejojoking-cloud/dsh-file-explorer
+  commit: 9e1f3ea7baa43d737c51ffc68adb5eb95b024c32
+package:
+  ecosystem: npm
+  name: dsh-file-explorer
+  version: 0.1.3
+  install_spec: github:joejojoking-cloud/dsh-file-explorer#9e1f3ea7baa4
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.0.1-rc.1；本站尚未运行实测
+category: development
+topics:
+  - development
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取或修改工作区；核对文件写入、命令执行和回滚方式
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 在 DSH 中提供文件树、预览、Markdown、语法高亮、面板内编辑和 VS Code 集成。
+links:
+  source: https://github.com/joejojoking-cloud/dsh-file-explorer
+  detail_zh: https://52dsh.com/plugins/joejojoking-cloud-dsh-file-explorer/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

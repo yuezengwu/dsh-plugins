@@ -1,0 +1,50 @@
+schema_version: 1
+id: github:knqiufan/powercontext-dsh
+slug: knqiufan-powercontext-dsh
+name: powercontext-dsh
+repository:
+  url: https://github.com/knqiufan/powercontext-dsh
+  commit: 9c9f6386de898a5c3a7f0793f692e4968775b7a8
+package:
+  ecosystem: npm
+  name: powercontext-dsh
+  version: 0.0.4
+  install_spec: github:knqiufan/powercontext-dsh#9c9f6386de89
+license:
+  spdx: Apache-2.0
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.0.4、Apache-2.0，要求 Node.js >=20，DSH peer 使用通配范围并要求与 PowerContext Server 使用相同 Git ref；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、远程 Server、鉴权、并发 Session 或真实记忆抽取流程下运行
+category: knowledge
+topics:
+  - knowledge
+permissions:
+  status: reviewed
+  capabilities:
+    - network_access
+    - credentials
+    - remote_control
+    - session_data
+    - ui_injection
+  notes: 默认把每轮用户输入自动持久化到 127.0.0.1:8000 的 PowerContext，并把检索结果作为不可信历史上下文注入模型；命名的持久化变更工具要求 DSH 单次 ask，但自动提示词采集不弹出确认
+  data_flow: 当前 Session 消息与项目 scope → Host 向配置的 PowerContext HTTP Server 查询 → 最多 8000 字节历史上下文标记为不可信后进入模型；用户提示词、cwd、Session/turn 标识默认发送到同一 Server 并形成持久 Source，命名写操作经人工批准后写入记忆、交接或 Skill 数据。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 pre-step 检索与自动采集、scope 推导、HTTP 客户端、响应限额、重定向拒绝、工具集合和 tools/pre-execute 审批。默认 Server 为本机回环且无服务时失败开放，持久变更工具会 ask；但 capturePrompts 默认开启，秘密过滤只覆盖 sk-、api_key 和私钥头等少量标记，普通密码、Token、业务数据仍可能被保存。启用前先决定哪些项目允许长期记忆；远程 Server 必须使用 HTTPS、鉴权和可信运营方，敏感环境建议关闭 capturePrompts，并定期审查和清理 Source。
+summary:
+  zh: 把 DSH 连接到 PowerContext Server，在每个模型步骤前检索项目记忆、保存用户输入，并提供记忆、交接、经验与 Skill 的受控工具。
+links:
+  source: https://github.com/knqiufan/powercontext-dsh
+  detail_zh: https://52dsh.com/plugins/knqiufan-powercontext-dsh/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

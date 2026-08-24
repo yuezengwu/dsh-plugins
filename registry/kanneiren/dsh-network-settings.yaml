@@ -1,0 +1,52 @@
+schema_version: 1
+id: github:kanneiren/dsh-network-settings
+slug: kanneiren-dsh-network-settings
+name: dsh-network-settings
+repository:
+  url: https://github.com/kanneiren/dsh-network-settings
+  commit: 6de9c6fce83cfa3639635e1d4b3939509bc8caf0
+package:
+  ecosystem: npm
+  name: dsh-network-settings
+  version: 0.3.3
+  install_spec: github:kanneiren/dsh-network-settings#6de9c6fce83c
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.3.3、MIT，要求 Node.js >=22.19，作者声明支持 DSH >=0.1.0-rc.6 并实测至 0.1.1-rc.2；本站完成固定提交静态审阅，未在真实 Windows UAC、WSL 多发行版、macOS 系统代理、VPN/TUN 或故障恢复下运行
+category: infrastructure
+topics:
+  - dev
+  - infrastructure
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_write
+    - command_execution
+    - network_access
+    - ui_injection
+  notes: loopback Connection RPC 可采集本机网络、代理、进程、Hosts 与 WSL 配置，并在用户界面确认后修改用户或系统网络设置；机器级 Windows 操作会触发 UAC，持久变更前保存已脱敏快照
+  data_flow: 本机 Windows/WSL/macOS 网络与 DSH 模型路由 → 固定平台命令和网络探针 → 本地诊断、链路图及脱敏报告 → 用户预览并确认的修复 → 配置变更、重测与本地回滚快照；无遥测或外部上传。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 loopback RPC、网络采集、目标选择、脱敏、修复目录、预览/应用、Hosts、WSL、管理员操作和快照回滚。客户端不能传入任意命令，advanced/run 只接受固定目录 ID，配置操作按结构化 scope/action 执行；但插件确实能修改代理、环境变量、Hosts、WSL 和系统网络状态，部分 Windows 操作需要管理员权限，错误修复可能中断联网。先复制诊断报告和预览差异，只执行与高置信诊断匹配的最小操作，确保快照存在，企业 VPN/安全软件环境先由管理员确认，并在当前平台做隔离验证。
+summary:
+  zh: 在 DSH 设置页诊断 Windows、WSL 与 macOS 的模型网络路径、DNS、代理和配置漂移，并通过预览、确认、快照和回滚执行受限网络修复。
+  en: Visualize the DSH process network path on Windows or WSL with layered DNS/TCP/TLS/HTTP probes, detect stale proxy configuration, and apply snapshot-guarded repairs.
+links:
+  source: https://github.com/kanneiren/dsh-network-settings
+  detail_zh: https://52dsh.com/plugins/kanneiren-dsh-network-settings/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

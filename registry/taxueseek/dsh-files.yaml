@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:taxueseek/dsh-files
+slug: taxueseek-dsh-files
+name: dsh-files
+repository:
+  url: https://github.com/taxueseek/dsh-files
+  commit: 888b9ea8e7d86ffdc0054afdbc88704133f6c187
+package:
+  ecosystem: npm
+  name: dsh-files
+  version: 0.2.0
+  install_spec: github:taxueseek/dsh-files#888b9ea8e7d8
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.1.0-rc.6；本站尚未运行实测
+category: tools
+topics:
+  - ui
+  - tools
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取用户提供的内容或调用外部工具；核对数据流、依赖和输出边界
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 提供会话隔离的文件上传卡片和 read_document 工具，支持文本、PDF、DOCX、XLSX、内容嗅探及 LRU 缓存。
+  en: File upload with color-coded attachment cards (session-isolated storage, sha256 dedup, TTL sweep) plus a content-sniffing read_document tool for PDF/DOCX/XLSX/TXT.
+links:
+  source: https://github.com/taxueseek/dsh-files
+  detail_zh: https://52dsh.com/plugins/taxueseek-dsh-files/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

@@ -1,0 +1,49 @@
+schema_version: 1
+id: github:boxeryao/dsh-mini-tui
+slug: boxeryao-dsh-mini-tui
+name: dsh-mini-tui
+repository:
+  url: https://github.com/boxeryao/dsh-mini-tui
+  commit: 6b37de9bb5a2231d053ee1fbd086f27a1a95d274
+package:
+  ecosystem: npm
+  name: dsh-mini-tui
+  version: 0.2.1
+  install_spec: github:boxeryao/dsh-mini-tui#6b37de9bb5a2
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: review
+  compatibility_notes: 插件版本 0.2.1、MIT，要求 Node.js ^22.19 或 >=24、dsh-invariants ^0.1.0-rc.6；本站完成固定提交静态审阅，当前站点跟踪的 0.1.1-rc.2 低于其依赖线，未在 Windows Terminal、PowerShell 剪贴板、上下文菜单、超长输出或真实工具审批下运行
+category: interface
+topics:
+  - interface
+permissions:
+  status: reviewed
+  capabilities:
+    - command_execution
+    - session_data
+    - ui_injection
+    - plugin_management
+  notes: TUI 在 process.cwd() 创建标准 DSH Agent，工具能力继承当前 Preset/Sandbox；approval/request 只把 y/yes 解释为本次允许，/paste 在 Windows 调用固定 PowerShell Get-Clipboard -Raw；可选安装脚本另有明确标注的 danger-full-access 右键入口
+  data_flow: 终端输入、可选 Windows 剪贴板内容与当前工作目录 → 本机 DSH Agent 和已启用模型/工具 → 流式文本、工具参数/结果摘要及审批问题显示在终端；插件不增加外部传输，终端和滚屏记录可能保留敏感内容。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的启动流程、Agent 创建、渲染器、工具输出限额、审批交互、剪贴板命令和 Windows 安装脚本。默认运行仍遵循 DSH 的 Sandbox 与 Approval，工具明细有数量和字符上限；但用户若主动安装“full access”上下文菜单，会设置 DSH_PERMISSION_MODE=danger-full-access，终端历史和剪贴板也可能包含秘密。优先使用普通入口，不安装全权限菜单，在受信终端运行，并在批准前阅读完整工具请求与工作目录。
+summary:
+  zh: 在本地终端中运行精简 DSH 对话界面，展示流式回答、工具调用和审批请求，并提供会话命令、剪贴板粘贴与 Windows 右键启动方式。
+links:
+  source: https://github.com/boxeryao/dsh-mini-tui
+  detail_zh: https://52dsh.com/plugins/boxeryao-dsh-mini-tui/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

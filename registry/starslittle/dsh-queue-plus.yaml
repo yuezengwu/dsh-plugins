@@ -1,0 +1,55 @@
+schema_version: 1
+id: github:starslittle/dsh-queue-plus
+slug: starslittle-dsh-queue-plus
+name: dsh-queue-plus
+repository:
+  url: https://github.com/starslittle/dsh-queue-plus
+  commit: ed6448d4828d5fd5c3933dc3c1e08340b9fbc2f9
+package:
+  ecosystem: npm
+  name: dsh-queue-plus
+  version: 0.3.0
+  install_spec: github:starslittle/dsh-queue-plus#ed6448d4828d
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.3.0、MIT，要求 Node.js >=22.19，DSH peer 依赖面向 0.1.0-rc.6；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、长队列、并发消息或多客户端同时排序下运行
+category: agent
+topics:
+  - session
+  - agent
+permissions:
+  status: reviewed
+  capabilities:
+    - command_execution
+    - network_access
+    - remote_control
+    - session_data
+    - ui_injection
+    - agent_orchestration
+  notes: 本机 Web 面板可按 Session 重排或移除根 Agent 的 nextTurn 消息；服务拒绝子 Agent、限制 16KB JSON、字段长度和队列数量，并要求提交完整旧顺序进行乐观并发校验
+  data_flow: 当前 Session ID 与页面所见消息 ID 顺序 → /api/dsh-queue-plus move 请求 → 定位运行中的根 Agent 并比较 expectedOrder → 只重写内存中的 agent.inbox.nextTurn → 更新后的队列状态返回页面。
+risk_level: medium
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的队列服务、HTTP 路由、共享请求类型和客户端调用。实现不执行命令、不读写工作区或外发数据，且使用完整旧顺序阻止过期页面覆盖新消息；但写路由没有独立身份、Origin、Host 或 remoteAddress 校验，application/json 只能降低普通跨站表单风险。只在 loopback DSH 使用，排序前确认目标 Session，重要提示不要依赖队列作为唯一副本。
+summary:
+  zh: 为 DSH 待处理消息队列增加可视化排序、移除和批量整理能力，并在写入前确认页面看到的顺序仍与当前 Agent 队列一致。
+  en: A simple DSH queue panel for editing, removing, steering, reordering, and bulk removal.
+links:
+  source: https://github.com/starslittle/dsh-queue-plus
+  detail_zh: https://52dsh.com/plugins/starslittle-dsh-queue-plus/
+  tutorial_zh: https://52dsh.com/tutorials/starslittle-dsh-queue-plus-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

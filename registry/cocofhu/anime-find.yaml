@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:cocofhu/anime-find
+slug: cocofhu-anime-find
+name: anime-find
+repository:
+  url: https://github.com/cocofhu/anime-find
+  commit: c3f69a51c04f37e1ddd9ea46a739561e4bdef6ae
+package:
+  ecosystem: npm
+  name: "@cocofhu/anime-find"
+  version: 0.1.12
+  install_spec: github:cocofhu/anime-find#c3f69a51c04f
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 *；本站尚未运行实测
+category: tools
+topics:
+  - tools
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取用户提供的内容或调用外部工具；核对数据流、依赖和输出边界
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 在 DSH 对话内进行多源番剧搜索，以卡片展示 Bangumi 评分、详情和磁力信息。
+links:
+  source: https://github.com/cocofhu/anime-find
+  detail_zh: https://52dsh.com/plugins/cocofhu-anime-find/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

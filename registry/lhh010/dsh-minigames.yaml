@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:lhh010/dsh-minigames
+slug: lhh010-dsh-minigames
+name: dsh-minigames
+repository:
+  url: https://github.com/lhh010/dsh-minigames
+  commit: 4d79c012c60f1be508c388c8319dbff9d1389a65
+package:
+  ecosystem: npm
+  name: "@dsh-external/dsh-minigames"
+  version: 0.3.5
+  install_spec: github:lhh010/dsh-minigames#4d79c012c60f
+license:
+  spdx: BSD-3-Clause
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 包含 dsh.bundle；未声明明确 DSH peer 版本，本站尚未运行实测
+category: interface
+topics:
+  - fun
+  - interface
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 注入 Web 客户端并改变界面或交互；核对浏览器侧数据访问范围
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 在 DSH Web 右侧加入离线小游戏面板，内置多种游戏并提供可扩展的游戏注册表。
+  en: "Side-panel arcade: 18 offline mini-games to play while the model thinks."
+links:
+  source: https://github.com/lhh010/dsh-minigames
+  detail_zh: https://52dsh.com/plugins/lhh010-dsh-minigames/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

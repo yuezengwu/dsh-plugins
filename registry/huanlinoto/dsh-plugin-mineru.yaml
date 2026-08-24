@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:huanlinoto/dsh-plugin-mineru
+slug: huanlinoto-dsh-plugin-mineru
+name: dsh-plugin-mineru
+repository:
+  url: https://github.com/HuanLinOTO/dsh-plugin-mineru
+  commit: 79809aa57bd19be0ca548be52b76161514d02e11
+package:
+  ecosystem: npm
+  name: "@huanlin/dsh-plugin-mineru"
+  version: 0.2.2
+  install_spec: github:HuanLinOTO/dsh-plugin-mineru#79809aa57bd1
+license:
+  spdx: AGPL-3.0
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.0.1-rc.1；本站尚未运行实测
+category: tools
+topics:
+  - docs
+  - tools
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取用户提供的内容或调用外部工具；核对数据流、依赖和输出边界
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 向模型提供 MinerU 文档解析工具，把 PDF、图片、DOCX、PPTX 和 XLSX 转换为结构化 Markdown 或 JSON。
+  en: Expose MineRU document parsing tools to the model.
+links:
+  source: https://github.com/HuanLinOTO/dsh-plugin-mineru
+  detail_zh: https://52dsh.com/plugins/huanlinoto-dsh-plugin-mineru/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

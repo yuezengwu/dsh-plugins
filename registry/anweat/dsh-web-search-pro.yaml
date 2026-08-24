@@ -1,0 +1,48 @@
+schema_version: 1
+id: github:anweat/dsh-web-search-pro
+slug: anweat-dsh-web-search-pro
+name: dsh-web-search-pro
+repository:
+  url: https://github.com/anweat/dsh-web-search-pro
+  commit: f8f388c75d11a5fbee673a4ab010c166098a989b
+package:
+  ecosystem: npm
+  name: dsh-web-search-pro
+  version: 0.1.2
+  install_spec: github:anweat/dsh-web-search-pro#f8f388c75d11
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 包含 dsh.bundle；未声明明确 DSH peer 版本，本站尚未运行实测
+category: tools
+topics:
+  - browser
+  - tools
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取用户提供的内容或调用外部工具；核对数据流、依赖和输出边界
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 提供多搜索引擎、SQLite 与 LRU 缓存、平台后端和 Playwright 渲染的持久网页搜索能力。
+  en: "Persistent enhanced web search: multi-engine routing (DeepSeek/Exa/DDG/Bing/Jina + GitHub/Bilibili/YouTube/V2EX/Xiaohongshu/Twitter/Reddit/RSS), SQLite+LRU cache, userscript-style extraction, Playwright rendering."
+links:
+  source: https://github.com/anweat/dsh-web-search-pro
+  detail_zh: https://52dsh.com/plugins/anweat-dsh-web-search-pro/
+  tutorial_zh: https://52dsh.com/tutorials/anweat-dsh-web-search-pro-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

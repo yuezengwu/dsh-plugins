@@ -1,0 +1,52 @@
+schema_version: 1
+id: github:chinesezjc/dsh-interconnect
+slug: chinesezjc-dsh-interconnect
+name: dsh-interconnect
+repository:
+  url: https://github.com/Chinesezjc/dsh-interconnect
+  commit: 32ca0ec0441983f7eded7c6d2bfbecfda02087b0
+package:
+  ecosystem: npm
+  name: dsh-interconnect
+  version: 0.9.0
+  install_spec: github:Chinesezjc/dsh-interconnect#32ca0ec04419
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.9.0，所有 DSH agent、session、subagent、credentials、webserver 与 tools peer 均使用通配范围；本站完成固定提交静态审阅，未进行公网隧道、断线重连、Token 轮换、多版本互联或离线 Session 唤醒实测
+category: agent
+topics:
+  - session
+  - agent
+permissions:
+  status: reviewed
+  capabilities:
+    - network_access
+    - credentials
+    - session_data
+    - agent_orchestration
+  notes: 持有共享 DSH_INTERCONNECT_TOKEN，可向远端在线 Agent 投递普通用户消息、插入运行中步骤、列出 Session，并在配置允许时恢复离线 Session 触发模型和完整工具回合
+  data_flow: 本机 Agent 工具和 Session 身份 → peers 映射与 Bearer 共享密钥 → /interconnect/link WebSocket → 对端 live 或恢复后的 DSH Agent inbox → followup/steer/inject 处理；回复与生命周期事件沿同一加密外层依赖的链路返回。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 WebSocket 升级鉴权、timing-safe Token、peer 链路、消息投递、reply 身份、Session 列表、恢复和 subagent 封栏。未配置 Token 时失败关闭，subagent Session 不可直投；但所有 peers 共用一个 Bearer，sender 身份是自报字段，默认 allowResume=true 会让可信链路另一端唤醒带完整工具集的离线 Agent并产生费用。每个信任域使用独立实例与随机 Token，外层启用 TLS/VPN，默认关闭 allowResume，并仅暴露专用低权限 Session。
+summary:
+  zh: 让多个 DSH 实例通过持久 WebSocket 互发消息、列出在线 Session、探测实例、双向回复和推送事件，并可按 followup、steer 或 inject 模式投递到目标 Agent。
+  en: Cross-instance message and event handoff between DSH instances via an interconnect server.
+links:
+  source: https://github.com/Chinesezjc/dsh-interconnect
+  detail_zh: https://52dsh.com/plugins/chinesezjc-dsh-interconnect/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

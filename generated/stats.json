@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-22T00:00:00.000Z",
+  "total": 281,
+  "by_category": {
+    "agent": 26,
+    "browser": 6,
+    "development": 24,
+    "infrastructure": 19,
+    "integration": 12,
+    "interface": 84,
+    "knowledge": 24,
+    "management": 19,
+    "remote": 16,
+    "security": 12,
+    "tools": 37,
+    "vision": 2
+  },
+  "by_verification": {
+    "manifest_checked": 139,
+    "source_reviewed": 142
+  },
+  "by_risk": {
+    "high": 117,
+    "low": 6,
+    "medium": 158
+  },
+  "with_chinese_tutorial": 50
+}

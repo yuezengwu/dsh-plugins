@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:zseven-w/dsh-openpencil
+slug: zseven-w-dsh-openpencil
+name: dsh-openpencil
+repository:
+  url: https://github.com/ZSeven-W/dsh-openpencil
+  commit: e3eb3bfdb5262db0659c3c6e567fe209199c3eb2
+package:
+  ecosystem: npm
+  name: "@zseven-w/dsh-openpencil"
+  version: 0.1.0-rc.2
+  install_spec: github:ZSeven-W/dsh-openpencil#e3eb3bfdb526
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.1.0-rc.6；本站尚未运行实测
+category: tools
+topics:
+  - ui
+  - tools
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取用户提供的内容或调用外部工具；核对数据流、依赖和输出边界
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 在 DSH 会话中预览、检查和编辑 OpenPencil 的 .op 设计文档。
+  en: OpenPencil design preview and editing plugin.
+links:
+  source: https://github.com/ZSeven-W/dsh-openpencil
+  detail_zh: https://52dsh.com/plugins/zseven-w-dsh-openpencil/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

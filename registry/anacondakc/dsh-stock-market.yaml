@@ -1,0 +1,51 @@
+schema_version: 1
+id: github:anacondakc/dsh-stock-market
+slug: anacondakc-dsh-stock-market
+name: dsh-stock-market
+repository:
+  url: https://github.com/AnacondaKC/dsh-stock-market
+  commit: 02278af12330102c534c843a668d1c8407dbde1b
+package:
+  ecosystem: npm
+  name: dsh-stock-market
+  version: 0.2.0
+  install_spec: github:AnacondaKC/dsh-stock-market#02278af12330
+license:
+  spdx: BSD-3-Clause
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.2.0、BSD-3-Clause，声明的 DSH peer 依赖仍为 0.0.1-rc.5；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、真实交易时段、上游限流、市场休市或长期数据稳定性下运行
+category: integration
+topics:
+  - fun
+  - integration
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - network_access
+    - credentials
+  notes: 向 Agent 注册九个有参数边界的股票查询工具，并通过宿主 RPC 提供页面行情；请求只访问代码内固定的东方财富、腾讯、新浪和同花顺公开接口，不读取交易账户或本地凭据
+  data_flow: 股票代码、市场与时间范围 → 固定公开行情/新闻 endpoint → 超时、并发、重试与响应大小限制 → 结构化行情、新闻和诊断 → Agent 工具结果或 Web 看板；不包含下单或资金账户操作。
+risk_level: medium
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的工具注册、公开数据源目录、请求控制、RPC 和设置。实现限制 20 秒超时、8MB 响应、并发与输出大小，没有任意 URL 参数；但数据来自非官方免费网页接口，可能延迟、缺失或变更，且 peer 基线明显偏旧。只用于信息参考，不构成投资建议或交易依据；安装前在独立 Profile 验证兼容性和数据时效。
+summary:
+  zh: 为 DSH 增加 A 股、港股、美股行情、指数、新闻和市场概览工具，并在 Web 侧提供行情看板与工具开关。
+  en: Fixes the bug where your account can't lose money while you code.
+links:
+  source: https://github.com/AnacondaKC/dsh-stock-market
+  detail_zh: https://52dsh.com/plugins/anacondakc-dsh-stock-market/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

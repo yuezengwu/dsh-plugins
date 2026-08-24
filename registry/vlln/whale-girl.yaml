@@ -1,0 +1,56 @@
+schema_version: 1
+id: github:vlln/whale-girl
+slug: vlln-whale-girl
+name: whale-girl
+repository:
+  url: https://github.com/vlln/whale-girl
+  commit: e22e1fd918746e610f7bfb1713cef1e57a56f37c
+package:
+  ecosystem: npm
+  name: whale-girl
+  version: 0.1.0
+  install_spec: github:vlln/whale-girl#e22e1fd91874
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.1.0，采用 DSH Bundle/Web Client 格式且没有声明明确 peer 版本；本站完成固定提交静态审阅，未运行浏览器动画、可选 Tauri 桌面伴侣或长期状态迁移测试
+category: interface
+topics:
+  - fun
+  - interface
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_write
+    - network_access
+    - credentials
+    - remote_control
+    - session_data
+    - ui_injection
+    - plugin_management
+  notes: 订阅 DSH 会话事件和会话列表，向同源 Web 客户端公开宠物状态、会话标题与活动类型，并把等级、统计、称号和短回忆写入本机 DSH 数据目录
+  data_flow: DSH session/event 与会话摘要 → 本机 whale-girl 状态机和 JSON 账本 → 同源状态/SSE/素材路由 → Web 桌宠；可选独立桌面伴侣再从配置的 DSH Base URL 读取这些路由并回传在线心跳或互动。
+risk_level: medium
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 Bundle 入口、状态持久化、会话事件推导、HTTP/SSE 路由、客户端和桌面伴侣连接配置。插件主体不读取模型凭据或调用外部服务，写操作也检查跨域来源；但会向能够访问 DSH Web 的客户端暴露会话标题与当前活动，并在本地长期累计状态。可选桌面伴侣不随插件安装，若把 Base URL 指向远程主机，应自行保护链路和访问边界。
+summary:
+  zh: 在 DSH Web 中加入可拖拽、投喂和玩耍的鲸鱼娘桌宠，并依据会话、工具、等待和完成事件展示状态、等级、称号与回忆。
+  en: "Desktop pet (QQ-pet style): floats in the corner, draggable, feedable, playable."
+links:
+  source: https://github.com/vlln/whale-girl
+  detail_zh: https://52dsh.com/plugins/vlln-whale-girl/
+  tutorial_zh: https://52dsh.com/tutorials/vlln-whale-girl-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

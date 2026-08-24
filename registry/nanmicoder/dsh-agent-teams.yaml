@@ -1,0 +1,53 @@
+schema_version: 1
+id: github:nanmicoder/dsh-agent-teams
+slug: nanmicoder-dsh-agent-teams
+name: dsh-agent-teams
+repository:
+  url: https://github.com/NanmiCoder/dsh-agent-teams
+  commit: 0c21e5d2f45ec1ea7c9ee89ffc4ee77d1cb9262e
+package:
+  ecosystem: npm
+  name: "@nanmicoder/dsh-agent-teams"
+  version: 0.1.11
+  install_spec: github:NanmiCoder/dsh-agent-teams#0c21e5d2f45e
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 清单声明 DSH 0.1.0-rc.6 系列 peer 依赖，开发依赖使用 rc.8；本站完成固定提交静态审阅，未运行多成员压力或模型调用测试
+category: agent
+topics:
+  - workflow
+  - agent
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_write
+    - command_execution
+    - session_data
+    - agent_orchestration
+  notes: 成员是持久子 Agent，默认拥有完整工具集并可继续委派；团队任务、消息、模型路由和成员身份写入工作区 .agent-teams
+  data_flow: 队长会话的 agent_teams 工具 → 工作区 team.json/JSONL 邮箱与 DSH 子 Agent 服务 → 成员模型和完整工具集并行执行 → 任务状态、消息与结果返回队长和 Web 活动面板。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的注册入口、团队工具、成员创建、调度、attempt 接管和磁盘状态结构。任务依赖与迟到结果有 attempt_id 防护，但成员仍拥有完整 bash/fs/web 等工具，团队状态为工作区明文文件且不保证多进程并发一致。
+summary:
+  zh: 把当前 DSH 会话变成团队队长，创建可续聊子 Agent、带依赖任务、成员邮箱、自动续领调度和实时活动面板。
+  en: AgentTeams multi-agent teams.
+links:
+  source: https://github.com/NanmiCoder/dsh-agent-teams
+  detail_zh: https://52dsh.com/plugins/nanmicoder-dsh-agent-teams/
+  tutorial_zh: https://52dsh.com/tutorials/nanmicoder-dsh-agent-teams-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

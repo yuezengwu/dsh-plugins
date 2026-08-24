@@ -1,0 +1,51 @@
+schema_version: 1
+id: github:perrylink/dsh-auto-review
+slug: perrylink-dsh-auto-review
+name: dsh-auto-review
+repository:
+  url: https://github.com/PerryLink/dsh-auto-review
+  commit: 252e5b098db2b501e1055c4b882c3b2c6b6db31f
+package:
+  ecosystem: npm
+  name: dsh-auto-review
+  version: 0.5.3
+  install_spec: github:PerryLink/dsh-auto-review#252e5b098db2
+license:
+  spdx: Apache-2.0
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.5.3，要求 Node.js 22.19 或 24+，peer 依赖明确限定 DSH 0.1.0-rc.8 至 <0.2.0；本站完成固定提交静态审阅，未用真实高风险命令、不同 Provider 或人工对抗样例运行
+category: security
+topics:
+  - security
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - command_execution
+    - session_data
+    - agent_orchestration
+  notes: 观察工具审批并可替代人工返回 allowed-once 或 rejected；会启动只读 reviewer 子 Agent，读取有限会话上下文与工作区文件，并可能把脱敏后的请求发送给另一模型 Provider
+  data_flow: 原工具审批请求、按键名脱敏的参数、有限会话上下文与只读工作区证据 → reviewer 子 Agent/所选模型 → allowed-once 或 rejected → 原工具继续或失败；裁决、失败与熔断状态写入 Session 审计事件。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的策略配置、审批 answerer、审查 Prompt、参数脱敏、预算/熔断、审计与评测代码。默认失败关闭且 reviewer 不能执行被审查的参数，但一旦给 bash/write 等工具配置 ai 策略，它就能以模型判断替代人工审批；脱敏只按参数键名，换 Provider 也意味着把上下文交给另一服务。不可逆操作应保持 human 或 never，先用仓库评测集和自有攻击样例设门槛，并定期检查允许/拒绝与 fallback 审计。
+summary:
+  zh: 在 DSH 审批链上启动只读第二模型审查器，对指定工具请求自动给出一次允许或拒绝，并提供规则、预算、熔断、会话审计与评测工具。
+  en: "Second-model auto-review on the approval answerer chain: a read-only reviewer subagent returns structured allow/deny verdicts with reasons, fail-closed by default."
+links:
+  source: https://github.com/PerryLink/dsh-auto-review
+  detail_zh: https://52dsh.com/plugins/perrylink-dsh-auto-review/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

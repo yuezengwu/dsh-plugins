@@ -1,0 +1,48 @@
+schema_version: 1
+id: github:raullenchai/rapid-mlx-dsh-provider
+slug: raullenchai-rapid-mlx-dsh-provider
+name: rapid-mlx-dsh-provider
+repository:
+  url: https://github.com/raullenchai/rapid-mlx-dsh-provider
+  commit: 88f98e7835989c3a05813e475ada4ce0b3c94267
+package:
+  ecosystem: npm
+  name: "@raullenchai/dsh-provider"
+  version: 0.3.0
+  install_spec: github:raullenchai/rapid-mlx-dsh-provider#88f98e783598
+license:
+  spdx: Apache-2.0
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.3.0、Apache-2.0，DSH commands/llm/subprocess/tools peer 精确为 0.1.0-rc.8，README 要求 Node.js 22.15+；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、Apple Silicon、真实模型下载或远程 Rapid-MLX endpoint 上运行
+category: infrastructure
+topics:
+  - infrastructure
+permissions:
+  status: reviewed
+  capabilities:
+    - command_execution
+    - network_access
+    - remote_control
+  notes: 向配置的 OpenAI 兼容 Rapid-MLX endpoint 发送对话和工具 schema；可通过 DSH subprocess 以参数数组调用 rapid-mlx pull 或 rm -y 下载、缓存和删除本地模型
+  data_flow: DSH 对话、图片引用和工具定义 → 配置的 Rapid-MLX /v1/chat/completions → 流式文本/工具调用返回 Agent；模型管理工具 → DSH subprocess → 本机 rapid-mlx CLI 与模型缓存。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 Provider、请求适配、模型发现和管理工具。CLI 使用参数数组而非拼接 shell，删除目标来自结构化工具参数；但 remove 会直接执行 -y 删除模型，pull 会消耗大量带宽与磁盘，且自定义 baseURL 可以是远程 HTTP 服务并接收完整提示词、图片和工具定义。默认保持 loopback endpoint，对 pull/remove 启用人工审批，删除前核对模型名和缓存位置。
+summary:
+  zh: 把本机 Rapid-MLX 服务接入 DSH，自动发现已服务模型，并提供健康检查、缓存状态、模型拉取和删除工具。
+links:
+  source: https://github.com/raullenchai/rapid-mlx-dsh-provider
+  detail_zh: https://52dsh.com/plugins/raullenchai-rapid-mlx-dsh-provider/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

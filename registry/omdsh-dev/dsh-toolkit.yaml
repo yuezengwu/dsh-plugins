@@ -1,0 +1,46 @@
+schema_version: 1
+id: github:omdsh-dev/dsh-toolkit
+slug: omdsh-dev-dsh-toolkit
+name: dsh-toolkit
+repository:
+  url: https://github.com/omdsh-dev/dsh-toolkit
+  commit: 2113d11a4e4510720251aa49a800bab917b14330
+package:
+  ecosystem: npm
+  name: "@deepseek-ai/dsh-toolkit"
+  version: 0.0.1
+  install_spec: github:omdsh-dev/dsh-toolkit#2113d11a4e45
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 >=0.0.1-rc.1 <0.2.0；本站尚未运行实测
+category: tools
+topics:
+  - tools
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取用户提供的内容或调用外部工具；核对数据流、依赖和输出边界
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 提供时间、编码、JSON、计算器、CSV、正则、Markdown、Diff、统计和 Schema 十个确定性工具。
+  en: "Zero-dependency toolkit: time / encoding / json / calculator / csv / regex / markdown / diff / stat / schema — ten deterministic tools in one install."
+links:
+  source: https://github.com/omdsh-dev/dsh-toolkit
+  detail_zh: https://52dsh.com/plugins/omdsh-dev-dsh-toolkit/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

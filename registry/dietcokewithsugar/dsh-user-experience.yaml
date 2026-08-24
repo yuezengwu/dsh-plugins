@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:dietcokewithsugar/dsh-user-experience
+slug: dietcokewithsugar-dsh-user-experience
+name: dsh-user-experience
+repository:
+  url: https://github.com/DietCokewithSugar/dsh-user-experience
+  commit: bba21e6a634844b448b34aae4e7c8af1d8bbd9d4
+package:
+  ecosystem: npm
+  name: dsh-user-experience
+  version: 0.4.2
+  install_spec: github:DietCokewithSugar/dsh-user-experience#bba21e6a6348
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 >=0.1.0-rc.6 <0.2.0；本站尚未运行实测
+category: development
+topics:
+  - git
+  - development
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取或修改工作区；核对文件写入、命令执行和回滚方式
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 按用户画像遍历 React 与 TypeScript 项目的使用流程，定位体验问题并给出改进建议。
+  en: "Finds potential UX issues in your project: automatically reviews React/TypeScript code, pinpoints each problem, and gives concrete suggestions."
+links:
+  source: https://github.com/DietCokewithSugar/dsh-user-experience
+  detail_zh: https://52dsh.com/plugins/dietcokewithsugar-dsh-user-experience/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

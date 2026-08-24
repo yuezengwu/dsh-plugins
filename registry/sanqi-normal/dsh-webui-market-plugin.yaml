@@ -1,0 +1,53 @@
+schema_version: 1
+id: github:sanqi-normal/dsh-webui-market-plugin
+slug: sanqi-normal-dsh-webui-market-plugin
+name: dsh-webui-market-plugin
+repository:
+  url: https://github.com/Sanqi-normal/dsh-webui-market-plugin
+  commit: 44cd1ababaeeda11519042ab876c598f5961774d
+package:
+  ecosystem: npm
+  name: "@sanqi-normal/dsh-webui-market-plugin"
+  version: 0.5.5
+  install_spec: github:Sanqi-normal/dsh-webui-market-plugin#44cd1ababaee
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.5.5，要求 Node.js 22.19 或 24+，peer 依赖兼容 DSH rc.2 至 0.2.0 之前版本；本站完成固定提交静态审阅，未真实安装第三方插件或验证 desktop Profile 组合
+category: management
+topics:
+  - market
+  - management
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_write
+    - command_execution
+    - ui_injection
+    - plugin_management
+  notes: 启动 dsh、pnpm 和系统终止进程命令，修改多个 Profile 的依赖与 bundle 配置，安装第三方包及其生命周期脚本，并可热挂载或停用 Web 插件
+  data_flow: awesome-dsh-plugin 目录、GitHub/npm 元数据与本地离线快照 → Host 白名单和试装目录 → 用户确认 → DSH CLI/pnpm 修改目标 Profile → 安装状态与日志返回 Web；写操作要求同源 POST。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 Host、客户端、来源白名单、同源写入、试装启动验证、Profile 快照、CLI 子进程、跨 Profile 同步和热挂载。试装与安装前快照能降低组合损坏概率，但无法消除第三方包 prepare/postinstall 或运行时代码执行风险，且 desktop 等 Profile 不做同等启动测试。建议只安装固定版本且已独立审阅的插件，保持自动跨 Profile 同步关闭，并保留快照直到重启验证完成。
+summary:
+  zh: 在 DSH Web 设置中浏览社区插件目录，并通过 DSH CLI 跨 Profile 安装、更新、卸载、停用或同步插件，提供临时试装、启动验证、快照和热挂载。
+  en: "In-harness plugin market for the dsh web GUI: browse the awesome-dsh-plugin.com catalog and install/uninstall plugins into a profile from Settings → Plugins → Plugin Market."
+links:
+  source: https://github.com/Sanqi-normal/dsh-webui-market-plugin
+  detail_zh: https://52dsh.com/plugins/sanqi-normal-dsh-webui-market-plugin/
+  tutorial_zh: https://52dsh.com/tutorials/sanqi-normal-dsh-webui-market-plugin-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

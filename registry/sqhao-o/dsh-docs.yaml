@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:sqhao-o/dsh-docs
+slug: sqhao-o-dsh-docs
+name: dsh-docs
+repository:
+  url: https://github.com/Sqhao-O/dsh-docs
+  commit: 67d3ae944bba92b881255b5d11f08c20b806bd65
+package:
+  ecosystem: npm
+  name: dsh-doc
+  version: 0.1.1
+  install_spec: github:Sqhao-O/dsh-docs#67d3ae944bba
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.1.0-rc.6；本站尚未运行实测
+category: tools
+topics:
+  - tools
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取用户提供的内容或调用外部工具；核对数据流、依赖和输出边界
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 在本地解析 PDF、Office、图片和扫描文档，并提供离线 OCR 能力。
+links:
+  source: https://github.com/Sqhao-O/dsh-docs
+  detail_zh: https://52dsh.com/plugins/sqhao-o-dsh-docs/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

@@ -1,0 +1,57 @@
+schema_version: 1
+id: github:z-6354/dsh-mobile-hanui
+slug: z-6354-dsh-mobile-hanui
+name: dsh-mobile-hanui
+repository:
+  url: https://github.com/Z-6354/dsh-mobile-hanui
+  commit: 27f11e7b7925fafcd63926dfefde11cfc1197cf3
+package:
+  ecosystem: npm
+  name: dsh-mobile-hanui
+  version: 0.2.5
+  install_spec: github:Z-6354/dsh-mobile-hanui#27f11e7b7925
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.2.5、MIT，未声明 Node.js 或 DSH peer 版本，通过 Cordis Patch 注入 DSH Web 客户端运行时与布局服务；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、iOS Safari、Android Chrome、横屏、软键盘或辅助功能下做真实设备回归
+category: interface
+topics:
+  - remote
+  - interface
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_write
+    - command_execution
+    - network_access
+    - credentials
+    - browser_control
+    - remote_control
+    - session_data
+    - ui_injection
+  notes: 仅在浏览器页面中调整 DOM、样式和交互状态，使用 localStorage 保存插件开关与悬浮按钮位置；Host 入口为空，不注册模型工具、网络接口、文件写入或命令执行能力
+  data_flow: 当前 DSH Web 页面结构与用户点击/拖动 → 浏览器内响应式布局和交互处理 → localStorage 中的少量界面偏好；没有发现提示词、会话、凭据或文件向外部服务发送。
+risk_level: low
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 Cordis Patch、Host 空入口和完整客户端实现。插件不使用 fetch、不注入远程脚本，也不读取模型内容或 Host 数据；主要风险是它依赖 DSH 当前 DOM 结构和 CSS 类名，升级后可能出现按钮重复、抽屉错位或触摸冲突。上线前在常见手机宽度、横竖屏、深浅色、软键盘和滚动历史场景做视觉回归，并在 DSH 大版本更新后重新验证选择器。
+summary:
+  zh: 为 DSH Web 提供面向手机和平板的响应式交互层，包括抽屉式导航、全屏对话框、可拖动悬浮入口、历史消息加载和窄屏操作优化。
+  en: "Mobile UI shell for the DSH Web GUI: turns the desktop three-column layout into a touch-friendly phone layout (overlay drawers, draggable FAB, full-screen dialogs, infinite-scroll history) under a 1024px viewport, with zero desktop impact. - Complete mobile PWA for DSH, built on dsh-mobile-gate: secure remote-access gateway plus install-to-homescreen (manifest + service worker), offline capability, touch gestures (pull-to-refresh, edge-swipe back, pinch-zoom font), agent-done push notifications, and touch-first layout — desktop unaffected."
+links:
+  source: https://github.com/Z-6354/dsh-mobile-hanui
+  detail_zh: https://52dsh.com/plugins/z-6354-dsh-mobile-hanui/
+  tutorial_zh: https://52dsh.com/tutorials/z-6354-dsh-mobile-hanui-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

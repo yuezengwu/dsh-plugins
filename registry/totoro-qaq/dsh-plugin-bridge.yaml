@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:totoro-qaq/dsh-plugin-bridge
+slug: totoro-qaq-dsh-plugin-bridge
+name: dsh-plugin-bridge
+repository:
+  url: https://github.com/Totoro-qaq/dsh-plugin-bridge
+  commit: ba26954cc28e0f70599473b19bdf8bbcf5b8a9d4
+package:
+  ecosystem: npm
+  name: dsh-plugin-bridge
+  version: 0.2.6
+  install_spec: github:Totoro-qaq/dsh-plugin-bridge#ba26954cc28e
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 包含 dsh.bundle；未声明明确 DSH peer 版本，本站尚未运行实测
+category: agent
+topics:
+  - session
+  - agent
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可创建、调度或影响 Agent 任务；核对工具、审批和并发边界
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 通过固定结构的交接摘要在不同 Preset 之间迁移 DSH 会话，并提供基准与对照证据。
+  en: Moves an existing DSH session to another agent preset through a previewable five-section handoff, preserving the source session and either pausing the target for confirmation or continuing immediately.
+links:
+  source: https://github.com/Totoro-qaq/dsh-plugin-bridge
+  detail_zh: https://52dsh.com/plugins/totoro-qaq-dsh-plugin-bridge/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

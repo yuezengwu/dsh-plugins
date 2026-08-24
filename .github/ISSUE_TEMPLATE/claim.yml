@@ -1,0 +1,26 @@
+name: Claim or update a plugin record
+description: Let a maintainer claim a record or submit current primary evidence.
+title: "[Claim] "
+labels: [author-claim]
+body:
+  - type: input
+    id: registry_id
+    attributes:
+      label: Registry ID
+      placeholder: github:owner/repository
+    validations:
+      required: true
+  - type: input
+    id: maintainer_evidence
+    attributes:
+      label: Maintainer evidence
+      description: Link to a repository profile, commit or other public evidence.
+    validations:
+      required: true
+  - type: textarea
+    id: changes
+    attributes:
+      label: Requested changes and evidence
+    validations:
+      required: true
+

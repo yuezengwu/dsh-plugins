@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:lanxing6480/dsh-galgame
+slug: lanxing6480-dsh-galgame
+name: dsh-galgame
+repository:
+  url: https://github.com/Lanxing6480/dsh-galgame
+  commit: 5dba67b691fc024db848db615792d69ef7ba5807
+package:
+  ecosystem: npm
+  name: "@lanxing/dsh-galgame"
+  version: 1.1.0
+  install_spec: github:Lanxing6480/dsh-galgame#5dba67b691fc
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.1.0-rc.6；本站尚未运行实测
+category: interface
+topics:
+  - interface
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 注入 Web 客户端并改变界面或交互；核对浏览器侧数据访问范围
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 把 DSH 编码界面改造成 Galgame 风格，并加入角色互动展示。
+links:
+  source: https://github.com/Lanxing6480/dsh-galgame
+  detail_zh: https://52dsh.com/plugins/lanxing6480-dsh-galgame/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

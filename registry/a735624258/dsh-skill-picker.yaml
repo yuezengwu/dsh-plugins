@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:a735624258/dsh-skill-picker
+slug: a735624258-dsh-skill-picker
+name: dsh-skill-picker
+repository:
+  url: https://github.com/a735624258/dsh-skill-picker
+  commit: aff4f33ea69f59588dec7fc5847c734452a27b2d
+package:
+  ecosystem: npm
+  name: dsh-skill-picker
+  version: 0.2.0
+  install_spec: github:a735624258/dsh-skill-picker#aff4f33ea69f
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.1.0-rc.6；本站尚未运行实测
+category: management
+topics:
+  - ui
+  - management
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可安装、更新或管理第三方插件；核对软件供应链与配置写入范围
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 在输入框中选择 Skill 并插入官方 /skill-name 指令，让 DSH 随消息加载所选能力。
+  en: "WorkBuddy-style skill picker: a button beside the composer opens a searchable list of installed skills; picking one inserts the official /skill-name gesture, so the skill loads with your message."
+links:
+  source: https://github.com/a735624258/dsh-skill-picker
+  detail_zh: https://52dsh.com/plugins/a735624258-dsh-skill-picker/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

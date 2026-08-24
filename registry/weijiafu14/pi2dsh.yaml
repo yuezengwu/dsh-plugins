@@ -1,0 +1,51 @@
+schema_version: 1
+id: github:weijiafu14/pi2dsh
+slug: weijiafu14-pi2dsh
+name: pi2dsh
+repository:
+  url: https://github.com/weijiafu14/pi2dsh
+  commit: 91e5611347ca69e13487de752a46b4ce0b513302
+package:
+  ecosystem: npm
+  name: pi2dsh
+  version: 0.14.1
+  install_spec: github:weijiafu14/pi2dsh#91e5611347ca
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 清单声明 DSH 0.1.0-rc.8 系列 peer 依赖；本站完成固定提交静态审阅，未安装第三方依赖或运行端到端测试
+category: infrastructure
+topics:
+  - infrastructure
+permissions:
+  status: reviewed
+  capabilities:
+    - command_execution
+    - network_access
+    - credentials
+    - session_data
+    - agent_orchestration
+    - plugin_management
+  notes: 会动态加载用户配置的 Pi npm 扩展；扩展可进入 DSH 工具、命令、模型与凭据链路，并与宿主进程共享权限
+  data_flow: DSH 会话与宿主配置 → pi2dsh 兼容运行时 → 已安装的 Pi 扩展、MCP 或模型 Provider → 工具结果与子会话事件返回 DSH。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的插件入口、扩展加载、凭据/OAuth、MCP 与子 Agent 桥接代码。Pi 扩展会作为宿主代码运行，可能读写文件、执行命令或访问外部服务；只应安装可信扩展，并先使用仓库提供的兼容性检查。
+summary:
+  zh: 连接 Pi 与 DSH 插件生态，让符合 Pi Host ABI 的扩展作为 DSH 原生插件运行，并桥接工具、命令、模型、MCP 与子 Agent 能力。
+links:
+  source: https://github.com/weijiafu14/pi2dsh
+  detail_zh: https://52dsh.com/plugins/weijiafu14-pi2dsh/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

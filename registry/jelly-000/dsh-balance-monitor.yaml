@@ -1,0 +1,52 @@
+schema_version: 1
+id: github:jelly-000/dsh-balance-monitor
+slug: jelly-000-dsh-balance-monitor
+name: dsh-balance-monitor
+repository:
+  url: https://github.com/jelly-000/dsh-balance-monitor
+  commit: fb9eb8d981c05ee55e8d7934e4688c9bef023b21
+package:
+  ecosystem: npm
+  name: dsh-balance-monitor
+  version: 0.1.2
+  install_spec: github:jelly-000/dsh-balance-monitor#fb9eb8d981c0
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.1.2、MIT，未声明 Node.js 或 DSH peer 版本；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、真实 DeepSeek 账户、多币种、跨日重置或上游故障下运行
+category: management
+topics:
+  - management
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - filesystem_write
+    - network_access
+    - credentials
+    - browser_control
+    - session_data
+    - ui_injection
+  notes: 浏览器只能通过 authority=loopback 的 Connection RPC 请求余额；Host 从环境变量或 ~/.dsh/.credentials.yaml 读取 DeepSeek API Key，并向固定 https://api.deepseek.com/user/balance 发起请求，Key 不返回浏览器
+  data_flow: 本机 DeepSeek API Key → Host 调用官方余额接口 → 已净化的余额/可用状态进入回环浏览器；当前余额与每日基线/估算消耗写入 $DSH_HOME/storages/balance-monitor.json，不读取提示词、会话正文或工作区文件。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 loopback RPC、凭据读取、固定上游 URL、响应投影、本地基线和故障回退。没有原始 Host Web 路由、任意 endpoint 或浏览器侧 Key 暴露；但界面刷新和约 60 秒轮询会消耗官方余额接口配额，今日消耗只是余额差值估算，余额文件也是敏感财务元数据。先确认版本兼容，限制本地数据文件访问，不把估算值当成正式账单，并在频繁刷新或多币种账户下核对结果。
+summary:
+  zh: 在 DSH Web 中显示 DeepSeek 账户可用余额、今日估算消耗和最近刷新时间，并在本地维护每日余额基线。
+links:
+  source: https://github.com/jelly-000/dsh-balance-monitor
+  detail_zh: https://52dsh.com/plugins/jelly-000-dsh-balance-monitor/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

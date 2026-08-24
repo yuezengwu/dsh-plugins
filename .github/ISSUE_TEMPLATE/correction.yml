@@ -1,0 +1,30 @@
+name: Correct a registry record
+description: Report an inaccurate field with primary evidence.
+title: "[Correction] "
+labels: [correction]
+body:
+  - type: input
+    id: registry_id
+    attributes:
+      label: Registry ID
+    validations:
+      required: true
+  - type: input
+    id: field
+    attributes:
+      label: Field to correct
+    validations:
+      required: true
+  - type: input
+    id: evidence
+    attributes:
+      label: Primary evidence URL
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Proposed correction
+    validations:
+      required: true
+

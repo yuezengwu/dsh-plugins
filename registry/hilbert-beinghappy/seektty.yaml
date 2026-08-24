@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:hilbert-beinghappy/seektty
+slug: hilbert-beinghappy-seektty
+name: seektty
+repository:
+  url: https://github.com/Hilbert-beinghappy/seektty
+  commit: 94b937ef5f25e692a37c7aa089320221d3b18c8c
+package:
+  ecosystem: npm
+  name: seektty
+  version: 1.2.0
+  install_spec: github:Hilbert-beinghappy/seektty#94b937ef5f25
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 >=0.1.0-rc.6 <0.1.0-rc.9；本站尚未运行实测
+category: interface
+topics:
+  - interface
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 注入 Web 客户端并改变界面或交互；核对浏览器侧数据访问范围
+risk_level: low
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 为 DSH 提供终端交互界面；具体功能、快捷键和支持范围以仓库文档为准。
+links:
+  source: https://github.com/Hilbert-beinghappy/seektty
+  detail_zh: https://52dsh.com/plugins/hilbert-beinghappy-seektty/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

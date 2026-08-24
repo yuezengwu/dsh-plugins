@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:yanglongyun/ramify-dsh
+slug: yanglongyun-ramify-dsh
+name: ramify-dsh
+repository:
+  url: https://github.com/yanglongyun/ramify-dsh
+  commit: 771ac087312a8d78e3ae34d090c6a809724aa619
+package:
+  ecosystem: npm
+  name: "@ramify/dsh-ramify"
+  version: 0.1.0
+  install_spec: github:yanglongyun/ramify-dsh#771ac087312a
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 >=0.1.0-rc.2 <0.2.0；本站尚未运行实测
+category: interface
+topics:
+  - interface
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 注入 Web 客户端并改变界面或交互；核对浏览器侧数据访问范围
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 以树状创意分支画布生成、比较和迭代多个可交互方案。
+links:
+  source: https://github.com/yanglongyun/ramify-dsh
+  detail_zh: https://52dsh.com/plugins/yanglongyun-ramify-dsh/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

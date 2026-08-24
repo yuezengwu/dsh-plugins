@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:hanaayane/dsh-reasoning-effort
+slug: hanaayane-dsh-reasoning-effort
+name: dsh-reasoning-effort
+repository:
+  url: https://github.com/HanaAyane/dsh-reasoning-effort
+  commit: 83bc8c548749d7156a03d11d875d8117e9b5d994
+package:
+  ecosystem: npm
+  name: dsh-reasoning-effort
+  version: 0.6.2
+  install_spec: github:HanaAyane/dsh-reasoning-effort#83bc8c548749
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.6.2，要求 Node.js >=22.19，peer 依赖集中在 DSH 0.1.0-rc.6 系列；本站完成固定提交静态审阅，未对每个模型或第三方兼容端点执行真实推理请求
+category: infrastructure
+topics:
+  - infrastructure
+permissions:
+  status: reviewed
+  capabilities:
+    - network_access
+    - credentials
+  notes: 读取模型与路由元数据，在 Web 中增加推理档位设置，并在请求送往已配置模型端点前调整 reasoning_effort 字段；不新增凭据存储、遥测或独立外部服务
+  data_flow: 当前模型与用户选择的推理档位 → 本地知识库和路由规则 → DSH 请求参数中的 reasoning_effort → 原有 Provider 端点；设置与同源 RPC 结果返回 Web，不建立额外数据通道。
+risk_level: medium
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 Host、知识库、路由兼容例外、RPC 和 Web 控件。代码未发现额外凭据处理、服务端存储或插件遥测；主要风险是映射与上游端点能力不一致，可能导致请求被拒绝、费用或延迟变化。升级 DSH 或 Provider 后应重新核对档位，并先用低成本请求验证。
+summary:
+  zh: 为 DSH 的不同模型和 OpenAI 兼容路由提供可配置的推理强度档位，把 off、minimal、low、medium、high、xhigh 映射成端点实际接受的 reasoning_effort 值。
+links:
+  source: https://github.com/HanaAyane/dsh-reasoning-effort
+  detail_zh: https://52dsh.com/plugins/hanaayane-dsh-reasoning-effort/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

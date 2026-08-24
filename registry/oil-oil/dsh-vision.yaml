@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:oil-oil/dsh-vision
+slug: oil-oil-dsh-vision
+name: dsh-vision
+repository:
+  url: https://github.com/oil-oil/dsh-vision
+  commit: 9446a41dc96bd9fc96a7cc3b3a11365e125c9bd7
+package:
+  ecosystem: npm
+  name: "@oil-oil/dsh-vision"
+  version: 0.1.2
+  install_spec: github:oil-oil/dsh-vision#9446a41dc96b
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 0.1.0-rc.6 || 0.1.0-rc.7；本站尚未运行实测
+category: tools
+topics:
+  - tools
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取用户提供的内容或调用外部工具；核对数据流、依赖和输出边界
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 为 DeepSeek Harness 提供接近原生体验的图片理解能力。
+links:
+  source: https://github.com/oil-oil/dsh-vision
+  detail_zh: https://52dsh.com/plugins/oil-oil-dsh-vision/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

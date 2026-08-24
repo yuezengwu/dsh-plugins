@@ -1,0 +1,53 @@
+schema_version: 1
+id: github:flyvhidbwo/dsh-vision-proxy
+slug: flyvhidbwo-dsh-vision-proxy
+name: dsh-vision-proxy
+repository:
+  url: https://github.com/Flyvhidbwo/dsh-vision-proxy
+  commit: d246d8511822b2441eb4841ec854981dc3e055e4
+package:
+  ecosystem: npm
+  name: dsh-vision-proxy
+  version: 0.3.1
+  install_spec: github:Flyvhidbwo/dsh-vision-proxy#d246d8511822
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: review
+  compatibility_notes: 插件版本 0.3.1、MIT，要求 Node.js >=22.19、DSH >=0.1.0-rc.6，运行时直接面向 LLM 与 Attachments 接口；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、真实 DashScope/Ollama、多图大文件、Sharp 可选依赖或各类 OpenAI 兼容端点下运行
+category: vision
+topics:
+  - vision
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - filesystem_write
+    - network_access
+    - credentials
+    - session_data
+  notes: 读取当前模型请求中已附加的图片字节，按内容哈希做进程内缓存，可选使用 Sharp 缩放；默认探测本机 Ollama，否则只在配置有效 VLM Key 后向第三方端点发送图片，不修改工作区文件
+  data_flow: 当前会话图片附件 → 可选本地缩放与 SHA-256 缓存 → 本地 Ollama 或用户配置的 VLM endpoint → OCR/版面文字 → 替换原图片块后交给 DeepSeek 文本模型；第三方端点会收到完整图片内容。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的附件读取、图片缩放、端点降级、超时/冷却、密钥解析、转译缓存、错误占位与安装提示。默认不会使用匿名第三方端点且明确提示图片外发；但 baseURL、fallback 和 apiKey 由用户配置，图片可能包含源码、凭据或个人信息，直接把 Key 写进 Profile 也可能在 dump-config/备份中明文出现。敏感图片优先使用本地 Ollama，第三方只选受信任 HTTPS endpoint，Key 放入凭据或环境域，并在共享配置前清理秘密。
+summary:
+  zh: 为纯文本 DeepSeek 模型增加图片附件转译：先用本地 Ollama 或用户配置的 OpenAI 兼容视觉模型把图片转为文字，再交给原 DeepSeek Adapter 回答。
+  en: "DeepSeek brain + automatic image transcription: attach images in the GUI and each one is transcribed to text via any OpenAI-compatible VLM before reaching the text-only DeepSeek — a keyed fast path (default qwen3.7-flash; DashScope/Zhipu/OpenRouter or any OpenAI-compatible endpoint) with your own key, or local Ollama auto-detected with zero config."
+links:
+  source: https://github.com/Flyvhidbwo/dsh-vision-proxy
+  detail_zh: https://52dsh.com/plugins/flyvhidbwo-dsh-vision-proxy/
+  tutorial_zh: https://52dsh.com/tutorials/flyvhidbwo-dsh-vision-proxy-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

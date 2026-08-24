@@ -1,0 +1,56 @@
+schema_version: 1
+id: github:omdsh-dev/dsh-better-sidebar
+slug: omdsh-dev-dsh-better-sidebar
+name: DSH-better-sidebar
+repository:
+  url: https://github.com/omdsh-dev/DSH-better-sidebar
+  commit: 646c91cf70883e9a6cd343d176b0c4939c42bc2c
+package:
+  ecosystem: npm
+  name: dsh-better-sidebar
+  version: 0.15.0
+  install_spec: github:omdsh-dev/DSH-better-sidebar#646c91cf7088
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 清单声明 DSH 0.1.0-rc.8 系列 peer 依赖，开发依赖覆盖 0.1.1-rc.1；本站完成固定提交静态审阅，未加载 node-pty 或运行 Web 挂载测试
+category: development
+topics:
+  - ui
+  - development
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_write
+    - command_execution
+    - network_access
+    - browser_control
+    - session_data
+    - ui_injection
+    - agent_orchestration
+  notes: 受信任的 Web 客户端可在会话 cwd 内读写、上传和删除文件，执行 Git 操作与交互式 Shell，并查看或终止后台任务
+  data_flow: DSH Web 侧边栏请求 → Host 信任围栏与会话 cwd 解析 → 文件系统、Git、PTY、任务或子 Agent 服务 → 结果经 JSON、媒体路由或 WebSocket 返回界面。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 Host 路由、工作区文件操作、Git、PTY、任务、子 Agent 与信任围栏。路径操作以会话 cwd 为边界且路由复用 trustedHosts，但终端本质上启动本机 Shell；HTML/浏览器沙箱也允许用户对当前页面临时关闭，只应在可信工作区和可信内容上使用。
+summary:
+  zh: 为 DSH Web 提供按会话隔离的开发侧边栏，集成文件树、编辑器、终端、Git、预览、侧问和子 Agent 状态，并开放第三方扩展接口。
+  en: Full sidebar workbench with file rendering and editing, terminal, Git, and subagents; third-party plugins can register new tabs.
+links:
+  source: https://github.com/omdsh-dev/DSH-better-sidebar
+  detail_zh: https://52dsh.com/plugins/omdsh-dev-dsh-better-sidebar/
+  tutorial_zh: https://52dsh.com/tutorials/omdsh-dev-dsh-better-sidebar-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

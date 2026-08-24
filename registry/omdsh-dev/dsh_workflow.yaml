@@ -1,0 +1,51 @@
+schema_version: 1
+id: github:omdsh-dev/dsh_workflow
+slug: omdsh-dev-dsh-workflow
+name: dsh_workflow
+repository:
+  url: https://github.com/omdsh-dev/dsh_workflow
+  commit: 44b83c182aa02d1be8a0803e8446cb495f93cd8f
+package:
+  ecosystem: npm
+  name: "@dsh-external/workflow"
+  version: 0.1.2
+  install_spec: github:omdsh-dev/dsh_workflow#44b83c182aa0
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.1.2，要求 Node.js 22.19 或 24+，peer 依赖声明早期 DSH 0.0.1-rc.2 组件并另带 compatibility.json；本站完成固定提交静态审阅，未在当前 DSH 0.1.1-rc.2 上运行兼容性和多 Agent 压力测试
+category: agent
+topics:
+  - agent
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - command_execution
+    - network_access
+    - credentials
+    - session_data
+    - agent_orchestration
+  notes: 可生成并运行 Workflow、派发多个子 Agent、读取工作区、保存脚本和运行产物、停止任务及申请审批；可信本地 Workflow 模块可拥有高权限并执行宿主能力
+  data_flow: 用户命令或 run_workflow 工具 → 主 Agent 调查工作区并生成受限 Capsule/可信本地 Workflow → preflight、预算和审批 → DSH 子 Agent 并行或流水执行 → 事件、快照、产物、结果与 usage 持久化后返回主会话。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的入口、运行时、Service、Capsule VM、来源策略、持久 Store 和审阅流程。受限 Capsule 使用 capability-only API、JSON 边界、并发/Agent/Token 上限和分级审批；但可信本地模块仍可执行高权限逻辑，生成流程也会把工作区证据交给模型和子 Agent。当前 peer 版本较旧，应先通过仓库兼容性检查；仅运行可读源码、固定提交且权限范围明确的 Workflow。
+summary:
+  zh: 把一次性子 Agent 调度升级为可命名、生成、保存、暂停、恢复、重跑和审计的持久 Workflow 层，并记录运行图、证据、产物、预算和成本。
+links:
+  source: https://github.com/omdsh-dev/dsh_workflow
+  detail_zh: https://52dsh.com/plugins/omdsh-dev-dsh-workflow/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

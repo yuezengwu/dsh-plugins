@@ -1,0 +1,49 @@
+schema_version: 1
+id: github:yelebai/dsh-plugin-marketplace
+slug: yelebai-dsh-plugin-marketplace
+name: dsh-plugin-marketplace
+repository:
+  url: https://github.com/YELEBAI/dsh-plugin-marketplace
+  commit: b578f8adaabf3935757102612f78bc7a45201b7f
+package:
+  ecosystem: npm
+  name: dsh-plugin-marketplace
+  version: 0.9.2
+  install_spec: github:YELEBAI/dsh-plugin-marketplace#b578f8adaabf
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.9.2、MIT，DSH app-boot/typert peer 为 0.1.0-rc.5，要求 Node.js >=18；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、真实 Profile、外部插件目录、冲突恢复或远端 Registry 变更下运行
+category: management
+topics:
+  - management
+permissions:
+  status: reviewed
+  capabilities:
+    - network_access
+    - remote_control
+    - ui_injection
+    - plugin_management
+  notes: 可读取和改写目标 Profile 的依赖与 bundle 状态，执行安装、更新、卸载、启停、插件自身更新和 DSH 重启；自动安装使用固定 npm 版本或 Git commit，禁用 lifecycle scripts，引导安装经 Agent 权限与审批管线
+  data_flow: 远端或内置 Registry → schema、来源和精确版本校验 → 本机 Typert Remote 设置页 → 用户操作队列、冲突检查与 Profile 备份 → pnpm/DSH 插件配置和重启；操作结果返回同一设置页。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 Registry 客户端、安装位置、自动/引导安装、操作队列、冲突检查、Profile 写入、自更新和重启。它不暴露原始无保护 HTTP 管理路由，自动安装使用精确来源并关闭 lifecycle scripts，Agent 路径保留原生审批；但市场本质上拥有软件供应链和 Profile 管理权，远端 Registry 仍是可变信任源，卸载/更新/重启可能中断正在运行的任务。每次核对仓库、许可证和固定版本，先备份 Profile，高风险插件仍按本站源码审计结论决定是否安装。
+summary:
+  zh: 在 DSH 设置中提供社区插件市场，支持经校验的 Registry 浏览、精确版本安装、引导式 Agent 安装、更新、启停、卸载、自更新和重启。
+links:
+  source: https://github.com/YELEBAI/dsh-plugin-marketplace
+  detail_zh: https://52dsh.com/plugins/yelebai-dsh-plugin-marketplace/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

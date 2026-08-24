@@ -1,0 +1,48 @@
+schema_version: 1
+id: github:hellodigua/dsh-share
+slug: hellodigua-dsh-share
+name: dsh-share
+repository:
+  url: https://github.com/hellodigua/dsh-share
+  commit: c109330b755c793cbc701a4e6a972d620a6667da
+package:
+  ecosystem: npm
+  name: dsh-share
+  version: 0.3.1
+  install_spec: github:hellodigua/dsh-share#c109330b755c
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.1.0-rc.6；本站尚未运行实测
+category: interface
+topics:
+  - session
+  - interface
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 注入 Web 客户端并改变界面或交互；核对浏览器侧数据访问范围
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 分享单轮或选定的多轮 DSH 对话，并导出为 PNG 图片或 Markdown。
+  en: Share your conversations with one click.
+links:
+  source: https://github.com/hellodigua/dsh-share
+  detail_zh: https://52dsh.com/plugins/hellodigua-dsh-share/
+  tutorial_zh: https://52dsh.com/tutorials/hellodigua-dsh-share-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

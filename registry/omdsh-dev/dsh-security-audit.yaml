@@ -1,0 +1,46 @@
+schema_version: 1
+id: github:omdsh-dev/dsh-security-audit
+slug: omdsh-dev-dsh-security-audit
+name: dsh-security-audit
+repository:
+  url: https://github.com/omdsh-dev/dsh-security-audit
+  commit: ae927be8c92e483a8c8739b32831c0a237c0ed01
+package:
+  ecosystem: npm
+  name: "@deepseek-ai/dsh-security-audit"
+  version: 0.0.1
+  install_spec: github:omdsh-dev/dsh-security-audit#ae927be8c92e
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 >=0.0.1-rc.1 <0.2.0；本站尚未运行实测
+category: security
+topics:
+  - security
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 涉及权限、凭据或安全策略；安装前应完成主要入口和失效模式审阅
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 只读检查本机 DSH 配置、插件来源、Session 和网络暴露面，生成经过脱敏的风险报告。
+  en: "Local security audit: config, plugin origins, sessions, network exposure — read-only redacted risk report."
+links:
+  source: https://github.com/omdsh-dev/dsh-security-audit
+  detail_zh: https://52dsh.com/plugins/omdsh-dev-dsh-security-audit/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

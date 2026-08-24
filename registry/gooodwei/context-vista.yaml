@@ -1,0 +1,58 @@
+schema_version: 1
+id: github:gooodwei/context-vista
+slug: gooodwei-context-vista
+name: context-vista
+repository:
+  url: https://github.com/GooodWei/context-vista
+  commit: a26cd744557d5d537a801bd5f51853658b70971a
+package:
+  ecosystem: npm
+  name: context-vista
+  version: 0.1.0
+  install_spec: github:GooodWei/context-vista#a26cd744557d
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.1.0、MIT，peer 依赖面向 DSH 0.1.0-rc.6 与 React 18；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、长会话、不同 Provider 定价、压缩边界或多子 Agent 并发下运行
+category: management
+topics:
+  - usage
+  - management
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - filesystem_write
+    - command_execution
+    - network_access
+    - credentials
+    - browser_control
+    - session_data
+    - ui_injection
+    - agent_orchestration
+  notes: 读取当前 Session 的 Token、上下文压力、模型路由和子 Agent 投影，在 DSH Home 本地持久化费用累加结果；Web 端可触发现有 /compact 命令，不读取 API Key、不执行 Shell，也不向外部服务发送数据
+  data_flow: DSH Session 事件、Token 投影和模型 baseURL → 本地按模型与峰谷定价计算 → /context 卡片及浏览器悬浮环形图；累计费用写入本机 DSH Home，压缩按钮只调用宿主已有 /compact。
+risk_level: medium
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的命令、投影、主/子 Agent 归属、价格匹配、费用持久化、设置读取和客户端压缩入口。插件不采集遥测且不读取模型凭据，但费用只是依据用户配置或内置价格的估算，Provider baseURL 会作为路由键进入客户端定价投影，持久化文件含 Session ID 与用量成本。不要把结果当作正式账单；自定义 Provider 应核对币种、时区和价格，并按本地敏感使用元数据保护 DSH Home。
+summary:
+  zh: 为 DSH 增加 /context 上下文用量卡片和可收起的实时悬浮环形图，展示 Token 组成、压缩收益、主/子 Agent 消耗与按模型估算费用。
+  en: A right-side floating panel and /context command for DeepSeek Harness — a live donut chart of context token usage, allocation, and estimated cost.
+links:
+  source: https://github.com/GooodWei/context-vista
+  detail_zh: https://52dsh.com/plugins/gooodwei-context-vista/
+  tutorial_zh: https://52dsh.com/tutorials/gooodwei-context-vista-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

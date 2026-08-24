@@ -1,0 +1,56 @@
+schema_version: 1
+id: github:shaobeichen/dsh-pocket
+slug: shaobeichen-dsh-pocket
+name: dsh-pocket
+repository:
+  url: https://github.com/shaobeichen/dsh-pocket
+  commit: 4cdd3ec04ab8943c0264c344ad4779c4727402ef
+package:
+  ecosystem: npm
+  name: dsh-pocket
+  version: 1.9.2
+  install_spec: github:shaobeichen/dsh-pocket#4cdd3ec04ab8
+license:
+  spdx: GPL-2.0
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 1.9.2，声明 Node.js >=22 和 @deepseek-ai/cordis ^4.0.1；本站完成固定提交静态审阅，未运行公网隧道、移动浏览器或跨平台重启测试
+category: remote
+topics:
+  - notify
+  - remote
+permissions:
+  status: reviewed
+  capabilities:
+    - network_access
+    - credentials
+    - browser_control
+    - remote_control
+    - session_data
+    - ui_injection
+    - plugin_management
+  notes: 默认在 0.0.0.0 启动局域网代理并透传 DSH HTTP/WebSocket；可下载并执行 cloudflared、执行 dsh plugin update 和重启辅助进程，已通过 PIN 的远程浏览器拥有对应 DSH Web 能力
+  data_flow: 手机浏览器 → 局域网代理或 Cloudflare Quick Tunnel → PIN Cookie/查询参数校验 → 回环 127.0.0.1 上的 DSH Web 与事件 WebSocket → 会话、工具和结果原路返回；PIN、设置和下载的 cloudflared 保存在 $DSH_HOME/dsh-pocket。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的插件入口、代理、HTTP/WebSocket 透传、PIN、隧道、更新和重启代码。公网 PIN 每次开隧道轮换、Cookie 为 HttpOnly/SameSite=Lax，但局域网 PIN 可关闭且默认代理监听所有网卡；更重要的是插件会从 GitHub 及第三方镜像下载最新版 cloudflared 后直接执行，未看到固定版本或校验和验证。建议预先从可信渠道安装 cloudflared、启用局域网 PIN、不要转发 3081 端口，并把获得 PIN 的设备视为拥有完整 DSH Web 权限。
+summary:
+  zh: 为 DSH Web 增加手机布局、局域网反向代理和可选 Cloudflare Quick Tunnel，让手机通过同屏会话远程访问电脑上的 DSH。
+  en: "Remote phone access to the DSH Web UI: scan a QR code for LAN or public (cloudflared tunnel) access with real-time sync, a mobile-adaptive layout, and a settings tab."
+links:
+  source: https://github.com/shaobeichen/dsh-pocket
+  detail_zh: https://52dsh.com/plugins/shaobeichen-dsh-pocket/
+  tutorial_zh: https://52dsh.com/tutorials/shaobeichen-dsh-pocket-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

@@ -1,0 +1,52 @@
+schema_version: 1
+id: github:mjorgin/dsh-media-skills
+slug: mjorgin-dsh-media-skills
+name: dsh-media-skills
+repository:
+  url: https://github.com/MJorgin/dsh-media-skills
+  commit: 9a8e50c11720fb0a1a44c8bbf39793273890b2cd
+package:
+  ecosystem: npm
+  name: dsh-media-skills
+  version: 0.2.0
+  install_spec: github:MJorgin/dsh-media-skills#9a8e50c11720
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.2.0、MIT，README 面向 DSH 0.1.0-rc.7/rc.8 与 0.1.1-rc.1，未声明 DSH peer 约束；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、真实付费 Key、多图批次、代理或 Provider 故障转移下运行
+category: vision
+topics:
+  - vision
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - filesystem_write
+    - command_execution
+    - network_access
+    - credentials
+  notes: 模型可通过 Skill 调用 Python 脚本读取指定图片、把图片与提示词发送给外部视觉服务、下载生成结果到指定路径；插件会写入缺失的 llm-pi-ai Provider 设置，脚本还可读取 DSH/Codex secrets 与 DSH credentials
+  data_flow: 本地图片或生成提示词 → Python 压缩/Base64 与 Provider 选择 → 智谱、DeepSeek、SiliconFlow、商汤、Gemini 或用户显式配置的兼容 endpoint → 分析文本或远端图片 URL → 本地输出文件；API Key 仅用于请求头并从环境、secrets 或凭据库读取。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 Skill 指令、Provider 设置注入、凭据读取、视觉请求、故障转移和图片下载逻辑。默认 endpoint 固定且文档提示隐私，但只要对应 Key 存在便会自动加入回退链，可能把同一图片依次发送给多家服务并触发付费 DeepSeek；VISION_FALLBACKS 和 DEEPSEEK_BASE_URL 还可指向自定义服务，输出路径由调用参数决定。只处理允许交给所选服务商的数据，敏感图片钉死单一 Provider，关闭不需要的 Key/回退，确认费用与数据条款，并让 DSH 文件/命令审批继续生效。
+summary:
+  zh: 为 DSH 提供中文读图审查与图片生成 Skills，并在未配置时补充智谱和商汤视觉模型路由；支持多家视觉服务故障转移。
+  en: "Free vision bridge and image generation for text-only models: paste-image reading, GLM-4V-Flash and Gemini engine failover, ModLens-style structured evidence, and a seeded free vision model route."
+links:
+  source: https://github.com/MJorgin/dsh-media-skills
+  detail_zh: https://52dsh.com/plugins/mjorgin-dsh-media-skills/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

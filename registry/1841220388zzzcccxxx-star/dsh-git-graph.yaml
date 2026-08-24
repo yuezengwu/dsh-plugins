@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:1841220388zzzcccxxx-star/dsh-git-graph
+slug: 1841220388zzzcccxxx-star-dsh-git-graph
+name: dsh-git-graph
+repository:
+  url: https://github.com/1841220388zzzcccxxx-star/dsh-git-graph
+  commit: 2dc485e72e323a80f7b7915c2437a2c7a21cccc1
+package:
+  ecosystem: npm
+  name: dsh-git-graph
+  version: 0.11.0
+  install_spec: github:1841220388zzzcccxxx-star/dsh-git-graph#2dc485e72e32
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 包含 dsh.bundle；未声明明确 DSH peer 版本，本站尚未运行实测
+category: development
+topics:
+  - development
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取或修改工作区；核对文件写入、命令执行和回滚方式
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 在 DSH Web GUI 中嵌入 Git 仓库图谱，展示提交历史、分支筛选、文件差异和未提交修改。
+links:
+  source: https://github.com/1841220388zzzcccxxx-star/dsh-git-graph
+  detail_zh: https://52dsh.com/plugins/1841220388zzzcccxxx-star-dsh-git-graph/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

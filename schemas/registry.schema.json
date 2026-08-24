@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/tuofangzhe/dsh-plugins/schemas/registry.schema.json",
+  "title": "52DSH Plugin Registry generated dataset",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "generated_at", "count", "items"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "count": { "type": "integer", "minimum": 0 },
+    "items": { "type": "array", "items": { "$ref": "plugin.schema.json" } }
+  }
+}
+

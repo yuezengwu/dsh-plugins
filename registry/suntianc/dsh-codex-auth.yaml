@@ -1,0 +1,54 @@
+schema_version: 1
+id: github:suntianc/dsh-codex-auth
+slug: suntianc-dsh-codex-auth
+name: dsh-codex-auth
+repository:
+  url: https://github.com/suntianc/dsh-codex-auth
+  commit: 0376f981dd2e7fe2e3b9bdd1ebc8147f757c0e9e
+package:
+  ecosystem: npm
+  name: dsh-codex-auth
+  version: 0.2.3
+  install_spec: github:suntianc/dsh-codex-auth#0376f981dd2e
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.2.3、MIT，要求 Node.js ^22.19 或 >=24，主要 DSH peer 面向 0.1.1-rc.1；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、真实 ChatGPT 套餐、OAuth 刷新、SSE/WebSocket、搜索或图像接口下运行，相关非公开后端行为可能变化
+category: infrastructure
+topics:
+  - model
+  - infrastructure
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - filesystem_write
+    - network_access
+    - credentials
+    - browser_control
+    - session_data
+  notes: Host 读取并原子刷新 ~/.codex/auth.json，loopback RPC 可查看状态/用量和启动官方 codex login；模型、搜索、图像请求携带 Host 内存中的 ChatGPT Token，图像工具可读取当前工作区内图片并写入 Session 附件存储
+  data_flow: Codex CLI auth.json/官方 OAuth 刷新 → Host-only Token 与账号信息 → ChatGPT Codex 模型、Web Search 或图像端点；提示词、查询和用户明确引用的 Session/工作区图片发送到 OpenAI，搜索结果或验证后的图像保存为当前会话内容，Token 不进入浏览器、日志、工具元数据或结果。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的版本化 auth 文件快照、OAuth 刷新和 0600 原子写、官方 CLI 启动、loopback RPC、LLM 适配、搜索响应限额、图像资格与工作区路径围栏。凭据边界较完整，HTTP 图片引用被拒绝，Session Image Handle 需出现在会话历史；但它复用个人 ChatGPT 登录与非公开 Codex 后端，可能受套餐、地区、账号政策和上游接口变化影响，搜索与图像会把内容发送给 OpenAI。使用前核对服务条款与账号权限，不与另一 openai-codex 路由重复安装，敏感查询和图片不要提交，升级后重新验证 OAuth、模型和媒体行为。
+summary:
+  zh: 复用本机 Codex CLI 的 ChatGPT 登录状态，为 DSH 提供 openai-codex 模型路由、Codex Web Search 和可持久化的图像生成与编辑能力。
+  en: Reuses the Codex CLI ChatGPT login as an `openai-codex` LLM route and adds GPT Auth controls to DSH Web settings.
+links:
+  source: https://github.com/suntianc/dsh-codex-auth
+  detail_zh: https://52dsh.com/plugins/suntianc-dsh-codex-auth/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

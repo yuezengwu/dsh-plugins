@@ -1,0 +1,53 @@
+schema_version: 1
+id: github:juanwang-buaa/dsh-full-remote
+slug: juanwang-buaa-dsh-full-remote
+name: dsh-full-remote
+repository:
+  url: https://github.com/JUANWANG-BUAA/dsh-full-remote
+  commit: 83d3957c9f2f1b61a51621af0ff4d82707155eb1
+package:
+  ecosystem: npm
+  name: dsh-full-remote
+  version: 0.3.7
+  install_spec: github:JUANWANG-BUAA/dsh-full-remote#83d3957c9f2f
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.3.7、MIT，要求 Node.js ^22.19 或 24+，DSH client peer >=0.1.0-rc.5 <0.2.0；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、真实公网隧道、多设备审批、SSE/WebSocket 或 TLS 终止环境运行
+category: remote
+topics:
+  - remote
+permissions:
+  status: reviewed
+  capabilities:
+    - network_access
+    - credentials
+    - browser_control
+    - remote_control
+    - session_data
+    - ui_injection
+  notes: 代理经过认证的完整 DSH Web、API、SSE 和 WebSocket，远程设备因此可接触 Session、设置、凭据操作、文件和工具审批；插件另可管理设备、邀请、访问策略并下载经 SHA-256 固定校验的 Cloudflare quick tunnel 二进制
+  data_flow: 远程浏览器请求与设备 Token → 会话哈希、可选人工审批、限流和 CIDR 检查 → 重写为 loopback Host/Origin 后转发本机 DSH Web → 页面、Session、文件和工具结果返回设备；控制面只接受真实回环 socket、随机控制头与回环 Origin。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的会话、邀请、控制路由、反向代理、Header 清洗、请求体上限、审计和隧道下载。默认只监听 127.0.0.1，主 Token 为 192-bit 且以 0600 保存，持久化只保留设备会话哈希，控制前缀不会穿透代理；但一旦放到公网或发出邀请，远程设备获得的是完整 DSH Web 权限，错误的 TLS/反代配置、Token 泄露或宽 CIDR 都可能暴露凭据和主机操作能力。优先 Tailscale/受控反代，开启设备审批和最小 CIDR，定期轮换并撤销设备。
+summary:
+  zh: 在 DSH 回环 Web 前提供带设备会话、一次性邀请、可选人工准入、限流、CIDR 和审计的反向代理，让手机或远程浏览器使用完整 DSH Web。
+  en: Remote DeepSeek Harness with full server-side API access (`settings.*` / `credentials.*` / `host.listDirectory`). Token-gated reverse proxy, per-device sessions, phone invite QR, fence self-check, optional approval / CIDR / idle timeout / local TLS, WebSocket/SSE.
+links:
+  source: https://github.com/JUANWANG-BUAA/dsh-full-remote
+  detail_zh: https://52dsh.com/plugins/juanwang-buaa-dsh-full-remote/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

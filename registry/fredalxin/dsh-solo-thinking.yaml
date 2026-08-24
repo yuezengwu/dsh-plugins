@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:fredalxin/dsh-solo-thinking
+slug: fredalxin-dsh-solo-thinking
+name: dsh-solo-thinking
+repository:
+  url: https://github.com/fredalxin/dsh-solo-thinking
+  commit: a77f3bb45ae8557df8a849e03ca0ed0b2d1a9e5d
+package:
+  ecosystem: npm
+  name: dsh-plugin-solo-thinking
+  version: 0.1.19
+  install_spec: github:fredalxin/dsh-solo-thinking#a77f3bb45ae8
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.1.0-rc.6；本站尚未运行实测
+category: agent
+topics:
+  - session
+  - agent
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可创建、调度或影响 Agent 任务；核对工具、审批和并发边界
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 提供隔离的独立头脑风暴分支和 Handoff，让探索过程不直接污染主会话上下文。
+  en: Visual branch brainstorming that creates an isolated Session for each direction, automates parent, sibling, checkpoint, and return Handoffs, and provides a full tree tab with an optional Better Sidebar view.
+links:
+  source: https://github.com/fredalxin/dsh-solo-thinking
+  detail_zh: https://52dsh.com/plugins/fredalxin-dsh-solo-thinking/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

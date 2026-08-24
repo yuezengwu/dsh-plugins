@@ -1,0 +1,53 @@
+schema_version: 1
+id: github:anionex/dsh-turn-rewind
+slug: anionex-dsh-turn-rewind
+name: dsh-turn-rewind
+repository:
+  url: https://github.com/Anionex/dsh-turn-rewind
+  commit: b1b85f18aaaaf71d76c84613429ce04d71f69620
+package:
+  ecosystem: npm
+  name: "@anionex/dsh-turn-rewind"
+  version: 0.1.1
+  install_spec: github:Anionex/dsh-turn-rewind#b1b85f18aaaa
+license:
+  spdx: BSD-3-Clause
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.1.1，要求 Node.js 22.19 或 24+，仅显式声明 Cordis ^4.0.1；本站完成固定提交静态审阅，未在 sparse checkout、submodule、二进制大文件或恢复失败场景运行
+category: development
+topics:
+  - session
+  - development
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - filesystem_write
+    - command_execution
+    - session_data
+  notes: 执行只读 Git 命令、读取和覆盖工作区 tracked/untracked 文件、创建或删除内容寻址快照，并通过同源 Web 路由执行用户确认的恢复；不修改 Git index、分支、HEAD、stash 或 commit
+  data_flow: Git worktree、HEAD 和文件内容 → 本机 Change Ledger 恢复点 → 会话绑定的短期预览计划与确认码 → 用户最终确认 → 先建救援点再恢复并做哈希验证 → 可选从该 Turn 派生新会话。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 Git 边界、路径规范化、快照、恢复引擎、事务 Store 和 Web Host。实现拒绝 symlink 父路径、stale plan、特殊文件、超限内容和 Git 控制面修改，并在恢复前自动建救援点；但恢复本质上会覆盖或删除用户工作区文件，忽略文件、submodule 和 sparse checkout 也不在支持范围。使用前仍应提交或外部备份重要改动，并逐项核对恢复列表。
+summary:
+  zh: 为 Git 工作区建立 Turn 级文件恢复点，在 Web 中预览全部或部分恢复计划，并可恢复文件后从对应会话轮次继续，同时保留救援点和操作日志。
+  en: Rewind conversation and workspace state, powered by a persistent Change Ledger.
+links:
+  source: https://github.com/Anionex/dsh-turn-rewind
+  detail_zh: https://52dsh.com/plugins/anionex-dsh-turn-rewind/
+  tutorial_zh: https://52dsh.com/tutorials/anionex-dsh-turn-rewind-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

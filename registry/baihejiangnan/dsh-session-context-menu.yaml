@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:baihejiangnan/dsh-session-context-menu
+slug: baihejiangnan-dsh-session-context-menu
+name: dsh-session-context-menu
+repository:
+  url: https://github.com/baihejiangnan/dsh-session-context-menu
+  commit: fc9ab4692fc9d1d9825b671c56abf21aeabca938
+package:
+  ecosystem: npm
+  name: "@baihejiangnan/dsh-session-context-menu"
+  version: 0.2.14
+  install_spec: github:baihejiangnan/dsh-session-context-menu#fc9ab4692fc9
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 >=0.1.0-rc.6；本站尚未运行实测
+category: interface
+topics:
+  - interface
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 注入 Web 客户端并改变界面或交互；核对浏览器侧数据访问范围
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 为 DSH 应用封装端提供更完整的原生风格会话右键菜单。
+links:
+  source: https://github.com/baihejiangnan/dsh-session-context-menu
+  detail_zh: https://52dsh.com/plugins/baihejiangnan-dsh-session-context-menu/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

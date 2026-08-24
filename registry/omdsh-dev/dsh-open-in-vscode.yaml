@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:omdsh-dev/dsh-open-in-vscode
+slug: omdsh-dev-dsh-open-in-vscode
+name: dsh-open-in-vscode
+repository:
+  url: https://github.com/omdsh-dev/dsh-open-in-vscode
+  commit: 8aed144abdc158a332aa73bce42fc217d962f751
+package:
+  ecosystem: npm
+  name: dsh-open-in-vscode
+  version: 0.1.6
+  install_spec: github:omdsh-dev/dsh-open-in-vscode#8aed144abdc1
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 *；本站尚未运行实测
+category: development
+topics:
+  - notify
+  - development
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取或修改工作区；核对文件写入、命令执行和回滚方式
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 从 DSH Web GUI 直接在 VS Code 中打开当前工作区目录。
+  en: Open DSH workspace directories in VS Code directly from the web GUI.
+links:
+  source: https://github.com/omdsh-dev/dsh-open-in-vscode
+  detail_zh: https://52dsh.com/plugins/omdsh-dev-dsh-open-in-vscode/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

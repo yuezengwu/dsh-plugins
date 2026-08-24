@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:zhaiyateng/dsh-design-skills
+slug: zhaiyateng-dsh-design-skills
+name: dsh-design-skills
+repository:
+  url: https://github.com/zhaiyateng/dsh-design-skills
+  commit: 741272753c257c9b48fb60b015b4ecdb438d86e3
+package:
+  ecosystem: npm
+  name: dsh-design-skills
+  version: 0.1.0
+  install_spec: github:zhaiyateng/dsh-design-skills#741272753c25
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 包含 dsh.bundle；未声明明确 DSH peer 版本，本站尚未运行实测
+category: development
+topics:
+  - skill
+  - development
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取或修改工作区；核对文件写入、命令执行和回滚方式
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 提供 dark-saas、Apple 极简、新拟态、粗野主义、玻璃拟态和日式极简六套网站设计 Skill。
+  en: "Design-aesthetics skill pack (10 styles: dark SaaS, minimal white, neumorphism, brutalism, glassmorphism, Japanese minimal, bento grid, cyberpunk, vaporwave, art deco) with runnable landing-page demos: tokens, component rules, forbidden lists, and acceptance checklists per style."
+links:
+  source: https://github.com/zhaiyateng/dsh-design-skills
+  detail_zh: https://52dsh.com/plugins/zhaiyateng-dsh-design-skills/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

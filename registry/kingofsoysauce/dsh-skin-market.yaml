@@ -1,0 +1,54 @@
+schema_version: 1
+id: github:kingofsoysauce/dsh-skin-market
+slug: kingofsoysauce-dsh-skin-market
+name: dsh-skin-market
+repository:
+  url: https://github.com/kingOfSoySauce/dsh-skin-market
+  commit: 6cd79fa827d5acc69917ea25e3be99b70be9e925
+package:
+  ecosystem: npm
+  name: dsh-skin-market
+  version: 0.1.32
+  install_spec: github:kingOfSoySauce/dsh-skin-market#6cd79fa827d5
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.1.32，仅显式声明 Cordis ^4.0.1，未声明完整 DSH peer 版本范围；本站完成固定提交静态审阅，未真实安装皮肤、执行 Profile 重启或验证全部目录素材授权
+category: management
+topics:
+  - market
+  - management
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_write
+    - command_execution
+    - network_access
+    - session_data
+    - ui_injection
+    - plugin_management
+  notes: 通过 DSH Profile 包管理器安装第三方皮肤包，修改 package.json 与 Loader 注册，运行 pnpm/DSH 子进程，更新市场自身，并在确认没有 Agent 运行后调度 DSH 重启
+  data_flow: 仓库内固定 Commit 皮肤目录与 npm 元数据 → 市场 Host 校验和同源 Web 操作 → DSH plugin add/remove 与 Profile 配置 → 皮肤客户端加载；操作状态和预览返回 Web，更新从 npm Registry 获取固定版本。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的目录、写操作路由、同源检查、Profile 修改、生命周期、自更新和重启门禁。所有安装/卸载/更新 POST 都要求 Origin 与 Host 同源，目录要求完整 Commit、包名、rowId 和许可证；但安装皮肤仍会执行第三方 npm 包及可能的生命周期脚本，市场可修改 Loader 并重启宿主，同源不等同于用户身份。不要把 DSH Web 暴露到不可信网络，只安装已审阅皮肤，并在重启前保存会话和备份 Profile。
+summary:
+  zh: 在 DSH 设置页浏览、安装、启用、停用、固定、更新和卸载社区皮肤，维护固定 Commit 目录、预览素材、冲突检查、自更新和安全重启。
+  en: Native skin marketplace and lifecycle manager that discovers community skins, displays previews and compatibility status, and provides verified one-click or manual installation paths.
+links:
+  source: https://github.com/kingOfSoySauce/dsh-skin-market
+  detail_zh: https://52dsh.com/plugins/kingofsoysauce-dsh-skin-market/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

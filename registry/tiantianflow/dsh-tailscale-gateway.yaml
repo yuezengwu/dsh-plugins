@@ -1,0 +1,52 @@
+schema_version: 1
+id: github:tiantianflow/dsh-tailscale-gateway
+slug: tiantianflow-dsh-tailscale-gateway
+name: dsh-tailscale-gateway
+repository:
+  url: https://github.com/TiantianFlow/dsh-tailscale-gateway
+  commit: 1a578019dfa2374223e469519e4a1e269d2e8e38
+package:
+  ecosystem: npm
+  name: dsh-tailscale-gateway
+  version: 0.1.0
+  install_spec: github:TiantianFlow/dsh-tailscale-gateway#1a578019dfa2
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.1.0、MIT，要求 Node.js >=20，未声明 DSH peer 版本；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、真实 Tailnet ACL、Serve 版本、WebSocket、反向代理或移动端远程会话下运行
+category: remote
+topics:
+  - remote
+permissions:
+  status: reviewed
+  capabilities:
+    - command_execution
+    - network_access
+    - credentials
+    - remote_control
+    - plugin_management
+  notes: 插件安装后默认 disabled；显式启用时由 DSH Subprocess 启动固定 sidecar，只绑定 127.0.0.1:3088，可选择调用解析后的绝对 tailscale 可执行文件配置 Serve，并把获准远程请求代理到 127.0.0.1:3080
+  data_flow: Tailscale Serve 在本机注入登录身份 → 回环 sidecar 校验真实 peer、唯一 Host/Origin、Fetch Site 和精确 trustedLogins → 清除 Cookie、Authorization、Tailscale 与代理头后转发 DSH Web → 响应移除 Set-Cookie/CORS/代理凭据并重写安全头；WebSocket 使用独立最小允许头。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的安全配置、默认禁用、固定监听/上游、Tailscale Serve 状态确认、原始重复 Header 拒绝、常量时间登录匹配、HTTP/WebSocket 代理和上下游 Header 清理。身份头只能在真实 127.0.0.1 peer、正确 *.ts.net Host 与 Origin 下生效，明显降低伪造风险；但启用后仍会把完整 DSH 控制面交给允许账号，Tailnet 账号、设备、ACL、DNS 与 Serve 配置均成为安全边界。只列最小 trustedLogins，禁止 Funnel，保护 Tailnet 账户并启用 MFA，升级 Tailscale 或变更反向代理后重新验证 Host/Origin/WebSocket 和直接访问失败行为。
+summary:
+  zh: 通过仅监听本机回环的受控反向代理和 Tailscale Serve，把 DSH Web 安全地提供给指定 Tailnet 登录账号远程使用。
+  en: Private Tailscale access for DeepSeek Harness Web that allowlists users from the trusted Tailscale-User-Login header that Serve injects, with a loopback-only gateway and guarded Serve setup.
+links:
+  source: https://github.com/TiantianFlow/dsh-tailscale-gateway
+  detail_zh: https://52dsh.com/plugins/tiantianflow-dsh-tailscale-gateway/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

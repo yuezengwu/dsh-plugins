@@ -1,0 +1,50 @@
+schema_version: 1
+id: github:ma-pony/deepspider
+slug: ma-pony-deepspider
+name: deepspider
+repository:
+  url: https://github.com/ma-pony/deepspider
+  commit: c922ce6d1a28658aa82cb3bc131d6170384c54a5
+package:
+  ecosystem: npm
+  name: deepspider
+  version: 1.0.0
+  install_spec: github:ma-pony/deepspider#c922ce6d1a28
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: review
+  compatibility_notes: 插件版本 1.0.0、MIT，要求 Node.js >=24.15，直接依赖 DSH latest 与多个 next 包，安装时下载 Patchright Chromium；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、真实反爬站点、sdenv 原生构建或长期多 Session 下运行
+category: browser
+topics:
+  - browser
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - command_execution
+    - network_access
+    - browser_control
+    - session_data
+  notes: 向 Agent 注册页面导航、点击、输入、脚本求值、预加载注入、网络/响应读取、Debugger、Hook、反调试和恢复工具；Spider preset 还启用 Shell、文件与后台任务，浏览器关闭同源策略并忽略证书错误
+  data_flow: 目标 URL、页面操作与站点脚本 → Session 隔离的 Patchright/CDP 浏览器和私有 Artifact Store → 可选 sdenv 子进程重新执行站点语义 → CycleTLS 真实请求验证 → Solver、证据、截图和诊断保存在 ~/.deepspider/sessions 的哈希 Session 目录。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 DSH Host/Agent 入口、工具注册、Session 路径、Artifact Store、浏览器启动、sdenv Worker 与验证请求。Session 目录使用哈希键和 0700/0600 权限，Worker 环境只保留有限系统/代理变量并有超时退出；但该插件有意提供高权限浏览器、任意页面脚本求值、内部网络访问、反检测和 JavaScript 逆向能力，默认忽略 TLS 错误且依赖 latest/next。只分析自有或已授权目标，使用隔离系统账号和专用网络，不在浏览器中登录高价值账号，升级 DSH 后重新验证依赖。
+summary:
+  zh: 为 DSH 提供面向网页抓取与 JavaScript 逆向的浏览器工作台，结合 Patchright/CDP、网络与脚本证据、Hook/Debugger、独立语义运行时和真实请求验证导出可复现 Solver。
+links:
+  source: https://github.com/ma-pony/deepspider
+  detail_zh: https://52dsh.com/plugins/ma-pony-deepspider/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

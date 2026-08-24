@@ -1,0 +1,49 @@
+schema_version: 1
+id: github:polinnizhong/dsh-omi-voice
+slug: polinnizhong-dsh-omi-voice
+name: dsh-omi-voice
+repository:
+  url: https://github.com/PolinniZhong/dsh-omi-voice
+  commit: 92bf49d9bc17fa33eb48485c424d798b6eb5c97d
+package:
+  ecosystem: npm
+  name: dsh-omi-voice
+  version: 0.1.2
+  install_spec: github:PolinniZhong/dsh-omi-voice#92bf49d9bc17
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.1.2，需要 DSH Web、macOS Apple Silicon 和单独构建运行的 Omi DSH 引擎 0.1.2+，未声明 DSH peer 范围；本站完成固定提交静态审阅，未使用真实火山引擎账号、Keychain、音色或长文本计费实测
+category: integration
+topics:
+  - integration
+permissions:
+  status: reviewed
+  capabilities:
+    - network_access
+    - credentials
+    - browser_control
+    - ui_injection
+  notes: 浏览器读取用户手动选择的 Assistant 最终回答并调用 127.0.0.1:8765；Omi App 从 macOS Keychain 读取豆包 API Key，把清洗分段后的文本发送到火山引擎并控制本机音频播放和登录项
+  data_flow: 用户点击的 DSH 最终回答 → 本机 loopback Omi HTTP 服务 → 文本过滤、分段与内存缓存 → 豆包 TTS 外部接口 → 音频流在本机扬声器播放；API Key 只从 Keychain 进入 Omi 请求，不返回浏览器。
+risk_level: medium
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的客户端按钮、本机 HTTP 协议、Keychain、文本清洗、豆包流式合成、去重和内存缓存。引擎只绑定 127.0.0.1，CORS 仅回显 loopback Origin，Key 不回显且日志做敏感值脱敏；但 v1 本身无鉴权且请求处理未拒绝非 loopback Origin 的直接 POST，同机进程或潜在跨站请求可能触发付费朗读，正文也会发送到豆包。只在可信本机运行，敏感回答不要朗读，设置用量告警，并在不用时退出 Omi。
+summary:
+  zh: 在 DSH 回复旁增加手动朗读按钮，把清洗后的最终回答交给 macOS Omi 本机引擎，再用用户自己的豆包 TTS Key 流式合成、缓存并播放自然语音。
+links:
+  source: https://github.com/PolinniZhong/dsh-omi-voice
+  detail_zh: https://52dsh.com/plugins/polinnizhong-dsh-omi-voice/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:jing-hy/picturereader
+slug: jing-hy-picturereader
+name: picturereader
+repository:
+  url: https://github.com/jing-hy/picturereader
+  commit: 8aba6fcf804a9b2d1c06470d24f170d4069d1582
+package:
+  ecosystem: npm
+  name: picturereader
+  version: 3.0.6
+  install_spec: github:jing-hy/picturereader#8aba6fcf804a
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.1.0-rc.6；本站尚未运行实测
+category: tools
+topics:
+  - vision
+  - tools
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取用户提供的内容或调用外部工具；核对数据流、依赖和输出边界
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 为纯文本模型提供本地图像扫描、OCR 和像素采样工具，可选使用 PaddleOCR。
+  en: 'Image "reading" for text-only models: downscale + reduce color depth + structure/color fingerprints into text grids fed back to the conversation, letting the model zoom, sample and OCR autonomously like a multimodal model; fully local with zero external model dependency, ships an image-reading methodology skill and optional PaddleOCR.'
+links:
+  source: https://github.com/jing-hy/picturereader
+  detail_zh: https://52dsh.com/plugins/jing-hy-picturereader/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

@@ -1,0 +1,49 @@
+schema_version: 1
+id: github:1624318455/dsh-plugin-tavily
+slug: dsh-plugin-tavily
+name: DSH Tavily Search
+repository:
+  url: https://github.com/1624318455/dsh-plugin-tavily
+  commit: 04e096d0b465e86c971bc276155f52fb2e501abc
+package:
+  ecosystem: npm
+  name: "@dsh-external/dsh-plugin-tavily"
+  version: 0.3.1
+  install_spec: "@dsh-external/dsh-plugin-tavily@0.3.1"
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明多项 DSH 0.1.0-rc.6 peer 依赖；当前基线未实测
+category: browser
+topics:
+  - browser
+permissions:
+  status: reviewed
+  capabilities:
+    - network_access
+    - credentials
+  notes: 从凭据服务或环境变量读取 API Key，并把搜索词、待提取 URL 和 Bearer 凭据发送到配置的 Tavily 兼容端点
+  data_flow: DSH 搜索词或待提取 URL → 插件 Provider → 带 Bearer 凭据的 Tavily 兼容 API → 搜索结果或网页内容返回 Agent。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的入口、Provider 和探测路由：密钥优先经 DSH credentials seam 解析，不写入普通设置；搜索与网页提取会把查询或 URL 发送到可配置的外部 baseURL，本站未做真实 API 运行验证。
+summary:
+  zh: 把 Tavily 网页搜索能力和设置界面接入 DSH，适合需要实时公开网页资料的任务。
+  en: Tavily-backed web search provider for the built-in web_search tool, with a settings card for the API key, result count, and recency window.
+links:
+  source: https://github.com/1624318455/dsh-plugin-tavily
+  detail_zh: https://52dsh.com/plugins/dsh-plugin-tavily/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

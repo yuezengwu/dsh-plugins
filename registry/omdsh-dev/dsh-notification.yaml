@@ -1,0 +1,55 @@
+schema_version: 1
+id: github:omdsh-dev/dsh-notification
+slug: omdsh-dev-dsh-notification
+name: dsh-notification
+repository:
+  url: https://github.com/omdsh-dev/dsh-notification
+  commit: ddec603395a223deb46c75b74274c41849c6a131
+package:
+  ecosystem: npm
+  name: dsh-notification
+  version: 0.1.3
+  install_spec: github:omdsh-dev/dsh-notification#ddec603395a2
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.1.3，采用 DSH Bundle/Web Client 格式但 peer 依赖均为宽泛星号；本站完成固定提交静态审阅，未在不同浏览器、操作系统通知中心或后台标签页运行
+category: interface
+topics:
+  - notify
+  - interface
+permissions:
+  status: reviewed
+  capabilities:
+    - network_access
+    - credentials
+    - browser_control
+    - session_data
+    - ui_injection
+    - agent_orchestration
+  notes: 只读折叠会话最近一轮的结束原因、有限长度回复正文和工具名，读取会话标题，并在用户授予浏览器通知权限后把摘要显示到操作系统通知中心；偏好写入 localStorage
+  data_flow: DSH Session 日志 → Host 只读 notification projection → 浏览器规则、可见性和权限判断 → 系统 Notification 标题与有限正文；不调用模型、不注册工具、不向外部网络发送数据。
+risk_level: medium
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 Projection、客户端决策、规则、通知器和设置存储。插件不写会话、不改提示词、不增加 Token 消耗，子 Agent 通知默认跳过；自动扫描命中的 new Function 来自打包依赖而非插件动态执行路径。主要隐私风险是回复摘要可能出现在桌面、锁屏或系统通知历史中。共享设备应关闭正文敏感任务通知，使用关键词排除，并按需撤销浏览器 Notification 权限。
+summary:
+  zh: 在 DSH 会话完成、出错、中止、阻塞、等待交互或达到 Token 上限时，通过浏览器 Notification API 发送可配置的桌面通知。
+  en: Desktop notifications for turn completions, with per-outcome controls and keyword rules.
+links:
+  source: https://github.com/omdsh-dev/dsh-notification
+  detail_zh: https://52dsh.com/plugins/omdsh-dev-dsh-notification/
+  tutorial_zh: https://52dsh.com/tutorials/omdsh-dev-dsh-notification-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:omdsh-dev/dsh-office
+slug: omdsh-dev-dsh-office
+name: dsh-office
+repository:
+  url: https://github.com/omdsh-dev/dsh-office
+  commit: a59db95e2c763a48b97be8b96b3a81e6550af792
+package:
+  ecosystem: npm
+  name: "@huiliyi37/dsh-office"
+  version: 0.2.1
+  install_spec: github:omdsh-dev/dsh-office#a59db95e2c76
+license:
+  spdx: Apache-2.0
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.1.0-rc.5；本站尚未运行实测
+category: tools
+topics:
+  - tools
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取用户提供的内容或调用外部工具；核对数据流、依赖和输出边界
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 为 DSH 增加电子表格、PDF 和演示文稿的生成、读取与编辑工具。
+links:
+  source: https://github.com/omdsh-dev/dsh-office
+  detail_zh: https://52dsh.com/plugins/omdsh-dev-dsh-office/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

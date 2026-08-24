@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:sakaliolabs/dsh-code-ide
+slug: sakaliolabs-dsh-code-ide
+name: dsh-code-ide
+repository:
+  url: https://github.com/SakalioLabs/dsh-code-ide
+  commit: f0cab39070705e4ff895f54b67fb967c38ff88c2
+package:
+  ecosystem: npm
+  name: dsh-code-ide
+  version: 0.1.0-alpha.0
+  install_spec: github:SakalioLabs/dsh-code-ide#f0cab3907070
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 包含 dsh.bundle；未声明明确 DSH peer 版本，本站尚未运行实测
+category: development
+topics:
+  - development
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取或修改工作区；核对文件写入、命令执行和回滚方式
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 在 DeepSeek Harness 中加入 IDE 式代码审阅界面，作者强调尽量减少对原有界面的改动。
+links:
+  source: https://github.com/SakalioLabs/dsh-code-ide
+  detail_zh: https://52dsh.com/plugins/sakaliolabs-dsh-code-ide/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

@@ -1,0 +1,46 @@
+schema_version: 1
+id: github:thu-maic/dsh-openmaic
+slug: thu-maic-dsh-openmaic
+name: dsh-openmaic
+repository:
+  url: https://github.com/THU-MAIC/dsh-openmaic
+  commit: 09c1693cfe83224db89fdd4abd245ac9174d3a05
+package:
+  ecosystem: npm
+  name: "@openmaic/dsh-openmaic"
+  version: 0.4.0
+  install_spec: github:THU-MAIC/dsh-openmaic#09c1693cfe83
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 *；本站尚未运行实测
+category: tools
+topics:
+  - tools
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取用户提供的内容或调用外部工具；核对数据流、依赖和输出边界
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 把 OpenMAIC 教学能力接入 DSH，提供课堂、幻灯片、交互组件和苏格拉底式教学。
+  en: "OpenMAIC: classrooms, slides, interactive widgets, and Socratic teaching."
+links:
+  source: https://github.com/THU-MAIC/dsh-openmaic
+  detail_zh: https://52dsh.com/plugins/thu-maic-dsh-openmaic/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

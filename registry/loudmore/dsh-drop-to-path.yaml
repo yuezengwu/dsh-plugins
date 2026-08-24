@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:loudmore/dsh-drop-to-path
+slug: loudmore-dsh-drop-to-path
+name: dsh-drop-to-path
+repository:
+  url: https://github.com/loudMore/dsh-drop-to-path
+  commit: a00a5a2e18fd89e829b1c96f2f2e85af67366e10
+package:
+  ecosystem: npm
+  name: "@dsh-external/dsh-drop-to-path"
+  version: 0.1.0
+  install_spec: github:loudMore/dsh-drop-to-path#a00a5a2e18fd
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 包含 dsh.bundle；未声明明确 DSH peer 版本，本站尚未运行实测
+category: tools
+topics:
+  - tools
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取用户提供的内容或调用外部工具；核对数据流、依赖和输出边界
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 把图片及 PDF、Office、压缩包、视频和音频转换为工作区路径交给纯文本模型，同时保留附件栏交互。
+links:
+  source: https://github.com/loudMore/dsh-drop-to-path
+  detail_zh: https://52dsh.com/plugins/loudmore-dsh-drop-to-path/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

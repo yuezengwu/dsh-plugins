@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:penguin-oo/dsh-bookmarks
+slug: penguin-oo-dsh-bookmarks
+name: dsh-bookmarks
+repository:
+  url: https://github.com/penguin-oo/dsh-bookmarks
+  commit: 881e2e6425898ed8fe2d4b6df48515d72b73a6ca
+package:
+  ecosystem: npm
+  name: dsh-bookmarks
+  version: 0.1.2
+  install_spec: github:penguin-oo/dsh-bookmarks#881e2e642589
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.1.0-rc.6；本站尚未运行实测
+category: knowledge
+topics:
+  - session
+  - knowledge
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取并持久化会话、项目或记忆数据；核对存储位置和清理方式
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 为助手消息添加书签、备注和标签，在跨会话中心统一查看，并可一键导出 Markdown。
+  en: Bookmark assistant replies with notes and tags; browse every bookmark in one cross-session center and export to Markdown.
+links:
+  source: https://github.com/penguin-oo/dsh-bookmarks
+  detail_zh: https://52dsh.com/plugins/penguin-oo-dsh-bookmarks/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

@@ -1,0 +1,49 @@
+schema_version: 1
+id: github:tencent-connect/dsh-qqbot
+slug: tencent-connect-dsh-qqbot
+name: dsh-qqbot
+repository:
+  url: https://github.com/tencent-connect/dsh-qqbot
+  commit: 5b5e9b8a374f7289bd398b266dd845137a081784
+package:
+  ecosystem: npm
+  name: "@tencent-connect/dsh-qqbot"
+  version: 0.4.0
+  install_spec: github:tencent-connect/dsh-qqbot#5b5e9b8a374f
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.4.0，peer 依赖要求 DSH Agent、LLM 与 Session >=0.1.0-rc.6；本站完成固定提交静态审阅，未使用真实 QQ Bot、扫码绑定、媒体或模型进行端到端测试
+category: remote
+topics:
+  - remote
+permissions:
+  status: reviewed
+  capabilities:
+    - credentials
+    - remote_control
+    - session_data
+    - plugin_management
+  notes: 持有 QQ Bot AppID/AppSecret 并连接 QQ 官方网关；允许通过访问控制的远程 QQ 用户在配置的 cwd 中驱动 DSH Agent、模型与工具，还会下载媒体到本机临时目录并可调用视觉模型
+  data_flow: QQ 私聊、群聊和媒体 → QQ Bot 网关与 allowlist/@mention 门控 → 按联系人或群组隔离的 DSH Agent、Session、工作目录、模型与工具 → 文本或流式结果返回 QQ；媒体暂存本机后按 TTL 清理，可选图片再发送到视觉 Provider。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的配置、QQ 网关、会话协调、模型选择、媒体下载清理和视觉工具。插件提供私聊与群组白名单，但两者默认都是 open，群聊默认仅以 @bot 作为触发条件；这不足以保护可读写工作区的 Agent。启用前必须把 c2cMode/groupMode 改为 allowlist 或 disabled，限定可信 OpenID 和专用 cwd，使用最小权限 Profile，并降低媒体大小与保留时间。
+summary:
+  zh: 把 QQ 私聊和群聊接入 DSH，为每个联系人或群组建立独立 Agent/Session，支持文本、图片、视频、模型切换、会话恢复和流式回复。
+links:
+  source: https://github.com/tencent-connect/dsh-qqbot
+  detail_zh: https://52dsh.com/plugins/tencent-connect-dsh-qqbot/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

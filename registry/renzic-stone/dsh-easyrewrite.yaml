@@ -1,0 +1,52 @@
+schema_version: 1
+id: github:renzic-stone/dsh-easyrewrite
+slug: renzic-stone-dsh-easyrewrite
+name: DSH-EasyRewrite
+repository:
+  url: https://github.com/Renzic-Stone/DSH-EasyRewrite
+  commit: c1b1e990c4f7195548df38d819684f5329cf948e
+package:
+  ecosystem: npm
+  name: dsh-easyrewrite
+  version: 1.3.6
+  install_spec: github:Renzic-Stone/DSH-EasyRewrite#c1b1e990c4f7
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 1.3.6，README 声明兼容 DSH Web rc.6+，package 未锁定具体 peer 或 Node 版本；本站完成固定提交静态审阅，未在当前 rc.2 运行附件保留、会话 fork、归档恢复、草稿异常恢复或自更新
+category: interface
+topics:
+  - session
+  - interface
+permissions:
+  status: reviewed
+  capabilities:
+    - command_execution
+    - browser_control
+    - session_data
+    - ui_injection
+  notes: 读取 Session 事件以计算闭合回合边界，通过官方客户端 RPC fork Session 并修改 workspace 归档集合；在 $DSH_HOME 写草稿备份和行为日志，并可在用户确认后执行固定 pnpm up dsh-easyrewrite
+  data_flow: 用户点击消息并确认 → 浏览器本地 pending 草稿及可选 Host 备份 → 同源 JSON Host 路由核对 Session/回合边界 → 客户端官方 fork、新 Session 重发与旧 Session 归档 → 修改后的对话继续进入当前模型；日志和未完成草稿只存本机。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的同源/JSON/Session ID 守卫、回合边界、草稿备份、归档与更新路由。状态变更路由要求 POST、application/json，Origin/Referer 存在时必须与 Host 同源，更新命令固定且不拼接用户参数；但它会改变模型可见历史、复制附件、创建并归档 Session，行为日志也可能记录客户端传入的调试数据。改写前核对分支位置，敏感文本不要留在自动备份/调试日志，升级 DSH 后先用一次性 Session 测试。
+summary:
+  zh: 允许在 DSH Web 中原位编辑用户消息、撤回目标消息及其后续上下文、翻阅历史版本，并通过 fork 新 Session、归档旧版本和重发修改内容实现无痕改写。
+  en: Inline-edit and recall your own user messages in dsh web — lazily and seamlessly, with a version pager and per-session draft persistence.
+links:
+  source: https://github.com/Renzic-Stone/DSH-EasyRewrite
+  detail_zh: https://52dsh.com/plugins/renzic-stone-dsh-easyrewrite/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

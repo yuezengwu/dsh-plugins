@@ -1,0 +1,55 @@
+schema_version: 1
+id: github:01virex/dsh-status-rotator
+slug: dsh-status-rotator
+name: DSH Status Rotator
+repository:
+  url: https://github.com/01Virex/dsh-status-rotator
+  commit: c67fe4c20b6e0eb3c1c0e80900fde505eabdbcdc
+package:
+  ecosystem: npm
+  name: dsh-status-rotator
+  version: 0.6.6
+  install_spec: dsh-status-rotator@0.6.6
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.6.6，未声明明确 DSH peer 版本范围；本站完成固定提交静态审阅，未对不同 DSH Web 构建、移动端标题、全部动画预设或 OneBot 辅助脚本运行兼容测试
+category: interface
+topics:
+  - ui
+  - interface
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - filesystem_write
+    - network_access
+    - credentials
+    - session_data
+    - ui_injection
+  notes: 读取当前 Session、模型、Provider、工具与运行状态，修改页面文字、样式、标题和胶囊；Host 配置路由会写入 DSH settings 与插件 config.json，可选开发脚本单独访问 OneBot 接口
+  data_flow: DSH Session 快照、模型状态和本机配置 → 客户端模板变量与动画 → 状态栏、标题和胶囊；设置页修改 → Host JSON 路由 → settings.yaml 与原子写入的 config.json。可选 QQ 群数据只在用户手动运行辅助脚本时访问 OneBot。
+risk_level: medium
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 Host 路由、配置校验、原子写入、客户端状态订阅、DOM 修改和辅助脚本。运行时主要是本机界面增强，不读取凭据或工作区；但配置写路由未见明确 Origin/Host 校验，若 DSH Web 暴露给不可信网络，跨站请求可能改变显示配置。保持 DSH Web 仅供可信本机或受保护反代访问，不在轮换文案中放入敏感信息，OneBot 辅助脚本仅在隔离环境手动使用。
+summary:
+  zh: 把 DSH 默认运行状态改造成可轮换的打字机或渐变文案，支持模型、Provider、速度、工具数量等变量，并同步更新浏览器标题、状态胶囊和时间表。
+  en: Replaces the "Deep diving..." turn-status label with rotating meme-worthy phrases, with typewriter and gradient effects.
+links:
+  source: https://github.com/01Virex/dsh-status-rotator
+  detail_zh: https://52dsh.com/plugins/dsh-status-rotator/
+  tutorial_zh: https://52dsh.com/tutorials/dsh-status-rotator-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

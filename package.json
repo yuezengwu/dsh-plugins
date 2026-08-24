@@ -1,0 +1,20 @@
+{
+  "name": "dsh-plugins",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Community plugin registry for DeepSeek Harness (DSH), maintained by 52dsh.com.",
+  "license": "MIT",
+  "scripts": {
+    "build:index": "node scripts/build-readme-index.mjs",
+    "build": "node scripts/build-registry.mjs",
+    "validate": "node scripts/validate.mjs",
+    "check:links": "node scripts/check-links.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check": "npm run build && npm run validate && npm test"
+  },
+  "dependencies": {
+    "yaml": "^2.9.0"
+  }
+}
+

@@ -1,0 +1,53 @@
+schema_version: 1
+id: github:michengai/dsh-skills-manager
+slug: michengai-dsh-skills-manager
+name: dsh-skills-manager
+repository:
+  url: https://github.com/MichengAI/dsh-skills-manager
+  commit: a9eccf93adf92a31b35477a0eeb2226f1fdd7992
+package:
+  ecosystem: npm
+  name: "@michengai/dsh-skills-manager"
+  version: 0.1.23
+  install_spec: github:MichengAI/dsh-skills-manager#a9eccf93adf9
+license:
+  spdx: Apache-2.0
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.1.23、Apache-2.0，要求 Node.js 20+，README 面向 DSH Web，host-webserver peer 测试要求小于 0.2.0；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、超大 Skill 树、Windows Junction、并发导入或真实前端文件选择器下运行
+category: management
+topics:
+  - dev
+  - management
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_write
+    - command_execution
+    - network_access
+    - browser_control
+    - remote_control
+  notes: 本机页面可修改 ~/.dsh/skills 下 Skill 调用策略、从用户选定的任意本地路径复制 Skill、覆盖或删除单个 DSH Skill，并刷新命令目录；~/.agents/skills 仅扫描展示，不允许修改
+  data_flow: 用户选定 Skill/本地来源 → loopback Host、自定义请求头与 JSON 校验 → 名称、路径、symlink、深度和冲突预检 → 同目录 staging/backup/rename → ~/.dsh/skills；操作日志进入 ~/.dsh/dsh-skills-manager.log，浏览器获取不含正文的状态摘要。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 HTTP 门禁、名称约束、realpath/symlink 检查、原子写入、覆盖回滚、只读公共目录和测试契约。写接口使用自定义头阻止简单跨站请求，导入拒绝 symlink 与目录重叠，删除限定单个合法名称；但回环判断只检查可伪造 Host，没有验证 socket.remoteAddress 或独立身份，导入的 Skill 正文会成为未来模型指令，覆盖/删除仍是高影响操作。只在 loopback DSH 使用，每次先 dry-run 并阅读 Skill 全部内容，确认覆盖/删除后再操作，备份 ~/.dsh/skills。
+summary:
+  zh: 在 DSH 设置中浏览、搜索、启停、导入、覆盖和删除本地 Skills；DSH 用户技能可管理，共享 Agent Skills 保持只读。
+  en: Manages local DeepSeek Harness skills in Settings and shows shared Agent skills as read-only.
+links:
+  source: https://github.com/MichengAI/dsh-skills-manager
+  detail_zh: https://52dsh.com/plugins/michengai-dsh-skills-manager/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

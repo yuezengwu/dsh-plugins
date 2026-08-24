@@ -1,0 +1,51 @@
+schema_version: 1
+id: github:ychris12138/dsh-usage-stats
+slug: ychris12138-dsh-usage-stats
+name: dsh-usage-stats
+repository:
+  url: https://github.com/Ychris12138/dsh-usage-stats
+  commit: 1623c3998f75c53e2125559f712124779ce5cb5d
+package:
+  ecosystem: npm
+  name: "@ychris12138/dsh-usage-stats"
+  version: 0.2.9
+  install_spec: github:Ychris12138/dsh-usage-stats#1623c3998f75
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.2.9，采用 DSH Bundle/Web Client 格式但未声明明确 DSH peer 版本；本站完成固定提交静态审阅，未使用真实供应商账号核对余额、Cookie、配额或非公开接口
+category: interface
+topics:
+  - usage
+  - interface
+permissions:
+  status: reviewed
+  capabilities:
+    - network_access
+    - credentials
+    - browser_control
+  notes: 读取 DSH Provider API Key、可选 OpenCode auth.json、Cookie/PAT 或用户配置的账户查询信息；后台每五分钟向已启用供应商查询，并把聚合缓存写入本机
+  data_flow: DSH Token 事件与本机 Provider/订阅凭据 → Host 端聚合器和供应商适配器 → 官方或用户配置的余额/配额端点 → 脱敏账户结果与统计缓存 → 仅回环 GET 路由和 Web 面板。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 Host、账户发现、余额、订阅、用量聚合、缓存和 Web 路由。浏览器端不接收 API Key、Cookie、PAT 或原始上游响应，写入缓存也不保存凭据；但部分余额和订阅接口并非公开稳定 API，Cookie 等同登录凭据，声明式或自定义 Base URL 还决定凭据发送目标。只启用可信 Provider，避免使用主账号长期 Cookie，并把金额和配额视为参考值。
+summary:
+  zh: 在 DSH Web 中展示多供应商余额、订阅配额和 Token 用量，提供今日、月度、累计、缓存命中率和日历热图，并支持声明式余额适配器。
+  en: Multi-provider usage dashboard with provider/model token breakdowns, calendar drill-downs, account balances, and OpenCode Go / Z.ai subscription quota tracking.
+links:
+  source: https://github.com/Ychris12138/dsh-usage-stats
+  detail_zh: https://52dsh.com/plugins/ychris12138-dsh-usage-stats/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

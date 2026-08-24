@@ -1,0 +1,48 @@
+schema_version: 1
+id: github:anionex/dsh-vision-toolkit
+slug: anionex-dsh-vision-toolkit
+name: dsh-vision-toolkit
+repository:
+  url: https://github.com/Anionex/dsh-vision-toolkit
+  commit: 5a33bf6e9ff38f2d05d32fd6ee41479b8340ac5c
+package:
+  ecosystem: npm
+  name: "@anionex/dsh-vision-toolkit"
+  version: 0.1.38
+  install_spec: github:Anionex/dsh-vision-toolkit#5a33bf6e9ff3
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.1.0-rc.6；本站尚未运行实测
+category: tools
+topics:
+  - vision
+  - tools
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取用户提供的内容或调用外部工具；核对数据流、依赖和输出边界
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 面向纯文本模型的 DSH 视觉工具箱，覆盖多图问答、长截图 OCR、界面还原、视觉定位和像素差异。
+  en: "Vision for text-only models: paste an image and the model switches to a Vision Toolkit variant for image Q&A, multi-image comparison, long-screenshot OCR, screenshot-to-UI reproduction, element grounding, and pixel diff. No API key by default — images are processed by the author-hosted free service, 100 per machine per day; configurable to your own provider."
+links:
+  source: https://github.com/Anionex/dsh-vision-toolkit
+  detail_zh: https://52dsh.com/plugins/anionex-dsh-vision-toolkit/
+  tutorial_zh: https://52dsh.com/tutorials/anionex-dsh-vision-toolkit-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

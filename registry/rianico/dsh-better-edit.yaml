@@ -1,0 +1,52 @@
+schema_version: 1
+id: github:rianico/dsh-better-edit
+slug: rianico-dsh-better-edit
+name: dsh-better-edit
+repository:
+  url: https://github.com/Rianico/dsh-better-edit
+  commit: c2b993cefda1e4e6987603210b35527c13687a7d
+package:
+  ecosystem: npm
+  name: dsh-better-edit
+  version: 0.3.1
+  install_spec: github:Rianico/dsh-better-edit#c2b993cefda1
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.3.1、MIT，要求 Node.js ^22.19 或 >=24，package 未声明 DSH peer 范围；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、远程文件系统、Windows 锁文件、大型仓库、并发 Agent 编辑或数据库迁移下运行
+category: development
+topics:
+  - tools
+  - development
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - filesystem_write
+    - credentials
+  notes: 在每个 Agent 层覆盖内置 read/edit、注册 undo_last_edit，并通过 DSH ctx.fs、fs/write-intent、fs/observed、Sandbox Policy 与 Approval 完成读写；启动时还会在 DSH Home 物化可编辑的 Preset 指导文件
+  data_flow: 工作区文本 → DSH 文件服务读取与短哈希锚 → 模型提交锚定编辑 → 观察版本和 Sandbox/Approval 校验 → 原子写回；完整编辑前后正文、撤销状态和已展示行会保存在工作区 .dsh_better_edit/hash-store.sqlite。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 DSH fs bridge、路径解析、观察/版本门禁、Sandbox 控制、原子写入、锚定编辑、漂移检测、撤销条件和 SQLite 状态。写入仍受宿主文件系统与审批约束，撤销会在外部改动后拒绝覆盖；但插件替换核心读写语义，SQLite 保存完整文件前后内容且创建权限依赖系统 umask，可能包含源码或密钥并被误提交，当前 edit 的扩权参数传递也需运行验证。把 .dsh_better_edit 加入忽略与备份策略，在独立分支/工作区试用，敏感仓库确认目录权限，重要修改仍依赖 Git。
+summary:
+  zh: 用短哈希锚替换 DSH Agent 的 read/edit，并增加原子多段编辑、漂移检测和仅在文件未再次变化时可用的单步撤销。
+  en: "Hash-anchored read / edit / batch_edit / undo_last_edit tools: every line gets a unique 3-character content hash, edits target hashes instead of line numbers, and served-state verification rejects stale ranges with fresh anchors."
+links:
+  source: https://github.com/Rianico/dsh-better-edit
+  detail_zh: https://52dsh.com/plugins/rianico-dsh-better-edit/
+  tutorial_zh: https://52dsh.com/tutorials/rianico-dsh-better-edit-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

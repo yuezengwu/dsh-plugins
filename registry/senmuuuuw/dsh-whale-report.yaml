@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:senmuuuuw/dsh-whale-report
+slug: senmuuuuw-dsh-whale-report
+name: dsh-whale-report
+repository:
+  url: https://github.com/SenmuuuuW/dsh-whale-report
+  commit: 5fccde44b1e06f927c651ed6418ffd28ea638132
+package:
+  ecosystem: npm
+  name: dsh-whale-report
+  version: 0.4.0
+  install_spec: github:SenmuuuuW/dsh-whale-report#5fccde44b1e0
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.1.0-rc.7；本站尚未运行实测
+category: tools
+topics:
+  - usage
+  - tools
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取用户提供的内容或调用外部工具；核对数据流、依赖和输出边界
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 只读分析会话事件日志，生成日报、周报、月报、年报或自定义区间的使用洞察。
+  en: "DeepTrace — deterministic agent reports from session logs (daily/weekly/monthly/yearly/custom): cost & token breakdown, 8 insight rules, collaboration review, live provider balance, PDF/PNG/HTML export; read-only, never rewrites history."
+links:
+  source: https://github.com/SenmuuuuW/dsh-whale-report
+  detail_zh: https://52dsh.com/plugins/senmuuuuw-dsh-whale-report/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

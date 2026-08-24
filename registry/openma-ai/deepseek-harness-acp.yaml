@@ -1,0 +1,54 @@
+schema_version: 1
+id: github:openma-ai/deepseek-harness-acp
+slug: openma-ai-deepseek-harness-acp
+name: deepseek-harness-acp
+repository:
+  url: https://github.com/openma-ai/deepseek-harness-acp
+  commit: 89995bcecfdbd9846ccaf0a65c7a477793dc2c1a
+package:
+  ecosystem: npm
+  name: "@openma/deepseek-harness-acp"
+  version: 0.4.19
+  install_spec: github:openma-ai/deepseek-harness-acp#89995bcecfdb
+license:
+  spdx: Apache-2.0
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.4.19、Apache-2.0，要求 Node.js >=22.15，peer 覆盖 DSH ^0.1.0-rc.6 或 ^0.1.1-rc.1；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、真实 Zed、多客户端并发或各平台 Shell 下运行
+category: integration
+topics:
+  - notify
+  - integration
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_write
+    - network_access
+    - credentials
+    - browser_control
+    - session_data
+    - ui_injection
+  notes: ACP 客户端可创建/恢复 Agent、选择模型与 permission mode，并经 DSH 工具访问工作区；默认 workspace-write 且扩权继续走一次性审批，显式 danger-full-access 会关闭沙箱提示
+  data_flow: 编辑器 ACP stdio 消息 → 本地 ACP Bridge → DSH Agent/Profile 组合 → Provider、Sandbox、工具与 Session 持久化 → 流式结果返回编辑器；API Key 可经 ACP auth、仅回环浏览器页或 CLI 写入 DSH Credentials。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 stdio Transport、Profile 启动、认证、Credential 写入、回环登录页、Gateway 配置和 Sandbox/Approval 映射。默认 workspace-write、浏览器登录只监听 127.0.0.1，Gateway 仅在客户端显式声明能力后提供；但 ACP 客户端本质上可驱动完整 Agent，API Key/Gateway 会写入共享 DSH 凭据，用户也可主动切换 danger-full-access。只连接可信 ACP 客户端，固定 DSH/插件版本，默认保留 workspace-write 与 ask，并把自定义 Gateway 当作会接收完整会话内容的 Provider。
+summary:
+  zh: 把 DeepSeek Harness 作为 Agent Client Protocol 的 stdio Agent 接入 Zed 等 ACP 客户端，复用 DSH 的模型、Session、工具、技能、子 Agent、沙箱和审批能力。
+  en: ACP profile plugin and standalone stdio server for using the full DSH agent from Zed and other ACP clients while sharing DSH credentials and sessions.
+links:
+  source: https://github.com/openma-ai/deepseek-harness-acp
+  detail_zh: https://52dsh.com/plugins/openma-ai-deepseek-harness-acp/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

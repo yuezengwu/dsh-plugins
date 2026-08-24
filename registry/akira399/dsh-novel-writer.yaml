@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:akira399/dsh-novel-writer
+slug: akira399-dsh-novel-writer
+name: dsh-novel-writer
+repository:
+  url: https://github.com/akira399/dsh-novel-writer
+  commit: 3b389313113a2665500fa8624c88bff9b5e933d8
+package:
+  ecosystem: npm
+  name: "@dsh-external/dsh-novel-writer"
+  version: 0.1.7
+  install_spec: github:akira399/dsh-novel-writer#3b389313113a
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.1.0-rc.6；本站尚未运行实测
+category: knowledge
+topics:
+  - knowledge
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取并持久化会话、项目或记忆数据；核对存储位置和清理方式
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 提供九阶段网络小说创作流程、世界书注入、本地书籍导入、润色、开篇诊断、一致性检查和市场调研。
+links:
+  source: https://github.com/akira399/dsh-novel-writer
+  detail_zh: https://52dsh.com/plugins/akira399-dsh-novel-writer/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

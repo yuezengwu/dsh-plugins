@@ -1,0 +1,48 @@
+schema_version: 1
+id: github:awesome-dsh-plugin/dsh-find-plugin
+slug: dsh-find-plugin
+name: DSH Find Plugin
+repository:
+  url: https://github.com/awesome-dsh-plugin/dsh-find-plugin
+  commit: e7a27eb01606e6deccdaacccb8e0cfd992c0bcdc
+package:
+  ecosystem: npm
+  name: dsh-find-plugin
+  version: 0.3.7
+  install_spec: dsh-find-plugin@0.3.7
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 dsh-tools ^0.1.0-rc.6；未在本站当前基线实测
+category: management
+topics:
+  - market
+  - management
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 读取远程插件清单，并生成待人工确认的安装命令
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 在 Agent 会话中按关键词或类别查询社区插件，并返回安装目标与来源。
+  en: "Find plugins without leaving the agent: search this curated registry by keyword or category, with ready-to-run install commands."
+links:
+  source: https://github.com/awesome-dsh-plugin/dsh-find-plugin
+  detail_zh: https://52dsh.com/plugins/dsh-find-plugin/
+  tutorial_zh: https://52dsh.com/tutorials/dsh-find-plugin-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

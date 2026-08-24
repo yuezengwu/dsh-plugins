@@ -1,0 +1,53 @@
+schema_version: 1
+id: github:zh667/tokenledger
+slug: zh667-tokenledger
+name: TokenLedger
+repository:
+  url: https://github.com/zh667/TokenLedger
+  commit: 63091bbf2ab093ae8f137d2f5310c5ba2c331f37
+package:
+  ecosystem: npm
+  name: dsh-tokenledger
+  version: 0.1.0
+  install_spec: github:zh667/TokenLedger#63091bbf2ab0
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.1.0，采用 DSH Bundle/Web Client 格式并声明可选 Host 服务；本站完成固定提交静态审阅，未连接真实中转站或核对各站点用量接口
+category: interface
+topics:
+  - usage
+  - interface
+permissions:
+  status: reviewed
+  capabilities:
+    - network_access
+    - credentials
+    - session_data
+    - ui_injection
+  notes: 读取 DSH Provider 的已解析设置以发现 Base URL，但明确拒绝携带 apiKey/token 字段；向已经配置或用户显式添加的 Relay 站点探测用量、配额和项目接口，并在本机保存归因账本
+  data_flow: DSH 会话与模型用量 → 本机 TokenLedger 账本 → 项目/模型/站点报表；Provider 设置中的 Base URL → Relay 发现与指纹适配器 → Relay 用量/配额端点 → 汇总结果返回本机 Web 面板。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的插件入口、Provider 发现、Relay 指纹、HTTP 客户端、用量/配额适配、项目归因、存储和 Web 路由。发现逻辑只读取地址和凭据引用，不读取密钥值，符合“零额外凭据”定位；但它会主动访问用户配置的 Relay Origin，兼容启发式可能误判，且 Relay 返回数据的真实性取决于运营方。应只配置可信站点，并把账本视为本机使用记录。
+summary:
+  zh: 按会话、项目、模型和中转站归因 DSH Token 用量，自动发现已配置的 Relay Base URL，并展示价格、配额、订阅和使用报告。
+  en: "Sidebar usage panel that attributes tokens to the relay site that served each request, read from your existing provider config: today/month/all-time totals, per-site and per-model breakdowns, a year activity heatmap, and New API / Sub2API / DeepSeek balances."
+links:
+  source: https://github.com/zh667/TokenLedger
+  detail_zh: https://52dsh.com/plugins/zh667-tokenledger/
+  tutorial_zh: https://52dsh.com/tutorials/zh667-tokenledger-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

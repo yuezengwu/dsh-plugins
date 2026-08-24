@@ -1,0 +1,51 @@
+schema_version: 1
+id: github:mishibeikejie/zat-dsh-engine
+slug: mishibeikejie-zat-dsh-engine
+name: zat-dsh-engine
+repository:
+  url: https://github.com/mishibeikejie/zat-dsh-engine
+  commit: b3b7ce6969fc806df1edb4170073ddd50c6927c0
+package:
+  ecosystem: npm
+  name: zat-dsh-engine
+  version: 0.7.0
+  install_spec: github:mishibeikejie/zat-dsh-engine#b3b7ce6969fc
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.7.0，DSH Host peer 依赖使用宽泛星号且未固定兼容版本；本站完成固定提交静态审阅，未真实安装插件、测试国内镜像、Windows PowerShell 或自动恢复
+category: management
+topics:
+  - management
+permissions:
+  status: reviewed
+  capabilities:
+    - command_execution
+    - network_access
+    - credentials
+    - session_data
+    - agent_orchestration
+    - plugin_management
+  notes: 执行 PowerShell/sh、pnpm、curl、wget 和 DSH 插件命令，读取候选及已装插件代码、Git 凭据和 GitHub Token，修改 Profile 依赖与 bundle 配置，并永久删除 Session 及其子 Agent 后代
+  data_flow: GitHub 搜索/API、raw 内容或镜像 → 候选清单和启发式源码扫描 → 用户安装操作 → 本机 Shell、pnpm 与 DSH Profile → 状态/日志返回市场；可选 Git 凭据只用于 api.github.com 星标，备份写入 profile/zat-backup。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的插件搜索、启发式安全扫描、Shell/子进程、GitHub Token、安装/更新/卸载、Profile 备份和 Session 删除入口。扫描能发现常见硬伤，但使用正则和 HEAD 内容，不能替代固定提交人工审计；安装第三方包仍可能执行 prepare/postinstall，镜像也扩大供应链边界，Session 删除不可撤销。只安装固定版本和已审阅插件，不依赖“✅”作为安全认证，禁用不必要的星标凭据，并在操作前另备份 Profile 与会话。
+summary:
+  zh: 在 DSH Web 中实时搜索 GitHub dsh-plugin Topic，提供中文目录、AI 找插件、装前体检、安全扫描、安装、更新、卸载、启停、自更新和 Profile 恢复。
+links:
+  source: https://github.com/mishibeikejie/zat-dsh-engine
+  detail_zh: https://52dsh.com/plugins/mishibeikejie-zat-dsh-engine/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

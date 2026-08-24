@@ -1,0 +1,48 @@
+schema_version: 1
+id: github:elysia395/dsh-wallpaper-engine
+slug: elysia395-dsh-wallpaper-engine
+name: dsh-wallpaper-engine
+repository:
+  url: https://github.com/elysia395/dsh-wallpaper-engine
+  commit: c9d3af706acd2434c73b972467f38607ff9452fb
+package:
+  ecosystem: npm
+  name: dsh-plugin-wallpaper-engine
+  version: 0.4.1
+  install_spec: github:elysia395/dsh-wallpaper-engine#c9d3af706acd
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 >=0.1.0-rc.6；本站尚未运行实测
+category: interface
+topics:
+  - theme
+  - interface
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 注入 Web 客户端并改变界面或交互；核对浏览器侧数据访问范围
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 把本机 Wallpaper Engine 壁纸接入 DSH Web，并提供视频、Web、Scene 壁纸及玻璃效果设置。
+  en: "Wallpaper Engine backgrounds for the DSH web GUI: plays local Video/Web wallpapers behind the chat, renders Scene wallpapers as extracted static frames, and adds content-rating/type filters, custom uploads and an iOS-style liquid-glass settings window."
+links:
+  source: https://github.com/elysia395/dsh-wallpaper-engine
+  detail_zh: https://52dsh.com/plugins/elysia395-dsh-wallpaper-engine/
+  tutorial_zh: https://52dsh.com/tutorials/elysia395-dsh-wallpaper-engine-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

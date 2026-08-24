@@ -1,0 +1,52 @@
+schema_version: 1
+id: github:bihangchi9-creator/dsh-lark-bridge
+slug: bihangchi9-creator-dsh-lark-bridge
+name: dsh-lark-bridge
+repository:
+  url: https://github.com/bihangchi9-creator/dsh-lark-bridge
+  commit: 85cb038105f69e75bd726cd0f80e96837f66ab82
+package:
+  ecosystem: npm
+  name: dsh-lark-bridge
+  version: 0.0.1
+  install_spec: github:bihangchi9-creator/dsh-lark-bridge#85cb038105f6
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.0.1，对 dsh-agent、dsh-llm 和 dsh-session 使用通配 peer 范围，未锁定具体 DSH 版本；本站完成固定提交静态审阅，未使用真实飞书租户、二维码注册、附件传输或跨版本 Session 恢复测试
+category: remote
+topics:
+  - remote
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - command_execution
+    - network_access
+    - credentials
+    - remote_control
+    - session_data
+    - agent_orchestration
+  notes: 持有飞书 App Secret，接收远程消息与附件并创建 DSH Agent；默认 workspace 档允许读写项目文件但移除 shell、网络与子 Agent，full 档则继承宿主全部能力
+  data_flow: 飞书消息和附件 → owner、群/用户白名单与 @mention 检查 → 按群隔离的工作目录、Session、模型与权限 preset → DSH 结果返回飞书；附件暂存到群工作区后按策略清理，凭据以 0600 文件或环境变量保存在本机。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的二维码凭据、fail-closed 白名单、群工作区、附件、Agent 创建、系统提示与访问模式。群白名单为空时拒绝全部群，私聊默认只允许 owner，workspace 默认移除 shell、网络和子 Agent；但 README 仍包含 danger-full-access 启动示例，full 模式或宿主级 never 审批会让远程消息获得完整主机能力，通配 peer 依赖也增加升级漂移。保持默认 workspace 或 read-only，明确配置 chatId/open_id 白名单，使用专用工作区和模型，不启用 danger-full-access。
+summary:
+  zh: 把飞书或 Lark 群聊与私聊接入 DSH，为每个群绑定一个项目工作区和持久会话，支持二维码注册、附件、模型切换以及只读、工作区和完整三档 Agent 权限。
+links:
+  source: https://github.com/bihangchi9-creator/dsh-lark-bridge
+  detail_zh: https://52dsh.com/plugins/bihangchi9-creator-dsh-lark-bridge/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

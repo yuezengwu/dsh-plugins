@@ -1,0 +1,52 @@
+schema_version: 1
+id: github:titanwings/dsh-automation
+slug: titanwings-dsh-automation
+name: dsh-automation
+repository:
+  url: https://github.com/titanwings/dsh-automation
+  commit: f8f43b2873a3f9dd57d86d61eb401770b2bc9ca5
+package:
+  ecosystem: npm
+  name: "@dsh-external/dsh-automation"
+  version: 0.1.6
+  install_spec: github:titanwings/dsh-automation#f8f43b2873a3
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.1.6，要求 Node.js 22.19 或 24+，未声明固定 DSH peer 范围；本站完成固定提交静态审阅，未进行定时器跨重启、长任务或跨平台运行测试
+category: agent
+topics:
+  - workflow
+  - agent
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - filesystem_write
+    - command_execution
+    - session_data
+  notes: 可在无人值守状态下以 read-only 或 workspace-write 启动新 Agent，调用受限清单中的 Shell、读写文件、LSP、Web、Skill 和 Session 查询工具；审批策略固定为 never，需审批的调用会失败关闭
+  data_flow: 用户确认的任务规则、独立 Prompt、工作区与模型快照 → 持久化调度器 → 新根 Agent/Session 与受限工具清单 → 工作区读写、模型或 Web 调用 → 运行状态、摘要和 Session ID 返回 Web/Agent。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的规则存储、调度、执行边界、工具守卫、Agent 工具和 loopback RPC。它拒绝 danger-full-access、后台进程、交互提问、嵌套 Agent 和未知工具，并限制重叠与超时；但 workspace-write 仍可按计划修改或删除文件，Shell 命令与 Web 请求也可能产生外部副作用，失败后不会自动重试。先用“立即运行”在临时工作区验证，固定最小 Prompt 和模型，并为重要仓库保留独立备份。
+summary:
+  zh: 在 DSH Web 或 Agent 中创建一次性、按间隔、每日或每周自动任务，在全新的根 Agent 与 Session 中按计划执行并保留运行记录。
+  en: Scheduled coding runs in fresh agent sessions with auditable history.
+links:
+  source: https://github.com/titanwings/dsh-automation
+  detail_zh: https://52dsh.com/plugins/titanwings-dsh-automation/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

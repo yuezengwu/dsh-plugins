@@ -1,0 +1,49 @@
+schema_version: 1
+id: github:blockrunai/dsh-clawrouter
+slug: blockrunai-dsh-clawrouter
+name: dsh-clawrouter
+repository:
+  url: https://github.com/BlockRunAI/dsh-clawrouter
+  commit: 18fc2466cdea00d3854323b01756b51eec190029
+package:
+  ecosystem: npm
+  name: dsh-clawrouter
+  version: 0.10.1
+  install_spec: github:BlockRunAI/dsh-clawrouter#18fc2466cdea
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.10.1、MIT，要求 Node.js ^22.19 或 24+、DSH peer >=0.1.0-rc.6；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、真实 Base 链钱包、x402 支付、视觉模型或付费审查失败场景运行
+category: security
+topics:
+  - security
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - network_access
+    - credentials
+    - session_data
+  notes: 从 DSH Credential Ref 读取 EVM 钱包私钥，向 BlockRun API 发送提示词、图片、工具 schema 和可选待审查工具参数，并按 x402 为每次模型/审查请求签名付款；审查层可阻止或追问风险工具调用
+  data_flow: DSH 对话与模型选择 → ClawRouter 目录和 x402 支付适配器 → BlockRun API/第三方模型 → 模型输出返回 Session；命中风险规则的工具调用 → 可选付费 Reviewer → allow/deny/ask，再与下游 DSH 权限策略取更严格结果。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 Provider 目录、支付适配、余额统计、风险筛选和 Reviewer 决策。钱包私钥通过 DSH credentials 引用，不写普通配置；审查层不会放宽下游更严格策略，危险结果拒绝、不确定结果询问用户。但模型请求和待审参数会发送到外部服务，每次请求按请求的最大 Token 计费而非实际产出，规则只覆盖命中的工具调用，钱包泄露可造成链上损失。使用专用低余额钱包和限额模型，默认保留 DSH 审批，不把 Reviewer 当完整沙箱。
+summary:
+  zh: 把 BlockRun ClawRouter 的按次付费模型路由接入 DSH，并可选用独立强模型复核高风险工具调用，返回允许、拒绝或询问用户。
+links:
+  source: https://github.com/BlockRunAI/dsh-clawrouter
+  detail_zh: https://52dsh.com/plugins/blockrunai-dsh-clawrouter/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

@@ -1,0 +1,52 @@
+schema_version: 1
+id: github:omdsh-dev/dsh-deep-research
+slug: omdsh-dev-dsh-deep-research
+name: dsh-deep-research
+repository:
+  url: https://github.com/omdsh-dev/dsh-deep-research
+  commit: c0b329e02cd0195f810a7c3608cb58701a7fe0f1
+package:
+  ecosystem: npm
+  name: "@dsh-external/dsh-deep-research"
+  version: 0.1.0
+  install_spec: github:omdsh-dev/dsh-deep-research#c0b329e02cd0
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.1.0、MIT，要求 Node.js ^22.19 或 24+，peer 依赖使用早期 ^0.0.1 范围；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、真实模型、并行研究额度或长上下文下运行
+category: agent
+topics:
+  - workflow
+  - agent
+permissions:
+  status: reviewed
+  capabilities:
+    - command_execution
+    - credentials
+    - session_data
+    - agent_orchestration
+  notes: 模型可调用 deep_research 创建多轮并行研究 Agent；子 Agent 按提示只使用 DSH 内置 web_search 与 web_fetch，插件本身不直接读写文件、启动命令或管理凭据
+  data_flow: 用户研究问题与配置 → 规划 Agent 生成子问题 → 多个并行研究 Agent 向公开 Web 搜索和抓取 → 审查 Agent 检查缺口 → 综合 Agent 输出报告；中间结果和引用进入模型上下文与 Session。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的清单、Bundle 配置、单一工具入口和研究工作流。实现复用官方 Workflow/Agent 机制，限制并发、总 Agent 数和深度，并传递取消信号；主要风险是多 Agent 带来的 Token/费用放大、外部网页提示注入、过时或错误来源及旧 peer 范围。先设置小并发和预算，重要结论回看原始链接，不把模型汇总视为事实核验。
+summary:
+  zh: 把复杂研究问题拆成并行子任务，由多个研究 Agent 使用 Web Search/Fetch 收集证据，再经独立审查与综合阶段生成带来源的研究报告。
+  en: Adaptive deep-research orchestrator built on the official workflow engine.
+links:
+  source: https://github.com/omdsh-dev/dsh-deep-research
+  detail_zh: https://52dsh.com/plugins/omdsh-dev-dsh-deep-research/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

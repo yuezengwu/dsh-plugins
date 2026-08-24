@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:cyijun/dsh-surfing-plugin
+slug: cyijun-dsh-surfing-plugin
+name: dsh-surfing-plugin
+repository:
+  url: https://github.com/cyijun/dsh-surfing-plugin
+  commit: 40041327e552157bafcc9bba866925b775c1469d
+package:
+  ecosystem: npm
+  name: dsh-surfing-plugin
+  version: 0.1.0
+  install_spec: github:cyijun/dsh-surfing-plugin#40041327e552
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.1.0-rc.6；本站尚未运行实测
+category: tools
+topics:
+  - tools
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取用户提供的内容或调用外部工具；核对数据流、依赖和输出边界
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 把 SearXNG 搜索和 Crawl4AI 网页抓取 Provider 接入 DeepSeek Harness。
+links:
+  source: https://github.com/cyijun/dsh-surfing-plugin
+  detail_zh: https://52dsh.com/plugins/cyijun-dsh-surfing-plugin/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

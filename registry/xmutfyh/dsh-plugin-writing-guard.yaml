@@ -1,0 +1,46 @@
+schema_version: 1
+id: github:xmutfyh/dsh-plugin-writing-guard
+slug: xmutfyh-dsh-plugin-writing-guard
+name: dsh-plugin-writing-guard
+repository:
+  url: https://github.com/xmutfyh/dsh-plugin-writing-guard
+  commit: aa037036122d12e6bebf6e9052b16b0425f61a47
+package:
+  ecosystem: npm
+  name: dsh-plugin-writing-guard
+  version: 1.6.2
+  install_spec: github:xmutfyh/dsh-plugin-writing-guard#aa037036122d
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.1.0-rc.6；本站尚未运行实测
+category: tools
+topics:
+  - tools
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取用户提供的内容或调用外部工具；核对数据流、依赖和输出边界
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 在本地检测论文的 AI 写作风格，保留证据并提供期刊适配、校对和 writing_audit 检查，作者声明不联网且不调用 LLM。
+  en: "Academic writing guard (EN/ZH bilingual): removes AI-style defensive writing, protects scientific evidence (numbers, citations, claim strength, null findings, scope) during polishing, and calibrates writing toward a target journal (Journal Profile + Journal Fit). Deterministic local regex/statistics, zero network/LLM; writing_rules / writing_audit / writing_style_profile / writing_journal_profile with auto-audit on paper writes."
+links:
+  source: https://github.com/xmutfyh/dsh-plugin-writing-guard
+  detail_zh: https://52dsh.com/plugins/xmutfyh-dsh-plugin-writing-guard/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

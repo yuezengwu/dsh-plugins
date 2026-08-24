@@ -1,0 +1,25 @@
+schema_version: 1
+source: awesome-dsh-plugin
+topics:
+  ui: interface
+  usage: tools
+  theme: interface
+  model: infrastructure
+  identity: integration
+  session: knowledge
+  memory: knowledge
+  tools: tools
+  browser: browser
+  vision: vision
+  voice: tools
+  docs: tools
+  skill: tools
+  workflow: agent
+  git: development
+  notify: remote
+  dev: development
+  security: security
+  remote: remote
+  market: management
+  fun: interface
+

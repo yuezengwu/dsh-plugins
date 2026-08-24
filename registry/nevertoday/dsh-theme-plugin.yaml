@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:nevertoday/dsh-theme-plugin
+slug: nevertoday-dsh-theme-plugin
+name: dsh-theme-plugin
+repository:
+  url: https://github.com/nevertoday/dsh-theme-plugin
+  commit: b85a37bc252ad423b2d3aee45fa4e2a72e15ca94
+package:
+  ecosystem: npm
+  name: dsh-theme-plugin
+  version: 0.3.3
+  install_spec: github:nevertoday/dsh-theme-plugin#b85a37bc252a
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 *；本站尚未运行实测
+category: interface
+topics:
+  - interface
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 注入 Web 客户端并改变界面或交互；核对浏览器侧数据访问范围
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 为 DeepSeek Harness 提供一组中华传统色主题。
+links:
+  source: https://github.com/nevertoday/dsh-theme-plugin
+  detail_zh: https://52dsh.com/plugins/nevertoday-dsh-theme-plugin/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

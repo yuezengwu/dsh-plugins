@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:xcnxnxnx/dsh-portable-tavern
+slug: xcnxnxnx-dsh-portable-tavern
+name: dsh-portable-tavern
+repository:
+  url: https://github.com/XCNXNXNX/dsh-portable-tavern
+  commit: 113199e9b690dd5bde0d4c4424e945eb14270188
+package:
+  ecosystem: npm
+  name: dsh-portable-tavern
+  version: 0.3.0
+  install_spec: github:XCNXNXNX/dsh-portable-tavern#113199e9b690
+license:
+  spdx: BSD-3-Clause
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 *；本站尚未运行实测
+category: interface
+topics:
+  - interface
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 注入 Web 客户端并改变界面或交互；核对浏览器侧数据访问范围
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 提供 RPG 风格的角色卡生成与角色扮演聊天，支持世界书、SillyTavern V2/V3 角色卡及 JSON/PNG 导入导出。
+links:
+  source: https://github.com/XCNXNXNX/dsh-portable-tavern
+  detail_zh: https://52dsh.com/plugins/xcnxnxnx-dsh-portable-tavern/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

@@ -1,0 +1,52 @@
+schema_version: 1
+id: github:dream12347/dsh-session-manager
+slug: dream12347-dsh-session-manager
+name: dsh-session-manager
+repository:
+  url: https://github.com/dream12347/dsh-session-manager
+  commit: 6f00ab01fd97c4283ed94c15dd993bd6882367b9
+package:
+  ecosystem: npm
+  name: dsh-session-manager
+  version: 0.2.2
+  install_spec: github:dream12347/dsh-session-manager#6f00ab01fd97
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.2.2，要求 Node.js 22.19 或 24+，peer 依赖基于 DSH rc.6 且作者 README 标注适配 0.1.1-rc.1；本站完成固定提交静态审阅，未测试不同 DSH 版本的私有工作区状态、跨平台文件管理器或异常恢复
+category: management
+topics:
+  - session
+  - management
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - filesystem_write
+    - session_data
+    - ui_injection
+  notes: 读取和修改 Session、Agent、Workspace 与 Profile 预设，可递归移动或永久删除 Session 文件、修改工作区归档状态、打开本机日志目录，并把压缩阈值写入用户 YAML 后同步到运行中 Agent
+  data_flow: DSH Web 管理请求 → Host 路由和 Session ID 校验 → Session 持久层、工作区注册表、Agent 或文件系统；软删除先移动到本机 trash，恢复再移回，永久清理递归删除，压缩阈值写入用户预设并应用到活跃 Agent。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 Session 标识校验、运行状态门禁、垃圾箱、永久清理、工作区兼容写入、压缩阈值和系统文件管理器调用。路径约束严格且运行中的 Session 不允许删除，但垃圾箱最多保留 10 项，溢出会永久清理；管理路由也未见 Origin/Host 或用户权限检查，能访问 DSH Web 的客户端可能删除数据或修改全局阈值。仅在可信本机 Web 使用，变更前备份 Session，确认任务停止，并先在对应 DSH 版本验证恢复流程。
+summary:
+  zh: 在 DSH Web 中集中暂停、归档、分叉、软删除、恢复和永久清理 Session，管理工作区、打开日志，并调整全局上下文压缩阈值。
+  en: "DSH session manager: delete with trash/restore/purge, restore archived sessions, recent-activity stats, continue/pause, open log folder, unread markers, fork into a new chat, workspace grouping and sorting, context compaction threshold."
+links:
+  source: https://github.com/dream12347/dsh-session-manager
+  detail_zh: https://52dsh.com/plugins/dream12347-dsh-session-manager/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

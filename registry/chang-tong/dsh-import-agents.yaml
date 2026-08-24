@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:chang-tong/dsh-import-agents
+slug: chang-tong-dsh-import-agents
+name: dsh-import-agents
+repository:
+  url: https://github.com/Chang-Tong/dsh-import-agents
+  commit: 603b2affbb6c083efa44655977d4ae768c4904b7
+package:
+  ecosystem: npm
+  name: dsh-import-agents
+  version: 0.2.7
+  install_spec: github:Chang-Tong/dsh-import-agents#603b2affbb6c
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 >=0.1.0-rc.0；本站尚未运行实测
+category: tools
+topics:
+  - tools
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取用户提供的内容或调用外部工具；核对数据流、依赖和输出边界
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 一键导入 Pi、OpenCode、Codex 和 Claude Code 的 Session、聊天历史与 Agent，并提供同步按钮和迁移提示。
+links:
+  source: https://github.com/Chang-Tong/dsh-import-agents
+  detail_zh: https://52dsh.com/plugins/chang-tong-dsh-import-agents/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

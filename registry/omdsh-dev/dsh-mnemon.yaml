@@ -1,0 +1,48 @@
+schema_version: 1
+id: github:omdsh-dev/dsh-mnemon
+slug: omdsh-dev-dsh-mnemon
+name: dsh-mnemon
+repository:
+  url: https://github.com/omdsh-dev/dsh-mnemon
+  commit: 7def5b2bddd4ecb746f09b0c8dee8032e72c690d
+package:
+  ecosystem: npm
+  name: dsh-mnemon
+  version: 0.2.15
+  install_spec: github:omdsh-dev/dsh-mnemon#7def5b2bddd4
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.1.0-rc.6 || ^0.1.1-rc.1；本站尚未运行实测
+category: knowledge
+topics:
+  - memory
+  - knowledge
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取并持久化会话、项目或记忆数据；核对存储位置和清理方式
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 提供持久运行时上下文、项目文档检索、可插拔长期记忆、智能路由和记忆管理 Web UI。
+  en: Cross-agent, local-first persistent memory plugin for DeepSeek Harness (DSH), powered by Mnemon. It shares long-term memory across Mnemon-enabled agents and adds runtime memory, searchable project documents, semantic recall, knowledge graph, and a Sidebar UI.
+links:
+  source: https://github.com/omdsh-dev/dsh-mnemon
+  detail_zh: https://52dsh.com/plugins/omdsh-dev-dsh-mnemon/
+  tutorial_zh: https://52dsh.com/tutorials/omdsh-dev-dsh-mnemon-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

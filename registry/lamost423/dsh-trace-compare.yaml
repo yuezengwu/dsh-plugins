@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:lamost423/dsh-trace-compare
+slug: lamost423-dsh-trace-compare
+name: dsh-trace-compare
+repository:
+  url: https://github.com/lamost423/dsh-trace-compare
+  commit: 951252169b7200dfd1df9ac8545104a1efdba43e
+package:
+  ecosystem: npm
+  name: dsh-trace-compare
+  version: 0.5.2
+  install_spec: github:lamost423/dsh-trace-compare#951252169b72
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 >=0.1.0-rc.6 <0.2.0；本站尚未运行实测
+category: agent
+topics:
+  - session
+  - agent
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可创建、调度或影响 Agent 任务；核对工具、审批和并发边界
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 从历史日志或实时会话可视化 Agent 的主要路径、绕行和回退，用于比较任务探索过程。
+  en: "Trace Compare & Live Maze: draw the agent's real exploration — main path, failed or dead-end detours, backtracks, and subagent branches — on one wall-clock timeline; upload 1–2 session logs for a same-axis compare, or watch it grow live in a session tab."
+links:
+  source: https://github.com/lamost423/dsh-trace-compare
+  detail_zh: https://52dsh.com/plugins/lamost423-dsh-trace-compare/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

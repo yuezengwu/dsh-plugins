@@ -1,0 +1,45 @@
+schema_version: 1
+id: github:anysearch-team/anysearch-dsh
+slug: anysearch-team-anysearch-dsh
+name: anysearch-dsh
+repository:
+  url: https://github.com/anysearch-team/anysearch-dsh
+  commit: dce7a51c74b80f8fa51e53f510a572ab6dd60f28
+package:
+  ecosystem: npm
+  name: "@anysearch/anysearch-dsh"
+  version: 0.1.2
+  install_spec: github:anysearch-team/anysearch-dsh#dce7a51c74b8
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 >=0.1.0-rc.6 <1；本站尚未运行实测
+category: tools
+topics:
+  - tools
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取用户提供的内容或调用外部工具；核对数据流、依赖和输出边界
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 把 AnySearch 网页搜索 Provider 和高级搜索工具接入 DeepSeek Harness。
+links:
+  source: https://github.com/anysearch-team/anysearch-dsh
+  detail_zh: https://52dsh.com/plugins/anysearch-team-anysearch-dsh/
+  tutorial_zh: https://52dsh.com/tutorials/anysearch-team-anysearch-dsh-install-config/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

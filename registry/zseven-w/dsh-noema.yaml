@@ -1,0 +1,54 @@
+schema_version: 1
+id: github:zseven-w/dsh-noema
+slug: zseven-w-dsh-noema
+name: dsh-noema
+repository:
+  url: https://github.com/ZSeven-W/dsh-noema
+  commit: 9cc3ab1ee00de04bf318be9cf2b102ae668ceeb2
+package:
+  ecosystem: npm
+  name: "@zseven-w/dsh-noema"
+  version: 0.1.0-rc.3
+  install_spec: github:ZSeven-W/dsh-noema#9cc3ab1ee00d
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.1.0-rc.3，peer 依赖声明 DSH 0.1.0-rc.6 系列，并为六种系统/架构提供同版本可选二进制包；本站完成固定提交静态审阅，未执行 Rust 二进制或验证跨平台记忆迁移
+category: knowledge
+topics:
+  - memory
+  - knowledge
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - filesystem_write
+    - command_execution
+    - session_data
+    - ui_injection
+  notes: 启动随平台 npm 包分发或用户自定义的 noema-mcp 可执行文件，默认读写 ~/.agent-memory；可扫描 Codex、Claude Code、Cursor、Grok、WorkBuddy、Trae、Qoder 等用户目录和工作区规则并导入长期记忆
+  data_flow: DSH 记忆工具与系统提示词 → stdio MCP 客户端 → 本机 noema-mcp 子进程 → NOEMA_ROOT 下 Markdown/PageIndex 记忆 → 召回结果返回模型；启用导入时，其他 Agent 的记忆/规则文件 → 分段去重 → Noema 长期存储。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 Bundle 入口、平台二进制解析、stdio MCP、保活、工具、设置、导入器和状态路由。默认二进制来自版本锁定的可选 npm 包而非运行时下载，MCP 消息和调用有大小/超时限制；但它仍以桌面用户权限运行，导入功能会读取多个主目录中的长期记忆，hard forget 可永久删除记录，自定义 Server command 还可启动任意程序。首次使用前应备份 NOEMA_ROOT，只启用需要的导入源，并核对可执行文件来源。
+summary:
+  zh: 把本地优先的 Noema MCP 记忆服务接入 DSH，提供召回、全文搜索、图遍历、写入、审核、删除和从十类编码 Agent 导入记忆。
+  en: Long-term memory for DSH agents — durable, inspectable memories with recall, search, browse and knowledge-graph tools, import from ten other AI coding tools, and a settings page.
+links:
+  source: https://github.com/ZSeven-W/dsh-noema
+  detail_zh: https://52dsh.com/plugins/zseven-w-dsh-noema/
+  tutorial_zh: https://52dsh.com/tutorials/zseven-w-dsh-noema-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

@@ -1,0 +1,53 @@
+schema_version: 1
+id: github:xgone/dsh-remote
+slug: xgone-dsh-remote
+name: dsh-remote
+repository:
+  url: https://github.com/xgone/dsh-remote
+  commit: 1f04ba93a37731cd23e75cb38bcd1c99e710e51f
+package:
+  ecosystem: npm
+  name: "@xgone/dsh-remote"
+  version: 0.2.5
+  install_spec: github:xgone/dsh-remote#1f04ba93a377
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.2.5，依赖 DSH rc.6 时代组件但未声明完整 peer 范围；本站完成固定提交静态审阅，未进行公网渗透、反向代理误配、多人隔离、Cookie 窃取或暴力破解测试
+category: remote
+topics:
+  - security
+  - remote
+permissions:
+  status: reviewed
+  capabilities:
+    - network_access
+    - credentials
+    - browser_control
+    - remote_control
+    - session_data
+  notes: 包裹 DSH 已有及未来 HTTP、前缀、fallback 与 WebSocket 路由，认证后把 Host/Origin 归一化为 loopback，从而允许远程用户使用包括设置、凭据、工具和文件预览在内的宿主能力
+  data_flow: 远程浏览器 → TLS 反向代理 → 用户名密码、scrypt、TOTP 与签名 Cookie 校验 → 归一化为可信 loopback 的 DSH HTTP/WebSocket/RPC → Session、设置、工具和允许根目录文件；响应再经认证网关返回用户。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的启动引导、密码存储、MFA、Cookie、角色、全路由包装、WebSocket 和 realpath 文件边界。未认证 API 会拒绝且本机认证库权限为 0600；但认证成功后请求被提升为 loopback 等价权限，DSH 本身并非多租户系统，默认 Cookie secure=false、最短六位密码和 trustProxy 也需要生产加固。必须使用 HTTPS 并启用 secure Cookie、强密码和 TOTP，保持 adminOnly，按用户拆分独立 Profile，限制文件根目录并及时删除引导明文密码。
+summary:
+  zh: 在 DSH Web 前增加用户名密码、签名 Cookie、TOTP 双因素、角色和文件根目录控制，让经过 TLS 反向代理的远程用户访问完整 DSH HTTP、RPC 与 WebSocket。
+  en: "Remote access & authentication for DeepSeek Harness web UI: account/password login gate, MFA (TOTP), signed session cookies, role-based access, in-browser directory picker, account management settings, fully localized in English and Chinese."
+links:
+  source: https://github.com/xgone/dsh-remote
+  detail_zh: https://52dsh.com/plugins/xgone-dsh-remote/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

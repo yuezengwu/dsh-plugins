@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:whiteguo233/dsh-openbiliclaw
+slug: whiteguo233-dsh-openbiliclaw
+name: dsh-openbiliclaw
+repository:
+  url: https://github.com/whiteguo233/dsh-openbiliclaw
+  commit: b91ff7850df0722bc6133a6a312fa7b8984196c0
+package:
+  ecosystem: npm
+  name: "@openbiliclaw/dsh-plugin"
+  version: 0.3.206
+  install_spec: github:whiteguo233/dsh-openbiliclaw#b91ff7850df0
+license:
+  spdx: BSD-3-Clause
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.1.1-rc.2；本站尚未运行实测
+category: integration
+topics:
+  - ui
+  - integration
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 连接产品或业务能力；核对账号、外部服务和数据处理范围
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 把 OpenBiliClaw 的推荐、内容库、画像和 Agent Bridge 工具集成到 DSH 侧栏。
+  en: "OpenBiliClaw consumer panel for DSH: recommendations, saved lists, Socratic dialogue, profile views, and Agent Bridge tools."
+links:
+  source: https://github.com/whiteguo233/dsh-openbiliclaw
+  detail_zh: https://52dsh.com/plugins/whiteguo233-dsh-openbiliclaw/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

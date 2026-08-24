@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:609476965/dsh-lorebookmd
+slug: 609476965-dsh-lorebookmd
+name: dsh-LorebookMD
+repository:
+  url: https://github.com/609476965/dsh-LorebookMD
+  commit: 4bc4110efbfb4888286b81aaf53191705dade9dd
+package:
+  ecosystem: npm
+  name: dsh-lorebookmd
+  version: 1.0.0
+  install_spec: github:609476965/dsh-LorebookMD#4bc4110efbfb
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 包含 dsh.bundle；未声明明确 DSH peer 版本，本站尚未运行实测
+category: knowledge
+topics:
+  - fun
+  - knowledge
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取并持久化会话、项目或记忆数据；核对存储位置和清理方式
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 导入 Tavern 或 SillyTavern 角色卡与世界书，把设置保存为本地 Markdown，并在生成小说内容时引用世界设定。
+  en: Import SillyTavern/TavernAI character cards and world books, save them as local Markdown lore documents, and generate novel prose from your prompts with the world settings as reference.
+links:
+  source: https://github.com/609476965/dsh-LorebookMD
+  detail_zh: https://52dsh.com/plugins/609476965-dsh-lorebookmd/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:xiehuan123/dsh-deepread
+slug: xiehuan123-dsh-deepread
+name: dsh-deepread
+repository:
+  url: https://github.com/xiehuan123/dsh-deepread
+  commit: 70222c0ffcb79e6e231609bc89ad589505c136ef
+package:
+  ecosystem: npm
+  name: dsh-deepread
+  version: 1.0.0
+  install_spec: github:xiehuan123/dsh-deepread#70222c0ffcb7
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 *；本站尚未运行实测
+category: knowledge
+topics:
+  - tools
+  - knowledge
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取并持久化会话、项目或记忆数据；核对存储位置和清理方式
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 对文章、书籍和 PDF 进行证据优先的深度阅读，记录论断、证据、置信度和知识关系。
+  en: Deep-read books and articles in five modes (quick, deep, knowledge map, Feynman, full book) with claim-evidence-data reports, Mermaid/XMind mindmaps, batch comparison, budget preflight, transparent background-job progress, and MD/HTML exports from URLs, files, or pasted text.
+links:
+  source: https://github.com/xiehuan123/dsh-deepread
+  detail_zh: https://52dsh.com/plugins/xiehuan123-dsh-deepread/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

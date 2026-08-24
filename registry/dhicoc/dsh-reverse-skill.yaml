@@ -1,0 +1,51 @@
+schema_version: 1
+id: github:dhicoc/dsh-reverse-skill
+slug: dhicoc-dsh-reverse-skill
+name: dsh-reverse-skill
+repository:
+  url: https://github.com/dhicoc/dsh-reverse-skill
+  commit: fcb5a8a818834f6e2456812fb994d01692884778
+package:
+  ecosystem: npm
+  name: "@dhicoc/dsh-reverse-skill"
+  version: 1.0.4
+  install_spec: github:dhicoc/dsh-reverse-skill#fcb5a8a81883
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 1.0.4，peer 依赖要求 Cordis ^4.0.1 与 dsh-skill ^0.0.1-rc.1；本站完成固定提交静态审阅，未逐一执行 86 个 Skill、外部 MCP 或安全工具
+category: security
+topics:
+  - skill
+  - security
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - command_execution
+    - network_access
+  notes: 插件本身只读取包内 SKILL.md 并注册 Skill Provider，不直接访问网络、写文件或执行命令；技能正文会引导模型使用当前 DSH 已配置的逆向、MCP 与安全工具，而 allowed-tools/disallowed-tools 目前不由 DSH 强制
+  data_flow: 包内 86 个 SKILL.md → 递归扫描与 frontmatter 归一化 → DSH Skill Provider → 用户或模型按需加载技能正文 → 实际工具调用仍经过当前 Profile 已有工具、权限与审批链。
+risk_level: medium
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的递归扫描器、打包清单、上游说明和代表性渗透测试文档。运行时代码只读包内技能且不执行上游 agents/*.yaml；但这是双用途安全知识包，部分流程涉及 XSS、RCE、SSRF、鉴权、文件上传和外部 MCP，技能声明的 allowed/disallowed-tools 也不会被宿主强制。只在拥有明确授权的目标或 CTF 沙箱中使用，配合最小权限 Profile 与人工审批，并单独审计每个外部 MCP。
+summary:
+  zh: 把 reverse-skill 上游的 86 个逆向工程、CTF、授权渗透测试与安全研究 Skill 递归注册到 DSH，无需维护手工技能清单。
+  en: "Complete reverse-skill pack (85 SKILL.md) as a DeepSeek Harness Cordis plugin: reverse engineering, authorized pentesting and security-research skill router."
+links:
+  source: https://github.com/dhicoc/dsh-reverse-skill
+  detail_zh: https://52dsh.com/plugins/dhicoc-dsh-reverse-skill/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

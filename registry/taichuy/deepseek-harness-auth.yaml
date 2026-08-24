@@ -1,0 +1,51 @@
+schema_version: 1
+id: github:taichuy/deepseek-harness-auth
+slug: taichuy-deepseek-harness-auth
+name: deepseek-harness-auth
+repository:
+  url: https://github.com/taichuy/deepseek-harness-auth
+  commit: 4464052fc1dcae45622cfcef6f9cbbbaaa6004a6
+package:
+  ecosystem: npm
+  name: deepseek-harness-auth
+  version: 0.4.1
+  install_spec: github:taichuy/deepseek-harness-auth#4464052fc1dc
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.4.1、MIT，要求 Node.js >=22.19，声明兼容 @deepseek-ai/dsh-host-webserver >=0.1.0-rc.2 <1；本站完成固定提交静态审阅，未在真实公网、Cloudflare/Nginx、TLS 终止、多代理链、暴力攻击或多实例会话下运行
+category: security
+topics:
+  - security
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_write
+    - network_access
+    - credentials
+    - browser_control
+    - session_data
+    - ui_injection
+  notes: 默认在 0.0.0.0:3080 提供公共入口，管理本地账号哈希、会话、验证码和 IP/CIDR 白名单，并代理已认证 HTTP/WebSocket 到 127.0.0.1 DSH；CLI 可初始化密码、修改白名单和撤销会话
+  data_flow: 浏览器登录或可信 IP → scrypt 密码验证、失败锁定/可选验证码、内存 Session Cookie → 公共代理清理私有 Cookie 并改写 Host/Origin → loopback DSH → 响应返回浏览器；账号状态以 0700 目录和 0600 文件原子保存。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的认证中心、密码状态、客户端 IP/可信代理解析、HTTP/WebSocket 代理、Cookie、账户设置和 CLI。未初始化时除登录/验证码外仍拒绝访问，上游若非 127.0.0.1 会直接失败，Session 使用随机令牌、HttpOnly/SameSite=Strict 和版本撤销；但密码策略只要求非空，默认不强制 TLS、Secure Cookie 或验证码，白名单/可信代理配置错误可绕过登录。公网使用必须配置长随机密码、HTTPS、Secure Cookie、after-failures/always 验证码，封锁上游端口，并只信任实际反向代理地址。
+summary:
+  zh: 为 DSH Web 提供失效关闭的密码认证反向代理，把原 Harness 服务固定在回环随机端口，并统一保护 HTTP、SPA、RPC、SSE 与 WebSocket。
+links:
+  source: https://github.com/taichuy/deepseek-harness-auth
+  detail_zh: https://52dsh.com/plugins/taichuy-deepseek-harness-auth/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

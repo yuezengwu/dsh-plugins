@@ -1,0 +1,50 @@
+schema_version: 1
+id: github:sandbaseai/sandbase-skills
+slug: sandbaseai-sandbase-skills
+name: sandbase-skills
+repository:
+  url: https://github.com/sandbaseai/sandbase-skills
+  commit: 5452b45117ec75afb1338131e46109474defb89b
+package:
+  ecosystem: npm
+  name: "@sandbaseai/dsh-skills"
+  version: 0.3.5
+  install_spec: github:sandbaseai/sandbase-skills#5452b45117ec
+license:
+  spdx: Apache-2.0
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.3.5，以 DSH filesystem Skill provider 挂载 marketing 与 research 目录，未声明具体 DSH peer 版本；本站完成固定提交静态审阅和代表性 Skill 抽查，未逐一运行 88 个 Skill、SandBase MCP、外部数据源或离线验证器
+category: knowledge
+topics:
+  - skill
+  - knowledge
+permissions:
+  status: reviewed
+  capabilities:
+    - network_access
+    - browser_control
+  notes: Bundle 本身只挂载包内 SKILL.md，单技能安装器会在用户指定的技能根递归替换对应目录；具体 Skill 会调用当前 Host 已有 Web、浏览器、搜索或可选 SandBase MCP 工具，并可能把查询、URL 或业务主题发送给外部 Provider
+  data_flow: 包内 Skill 指令 → DSH Skill Provider 按需加载 → 当前 Agent 的宿主工具或可选 sandbase_describe_tool/sandbase_call_tool → 外部搜索、社交、市场和数据服务 → 带来源的研究结果；安装器只复制固定仓库内技能目录到目标 Skill 根。
+risk_level: medium
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 DSH bundle、安装器、安全说明，并抽查 multi-source-search 与 twitter-intelligence。代表性研究 Skill 明确把网页视为不可信输入、禁止主动发帖互动、要求敏感查询先获同意；但这是大型指令集合，外部服务和具体工具 schema 会变化，部分商业/社交流程需要 SANDBASE_API_KEY，宿主也不会仅凭 Skill 声明强制工具权限。按需启用单个 Skill，保留最小权限 Profile，调用前检查实际工具和数据去向，不向第三方发送客户、候选人或内部数据。
+summary:
+  zh: 为 DSH 挂载 88 个研究、社交情报、商业、营销、SEO 与实用工具 Skill，既可复用宿主搜索能力，也可选接 SandBase MCP 的模型和数据 Provider。
+  en: Mounts 88 packaged research, social-intelligence, marketing and business Agent Skills into dsh through the filesystem Skill provider.
+links:
+  source: https://github.com/sandbaseai/sandbase-skills
+  detail_zh: https://52dsh.com/plugins/sandbaseai-sandbase-skills/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

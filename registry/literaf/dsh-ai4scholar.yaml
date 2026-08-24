@@ -1,0 +1,46 @@
+schema_version: 1
+id: github:literaf/dsh-ai4scholar
+slug: literaf-dsh-ai4scholar
+name: dsh-ai4scholar
+repository:
+  url: https://github.com/literaf/dsh-ai4scholar
+  commit: 500e49d004715908122b76fef90e1db05db7c7f4
+package:
+  ecosystem: npm
+  name: dsh-ai4scholar
+  version: 0.3.3
+  install_spec: github:literaf/dsh-ai4scholar#500e49d00471
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 >=0.1.0-rc.6；本站尚未运行实测
+category: tools
+topics:
+  - tools
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取用户提供的内容或调用外部工具；核对数据流、依赖和输出边界
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 提供 Semantic Scholar、PubMed、Google Scholar、arXiv、DOI、全文、自动引用和图表等学术检索工具。
+  en: "AI4Scholar academic search: 38 tools over Semantic Scholar, PubMed, Google Scholar, arXiv, bioRxiv/medRxiv, and DOI resolution (search, citation graph, authors, recommendations, PDF full text in slices, auto-cite, scientific figures), a unified cross-platform search with de-duplication, an API-key card in Settings, and per-call credit accounting with an `/ai4scholar` balance card."
+links:
+  source: https://github.com/literaf/dsh-ai4scholar
+  detail_zh: https://52dsh.com/plugins/literaf-dsh-ai4scholar/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

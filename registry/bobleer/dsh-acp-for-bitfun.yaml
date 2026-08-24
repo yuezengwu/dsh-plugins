@@ -1,0 +1,56 @@
+schema_version: 1
+id: github:bobleer/dsh-acp-for-bitfun
+slug: bobleer-dsh-acp-for-bitfun
+name: dsh-acp-for-bitfun
+repository:
+  url: https://github.com/bobleer/dsh-acp-for-bitfun
+  commit: 8dedce1ee1a463cfb21e2ac0d8518a8d3c67c5aa
+package:
+  ecosystem: npm
+  name: dsh-acp-for-bitfun
+  version: 0.1.0
+  install_spec: github:bobleer/dsh-acp-for-bitfun#8dedce1ee1a4
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.1.0、MIT，Cordis peer ^4.0.1，README 要求 DSH >=0.1.0-rc.6、BitFun CLI >=0.2.17 并先完成登录；本站完成固定提交静态审阅，当前站点跟踪的 0.1.1-rc.2 低于作者要求，未做安装、真实仓库修改、长任务、异常退出或跨平台验证
+category: agent
+topics:
+  - notify
+  - agent
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - filesystem_write
+    - command_execution
+    - network_access
+    - remote_control
+    - session_data
+    - agent_orchestration
+    - plugin_management
+  notes: 加载时用固定 argv 检查配置的 BitFun 命令版本，模型可通过 subagent_bitfun 把任务交给外部 ACP 进程；默认 permission=reject，若部署者改为 allow，则 BitFun 的权限请求会被自动允许，命令、参数和附加环境由本机配置者控制
+  data_flow: 主 Agent 提炼的任务与当前工作目录 → 本机 BitFun ACP 子进程 → BitFun 按自身登录、模型和权限配置读取/修改项目并执行工具 → 结构化结果返回 DSH 主 Agent；每次调用创建独立子进程，不复用上下文。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的配置、版本探测、ACP 挂载和模型工具入口。命令使用参数数组而非 Shell 字符串，默认拒绝子进程权限请求，插件本身不提供远程管理 API；但任务内容和项目上下文会进入 BitFun，部署配置可指定任意可执行文件/环境，permission=allow 会显著扩大宿主修改能力。先解决 DSH 版本兼容，只使用可信 BitFun 安装并保持 reject，确需写入时逐次检查任务、工作目录和 diff，敏感仓库不要交给未审计的外部模型或扩展。
+summary:
+  zh: 通过 DSH 的 ACP 子 Agent 框架调用本机 BitFun CLI，把独立编码任务交给一次性子进程执行，并将结果返回主 Agent。
+  en: ACP bridge between BitFun and DSH.
+links:
+  source: https://github.com/bobleer/dsh-acp-for-bitfun
+  detail_zh: https://52dsh.com/plugins/bobleer-dsh-acp-for-bitfun/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

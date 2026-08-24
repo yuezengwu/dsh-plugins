@@ -1,0 +1,51 @@
+schema_version: 1
+id: github:titanwings/dsh-better-browser
+slug: titanwings-dsh-better-browser
+name: dsh-better-browser
+repository:
+  url: https://github.com/titanwings/dsh-better-browser
+  commit: 506493224a21510c3f9cc7329a17e84af20879dc
+package:
+  ecosystem: npm
+  name: "@dsh-external/dsh-better-browser"
+  version: 0.3.6
+  install_spec: github:titanwings/dsh-better-browser#506493224a21
+license:
+  spdx: BSD-3-Clause
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.3.6、BSD-3-Clause，要求 Node.js ^22.19 或 >=24，主要 DSH peer 仍基于 0.0.1 系列；另需单独安装并运行 Kimi WebBridge 守护进程和浏览器扩展。本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、真实登录站点、守护进程、扩展、支付/后台页面或长流程下运行
+category: browser
+topics:
+  - browser
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - network_access
+    - credentials
+    - browser_control
+    - session_data
+    - ui_injection
+  notes: 13 个模型工具可操作真实已登录浏览器、执行任意页面 JavaScript、读取无障碍树与网络响应、填写/提交页面并关闭标签；上传会以 realpath 限定在调用 Agent 工作区，截图/PDF 返回路径限定到 WebBridge 专用临时目录，导航只允许 http(s)。插件本身没有 action-aware 强制确认，依赖 DSH 的整体 Approval 和用户监督
+  data_flow: Agent 的 URL、页面动作、填写值、脚本与工作区内选定文件 → 默认 127.0.0.1:10086 的 Kimi WebBridge → 用户真实浏览器和目标网站；页面文本、标签、网络明细、脚本结果和本机临时文件路径经最多 32000 字符工具结果进入模型上下文。Cookie 不由插件直接导出，但脚本和网络工具可能读到页面可访问的敏感数据。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 13 个工具、守护进程客户端、URL/会话校验、取消与超时、工作区上传 realpath 围栏、临时输出路径和模型输出限额。它不注册未鉴权 Host Web 路由，也不提供任意主机文件下载；但真实登录态使点击、填写、evaluate、network 和上传具备高影响，网页内容还可能提示注入，Kimi 守护进程/扩展是独立供应链。保持 baseUrl=127.0.0.1 或仅使用可信 HTTPS 服务，使用专用低权限浏览器 Profile，不登录支付和生产管理员账号；对发送、发布、删除、授权和付款逐次人工确认，不把 snapshot 页面文字当可信指令。
+summary:
+  zh: 通过本机 Kimi WebBridge 守护进程复用用户真实浏览器的登录态和标签页，为 DSH 提供导航、页面读取、点击、填写、脚本、网络、上传、截图、PDF 与标签管理工具。
+links:
+  source: https://github.com/titanwings/dsh-better-browser
+  detail_zh: https://52dsh.com/plugins/titanwings-dsh-better-browser/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

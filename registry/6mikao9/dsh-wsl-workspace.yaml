@@ -1,0 +1,51 @@
+schema_version: 1
+id: github:6mikao9/dsh-wsl-workspace
+slug: 6mikao9-dsh-wsl-workspace
+name: dsh-wsl-workspace
+repository:
+  url: https://github.com/6Mikao9/dsh-wsl-workspace
+  commit: 3861bd984c3877cfca71fb51f81e688e0ef7f238
+package:
+  ecosystem: npm
+  name: dsh-wsl-workspace
+  version: 0.2.3
+  install_spec: github:6Mikao9/dsh-wsl-workspace#3861bd984c38
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.2.3，仅适用于 Windows 与已安装的 WSL；dsh-fs、shell、subprocess 等 peer 使用通配范围，未锁定具体 DSH 版本；本站完成固定提交静态审阅，未在不同 WSL 发行版、用户、drvfs/9P 或 Windows 版本上实测
+category: development
+topics:
+  - tools
+  - development
+permissions:
+  status: reviewed
+  capabilities:
+    - command_execution
+    - network_access
+    - session_data
+  notes: 调用本机 wsl.exe 在指定发行版和可选 Linux 用户下执行任意 bash，读写 WSL 与 /mnt/<drive> Windows 文件；文件工具经过 DSH fs 策略，但 bash 进程不受 Windows ACL 沙箱或 DSH 文件策略包裹
+  data_flow: Web 对话框选择的发行版、Linux 路径与用户名 → loopback-only Host 路由和本机工作区登记 → WSL UNC/9P 文件系统与 wsl.exe bash → WSL 或 /mnt 下文件和命令结果返回 DSH Session。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 WSL 发现、路径转换、工作区登记、Preset 变体、文件系统适配、subprocess 执行器和 loopback 路由。管理 API 只允许 loopback socket/Host 与 POST，文件工具仍用 DSH policy；但 bash 的真正边界是 WSL 自身，默认发行版用户可能拥有高权限，并可通过 /mnt 访问 Windows 数据。使用非 root 专用 WSL 用户与独立发行版，保持 workspace-write，限制 /mnt 挂载和敏感目录，并在升级后重新验证 Preset。
+summary:
+  zh: 让 Windows 上的 DSH Web 直接添加 WSL 发行版目录为工作区，在 WSL 内执行 bash，并通过 Windows 侧 9P 文件系统使用 Linux 路径读写、编辑和管理项目。
+  en: Add a WSL workspace from the web GUI without needing to install dsh or related tools again inside WSL. Bash commands and file read/write operations run within the local WSL distribution on the host machine, while Windows files remain accessible.
+links:
+  source: https://github.com/6Mikao9/dsh-wsl-workspace
+  detail_zh: https://52dsh.com/plugins/6mikao9-dsh-wsl-workspace/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

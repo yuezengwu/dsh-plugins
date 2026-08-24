@@ -1,0 +1,48 @@
+schema_version: 1
+id: github:ax1202/ax-feishu-bridge
+slug: ax1202-ax-feishu-bridge
+name: ax-feishu-bridge
+repository:
+  url: https://github.com/AX1202/ax-feishu-bridge
+  commit: 479de00b82eda3a3458bff45bb395bd674df90d7
+package:
+  ecosystem: npm
+  name: ax-feishu-bridge
+  version: 0.4.8
+  install_spec: github:AX1202/ax-feishu-bridge#479de00b82ed
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.4.8，DSH peer 依赖要求 agent、preset、LLM、session 与 session-query ^0.1.0-rc.6；本站完成固定提交静态审阅，未使用真实飞书租户、扫码授权、公开卡片回调或跨平台后台守护进行端到端测试
+category: remote
+topics:
+  - remote
+permissions:
+  status: reviewed
+  capabilities:
+    - credentials
+    - remote_control
+    - session_data
+  notes: 持有飞书 App ID/App Secret，接收私聊、群聊、引用内容和附件并创建或恢复继承宿主默认 Preset 的 DSH Agent；远程用户可切换任意绝对工作区、模型、历史会话并停止运行
+  data_flow: 飞书消息、引用卡片和媒体 → 群触发策略与会话去重 → 按私聊/群/话题映射的 DSH Session、默认工具 Preset、模型和工作区 → 流式卡片返回飞书；配置、映射、日志和会话状态保存在 ~/.dsh/feishu。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 DSH 适配、消息触发、附件、会话/模型/工作区切换、CardKit 与回调服务。它复用 DSH 公共 Service 并隔离聊天会话，但 groupPolicy 默认 open，所有私聊始终接受，代码未提供发送者 allowlist；mention/关键词只是触发条件，不是授权边界。Webhook 默认监听 0.0.0.0，卡片处理器也未配置显式 verification token。只用专用飞书应用并限制可见范围，群策略改为 mention，反代保护回调，使用最小权限默认 Preset 和专用 cwd。
+summary:
+  zh: 把 DSH 或 Pi 接入飞书/Lark 私聊、群聊和话题，支持扫码建机器人、流式卡片、图片与文件、模型/思考强度/工作区切换、历史会话恢复和停止任务。
+links:
+  source: https://github.com/AX1202/ax-feishu-bridge
+  detail_zh: https://52dsh.com/plugins/ax1202-ax-feishu-bridge/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

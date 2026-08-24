@@ -1,0 +1,54 @@
+schema_version: 1
+id: github:amlyczz/dsh-lark-link
+slug: amlyczz-dsh-lark-link
+name: dsh-lark-link
+repository:
+  url: https://github.com/amlyczz/dsh-lark-link
+  commit: 1a48d4865a92acdb87ec806f940241596c06835b
+package:
+  ecosystem: npm
+  name: dsh-lark-link
+  version: 0.5.1
+  install_spec: github:amlyczz/dsh-lark-link#1a48d4865a92
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.5.1，要求 Node.js >=24，DSH agent/commands/credentials/LLM/session/storage/tools 等 peer 全部使用通配范围；本站完成固定提交静态审阅，未用真实飞书租户、扫码授权、崩溃补偿、CardKit、附件或跨版本恢复测试
+category: remote
+topics:
+  - notify
+  - remote
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_write
+    - command_execution
+    - credentials
+    - remote_control
+    - session_data
+    - agent_orchestration
+  notes: 持有飞书 App 凭据，接收私聊、群聊、媒体和命令并创建完整 DSH Agent；远程用户可切换任意工作区、模型、Preset 和权限，默认 groupPolicy=open、allowlist 为空、permissionMode=danger-full-access、approval=never
+  data_flow: 飞书消息、附件和卡片动作 → 长连接、去重、Inbound WAL、可选 allowlist 与群触发策略 → 按聊天隔离的 DSH Session、Code preset、权限和工作区 → Outbox/CardKit 返回结果；App Secret 进入 DSH credentials，附件暂存本机，任务与会话映射持久化后用于崩溃补偿。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的默认配置、群触发、消息编排、凭据、WAL/Outbox、媒体保留和远程命令。它提供 allowlist、denyList、工作区根、消息去重与有界补发，凭据不写普通配置；但默认所有私聊和群消息都可触发，并直接给 Agent 完整主机权限且跳过审批，崩溃补发还可能重新执行已有副作用的任务。安装后先停止桥接，设置 allowlist、groupPolicy=mention、permissionMode=workspace-write、专用 workspaceRoot 和非生产模型，再启用服务；付款、部署等副作用任务不要依赖自动补发。
+summary:
+  zh: 通过飞书/Lark 长连接把每个聊天映射为独立 DSH Agent，支持二维码建应用、消息与附件补偿、卡片交互、模型/模式/权限/工作区切换、Goal、文件回传和 Session 恢复。
+  en: "High-reliability Feishu/Lark bridge for DeepSeek Harness: QR one-click auth, card-based commands and intent-confirmation cards, at-least-once zero-loss outbox, media in/out, /doctor session-log ZIP, and a reusable DSH Web GUI that lands sessions in the right workspace."
+links:
+  source: https://github.com/amlyczz/dsh-lark-link
+  detail_zh: https://52dsh.com/plugins/amlyczz-dsh-lark-link/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

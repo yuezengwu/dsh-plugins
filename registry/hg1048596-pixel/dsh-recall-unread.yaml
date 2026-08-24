@@ -1,0 +1,50 @@
+schema_version: 1
+id: github:hg1048596-pixel/dsh-recall-unread
+slug: hg1048596-pixel-dsh-recall-unread
+name: dsh-recall-unread
+repository:
+  url: https://github.com/hg1048596-pixel/dsh-recall-unread
+  commit: e9a22bad1f246584ac153a250436732c754b7e72
+package:
+  ecosystem: npm
+  name: dsh-recall-unread
+  version: 1.1.0
+  install_spec: github:hg1048596-pixel/dsh-recall-unread#e9a22bad1f24
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 1.1.0，提供 DSH bundle 与 Web client，但未声明 Node 或具体 DSH peer 范围；本站完成固定提交静态审阅，未在当前基线运行消息竞争、批量撤回或多标签页测试
+category: interface
+topics:
+  - ui
+  - interface
+permissions:
+  status: reviewed
+  capabilities:
+    - session_data
+    - ui_injection
+  notes: 客户端读取当前 Session queue 的未读 steering 预览，Host 通过私有 recall RPC 获取目标 Agent 并直接调用 agent.inbox.remove(itemId) 移除仍处于 pending 的消息
+  data_flow: 当前 Session 的未读 steering 队列 → 输入区本地预览 → 用户点击撤回并通过 host.call 发送 sessionId/itemId → 对应 Agent inbox 删除 pending 项；已经被模型领取的消息拒绝撤回。
+risk_level: medium
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 Host 私有 RPC、Session/Agent 定位和 Web dock。实现只删除仍未读取的 inbox 项，不改历史事件或已开始的模型回合，且失败会明确提示；但没有二次确认，全部撤回遇到并发领取时可能只完成部分操作，包也未锁定 DSH peer 版本。只把它当作发送队列纠错工具，不要依赖它撤销已经提交给模型或外部工具的内容。
+summary:
+  zh: 在 DSH 输入区显示模型尚未读取的 steering 消息，并允许逐条或全部撤回，避免排队中的补充说明继续进入 Agent。
+  en: Adds a strip above the composer to recall sent-but-unread (steering) text messages before the model reads them.
+links:
+  source: https://github.com/hg1048596-pixel/dsh-recall-unread
+  detail_zh: https://52dsh.com/plugins/hg1048596-pixel-dsh-recall-unread/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

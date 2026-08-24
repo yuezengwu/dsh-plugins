@@ -1,0 +1,54 @@
+schema_version: 1
+id: github:d-dev0101/open-sea-skin
+slug: d-dev0101-open-sea-skin
+name: open-sea-skin
+repository:
+  url: https://github.com/d-dev0101/open-sea-skin
+  commit: 2437d80a96de4124c54fbe89872fa7090103f025
+package:
+  ecosystem: npm
+  name: open-sea-skin
+  version: 1.2.1
+  install_spec: github:d-dev0101/open-sea-skin#2437d80a96de
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 1.2.1，采用 DSH Bundle/Web Client 格式且没有声明明确 peer 版本；本站完成固定提交静态审阅，未在不同 GPU、Chrome/Edge 扩展或静态安装模式运行
+category: interface
+topics:
+  - theme
+  - interface
+permissions:
+  status: reviewed
+  capabilities:
+    - network_access
+    - credentials
+    - session_data
+    - ui_injection
+    - plugin_management
+  notes: 原生 DSH 插件读取随包分发的视觉资源、注册本机素材路由，并修改 Web 客户端背景槽和主题 Token；不需要模型凭据或外部账号
+  data_flow: 本机插件设置与随包资源 → DSH Host 静态素材路由 → WebGPU/Canvas 背景和可逆 CSS Theme Token → DSH Web 界面；原生插件审阅路径未发现把会话或凭据发送到外部服务。
+risk_level: medium
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的原生插件入口、素材路由、客户端装配、设置与安全说明。核心 DSH 路径是本地视觉层，卸载时会释放背景槽并恢复主题 Token；但仓库还包含 Chrome/Edge 扩展、静态安装器和 native-dist 等独立分发方式，它们不等同于本站审阅的原生 Bundle，用户应优先使用仓库标明的 DSH 插件安装方式并分别核对扩展权限。
+summary:
+  zh: 为 DSH Web 提供 WebGPU 海洋动态背景和可逆玻璃主题层，并同时提供原生插件、浏览器扩展和静态安装等多种使用方式。
+  en: Realtime WebGPU ocean skin with quick controls for waves, daylight, glass opacity, and an automatic day cycle.
+links:
+  source: https://github.com/d-dev0101/open-sea-skin
+  detail_zh: https://52dsh.com/plugins/d-dev0101-open-sea-skin/
+  tutorial_zh: https://52dsh.com/tutorials/d-dev0101-open-sea-skin-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

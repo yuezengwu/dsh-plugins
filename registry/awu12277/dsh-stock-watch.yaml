@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:awu12277/dsh-stock-watch
+slug: awu12277-dsh-stock-watch
+name: dsh-stock-watch
+repository:
+  url: https://github.com/Awu12277/dsh-stock-watch
+  commit: 0bd76f3f72b647249b2168fc50ae4955c6c86575
+package:
+  ecosystem: npm
+  name: dsh-stock-watch
+  version: 1.0.8
+  install_spec: github:Awu12277/dsh-stock-watch#0bd76f3f72b6
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 包含 dsh.bundle；未声明明确 DSH peer 版本，本站尚未运行实测
+category: integration
+topics:
+  - fun
+  - integration
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 连接产品或业务能力；核对账号、外部服务和数据处理范围
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 在 DSH Web 右上角提供可折叠的 A 股自选股实时行情面板。
+  en: "A-share watchlist real-time market monitoring plugin: a collapsible popup in the top-right corner of the DeepSeek Harness (DSH) web interface for real-time quote monitoring, group switching, intraday and candlestick (K-line) charts, and buy/sell target price settings."
+links:
+  source: https://github.com/Awu12277/dsh-stock-watch
+  detail_zh: https://52dsh.com/plugins/awu12277-dsh-stock-watch/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

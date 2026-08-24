@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:hust-open-atom-club/oh-dsh
+slug: hust-open-atom-club-oh-dsh
+name: oh-dsh
+repository:
+  url: https://github.com/hust-open-atom-club/oh-dsh
+  commit: 007506581042c978db5d3283e28df5bf10f84619
+package:
+  ecosystem: npm
+  name: "@oh-dsh/desktop"
+  version: 0.1.7
+  install_spec: github:hust-open-atom-club/oh-dsh#007506581042
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 包含 dsh.bundle；未声明明确 DSH peer 版本，本站尚未运行实测
+category: interface
+topics:
+  - dev
+  - interface
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 注入 Web 客户端并改变界面或交互；核对浏览器侧数据访问范围
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 提供一套 DSH 运行时，并覆盖 Desktop、Web 与 TUI 三种交互体验。
+  en: "Community distribution: TUI, desktop, and Web UI as one bundle with layered installation."
+links:
+  source: https://github.com/hust-open-atom-club/oh-dsh
+  detail_zh: https://52dsh.com/plugins/hust-open-atom-club-oh-dsh/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

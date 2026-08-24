@@ -1,0 +1,54 @@
+schema_version: 1
+id: github:zhenyu98/dsh-context-doctor
+slug: zhenyu98-dsh-context-doctor
+name: dsh-context-doctor
+repository:
+  url: https://github.com/Zhenyu98/dsh-context-doctor
+  commit: 957d5de09402f882a18e556cae37076ee420b868
+package:
+  ecosystem: npm
+  name: dsh-context-doctor
+  version: 0.5.2
+  install_spec: github:Zhenyu98/dsh-context-doctor#957d5de09402
+license:
+  spdx: BSD-3-Clause
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.5.2、BSD-3-Clause、package 标记 private，要求 Node.js >=22.19，DSH tools peer 为 ^0.1.0-rc.6；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、大型单仓、远程 MCP、Windows 路径或真实 Web 圆环面板下运行
+category: development
+topics:
+  - dev
+  - development
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - command_execution
+    - network_access
+    - credentials
+    - remote_control
+    - session_data
+  notes: 只读调用 DSH fs/skills/tools 服务，沿指定 cwd 向上寻找 Git 根并读取最多 256KB 的 AGENTS.md/CLAUDE.md，枚举 Skills 摘要和工具 Schema；GET 接口允许按 session 或显式 cwd 请求审计结果
+  data_flow: 当前 Session 或请求指定 cwd → 只读扫描指令文件元数据、重复段落、技能摘要与工具 Schema → Token 统计、冲突与裁剪建议 → 模型工具或 Web 面板；默认摘要不返回完整指令正文，开发者回执仅包含重复段落短预览。
+risk_level: medium
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的扫描边界、文件大小上限、重复检测、Schema 汇总、缓存和 HTTP 路由。核心不写文件、不执行命令或联网，正文只用于本机计算；但 Web GET 没有 Origin/Host/remoteAddress/身份校验，显式 cwd 可探测宿主可访问目录的指令文件路径、技能描述和工具清单，package 也尚非公开发行状态。保持 DSH loopback，不经反向代理公开该接口，并只对可信工作区运行。
+summary:
+  zh: 只读审计 DSH 会话的 AGENTS/CLAUDE 指令链、Skills 目录和工具/MCP Schema，估算上下文 Token 成本并提示重复、冲突与工具面膨胀。
+  en: "Context injection audit: token costs of instruction chains / skill catalogs / tool schemas, duplicate and conflict detection."
+links:
+  source: https://github.com/Zhenyu98/dsh-context-doctor
+  detail_zh: https://52dsh.com/plugins/zhenyu98-dsh-context-doctor/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

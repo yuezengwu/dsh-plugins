@@ -1,0 +1,53 @@
+schema_version: 1
+id: github:ccch1mneyyy/dsh-tui
+slug: ccch1mneyyy-dsh-tui
+name: dsh-TUI
+repository:
+  url: https://github.com/ccch1mneyyy/dsh-TUI
+  commit: bdff0afb028d50c304e4474fd40f83b0721d50fd
+package:
+  ecosystem: npm
+  name: "@deepseek-harness-tui/dsh-tui"
+  version: 0.8.8
+  install_spec: github:ccch1mneyyy/dsh-TUI#bdff0afb028d
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 清单声明 DSH 0.1.0-rc.6 或 0.1.1-rc.1 系列 peer 依赖；本站完成固定提交静态审阅，未在真实 TTY、Windows 或 Herdr 中运行
+category: interface
+topics:
+  - ui
+  - interface
+permissions:
+  status: reviewed
+  capabilities:
+    - command_execution
+    - credentials
+    - session_data
+    - ui_injection
+  notes: 复用所选 DSH Profile 的模型凭据、工具、文件、Shell、审批和会话存储；Windows 组合会退回 danger-full-access 且 approval=never
+  data_flow: 终端输入与附件 → DSH Agent、会话日志和所选模型/工具 → session 事件与审批流 → TUI Channel 投影和 Ink 渲染返回终端。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 Bundle、适配器、宿主访问、授权、会话存储与更新说明。TUI 不自建沙箱而继承 Profile；非 Windows 默认 workspace-write/ask，但 Windows 因缺少对应后端会使用 danger-full-access/never，且剪贴板、外部编辑器和更新流程可能调用本机程序。
+summary:
+  zh: 为 DeepSeek Harness 提供 Claude Code 风格的交互式终端入口，支持流式消息、工具审批、会话恢复与回退、模型切换、Skills、MCP 和子 Agent。
+  en: "Claude Code-style full-screen terminal UI: pixel-whale header, live status line, and streaming thought expansion."
+links:
+  source: https://github.com/ccch1mneyyy/dsh-TUI
+  detail_zh: https://52dsh.com/plugins/ccch1mneyyy-dsh-tui/
+  tutorial_zh: https://52dsh.com/tutorials/ccch1mneyyy-dsh-tui-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

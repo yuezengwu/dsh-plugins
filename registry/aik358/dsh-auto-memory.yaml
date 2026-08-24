@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:aik358/dsh-auto-memory
+slug: aik358-dsh-auto-memory
+name: dsh-auto-memory
+repository:
+  url: https://github.com/Aik358/dsh-auto-memory
+  commit: 2e5ce9cb760e81e7e662db75783c64bc598dfe8d
+package:
+  ecosystem: npm
+  name: "@a9i5k4/dsh-auto-memory"
+  version: 0.1.29
+  install_spec: github:Aik358/dsh-auto-memory#2e5ce9cb760e
+license:
+  spdx: BSD-3-Clause
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 包含 dsh.bundle；未声明明确 DSH peer 版本，本站尚未运行实测
+category: knowledge
+topics:
+  - memory
+  - knowledge
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取并持久化会话、项目或记忆数据；核对存储位置和清理方式
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 提供三层自动记忆、日历提醒、主动问候、每轮记忆整合及其他 AI 工具记忆继承。
+  en: "Cache-friendly three-layer memory for DSH: lean auto injection, per-turn AI consolidation, proactive calendar reminders and warm greetings, plus memory inheritance from other AI tools."
+links:
+  source: https://github.com/Aik358/dsh-auto-memory
+  detail_zh: https://52dsh.com/plugins/aik358-dsh-auto-memory/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

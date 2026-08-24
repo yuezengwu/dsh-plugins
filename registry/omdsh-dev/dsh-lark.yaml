@@ -1,0 +1,54 @@
+schema_version: 1
+id: github:omdsh-dev/dsh-lark
+slug: omdsh-dev-dsh-lark
+name: dsh-lark
+repository:
+  url: https://github.com/omdsh-dev/dsh-lark
+  commit: 632807d9abafbb866a5e208a0298eff21c7856d1
+package:
+  ecosystem: npm
+  name: dsh-lark-channel
+  version: 0.0.7
+  install_spec: github:omdsh-dev/dsh-lark#632807d9abaf
+license:
+  spdx: BSD-3-Clause
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.0.7，未在 package.json 声明完整 DSH peer 版本范围；本站完成固定提交静态审阅，未使用真实飞书企业、自建应用、多机器人、跨平台附件或审批卡进行端到端测试
+category: remote
+topics:
+  - notify
+  - remote
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_write
+    - command_execution
+    - credentials
+    - remote_control
+    - session_data
+  notes: 持有飞书 App ID/App Secret，接收授权用户的消息与附件并创建 DSH Agent；远程用户可切换模型、权限预设、回答审批，特定确认流程还能把 Session 切到 danger-full-access
+  data_flow: 飞书消息、命令、图片和文件 → Bot 凭据、发送者/群授权与路径围栏 → 独立 DSH Session、Agent、模型、工具和工作区 → 流式卡片或文件返回飞书；审批答案与权限切换从互动卡片回到本机 Agent。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的实例配置、授权解析、会话生命周期、审批桥、附件落盘/清理、出站文件 realpath 围栏和凭据迁移。插件对机器人实例、会话和凭据做隔离，外发文件经过容器与黑名单检查；但远程账号一旦获准就能驱动真实 Agent，附件和结果会进入飞书，danger-full-access 会同时取消沙箱和审批。配置明确的用户与群白名单，使用专用 workspace-write Profile，禁用不需要的文件外发与权限切换，并把应用凭据放入 DSH credentials。
+summary:
+  zh: 把飞书或 Lark 消息、文件、图片、命令、审批和问题接入 DSH，为机器人实例维护独立凭据、会话与工作区，并通过互动卡片展示流式状态和远程控制。
+  en: "Lark/Feishu bot channel for DeepSeek Harness: each chat drives its own agent, and tool approvals, model questions, and plan reviews return as cards answered by a button or a reply. Switch workspace and model from the chat (`/cd`, `/model`, `/new`), and run several bots that keep separate sessions and can hand turns to each other in one group."
+links:
+  source: https://github.com/omdsh-dev/dsh-lark
+  detail_zh: https://52dsh.com/plugins/omdsh-dev-dsh-lark/
+  tutorial_zh: https://52dsh.com/tutorials/omdsh-dev-dsh-lark-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

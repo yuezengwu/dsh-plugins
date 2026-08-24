@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:omdsh-dev/dsh-advisor
+slug: omdsh-dev-dsh-advisor
+name: dsh-advisor
+repository:
+  url: https://github.com/omdsh-dev/dsh-advisor
+  commit: 82d04b625b05e7aff2b94586623924577b231e35
+package:
+  ecosystem: npm
+  name: dsh-advisor
+  version: 0.2.4
+  install_spec: github:omdsh-dev/dsh-advisor#82d04b625b05
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.2.4、MIT，DSH peer 依赖精确对齐 0.1.1-rc.2；本站完成固定提交静态审阅，未在真实多 Provider、长上下文、高频回合、费用上限或复杂提示注入场景下运行
+category: agent
+topics:
+  - agent
+permissions:
+  status: reviewed
+  capabilities:
+    - credentials
+    - session_data
+  notes: 启用后读取主 Session 的增量 transcript，调用用户明确选择的审阅 Provider/Model，并可根据 reviewer 输出向主 Agent 注入 nit 或 concern/blocker 级 steer；默认关闭且缺少 Provider/Model 时保持禁用
+  data_flow: 主 Agent 新增 transcript → 配置的外部审阅模型与自定义 system prompt → 结构化严重度和审阅说明 → 当前 Session 的提示或 steer；队列、冷却、回退和单审阅者保护限制重复调用。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的配置硬门禁、增量 transcript、审阅运行时、输出解析、注入/steer、并发与排放保护。默认安装不调用模型；启用后会把会话内容发送给所选 Provider，并增加 Token、费用和延迟，外部内容中的提示注入也可能影响 reviewer 后再影响主 Agent。只选择允许处理该数据的模型，设置预算与冷却，自定义提示须人工审阅，阻断级意见仍由人确认。
+summary:
+  zh: 为每个 DSH Session 配置一个独立审阅模型，在主 Agent 完成回合后检查新增对话，按严重度注入提示或 steer 主 Agent 修正问题。
+links:
+  source: https://github.com/omdsh-dev/dsh-advisor
+  detail_zh: https://52dsh.com/plugins/omdsh-dev-dsh-advisor/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

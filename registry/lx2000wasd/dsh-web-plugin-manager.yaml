@@ -1,0 +1,49 @@
+schema_version: 1
+id: github:lx2000wasd/dsh-web-plugin-manager
+slug: lx2000wasd-dsh-web-plugin-manager
+name: dsh-web-plugin-manager
+repository:
+  url: https://github.com/LX2000WASD/dsh-web-plugin-manager
+  commit: 633d9fc2abd851a5a811d2ed06921a9711606c6f
+package:
+  ecosystem: npm
+  name: dsh-web-plugin-manager
+  version: 0.4.7
+  install_spec: github:LX2000WASD/dsh-web-plugin-manager#633d9fc2abd8
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.4.7，peer 依赖基于 Cordis 4.0.1、DSH Tools rc.6 和 Schemastery 3.18.1，开发组合使用 DSH rc.8；本站完成固定提交静态审阅，未真实安装 git/native 插件、迁移 Profile 或验证全部回滚路径
+category: management
+topics:
+  - management
+permissions:
+  status: reviewed
+  capabilities:
+    - command_execution
+    - credentials
+    - session_data
+    - ui_injection
+  notes: 运行 DSH CLI 与 pnpm，克隆或解析 npm/git/本地来源，扫描第三方源码和环境变量，修改 Profile package.json 与 patch、实时加载代码，并读写 Skills、预设、备份和市场缓存
+  data_flow: 市场索引、npm/git/本地来源与用户允许的环境变量 → 同源受保护 Web 路由或 dshpm → 安装质量门、依赖/冲突扫描和包管理器 → Profile、Loader、Skills/预设与运行状态；失败尝试回滚到旧依赖和补丁。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的路由信任围栏、安装会话、环境过滤、质量门、实时应用、补丁、CLI、Agent 工具与命令守卫。POST 要求 JSON、回环/可信 Host 和同源 Origin，安装过程串行并支持失败回滚；但静态分析不能发现所有动态或语义风险，git 安装的 pnpm 解析进程仍会继承未命中 TOKEN/KEY/SECRET 等规则的宿主变量，第三方包和 native build 仍是宿主代码。优先固定 npm 版本/Commit，从空白测试 Profile 安装，并在每次变更前导出备份。
+summary:
+  zh: 在 DSH Web 与 dshpm CLI 中统一查看、启停、安装、更新和卸载插件、Skills 与 Agent 预设，并提供市场、依赖/冲突分析、质量门、回滚、环境迁移和备份恢复。
+links:
+  source: https://github.com/LX2000WASD/dsh-web-plugin-manager
+  detail_zh: https://52dsh.com/plugins/lx2000wasd-dsh-web-plugin-manager/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

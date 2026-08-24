@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:laynechai/superpowers-dsh
+slug: laynechai-superpowers-dsh
+name: superpowers-dsh
+repository:
+  url: https://github.com/LayneChai/superpowers-dsh
+  commit: 0b660254ab93b592e9810b493ccd63ecdf1a4663
+package:
+  ecosystem: npm
+  name: superpowers-dsh
+  version: 0.1.0
+  install_spec: github:LayneChai/superpowers-dsh#0b660254ab93
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 包含 dsh.bundle；未声明明确 DSH peer 版本，本站尚未运行实测
+category: development
+topics:
+  - development
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取或修改工作区；核对文件写入、命令执行和回滚方式
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 把 TDD、系统调试、任务规划和协作等 Superpowers Skills 适配到 DSH。
+links:
+  source: https://github.com/LayneChai/superpowers-dsh
+  detail_zh: https://52dsh.com/plugins/laynechai-superpowers-dsh/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

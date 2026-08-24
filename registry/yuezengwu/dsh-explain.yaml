@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:yuezengwu/dsh-explain
+slug: yuezengwu-dsh-explain
+name: dsh-explain
+repository:
+  url: https://github.com/yuezengwu/dsh-explain
+  commit: 99239d4aab7cec2073293514c8b910eb47c981c4
+package:
+  ecosystem: npm
+  name: dsh-explain
+  version: 0.1.0
+  install_spec: github:yuezengwu/dsh-explain#99239d4aab7c
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.1.0-rc.8；本站尚未运行实测
+category: knowledge
+topics:
+  - session
+  - knowledge
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取并持久化会话、项目或记忆数据；核对存储位置和清理方式
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 提供本地优先的学习模式，包括跨会话全局学习线程、按来源讲解、上下文压缩和诊断设置。
+  en: "Local-first learning mode: cross-session learning threads with per-source explanations."
+links:
+  source: https://github.com/yuezengwu/dsh-explain
+  detail_zh: https://52dsh.com/plugins/yuezengwu-dsh-explain/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

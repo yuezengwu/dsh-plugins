@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:chenw2759-wq/dsh-plugin-healthcheck
+slug: chenw2759-wq-dsh-plugin-healthcheck
+name: dsh-plugin-healthcheck
+repository:
+  url: https://github.com/chenw2759-wq/dsh-plugin-healthcheck
+  commit: 0d29936305a1649a08625d70066d0c2c3ef1700b
+package:
+  ecosystem: npm
+  name: dsh-plugin-healthcheck
+  version: 0.1.0
+  install_spec: github:chenw2759-wq/dsh-plugin-healthcheck#0d29936305a1
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.1.0-rc.6；本站尚未运行实测
+category: security
+topics:
+  - security
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 涉及权限、凭据或安全策略；安装前应完成主要入口和失效模式审阅
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 检查 DSH 插件能否正常加载，并扫描作者定义的异常或恶意特征；检测范围和误报边界以仓库规则为准。
+links:
+  source: https://github.com/chenw2759-wq/dsh-plugin-healthcheck
+  detail_zh: https://52dsh.com/plugins/chenw2759-wq-dsh-plugin-healthcheck/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

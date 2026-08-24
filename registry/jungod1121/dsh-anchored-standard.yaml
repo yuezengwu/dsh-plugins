@@ -1,0 +1,53 @@
+schema_version: 1
+id: github:jungod1121/dsh-anchored-standard
+slug: jungod1121-dsh-anchored-standard
+name: dsh-anchored-standard
+repository:
+  url: https://github.com/Jungod1121/dsh-anchored-standard
+  commit: 560530f0e1af6dba3528ac8962f5e5e63951b1bb
+package:
+  ecosystem: npm
+  name: dsh-anchored-standard
+  version: 1.2.1
+  install_spec: github:Jungod1121/dsh-anchored-standard#560530f0e1af
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 1.2.1、MIT，作者按 DSH 0.1.0-rc.6 开发和线级验证，未声明 Node 或 peer 范围；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、不同模型、Session 恢复或计划模式下运行
+category: agent
+topics:
+  - workflow
+  - agent
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_write
+    - command_execution
+    - network_access
+    - session_data
+    - agent_orchestration
+  notes: 安装器会在 $DSH_HOME/.agent-presets/anchored-standard 写入三个预设文件；启用该 Preset 后可挂载 Standard 的 Shell、文件、网络、Skills、Goal、工作流与子 Agent 能力，实际权限继续由 DSH sandbox 和 approval 配置决定
+  data_flow: 首条用户消息与 Session durable events → 本地关键词分类和 system-prompt/tool-catalog 过滤 → DeepSeek 模型首轮请求 → 首个 tool/call 事件触发完整工具目录；安装器只复制包内固定预设文件，不联网。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的非覆盖式安装器、分类器、Prompt 过滤和完整预设组合。安装器不会覆盖已修改文件，也不会在卸载时自动删除；插件公开承认能力分数只来自单一冻结任务的 n=2 社区实验。另一个功能边界是源码只以首个 durable tool/call 作为升级信号，首轮若直接回复而不调用工具，Session 不会按宣传的“tool call or reply”自动升级。把它当实验性 Preset，先在临时 Session 验证，不把小样本分数当通用提升保证。
+summary:
+  zh: 提供任务感知的两阶段 Agent Preset：依据首条用户消息选择修复、构建或弱锚定模式，首个请求只暴露少量工具，首次持久工具调用后恢复 Standard 完整工具目录。
+  en: "Two-phase agent preset for DeepSeek V4 Pro: the first request sees only bash+read (Minimal-aligned bootstrap), then the full Standard tool catalog after the first tool call or reply; ships as an installer bundle plus a manual preset directory."
+links:
+  source: https://github.com/Jungod1121/dsh-anchored-standard
+  detail_zh: https://52dsh.com/plugins/jungod1121-dsh-anchored-standard/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:omdsh-dev/dsh-llm-fallbacks
+slug: omdsh-dev-dsh-llm-fallbacks
+name: dsh-llm-fallbacks
+repository:
+  url: https://github.com/omdsh-dev/dsh-llm-fallbacks
+  commit: f0d4c91c6cfad9b9aba781bef2e77d7f04193686
+package:
+  ecosystem: npm
+  name: dsh-llm-fallbacks
+  version: 0.3.3
+  install_spec: github:omdsh-dev/dsh-llm-fallbacks#f0d4c91c6cfa
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.3.3、仓库 LICENSE 为 MIT，DSH peer 依赖精确对齐 0.1.1-rc.2；本站完成固定提交静态审阅，未在真实多 Provider、附件/工具调用、限流风暴、跨时段切换或长会话恢复下运行
+category: infrastructure
+topics:
+  - infrastructure
+permissions:
+  status: reviewed
+  capabilities:
+    - credentials
+    - plugin_management
+  notes: 不直接读取或保存模型密钥，而是复用 DSH 已配置的 LLM adapters；启用后可覆盖请求 Provider/Model、重试当前请求、按角色调用一次自动分类模型并通过设置接口修改链路，默认 enabled=false
+  data_flow: 原模型请求及完整 messages/system/tools/附件 → 当前 Provider 失败 → 本地错误码、冷却、失败记录和链路规则 → 备用 Provider 收到同一完整请求 → 响应继续进入原 Agent；可选角色自动匹配只发送 Agent 来源、Preset 和角色描述。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的默认配置、候选链、请求错误处理、虚拟适配器、角色自动匹配、冷却状态和设置网关。插件默认关闭且有切换次数、冷却与递归保护；但一旦启用，同一敏感提示、附件和工具 schema 可能自动重发给不同服务商，产生额外费用、跨境/合规和数据保留差异。只配置已批准的 Provider，按角色拆分最小链路，避免把 AUTH 错误误当可无限重试，并监控费用与切换日志。
+summary:
+  zh: 为 DSH 配置按错误码、角色和时段工作的模型故障转移链，在鉴权、额度或限流失败后自动切换 Provider/Model，并提供可选 Auto 虚拟模型。
+links:
+  source: https://github.com/omdsh-dev/dsh-llm-fallbacks
+  detail_zh: https://52dsh.com/plugins/omdsh-dev-dsh-llm-fallbacks/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

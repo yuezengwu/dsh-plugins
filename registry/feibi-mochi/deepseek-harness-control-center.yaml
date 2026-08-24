@@ -1,0 +1,56 @@
+schema_version: 1
+id: github:feibi-mochi/deepseek-harness-control-center
+slug: feibi-mochi-deepseek-harness-control-center
+name: deepseek-harness-control-center
+repository:
+  url: https://github.com/feibi-mochi/deepseek-harness-control-center
+  commit: 0703abea8952efbd1c4b509fa2d21274f5338f1e
+package:
+  ecosystem: npm
+  name: deepseek-harness-wallet
+  version: 0.2.3
+  install_spec: github:feibi-mochi/deepseek-harness-control-center#0703abea8952
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: review
+  compatibility_notes: 插件版本 0.2.3，要求 Node.js 22.19 或 24+，作者标注 DSH 0.1.0-rc.8；本站完成固定提交静态审阅，未使用真实账户验证余额、计价、热切换、通知或可选会话删除适配
+category: interface
+topics:
+  - usage
+  - interface
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - filesystem_write
+    - network_access
+    - credentials
+    - browser_control
+    - session_data
+    - ui_injection
+  notes: 读取与写入 DSH 的 DEEPSEEK_API_KEY 凭据，按账户明文保存多个 Key 到 $DSH_HOME/storages/accounts.json，调用 DeepSeek 官方余额接口，并通过本机 Web 路由管理账户、阈值、刷新和用量状态
+  data_flow: DSH 凭据库或本机账户文件中的 Key → DeepSeek 官方 api.deepseek.com/user/balance → 余额缓存和界面；llm/stream 用量事件 → 按会话、Provider、时段与账户归档 → 费用估算、提醒和控制面板；切换账户会把新 Key 写回凭据库供后续模型请求使用。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的账户存储、凭据切换、余额请求、用量计费、Web 路由和可选 Session 删除说明。浏览器只收到掩码 Key，余额请求也固定发往 DeepSeek 官方接口；但多账户 Key 以明文保存在 DSH Home，能访问 DSH Web 的客户端还可执行账户切换或删除等本机管理操作，内置价格和汇率比例也会过时。收紧 DSH Home 权限且不要暴露 Web 到不可信网络，使用低权限账户并另行核对官方账单；永久删除功能只有改造宿主后才会开启。
+summary:
+  zh: 在 DSH 输入框旁集中显示 DeepSeek 余额、当前会话 Token 与费用、峰谷时段、第三方 Provider 用量、低余额和完成提醒，并支持多账户管理与热切换。
+  en: DeepSeek Harness control center for official balance monitoring, per-session costs and tokens, third-party token totals, completion alerts, official recharge, flexible layouts, and agent-assisted session controls.
+links:
+  source: https://github.com/feibi-mochi/deepseek-harness-control-center
+  detail_zh: https://52dsh.com/plugins/feibi-mochi-deepseek-harness-control-center/
+  tutorial_zh: https://52dsh.com/tutorials/feibi-mochi-deepseek-harness-control-center-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

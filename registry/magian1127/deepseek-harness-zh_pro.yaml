@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:magian1127/deepseek-harness-zh_pro
+slug: magian1127-deepseek-harness-zh-pro
+name: deepseek-harness-zh_pro
+repository:
+  url: https://github.com/magian1127/deepseek-harness-zh_pro
+  commit: 820977146097983c5a7f130454d4d9e452d49535
+package:
+  ecosystem: npm
+  name: deepseek-harness-zh_pro
+  version: 0.7.0
+  install_spec: github:magian1127/deepseek-harness-zh_pro#820977146097
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 包含 dsh.bundle；未声明明确 DSH peer 版本，本站尚未运行实测
+category: interface
+topics:
+  - ui
+  - interface
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 注入 Web 客户端并改变界面或交互；核对浏览器侧数据访问范围
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 为 DSH 提供界面美化、布局调整和提示词注入等综合增强功能。
+  en: "Chinese UI enhancement for the DSH web client: completes the Chinese locale, keeps the session stats line fully visible on one row, and adds an Enhancements settings section with configurable chat width."
+links:
+  source: https://github.com/magian1127/deepseek-harness-zh_pro
+  detail_zh: https://52dsh.com/plugins/magian1127-deepseek-harness-zh-pro/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

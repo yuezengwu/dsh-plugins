@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:zseven-w/dsh-ios
+slug: zseven-w-dsh-ios
+name: dsh-ios
+repository:
+  url: https://github.com/ZSeven-W/dsh-ios
+  commit: b3a5e217f1f0dfce52998e4e758f08d2509af223
+package:
+  ecosystem: npm
+  name: "@zseven-w/dsh-ios"
+  version: 0.1.0-rc.3
+  install_spec: github:ZSeven-W/dsh-ios#b3a5e217f1f0
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.1.0-rc.6；本站尚未运行实测
+category: development
+topics:
+  - development
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取或修改工作区；核对文件写入、命令执行和回滚方式
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 把 iOS 模拟器或 USB iPhone 接入 DSH 会话，提供启动、构建、界面操作、OCR 和流式侧栏等工具。
+links:
+  source: https://github.com/ZSeven-W/dsh-ios
+  detail_zh: https://52dsh.com/plugins/zseven-w-dsh-ios/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

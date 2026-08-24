@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:fsmargoo/dsh-at-file
+slug: fsmargoo-dsh-at-file
+name: dsh-at-file
+repository:
+  url: https://github.com/FSMargoo/dsh-at-file
+  commit: c57849b27e378cf6b41d082b17c8a8750cee370f
+package:
+  ecosystem: npm
+  name: dsh-at-file
+  version: 0.6.7
+  install_spec: github:FSMargoo/dsh-at-file#c57849b27e37
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 *；本站尚未运行实测
+category: tools
+topics:
+  - tools
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取用户提供的内容或调用外部工具；核对数据流、依赖和输出边界
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 在 DSH 输入框中提供 Codex 风格的 @file 搜索，把工作区文件路径附加到提示词。
+links:
+  source: https://github.com/FSMargoo/dsh-at-file
+  detail_zh: https://52dsh.com/plugins/fsmargoo-dsh-at-file/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

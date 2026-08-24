@@ -1,0 +1,54 @@
+schema_version: 1
+id: github:noob-stupid/dsh-plugin-hub
+slug: noob-stupid-dsh-plugin-hub
+name: dsh-plugin-hub
+repository:
+  url: https://github.com/Noob-stupid/dsh-plugin-hub
+  commit: d7b7038e0d5480d250996e5cd807f77a2eea5136
+package:
+  ecosystem: npm
+  name: "@noob-stupid/dsh-plugin-console"
+  version: 0.3.11
+  install_spec: github:Noob-stupid/dsh-plugin-hub#d7b7038e0d54
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.3.11，package.json 未声明 Node.js 或 DSH peer 版本范围；本站完成固定提交静态审阅，未真实安装第三方包、使用 Gitee OAuth、AI 兜底、框架升级或 Windows 计划任务
+category: management
+topics:
+  - market
+  - management
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_write
+    - command_execution
+    - network_access
+    - ui_injection
+    - agent_orchestration
+    - plugin_management
+  notes: 读写 Profile、插件补丁、Skills、市场源和认证 Header，运行 corepack/pnpm、Git、Shell/PowerShell 与子 Agent，可安装第三方代码、修改 DSH 框架文件、在线升级并重启宿主
+  data_flow: GitHub/Gitee/自定义静态索引与可选认证 → 本机 Hub 市场和安装任务 → 包管理器、Profile、Skills 目录或 AI 子 Agent → 插件状态与日志返回 Web；框架升级会备份配置、下载新版本、打兼容补丁并重启 DSH。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的打包 Host、市场源、安装/卸载、Skills 管理、AI 授权、框架容错补丁、升级和重启实现。自定义源可携带私有 Header，静态索引约每六小时自动汇总且没有人工审核；安装仍可能执行第三方包构建或放宽 native build，AI 兜底和框架升级进一步扩大权限。只配置可信 HTTPS 源，安装前固定版本与提交并人工审阅，禁用不需要的 AI 兜底和框架升级，操作前备份整个 Profile。
+summary:
+  zh: 在 DSH Web 中管理插件、Skills 与套装，聚合 GitHub、Gitee 和自定义市场源，并支持安装、更新、启停、卸载、AI 安装兜底、框架升级、备份和重启。
+  en: "A plugin management panel: one-click enable/disable for installed plugins plus a GitHub dsh-plugin marketplace with details and one-click installs."
+links:
+  source: https://github.com/Noob-stupid/dsh-plugin-hub
+  detail_zh: https://52dsh.com/plugins/noob-stupid-dsh-plugin-hub/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

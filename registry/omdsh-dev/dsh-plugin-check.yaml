@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:omdsh-dev/dsh-plugin-check
+slug: omdsh-dev-dsh-plugin-check
+name: dsh-plugin-check
+repository:
+  url: https://github.com/omdsh-dev/dsh-plugin-check
+  commit: 16fa22316f11d06476bc2f57fdc0a62843d0c5d5
+package:
+  ecosystem: npm
+  name: "@omdsh-dev/dsh-plugin-check"
+  version: 0.1.0
+  install_spec: github:omdsh-dev/dsh-plugin-check#16fa22316f11
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 >=0.0.1-rc.1 <0.2.0；本站尚未运行实测
+category: management
+topics:
+  - dev
+  - management
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可安装、更新或管理第三方插件；核对软件供应链与配置写入范围
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 以只读方式扫描插件仓库的清单协议、Patch 格式、构建陷阱和 Hub 收录状态，并注册 plugin_check 工具。
+  en: "Plugin health checks: manifest protocol / patch format / build traps, zero-dependency and read-only."
+links:
+  source: https://github.com/omdsh-dev/dsh-plugin-check
+  detail_zh: https://52dsh.com/plugins/omdsh-dev-dsh-plugin-check/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

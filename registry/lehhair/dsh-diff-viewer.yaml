@@ -1,0 +1,54 @@
+schema_version: 1
+id: github:lehhair/dsh-diff-viewer
+slug: lehhair-dsh-diff-viewer
+name: dsh-diff-viewer
+repository:
+  url: https://github.com/lehhair/dsh-diff-viewer
+  commit: d576c00cc7db52695d69f86142d4454380fed236
+package:
+  ecosystem: npm
+  name: "@dsh-external/dsh-diff-viewer"
+  version: 0.1.1
+  install_spec: github:lehhair/dsh-diff-viewer#d576c00cc7db
+license:
+  spdx: BSD-3-Clause
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.1.1、BSD-3-Clause，未声明 Node.js 版本，DSH client peer 使用通配范围并依赖 Cordis ^4.0.0-rc.7；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、超大 Diff、移动端或不同主题下运行
+category: interface
+topics:
+  - git
+  - interface
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - filesystem_write
+    - network_access
+    - credentials
+    - browser_control
+    - ui_injection
+  notes: 仅在浏览器客户端读取 DSH 已生成的 write/edit callView/resultView diff card 并替换渲染；用户点击复制时写入系统剪贴板，不注册 Host 路由、模型工具或文件写入能力
+  data_flow: DSH write/edit 工具已有 Diff card → 客户端解析文件名、hunk 和运行状态 → 本地语法高亮与虚拟列表 → 统一/分栏视图呈现；只有用户点击复制时，选定文本进入浏览器剪贴板，无外部网络和插件自有持久化。
+risk_level: medium
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的清单、slot 注册、Diff 合约、行变更模型、高亮和剪贴板辅助。插件只覆盖 write/edit 的展示槽，不改变工具执行、审批或文件内容，也没有 fetch、Host API、localStorage 或动态代码执行；主要边界是 Diff 本身可能含密钥和未提交源码，复制后进入系统剪贴板，且通配 peer 无法保证未来 DSH UI 合约兼容。敏感 Diff 不要复制到共享剪贴板，升级 DSH 后核对 running/settled/error 三种卡片。
+summary:
+  zh: 在 DSH Web 中替换 write/edit 工具的默认 Diff 展示，提供统一或分栏视图、语法高亮、长文件虚拟渲染、折叠上下文和复制差异内容。
+  en: PiUI-style diff viewer replacing the stock DiffBlock for write/edit tool calls.
+links:
+  source: https://github.com/lehhair/dsh-diff-viewer
+  detail_zh: https://52dsh.com/plugins/lehhair-dsh-diff-viewer/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

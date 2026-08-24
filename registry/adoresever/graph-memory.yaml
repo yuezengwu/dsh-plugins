@@ -1,0 +1,45 @@
+schema_version: 1
+id: github:adoresever/graph-memory
+slug: adoresever-graph-memory
+name: graph-memory
+repository:
+  url: https://github.com/adoresever/graph-memory
+  commit: 83ffb2771022a8d323feefc280ae4f198d8b85e5
+package:
+  ecosystem: npm
+  name: graph-memory
+  version: 1.6.0-beta.8
+  install_spec: github:adoresever/graph-memory#83ffb2771022
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 >=0.1.0-rc.5；本站尚未运行实测
+category: knowledge
+topics:
+  - knowledge
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取并持久化会话、项目或记忆数据；核对存储位置和清理方式
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 从会话中提取结构化三元组，建立可跨会话复用的知识图谱记忆与上下文层。
+links:
+  source: https://github.com/adoresever/graph-memory
+  detail_zh: https://52dsh.com/plugins/adoresever-graph-memory/
+  tutorial_zh: https://52dsh.com/tutorials/adoresever-graph-memory-install-config/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:dhicoc/dsh-chinese-traditional-wisdom-skill
+slug: dhicoc-dsh-chinese-traditional-wisdom-skill
+name: dsh-chinese-traditional-wisdom-skill
+repository:
+  url: https://github.com/dhicoc/dsh-chinese-traditional-wisdom-skill
+  commit: 065f2aa456ef6542cec402915092a3ed659e05a8
+package:
+  ecosystem: npm
+  name: "@dhicoc/dsh-chinese-traditional-wisdom-skill"
+  version: 1.0.0
+  install_spec: github:dhicoc/dsh-chinese-traditional-wisdom-skill#065f2aa456ef
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 包含 dsh.bundle；未声明明确 DSH peer 版本，本站尚未运行实测
+category: tools
+topics:
+  - skill
+  - tools
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取用户提供的内容或调用外部工具；核对数据流、依赖和输出边界
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 把八字、紫微、六爻、梅花、奇门、风水等传统文化计算能力和可视化面板接入 DSH，作者声明核心为本地确定性引擎。
+  en: "Complete chinese-traditional-wisdom (玄枢 / XuanShu) skill pack as a DeepSeek Harness Cordis plugin: bazi, ziwei-doushu, liuyao, meihua, qimen, daliuren, taiyi, wuyun-liuqi, constitution and fengshui calculation, with a local deterministic engine and a visualization dashboard."
+links:
+  source: https://github.com/dhicoc/dsh-chinese-traditional-wisdom-skill
+  detail_zh: https://52dsh.com/plugins/dhicoc-dsh-chinese-traditional-wisdom-skill/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

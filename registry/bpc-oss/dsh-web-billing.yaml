@@ -1,0 +1,52 @@
+schema_version: 1
+id: github:bpc-oss/dsh-web-billing
+slug: bpc-oss-dsh-web-billing
+name: dsh-web-billing
+repository:
+  url: https://github.com/bpc-oss/dsh-web-billing
+  commit: 16c8a5b1a31054730f0afa381450c4ede6092bbb
+package:
+  ecosystem: npm
+  name: dsh-web-billing
+  version: 2.3.2
+  install_spec: github:bpc-oss/dsh-web-billing#16c8a5b1a310
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 2.3.2、MIT，要求 Node.js >=20，Cordis peer ^4.0.1，并依赖 dsh-home-paths 0.1.0-rc.6；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、真实 DeepSeek 余额接口、促销价格、跨币种、账本迁移或多实例并发写入下运行
+category: management
+topics:
+  - management
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_write
+    - network_access
+    - credentials
+    - browser_control
+    - session_data
+    - ui_injection
+    - plugin_management
+  notes: 默认只允许真实 127/8 或 ::1 连接访问 /billing，状态写入还校验同源；插件在本地维护 Session/Provider/模型/Token/成本元数据，可从 DSH Credentials 或环境获取 DeepSeek Key，按固定间隔向配置的余额端点查询，Key 不返回浏览器
+  data_flow: DSH 会话用量事件 → 本地 core/detail 账本、预算与计量文件 → 回环 Web 页面汇总；启用余额时 Host 把 DeepSeek API Key 发送到配置的 balance endpoint，响应只投影余额/额度状态。提示词正文不进入账本，但工作区、Session、Provider、模型、时间和费用可构成敏感使用画像。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的账本拆分、价格与套餐规则、真实 socket 回环校验、同源写入、凭据解析、余额轮询和客户端展示。默认本机边界和 Key 隔离较完整，计费数据不含对话正文；但金额是插件规则估算而非官方账单，POST 请求体没有显式上限，自定义 balance endpoint 未锁定 DeepSeek HTTPS 主机，误配置可把 Key 发给第三方。保持 loopbackOnly，勿经不可信反向代理暴露；不要随意修改 endpoint，核对官方价格与账单，并限制本地账本访问和备份。
+summary:
+  zh: 在 DSH Web 中按模型、价格时段和 Coding Plan 路由估算 Token 成本，维护本地会话账本、预算、计量状态与 DeepSeek 账户余额视图。
+links:
+  source: https://github.com/bpc-oss/dsh-web-billing
+  detail_zh: https://52dsh.com/plugins/bpc-oss-dsh-web-billing/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

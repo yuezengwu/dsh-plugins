@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:chrislee121/wenmai
+slug: dsh-wenmai
+name: Wenmai 文脉
+repository:
+  url: https://github.com/chrislee121/wenmai
+  commit: 44e84de0cc2c52a120c1e40b121a543f23f7d934
+package:
+  ecosystem: npm
+  name: dsh-wenmai
+  version: 0.1.0
+  install_spec: github:chrislee121/wenmai#44e84de0cc2c
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: review
+  compatibility_notes: 作者文档使用 DSH 0.1.0-rc.8；当前基线未实测
+category: knowledge
+topics:
+  - knowledge
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - filesystem_write
+  notes: 读取来源目录并写入本地文脉知识库
+risk_level: medium
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的知识库入口、扫描与写入路径；主要数据流是读取指定 Markdown 来源并在本地生成概念、索引和日志文件，本站未运行安装与增量更新测试。
+summary:
+  zh: 把本地 Markdown 整理为带双向链接的概念、实体、索引和日志知识库。
+links:
+  source: https://github.com/chrislee121/wenmai
+  detail_zh: https://52dsh.com/plugins/dsh-wenmai-knowledge-base/
+  tutorial_zh: https://52dsh.com/tutorials/dsh-wenmai-install-config/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

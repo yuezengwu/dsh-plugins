@@ -1,0 +1,48 @@
+schema_version: 1
+id: github:ysr666/dsh-vision-router
+slug: ysr666-dsh-vision-router
+name: dsh-vision-router
+repository:
+  url: https://github.com/ysr666/dsh-vision-router
+  commit: fc64c525c623206c0bca9d49f18f8acf643ba687
+package:
+  ecosystem: npm
+  name: dsh-vision-router
+  version: 1.7.6
+  install_spec: github:ysr666/dsh-vision-router#fc64c525c623
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.1.0-rc.6 || ^0.1.1-rc.1；本站尚未运行实测
+category: tools
+topics:
+  - vision
+  - tools
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取用户提供的内容或调用外部工具；核对数据流、依赖和输出边界
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 为纯文本 Agent 增加图像问答、定位、裁剪、像素差异、颜色、OCR、SVG 描摹和截图等视觉工具。
+  en: "Free vision for text-only agents: built-in keyless vision chain plus pixel tools (Q&A, grounding, crop, pixel diff, colors, OCR, SVG trace, cutout, screenshots); paste an image to use it."
+links:
+  source: https://github.com/ysr666/dsh-vision-router
+  detail_zh: https://52dsh.com/plugins/ysr666-dsh-vision-router/
+  tutorial_zh: https://52dsh.com/tutorials/ysr666-dsh-vision-router-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

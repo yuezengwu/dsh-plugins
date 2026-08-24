@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:fishquito7/dsh-skill-mcp-panel
+slug: fishquito7-dsh-skill-mcp-panel
+name: dsh-skill-mcp-panel
+repository:
+  url: https://github.com/Fishquito7/dsh-skill-mcp-panel
+  commit: 5fa5d87c68ad34337e073f82dc50767ed690eb27
+package:
+  ecosystem: npm
+  name: dsh-skill-mcp-panel
+  version: 2.0.1
+  install_spec: github:Fishquito7/dsh-skill-mcp-panel#5fa5d87c68ad
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 包含 dsh.bundle；未声明明确 DSH peer 版本，本站尚未运行实测
+category: management
+topics:
+  - management
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可安装、更新或管理第三方插件；核对软件供应链与配置写入范围
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 在 DSH Web UI 中集中查看和管理 Skill 与 MCP 配置。
+links:
+  source: https://github.com/Fishquito7/dsh-skill-mcp-panel
+  detail_zh: https://52dsh.com/plugins/fishquito7-dsh-skill-mcp-panel/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

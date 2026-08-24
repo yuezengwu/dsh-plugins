@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:c3ll256/dsh-toy
+slug: c3ll256-dsh-toy
+name: dsh-toy
+repository:
+  url: https://github.com/c3ll256/dsh-toy
+  commit: adece3467506c9e40e1393baca89f20caff20c2c
+package:
+  ecosystem: npm
+  name: dsh-toy
+  version: 0.2.0
+  install_spec: github:c3ll256/dsh-toy#adece3467506
+license:
+  spdx: BSD-3-Clause
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.1.0-rc.6；本站尚未运行实测
+category: integration
+topics:
+  - integration
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 连接产品或业务能力；核对账号、外部服务和数据处理范围
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 为 DSH 提供 Toy Control Protocol 集成；具体支持的设备、控制指令和连接方式以仓库文档为准。
+links:
+  source: https://github.com/c3ll256/dsh-toy
+  detail_zh: https://52dsh.com/plugins/c3ll256-dsh-toy/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

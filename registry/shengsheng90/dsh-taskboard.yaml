@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:shengsheng90/dsh-taskboard
+slug: shengsheng90-dsh-taskboard
+name: DSH-taskboard
+repository:
+  url: https://github.com/shengsheng90/DSH-taskboard
+  commit: b3b0928172fa3f82a3802089cecb82e403b15ebc
+package:
+  ecosystem: npm
+  name: "@shengsheng/dsh-taskboard"
+  version: 0.1.2
+  install_spec: github:shengsheng90/DSH-taskboard#b3b0928172fa
+license:
+  spdx: Apache-2.0
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.1.0-rc.5；本站尚未运行实测
+category: agent
+topics:
+  - workflow
+  - agent
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可创建、调度或影响 Agent 任务；核对工具、审批和并发边界
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 提供 SQLite 本地任务看板、Agent 认领与复核流程，以及原生 DSH Web UI。
+  en: "Local SQLite taskboard as a native overlay page: projects, tasks, comments, relations, attachments and workflow automation, with backlog → todo → in_progress → in_review → done statuses, `taskboard_*` Agent tools that can only submit work to in_review, a headless JSON CLI and a packaged skill."
+links:
+  source: https://github.com/shengsheng90/DSH-taskboard
+  detail_zh: https://52dsh.com/plugins/shengsheng90-dsh-taskboard/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

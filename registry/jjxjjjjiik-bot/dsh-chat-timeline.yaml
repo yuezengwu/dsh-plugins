@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:jjxjjjjiik-bot/dsh-chat-timeline
+slug: jjxjjjjiik-bot-dsh-chat-timeline
+name: dsh-chat-timeline
+repository:
+  url: https://github.com/jjxjjjjiik-bot/dsh-chat-timeline
+  commit: 881628765ce558255637433bbcc742f2aef2f026
+package:
+  ecosystem: npm
+  name: dsh-chat-timeline
+  version: 0.1.3
+  install_spec: github:jjxjjjjiik-bot/dsh-chat-timeline#881628765ce5
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.1.0-rc.6；本站尚未运行实测
+category: interface
+topics:
+  - ui
+  - interface
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 注入 Web 客户端并改变界面或交互；核对浏览器侧数据访问范围
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 把 DeepSeek 官方 Web 的右侧对话导航轨移植到 DSH，用于快速定位会话位置。
+  en: "1:1 port of DeepSeek's official web right-side chat navigation rail (ScrollNav): hover-expandable rail, reading-position highlight, click-to-jump."
+links:
+  source: https://github.com/jjxjjjjiik-bot/dsh-chat-timeline
+  detail_zh: https://52dsh.com/plugins/jjxjjjjiik-bot-dsh-chat-timeline/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

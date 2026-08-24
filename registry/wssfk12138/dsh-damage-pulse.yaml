@@ -1,0 +1,50 @@
+schema_version: 1
+id: github:wssfk12138/dsh-damage-pulse
+slug: wssfk12138-dsh-damage-pulse
+name: dsh-damage-pulse
+repository:
+  url: https://github.com/wssfk12138/dsh-damage-pulse
+  commit: 5ed62584ea3285a5cca9929759ee1b5a58508070
+package:
+  ecosystem: npm
+  name: dsh-damage-pulse
+  version: 0.2.0
+  install_spec: github:wssfk12138/dsh-damage-pulse#5ed62584ea32
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.2.0，要求 Node.js 22.19 或 24+，peer 依赖基于 DSH 0.1.0-rc.5 系列；本站完成固定提交静态审阅，未用真实账户核对余额、峰谷价格或历史补算
+category: interface
+topics:
+  - interface
+permissions:
+  status: reviewed
+  capabilities:
+    - network_access
+    - credentials
+    - browser_control
+    - session_data
+    - ui_injection
+  notes: 读取 DSH Token 用量事件和 DEEPSEEK_API_KEY，把 Key 发送到固定的 api.deepseek.com/user/balance，并通过本机 Web 路由公开余额、会话用量和近期扣费事件
+  data_flow: DSH assistant usage 事件 → 本机用量内存与 session projection → 费用、统计和动画返回 Web；DEEPSEEK_API_KEY → DeepSeek 官方余额接口 → 缓存余额 → /api/token-monitor/balance 返回同一 DSH Web 客户端。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的余额服务、用量采集、价格、Session Projection 和三个 HTTP 路由。API Key 不返回浏览器且只发往 DeepSeek 官方固定地址，但余额、用量和扣费路由没有独立身份或同源检查，任何能够访问 DSH Web 的客户端都可能读取这些账户与会话统计；价格表也会随官方调整而过时。不要把 DSH Web 暴露到不可信网络，并把金额显示视为估算。
+summary:
+  zh: 在 DSH Web 中按每次模型调用展示 Token 明细、会话累计费用和扣血动画，并轮询 DeepSeek 官方余额接口显示账户余额。
+links:
+  source: https://github.com/wssfk12138/dsh-damage-pulse
+  detail_zh: https://52dsh.com/plugins/wssfk12138-dsh-damage-pulse/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

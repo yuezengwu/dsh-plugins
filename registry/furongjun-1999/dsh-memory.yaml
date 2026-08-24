@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:furongjun-1999/dsh-memory
+slug: furongjun-1999-dsh-memory
+name: dsh-memory
+repository:
+  url: https://github.com/FuRongJun-1999/dsh-memory
+  commit: 17598658fbf4bda986d9cedb4666143df17529d7
+package:
+  ecosystem: npm
+  name: "@furongjun1999/dsh-memory"
+  version: 0.2.8
+  install_spec: github:FuRongJun-1999/dsh-memory#17598658fbf4
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.1.0-rc.6；本站尚未运行实测
+category: knowledge
+topics:
+  - memory
+  - knowledge
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取并持久化会话、项目或记忆数据；核对存储位置和清理方式
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 为 DSH 提供跨会话长期记忆、持续学习和可审计记录能力；具体存储结构和召回边界以仓库说明为准。
+  en: "AGI long-term memory base: multi-agent spatiotemporal memory graph, self-evolving knowledge flywheel, self-cognition, and auditable trust guardrails."
+links:
+  source: https://github.com/FuRongJun-1999/dsh-memory
+  detail_zh: https://52dsh.com/plugins/furongjun-1999-dsh-memory/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

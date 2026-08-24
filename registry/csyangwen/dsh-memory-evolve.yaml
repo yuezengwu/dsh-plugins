@@ -1,0 +1,50 @@
+schema_version: 1
+id: github:csyangwen/dsh-memory-evolve
+slug: csyangwen-dsh-memory-evolve
+name: dsh-memory-evolve
+repository:
+  url: https://github.com/csyangwen/dsh-memory-evolve
+  commit: a08fff7f5c0228bf7a9dbf21d917579ccc08a5a8
+package:
+  ecosystem: npm
+  name: dsh-memory-evolve
+  version: 0.1.0
+  install_spec: github:csyangwen/dsh-memory-evolve#a08fff7f5c02
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.1.0，采用 DSH Bundle/Web Client 格式且没有声明明确 peer 版本；本站完成固定提交静态审阅，未进行长期记忆迁移、并发写入、外部 CLI 或渠道账号实测
+category: knowledge
+topics:
+  - knowledge
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - filesystem_write
+    - command_execution
+    - session_data
+    - agent_orchestration
+  notes: 向系统提示词注入本地记忆并注册多个写入工具；可修改 <dshHome>/memories、~/.agents/skills 和工作区相关数据，可选启动外部 Agent CLI、向会话追发消息、读取附件并向消息渠道发送内容
+  data_flow: DSH 会话事件与工具调用 → 本地 memories、项目/每日记录、待办、提示词、技能和会话索引 → 快照重新注入后续模型上下文；开启可选模块后，任务或附件还可流向配置的外部 CLI、子会话、评审模型或通知渠道，并把结果写回 DSH。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的配置、记忆工具、存储、技能管理、评审、COI 调度、会话搜索与通知代码。Review、COI、广播、通知和 Advisor 默认关闭，子 Agent 写全局记忆也有建议/一次性审批门禁；但主会话仍可直接写记忆和技能，技能管理 Web 路由可读写允许的技能根。启用可选模块前应逐项核对外部命令、模型、附件与渠道边界，并备份 memories 和技能目录。
+summary:
+  zh: 为 DSH 增加跨会话长期记忆、会话搜索、提示词与技能管理、待办、书签和画布，并可选启用评审、外部 CLI 调度、会话广播与渠道通知。
+links:
+  source: https://github.com/csyangwen/dsh-memory-evolve
+  detail_zh: https://52dsh.com/plugins/csyangwen-dsh-memory-evolve/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:ftshare-lab/dsh_kline
+slug: ftshare-lab-dsh-kline
+name: dsh_kline
+repository:
+  url: https://github.com/FTShare-Lab/dsh_kline
+  commit: fc9ac6bd0893eb70e81772f5b3eb14708d7f5a95
+package:
+  ecosystem: npm
+  name: "@ftshare-lab/dsh-kline"
+  version: 0.1.2
+  install_spec: github:FTShare-Lab/dsh_kline#fc9ac6bd0893
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 包含 dsh.bundle；未声明明确 DSH peer 版本，本站尚未运行实测
+category: integration
+topics:
+  - integration
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 连接产品或业务能力；核对账号、外部服务和数据处理范围
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 在 DSH 原生侧栏展示多市场 K 线、技术指标、支撑压力位、新闻和基本面分析。
+links:
+  source: https://github.com/FTShare-Lab/dsh_kline
+  detail_zh: https://52dsh.com/plugins/ftshare-lab-dsh-kline/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

@@ -1,0 +1,52 @@
+schema_version: 1
+id: github:liangyin233/dsh-provider-model-configurator
+slug: liangyin233-dsh-provider-model-configurator
+name: dsh-provider-model-configurator
+repository:
+  url: https://github.com/LiangYin233/dsh-provider-model-configurator
+  commit: 70f88112c7d92fadeb93e46f5dcb8b1f3ae6eba3
+package:
+  ecosystem: npm
+  name: dsh-provider-model-configurator
+  version: 0.3.9
+  install_spec: github:LiangYin233/dsh-provider-model-configurator#70f88112c7d9
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.3.9、MIT，要求 Node.js ^22.19 或 >=24，DSH 组件使用通配 peer 并依赖 Typert/API Gateway；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、全部 Provider 目录或热更新冲突下运行
+category: infrastructure
+topics:
+  - infrastructure
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - filesystem_write
+    - command_execution
+    - network_access
+    - credentials
+    - remote_control
+    - session_data
+  notes: 通过严格 Typert Remote 读取模型目录和 llm-pi-ai 设置，并写入或删除指定 Provider 的 models 数组；不读取 API Key、不执行命令，也不会新建 Provider 凭据
+  data_flow: DSH 内置/已配置模型目录 → 模型 Pro 页面 → 用户确认的模型字段 → Settings service 对 llm-pi-ai/providers/<route>/models 的结构化 mutate；删除最后一个内置目录条目时回退目录继承。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 Host Runtime、Typert 严格参数描述、模型字段校验、目录快照、覆盖与删除逻辑。实现会在首次显式编辑时把当前目录整体固化为 models 快照，并保护原有未知字段和自定义 Provider 的最后条目；但写错 contextWindow、maxTokens、推理 wire 或 compat 可能导致模型调用失败，且快照后不会自动合并上游目录更新。修改前备份 settings，在独立 Profile 验证目标模型，升级后重新对比目录。
+summary:
+  zh: 在 DSH 设置页集中查看、新建、复制、编辑和删除 llm-pi-ai Provider 的显式模型条目，包括上下文、输出上限、输入模态和推理兼容参数。
+links:
+  source: https://github.com/LiangYin233/dsh-provider-model-configurator
+  detail_zh: https://52dsh.com/plugins/liangyin233-dsh-provider-model-configurator/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

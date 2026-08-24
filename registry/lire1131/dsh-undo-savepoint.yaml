@@ -1,0 +1,54 @@
+schema_version: 1
+id: github:lire1131/dsh-undo-savepoint
+slug: lire1131-dsh-undo-savepoint
+name: dsh-undo-savepoint
+repository:
+  url: https://github.com/lire1131/dsh-undo-savepoint
+  commit: 8e278b9e22d31b8b381b064157e59b45875c141c
+package:
+  ecosystem: npm
+  name: dsh-undo-savepoint
+  version: 0.3.8
+  install_spec: github:lire1131/dsh-undo-savepoint#8e278b9e22d3
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.3.8，package.json 仅宽泛声明 DSH >=0.0.1 和 Node.js >=20；本站完成固定提交静态审阅，未执行真实恢复、跨机迁移、Windows PowerShell GUI 或崩溃修复测试
+category: development
+topics:
+  - dev
+  - development
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - filesystem_write
+    - command_execution
+    - credentials
+    - session_data
+    - ui_injection
+  notes: 读取并恢复 profile package.json、patch、lockfile、插件代码、DSH Home 配置、.env 和 credentials；可删除快照、进入安全模式、隔离会话文件，并在显式同步依赖时执行 pnpm install
+  data_flow: DSH 配置、插件代码和凭据文件 → 本机内容寻址快照与脱敏副本/私密 vault → 用户预览并确认恢复 → 先建后悔快照再覆盖目标文件；可选依赖同步调用 pnpm，结果写入回滚日志。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 Host、客户端、快照、密钥脱敏、vault、恢复、安全模式、离线 PowerShell 和依赖同步路径。真实凭据会留在本机 vault，导出件使用脱敏值，但快照根本身仍是敏感数据；恢复和清理会修改或删除启动关键文件，syncDeps 还会执行包管理器。使用前应另做系统级备份，保持默认依赖不同步，并只在逐项核对恢复预览后操作。
+summary:
+  zh: 为 DSH 配置和插件代码建立自动或手动快照，支持预览差异、撤销、重做、安全模式、崩溃急救、导入导出以及 DSH 无法启动时的离线 CLI/GUI。
+  en: "Undo/redo & rollback system for DSH: every config change is auto-snapshotted; undo/redo/restore to any version from the WebUI or the offline CLI/GUI tools (works even when DSH fails to boot)."
+links:
+  source: https://github.com/lire1131/dsh-undo-savepoint
+  detail_zh: https://52dsh.com/plugins/lire1131-dsh-undo-savepoint/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

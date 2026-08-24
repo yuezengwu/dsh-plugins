@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:bill9109/dsh-drag-and-drop
+slug: bill9109-dsh-drag-and-drop
+name: dsh-drag-and-drop
+repository:
+  url: https://github.com/bill9109/dsh-drag-and-drop
+  commit: 3b70ec46926a37d96d08d396f4948e4509126ecd
+package:
+  ecosystem: npm
+  name: "@omdsh-dev/dsh-drag-and-drop"
+  version: 0.1.6
+  install_spec: github:bill9109/dsh-drag-and-drop#3b70ec46926a
+license:
+  spdx: BSD-3-Clause
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 包含 dsh.bundle；未声明明确 DSH peer 版本，本站尚未运行实测
+category: development
+topics:
+  - ui
+  - development
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取或修改工作区；核对文件写入、命令执行和回滚方式
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 为 DSH Web UI 增加跨平台文件拖放和原始路径插入能力，不复制原文件。
+  en: Cross-platform file drag-and-drop with raw path insertion, no file copying.
+links:
+  source: https://github.com/bill9109/dsh-drag-and-drop
+  detail_zh: https://52dsh.com/plugins/bill9109-dsh-drag-and-drop/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

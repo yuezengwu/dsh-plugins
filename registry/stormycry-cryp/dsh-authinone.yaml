@@ -1,0 +1,49 @@
+schema_version: 1
+id: github:stormycry-cryp/dsh-authinone
+slug: stormycry-cryp-dsh-authinone
+name: dsh-AuthInOne
+repository:
+  url: https://github.com/Stormycry-cryp/dsh-AuthInOne
+  commit: 190ecc2d834ba06da008522684e689324a9c2706
+package:
+  ecosystem: npm
+  name: dsh-auth-in-one
+  version: 0.2.0-alpha.4
+  install_spec: github:Stormycry-cryp/dsh-AuthInOne#190ecc2d834b
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: review
+  compatibility_notes: 插件版本 0.2.0-alpha.4，要求 Node.js 22.19 或 24+，开发依赖基于 DSH rc.5/rc.6 且兼容实现锁定官方提交 47f9438；本站完成固定提交静态审阅，未真实登录任何 Provider 或验证升级后的宿主界面替换
+category: infrastructure
+topics:
+  - infrastructure
+permissions:
+  status: reviewed
+  capabilities:
+    - credentials
+    - browser_control
+    - ui_injection
+    - plugin_management
+  notes: 打开 Provider OAuth/设备登录流程并长期保存访问或刷新凭据，调用多个模型与用量端点；安装器还会识别并重启 DSH 进程，客户端兼容层会替换两个经过 owner/hash 校验的设置页组件
+  data_flow: 浏览器发起 OAuth PKCE 或设备码登录 → Host 保管 verifier、授权码和 Token → DSH 凭据库与模型适配器 → Provider 模型、账号或用量端点 → 可用模型和结果返回 DSH；可选图片在主模型不支持视觉时发送给选定视觉 Provider 生成描述。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 Provider 登录、凭据存储、回环回调、连接测试、视觉回退、兼容组件和安装器。浏览器只接收净化后的状态，凭据不从本机浏览器、Codex 或 Keychain 偷取，带凭据的探测禁止重定向；但该 Alpha 插件持有多家长期 Token，部分订阅接口属于实验适配，且对 DSH 设置页精确 owner 的替换容易随上游更新失效。只按固定版本逐个启用 Provider，先备份 Profile，在支持的 DSH 版本上测试，不把实验登录用于关键生产账号。
+summary:
+  zh: 在 DSH 中统一接入 Codex、Kimi、xAI、Anthropic、GitHub Copilot、Cursor、Kiro 等模型服务的 OAuth 或设备登录，集中展示模型与用量并提供可选视觉回退。
+links:
+  source: https://github.com/Stormycry-cryp/dsh-AuthInOne
+  detail_zh: https://52dsh.com/plugins/stormycry-cryp-dsh-authinone/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

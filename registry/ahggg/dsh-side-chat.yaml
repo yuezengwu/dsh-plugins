@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:ahggg/dsh-side-chat
+slug: ahggg-dsh-side-chat
+name: dsh-side-chat
+repository:
+  url: https://github.com/AHGGG/dsh-side-chat
+  commit: 553a9aeb5c4adfc8dcb109ff40774f0925528dea
+package:
+  ecosystem: npm
+  name: "@ahggg/dsh-side-chat"
+  version: 0.6.2
+  install_spec: github:AHGGG/dsh-side-chat#553a9aeb5c4a
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 0.1.0-rc.7；本站尚未运行实测
+category: interface
+topics:
+  - interface
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 注入 Web 客户端并改变界面或交互；核对浏览器侧数据访问范围
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 选中文本后在 Codex 风格的侧边对话中追问，避免打断主会话。
+links:
+  source: https://github.com/AHGGG/dsh-side-chat
+  detail_zh: https://52dsh.com/plugins/ahggg-dsh-side-chat/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

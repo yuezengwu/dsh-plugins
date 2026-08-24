@@ -1,0 +1,51 @@
+schema_version: 1
+id: github:perrylink/dsh-mcp-panel
+slug: perrylink-dsh-mcp-panel
+name: dsh-mcp-panel
+repository:
+  url: https://github.com/PerryLink/dsh-mcp-panel
+  commit: 689d5dc5a55eacd3d1b8146a7d830396e39fa98f
+package:
+  ecosystem: npm
+  name: dsh-mcp-panel
+  version: 0.5.0
+  install_spec: github:PerryLink/dsh-mcp-panel#689d5dc5a55e
+license:
+  spdx: Apache-2.0
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: review
+  compatibility_notes: 插件版本 0.5.0，明确要求 DSH 0.1.0-rc.8 系列 commands/jobs/tools/typert 和 Node.js ^22.19 或 24+；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2 基线、真实 HTTP/stdio MCP、OAuth 或热重载配置上运行
+category: infrastructure
+topics:
+  - dev
+  - infrastructure
+permissions:
+  status: reviewed
+  capabilities:
+    - command_execution
+    - network_access
+    - credentials
+  notes: 读取 loader、MCP 状态和工具 schema；可向配置的 HTTP MCP 发送 initialize 或启动配置的 stdio command，试用 MCP 工具，并在用户确认或 Harness allowed-once 审批后备份并追加 cordis.patch.yml
+  data_flow: DSH loader/MCP 状态/工具注册表 → 脱敏聚合 → 本机 MCP 设置页；用户探测 → 配置的 HTTP endpoint 或 stdio 进程 → 脱敏结果只回面板；配置 CRUD → 预览 → 交互确认或 Harness 审批 → 备份并追加 profile patch。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的快照聚合、凭据脱敏、探测环境、工具试用、审批与追加写入。HTTP headers 和显式 env 只用于实际探测，不进入快照；stdio 父环境会移除凭据形状和 DSH_* 变量，工具试用走官方权限/审批管线，profile 写入支持 kill switch、备份且审批异常失败关闭。风险仍来自用户配置的 MCP endpoint/命令本身、探测产生的外部请求和追加配置累积；只添加可信服务器，先复制预览，保持 writeEnabled 可随时关闭。
+summary:
+  zh: 为 DSH 官方 MCP client 提供状态、工具清单、故障诊断、连通性探测和工具试用控制台，并可经审批向 profile 追加服务器配置操作。
+  en: "Read-only runtime management panel for the official DSH MCP client: connection status, registered tools, errors, and reconnect counts through the /mcp command and a Settings tab, with sanitized display and enable/disable patch suggestions."
+links:
+  source: https://github.com/PerryLink/dsh-mcp-panel
+  detail_zh: https://52dsh.com/plugins/perrylink-dsh-mcp-panel/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

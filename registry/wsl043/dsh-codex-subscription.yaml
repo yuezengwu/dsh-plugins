@@ -1,0 +1,53 @@
+schema_version: 1
+id: github:wsl043/dsh-codex-subscription
+slug: wsl043-dsh-codex-subscription
+name: dsh-codex-subscription
+repository:
+  url: https://github.com/WSL043/dsh-codex-subscription
+  commit: 2a300bfc0b82204dc08d33c28517c6de84f1a2ac
+package:
+  ecosystem: npm
+  name: dsh-codex-subscription
+  version: 1.2.0
+  install_spec: github:WSL043/dsh-codex-subscription#2a300bfc0b82
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 1.2.0、MIT，要求 Node.js ^22.19 或 24+，声明兼容 DSH 0.1.0-rc.6/rc.7/rc.8 与 0.1.1-rc.1；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、真实 ChatGPT 账号、OAuth 刷新、SSE 长连接、图片生成或搜索计费下运行
+category: integration
+topics:
+  - model
+  - integration
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_write
+    - network_access
+    - credentials
+    - browser_control
+    - session_data
+  notes: 发起 OpenAI OAuth 登录并在 DSH credentials 保存访问/刷新令牌，调用 ChatGPT/Codex 模型、搜索、图片和 usage endpoint；可修改 DSH Web 搜索 Provider 与速度设置，并打开经过域名校验的外部登录地址
+  data_flow: 本机 loopback RPC 登录 → OpenAI OAuth → 访问/刷新令牌进入 DSH Credential Ref；提示词、附件、搜索请求或图片生成参数与 Bearer Token → OpenAI/ChatGPT 服务 → 模型、搜索、图片或配额结果返回 DSH，浏览器只收到脱敏账户状态与用量投影。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 OAuth Store 串行更新、旧凭据迁移、登录协调、URL 白名单、loopback authority RPC、SSE 模型适配、用量解析、搜索和图片工具。令牌没有回传浏览器，Provider 错误被收敛；但这是第三方社区集成而非 OpenAI 官方 DSH 插件，会处理高价值账号令牌并把会话内容交给 OpenAI，订阅可用范围、费用和服务条款也可能变化。使用独立 Profile 与最小权限账号，保持 DSH loopback，确认账户政策，定期退出并轮换会话；不要把目录收录理解为 OpenAI 或 DeepSeek 背书。
+summary:
+  zh: 把用户自己的 ChatGPT/Codex 订阅通过 OAuth 接入 DSH，提供 Codex 模型、图片生成、Web 搜索、配额查询、速度偏好和登录管理。
+  en: Built-in ChatGPT OAuth provider for Codex models, selectable subscription web search, backend quota for standard Codex and Spark, and a DSH settings UI; no API key or separate Codex installation required.
+links:
+  source: https://github.com/WSL043/dsh-codex-subscription
+  detail_zh: https://52dsh.com/plugins/wsl043-dsh-codex-subscription/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

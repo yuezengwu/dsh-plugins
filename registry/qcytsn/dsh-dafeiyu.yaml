@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:qcytsn/dsh-dafeiyu
+slug: qcytsn-dsh-dafeiyu
+name: dsh-dafeiyu
+repository:
+  url: https://github.com/QCYTSN/dsh-dafeiyu
+  commit: fba5fd256509485dfb5807ca9dda69e205d8d89a
+package:
+  ecosystem: npm
+  name: dsh-dafeiyu
+  version: 0.1.2
+  install_spec: github:QCYTSN/dsh-dafeiyu#fba5fd256509
+license:
+  spdx: SEE LICENSE IN ASSET_LICENSE.md
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 包含 dsh.bundle；未声明明确 DSH peer 版本，本站尚未运行实测
+category: interface
+topics:
+  - interface
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 注入 Web 客户端并改变界面或交互；核对浏览器侧数据访问范围
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 面向 Windows 的桌面大肥鱼伴侣，显示真实 Agent 状态并支持窗口置顶。
+links:
+  source: https://github.com/QCYTSN/dsh-dafeiyu
+  detail_zh: https://52dsh.com/plugins/qcytsn-dsh-dafeiyu/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

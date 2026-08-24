@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/tuofangzhe/dsh-plugins/schemas/plugin.schema.json",
+  "title": "52DSH Plugin Registry record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "id", "slug", "name", "repository", "package", "license", "dsh", "category", "permissions", "risk_level", "verification", "summary", "links", "provenance", "maintenance"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "id": { "type": "string", "pattern": "^github:[^/]+/[^#]+(?:#path:/.+)?$" },
+    "slug": { "type": "string", "minLength": 1 },
+    "name": { "type": "string", "minLength": 1 },
+    "repository": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["url", "commit"],
+      "properties": {
+        "url": { "type": "string", "pattern": "^https://github\\.com/[^/]+/[^/]+/?$" },
+        "commit": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+        "subpath": { "type": "string", "minLength": 1 }
+      }
+    },
+    "package": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ecosystem", "name", "version", "install_spec"],
+      "properties": {
+        "ecosystem": { "enum": ["npm"] },
+        "name": { "type": ["string", "null"] },
+        "version": { "type": ["string", "null"] },
+        "install_spec": { "type": ["string", "null"] }
+      }
+    },
+    "license": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["spdx", "status"],
+      "properties": {
+        "spdx": { "type": "string", "minLength": 1 },
+        "status": { "enum": ["clear", "review", "unknown"] }
+      }
+    },
+    "dsh": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "compatibility_status", "compatibility_notes"],
+      "properties": {
+        "kind": { "const": "plugin" },
+        "compatibility_status": { "enum": ["declared", "review", "tested"] },
+        "compatibility_notes": { "type": "string", "minLength": 1 }
+      }
+    },
+    "category": { "type": "string" },
+    "topics": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "permissions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "capabilities", "notes"],
+      "properties": {
+        "status": { "enum": ["inferred", "reviewed"] },
+        "capabilities": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string" } },
+        "notes": { "type": "string", "minLength": 1 },
+        "data_flow": { "type": "string" }
+      }
+    },
+    "risk_level": { "enum": ["low", "medium", "high"] },
+    "verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["level", "verified_on", "independent_review"],
+      "properties": {
+        "level": { "enum": ["manifest_checked", "source_reviewed", "runtime_verified"] },
+        "verified_on": { "type": "string", "format": "date" },
+        "independent_review": { "type": "boolean" },
+        "review_notes": { "type": "string" }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["zh"],
+      "properties": { "zh": { "type": "string", "minLength": 1 }, "en": { "type": "string" } }
+    },
+    "links": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source", "detail_zh"],
+      "properties": {
+        "source": { "type": "string", "format": "uri" },
+        "detail_zh": { "type": "string", "pattern": "^https://52dsh\\.com/(?:plugins|cases)/.+/$" },
+        "tutorial_zh": { "type": "string", "pattern": "^https://52dsh\\.com/tutorials/.+/$" }
+      }
+    },
+    "provenance": { "type": "object" },
+    "maintenance": { "type": "object", "required": ["status", "checked_on"] }
+  }
+}

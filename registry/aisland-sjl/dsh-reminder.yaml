@@ -1,0 +1,51 @@
+schema_version: 1
+id: github:aisland-sjl/dsh-reminder
+slug: aisland-sjl-dsh-reminder
+name: dsh-reminder
+repository:
+  url: https://github.com/Aisland-SJL/dsh-reminder
+  commit: bd1b64f7056297d07ae49baecb90f1584c11f415
+package:
+  ecosystem: npm
+  name: dsh-reminder
+  version: 0.1.0
+  install_spec: github:Aisland-SJL/dsh-reminder#bd1b64f70562
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.1.0、MIT，依赖 DSH Settings、Client Runtime/Connection、Typert 与 React 18，未声明精确 DSH 版本范围；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、各桌面浏览器通知策略、多窗口或大量并发 Session 下运行
+category: interface
+topics:
+  - interface
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_write
+    - command_execution
+    - network_access
+    - browser_control
+    - remote_control
+    - session_data
+  notes: 只在浏览器端观察已有 Session 列表和会话投影，申请浏览器 Notification 权限并写入提醒偏好；Host 端只通过带严格 Schema 的 Typert Remote 读写六个提醒设置，不认领或代替审批
+  data_flow: DSH 浏览器内的 Session 状态、标题、工具名与审批理由 → 本地去重和前台状态判断 → 操作系统通知中心；点击通知只聚焦窗口并打开已有 Session，不向外部服务发送数据。
+risk_level: medium
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 Settings Schema、Typert 描述符、通知权限、去重、Session 观察和跳转逻辑。插件不执行命令、不读写工作区，也不会自动批准操作；但系统通知可能在锁屏或共享屏幕上展示 Session 标题、工具名和审批理由，浏览器还可能限制后台通知。敏感环境应关闭审批提醒或收紧操作系统通知预览，并通过浏览器站点设置随时撤销权限。
+summary:
+  zh: 在 DSH Web 页面失去焦点时，为等待审批、任务完成以及可选的失败状态显示系统桌面通知，并可点击通知返回对应 Session。
+links:
+  source: https://github.com/Aisland-SJL/dsh-reminder
+  detail_zh: https://52dsh.com/plugins/aisland-sjl-dsh-reminder/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

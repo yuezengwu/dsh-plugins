@@ -1,0 +1,50 @@
+schema_version: 1
+id: github:liumengxuan04/oh-my-dsh
+slug: liumengxuan04-oh-my-dsh
+name: oh-my-dsh
+repository:
+  url: https://github.com/LiuMengxuan04/oh-my-dsh
+  commit: fa770d7ab2a5a393952d7e11ed59d016e7ccaa55
+package:
+  ecosystem: npm
+  name: dsh-autopilot
+  version: 0.1.0-alpha.3
+  install_spec: github:LiuMengxuan04/oh-my-dsh#fa770d7ab2a5
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 包名 dsh-autopilot，版本 0.1.0-alpha.3、MIT，主要 DSH peer 精确面向 0.1.1-rc.6；本站完成固定提交静态审阅，当前站点跟踪的 0.1.1-rc.2 低于声明版本，未做数日运行、异常恢复、并发子 Agent、真实通知或完整交付验证
+category: agent
+topics:
+  - agent
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_write
+    - command_execution
+    - network_access
+    - session_data
+    - agent_orchestration
+  notes: 只有用户可通过 /autopilot start 或 resume 建立/续期租约，模型不能自行开启或延长；默认上限为 1024 轮、7 个活跃日、累计 128 个子 Agent，并继承部署的 DSH Sandbox/Approval。selfModification 默认关闭，但若部署者改为 host-only，会在 Host 进程执行模型生成的受信 JavaScript
+  data_flow: 用户目标、当前会话、任务计划和证据 → 本地持久任务/审计/记忆状态 → 有界并行子 Agent 与固定验证器执行 → 结果、风险和交付摘要回到主会话；可选 Webhook 关闭时不外发，启用后会把配置的通知载荷发送到指定 HTTPS 服务。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的用户租约、轮次/时长/子 Agent 上限、自动恢复、工具限制、冻结验证器、只读复核、技能/MCP、通知和可选自修改。默认有明确的人类启动与有限预算，验证器不能被任务自行改写；但这是 alpha 级高权限编排器，默认 autoResume 会在进程重启后继续，工作 Agent 可在既有 DSH 权限内编辑文件和运行命令，持久记忆可能保留秘密，host-only 自修改等同完全信任代码。先解决版本兼容，在低权限测试项目运行，保持 selfModification=off，缩小轮次/时长/工具与 Skill/MCP 白名单，逐项审查交付 diff 和外部通知。
+summary:
+  zh: 为 DSH 提供带租约、任务拆分、子 Agent、验证、恢复、交付和持久记忆的 Autopilot 工作模式，用于长时间推进有明确验收条件的复杂目标。
+links:
+  source: https://github.com/LiuMengxuan04/oh-my-dsh
+  detail_zh: https://52dsh.com/plugins/liumengxuan04-oh-my-dsh/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

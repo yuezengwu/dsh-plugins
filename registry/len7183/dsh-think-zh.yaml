@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:len7183/dsh-think-zh
+slug: len7183-dsh-think-zh
+name: DSH-Think-zh
+repository:
+  url: https://github.com/Len7183/DSH-Think-zh
+  commit: e6ab9d8d70b199de83bbb0f76ef9b593f474326b
+package:
+  ecosystem: npm
+  name: dsh-think-zh
+  version: 0.1.0
+  install_spec: github:Len7183/DSH-Think-zh#e6ab9d8d70b1
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 包含 dsh.bundle；未声明明确 DSH peer 版本，本站尚未运行实测
+category: tools
+topics:
+  - tools
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取用户提供的内容或调用外部工具；核对数据流、依赖和输出边界
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 在每次请求的 system prompt 中加入简体中文指令，使模型思考过程以中文呈现。
+links:
+  source: https://github.com/Len7183/DSH-Think-zh
+  detail_zh: https://52dsh.com/plugins/len7183-dsh-think-zh/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

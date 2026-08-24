@@ -1,0 +1,52 @@
+schema_version: 1
+id: github:bill9109/dsh-web-ui-notify
+slug: bill9109-dsh-web-ui-notify
+name: dsh-web-ui-notify
+repository:
+  url: https://github.com/bill9109/dsh-web-ui-notify
+  commit: 865d2f6fc93f2e0d051d53df772646cb831a43ed
+package:
+  ecosystem: npm
+  name: "@bill9109/dsh-web-ui-notify"
+  version: 0.1.3
+  install_spec: github:bill9109/dsh-web-ui-notify#865d2f6fc93f
+license:
+  spdx: BSD-3-Clause
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.1.3、BSD-3-Clause，未声明 Node 或 DSH peer 范围；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、不同浏览器、移动端或操作系统通知中心运行
+category: interface
+topics:
+  - notify
+  - interface
+permissions:
+  status: reviewed
+  capabilities:
+    - network_access
+    - browser_control
+    - session_data
+    - ui_injection
+  notes: 只在浏览器客户端订阅 DSH Session 列表和当前会话快照，并在用户主动授予 Notification 权限后创建系统通知；不注册 Host 路由、模型工具、文件访问或外部请求
+  data_flow: Session 名称、待审批原因、问题文本和最终回复前 80 字 → 当前浏览器的 Notification API → 操作系统通知中心；点击通知后聚焦现有窗口并打开对应 Session，无插件自有服务器和外部网络发送。
+risk_level: medium
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的通知权限入口、Session 订阅、去重和点击跳转。功能仅在页面隐藏且浏览器权限已授予时运行，没有 fetch、Host API 或插件持久化；但系统通知会在锁屏或共享屏幕上显示 Session 名称、审批原因、问题文本或回复摘要，可能泄露任务内容。共享设备和敏感会话不要授予通知权限，或在操作系统中关闭锁屏预览。
+summary:
+  zh: 在 DSH Web 页面位于后台时，为工具审批、Agent 提问、轮次完成和后台 Session 完成发送浏览器桌面通知，并可点击跳回对应会话。
+  en: Desktop notification reminders.
+links:
+  source: https://github.com/bill9109/dsh-web-ui-notify
+  detail_zh: https://52dsh.com/plugins/bill9109-dsh-web-ui-notify/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

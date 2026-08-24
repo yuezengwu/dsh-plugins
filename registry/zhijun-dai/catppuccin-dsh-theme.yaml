@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:zhijun-dai/catppuccin-dsh-theme
+slug: zhijun-dai-catppuccin-dsh-theme
+name: Catppuccin-dsh-theme
+repository:
+  url: https://github.com/zhijun-dai/Catppuccin-dsh-theme
+  commit: 9885d3e7ee93ad4c972e92be4b6f301105e73eb4
+package:
+  ecosystem: npm
+  name: dsh-catppuccin
+  version: 0.2.1
+  install_spec: github:zhijun-dai/Catppuccin-dsh-theme#9885d3e7ee93
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.1.0-rc.6；本站尚未运行实测
+category: interface
+topics:
+  - theme
+  - interface
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 注入 Web 客户端并改变界面或交互；核对浏览器侧数据访问范围
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 为 DeepSeek Harness 提供 Catppuccin 柔和粉彩主题。
+  en: "Catppuccin theme plugin: Latte, Frappé, Macchiato, and Mocha skins for the DSH Web theme runtime."
+links:
+  source: https://github.com/zhijun-dai/Catppuccin-dsh-theme
+  detail_zh: https://52dsh.com/plugins/zhijun-dai-catppuccin-dsh-theme/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

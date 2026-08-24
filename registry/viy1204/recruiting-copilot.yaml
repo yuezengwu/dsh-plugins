@@ -1,0 +1,48 @@
+schema_version: 1
+id: github:viy1204/recruiting-copilot
+slug: viy1204-recruiting-copilot
+name: recruiting-copilot
+repository:
+  url: https://github.com/Viy1204/recruiting-copilot
+  commit: f2b57ac649bfb89101dd5dbdd0c419bcabe0c1e9
+package:
+  ecosystem: npm
+  name: recruiting-copilot
+  version: 0.6.0
+  install_spec: github:Viy1204/recruiting-copilot#f2b57ac649bf
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.6.0，要求 Node.js 22 或更高但未声明完整 DSH peer 版本范围；本站完成固定提交静态审阅，未使用真实招聘账号、候选人数据、BOSS/猎聘风控页或跨平台 Chrome 运行端到端测试
+category: browser
+topics:
+  - browser
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - browser_control
+    - ui_injection
+  notes: 可启动或连接带招聘站登录态的 Chrome，通过 CDP 截取页面、读取标签与地址、派发鼠标键盘、导航和关闭标签；招聘 Skill 还会处理简历、联系方式、评估与跟进记录等个人信息
+  data_flow: BOSS/猎聘登录页面和候选人资料 → 本机 Chrome CDP 截图与状态 → DSH 右侧面板；面板输入、导航和操作 → 未鉴权的本机插件路由 → CDP → 招聘站；招聘工作流产生的评估、台账和日报保存在用户工作区。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 DSH bundle、CDP 浏览器镜像、输入派发、浏览器启动、风控熔断和面板路由。插件默认只读、折叠且检测到验证/风控页会停止主动动作，作者也明确记录过自动化导致 BOSS Web 登录被限制 24 小时；但路由没有同源或身份校验，能访问 DSH Web 的客户端可控制已登录招聘浏览器，候选人数据还涉及隐私与招聘平台规则。只在受保护本机使用，采用专用招聘账号和数据目录，保持有头/人工操作，取得个人信息处理授权并遵守平台条款。
+summary:
+  zh: 为 HR 和猎头提供岗位标准、人才寻访、简历评估、约面、台账与日报 Skill，并把 BOSS 直聘和猎聘的专用 Chrome 通过 CDP 镜像成 DSH 内可操作的招聘浏览器。
+links:
+  source: https://github.com/Viy1204/recruiting-copilot
+  detail_zh: https://52dsh.com/plugins/viy1204-recruiting-copilot/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

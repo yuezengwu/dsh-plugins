@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:pensivefei/deep-read-summarize
+slug: pensivefei-deep-read-summarize
+name: deep-read-summarize
+repository:
+  url: https://github.com/PensiveFei/deep-read-summarize
+  commit: 243f2cdd92dd84e1a59faf6b132ae4e0ef6bd6c5
+package:
+  ecosystem: npm
+  name: deep-read-summarize
+  version: 0.3.1
+  install_spec: github:PensiveFei/deep-read-summarize#243f2cdd92dd
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 包含 dsh.bundle；未声明明确 DSH peer 版本，本站尚未运行实测
+category: knowledge
+topics:
+  - workflow
+  - knowledge
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取并持久化会话、项目或记忆数据；核对存储位置和清理方式
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 对书籍、论文、视频和网页执行深度阅读与摘要流程，支持解析器、MapReduce、JSON Schema 输出和 Obsidian 格式。
+  en: "Deep reading & summarization for DSH: books/papers/videos/web into structured Obsidian notes via plugin parsers, MapReduce parallel deep-read subagents, JSON Schema outputs and an idempotent cache."
+links:
+  source: https://github.com/PensiveFei/deep-read-summarize
+  detail_zh: https://52dsh.com/plugins/pensivefei-deep-read-summarize/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

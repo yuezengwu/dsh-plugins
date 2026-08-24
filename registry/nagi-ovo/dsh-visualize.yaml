@@ -1,0 +1,52 @@
+schema_version: 1
+id: github:nagi-ovo/dsh-visualize
+slug: nagi-ovo-dsh-visualize
+name: dsh-visualize
+repository:
+  url: https://github.com/Nagi-ovo/dsh-visualize
+  commit: e86f68fe66b980a0ebeed8ef7409522b0b720bed
+package:
+  ecosystem: npm
+  name: "@dsh-external/dsh-visualize"
+  version: 0.1.2
+  install_spec: github:Nagi-ovo/dsh-visualize#e86f68fe66b9
+license:
+  spdx: BSD-3-Clause
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: review
+  compatibility_notes: 插件版本 0.1.2，采用 DSH Bundle/Web Client 格式；本站完成固定提交静态审阅，未用真实模型生成复杂图表或验证全部 CDN 库
+category: tools
+topics:
+  - ui
+  - tools
+permissions:
+  status: reviewed
+  capabilities:
+    - network_access
+    - credentials
+    - session_data
+    - ui_injection
+  notes: 允许模型生成的 JavaScript 在 sandbox iframe 中执行，并可从固定 CDN 白名单加载脚本、样式、字体、图片和媒体；片段作为工具结果进入会话记录
+  data_flow: 用户需求 → DSH 模型与 visualize 工具 → HTML/CSS/JavaScript 片段 → opaque-origin sandbox iframe → 可交互卡片；iframe 可读取白名单 CDN 静态资源，但 CSP 阻止 fetch/XHR/WebSocket、表单、嵌套 frame 和宿主页面访问。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的工具 Schema、片段上限、Frame 文档、CSP、流式同步和客户端消息桥。iframe 只授予 allow-scripts 且无 allow-same-origin，能隔离宿主 DOM、Cookie 和存储；connect-src 仅 blob/data。不过片段可执行 unsafe-inline/unsafe-eval，并能从 cdnjs、jsDelivr、esm.sh、unpkg 和字体 CDN 加载代码或资源，因此仍应把生成卡片视为不可信内容，避免在其中输入秘密，并关注 CDN 供应链。
+summary:
+  zh: 在 DSH 对话中注册 visualize 工具，把模型生成的 HTML、CSS 和 JavaScript 片段渲染为可交互图表、图形和信息卡片。
+  en: "In-conversation generative UI: the model renders interactive HTML cards into the chat stream, with streaming preview and sandboxed rendering."
+links:
+  source: https://github.com/Nagi-ovo/dsh-visualize
+  detail_zh: https://52dsh.com/plugins/nagi-ovo-dsh-visualize/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

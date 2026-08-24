@@ -1,0 +1,48 @@
+schema_version: 1
+id: github:bowenliang123/dsh-context
+slug: bowenliang123-dsh-context
+name: dsh-context
+repository:
+  url: https://github.com/bowenliang123/dsh-context
+  commit: cccad0322411602c97b197c417133b12436aa05a
+package:
+  ecosystem: npm
+  name: dsh-context
+  version: 0.22.1
+  install_spec: github:bowenliang123/dsh-context#cccad0322411
+license:
+  spdx: Apache-2.0
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.1.0-rc.7；本站尚未运行实测
+category: knowledge
+topics:
+  - usage
+  - knowledge
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取并持久化会话、项目或记忆数据；核对存储位置和清理方式
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 通过 Context 面板、浏览器和命令查看上下文组成、统计、压缩、剪枝及演进过程。
+  en: "DSH context insight panel: Context dashboard + /context command + Context browser — one-stop context lifecycle management with categorized composition, content details, evolution trends, compaction/injection events, and stats."
+links:
+  source: https://github.com/bowenliang123/dsh-context
+  detail_zh: https://52dsh.com/plugins/bowenliang123-dsh-context/
+  tutorial_zh: https://52dsh.com/tutorials/bowenliang123-dsh-context-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

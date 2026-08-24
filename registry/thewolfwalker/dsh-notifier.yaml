@@ -1,0 +1,53 @@
+schema_version: 1
+id: github:thewolfwalker/dsh-notifier
+slug: thewolfwalker-dsh-notifier
+name: dsh-notifier
+repository:
+  url: https://github.com/THEWOLFWALKER/dsh-notifier
+  commit: cc4781e9939210b2d91b63f5448ccef40708a7c2
+package:
+  ecosystem: npm
+  name: dsh-notifier
+  version: 0.8.4
+  install_spec: github:THEWOLFWALKER/dsh-notifier#cc4781e99392
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: review
+  compatibility_notes: 插件版本 0.8.4，要求 Node.js 22 或更高，作者说明面向 DSH 0.1.0-rc.6；本站完成固定提交静态审阅，未使用真实消息平台账号、长轮询、Webhook 或远程审批进行端到端测试
+category: remote
+topics:
+  - notify
+  - remote
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - credentials
+    - remote_control
+    - session_data
+  notes: 持有多个消息平台的 Bot Token、App Secret、Webhook 和用户标识，可读取 DSH 事件、问题与会话结果并发送到外部平台；配对后的远程用户还能回答审批、追问、注入消息、转向或取消任务
+  data_flow: DSH 任务事件、审批问题与结果 → 路由和模板 → 已启用的外部消息平台；远程回复、审批或停止指令 → 配对身份、角色与签名校验 → DSH approval/followup/inject/steer/cancel；操作台账以 JSONL 保存在本机。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的频道适配、身份配对、审批桥接、会话控制、管理端、凭据引用和本机台账。它支持 owner 角色、最后 owner 保护、环境变量凭据、0600 台账和回环管理端；但配对账号实际可以影响具备工作区权限的 Agent，消息与结果也会离开本机进入第三方平台。只启用必要渠道，使用环境变量保存密钥，保护首次配对码与管理令牌，并为远程入口配置专用最小权限 Profile 和 cwd。
+summary:
+  zh: 把 DSH 的任务完成、审批、提问、错误和 Agent 状态推送到多种消息渠道，并允许已配对用户在 Telegram、飞书、QQ、微信等入口远程审批、继续会话或停止任务。
+  en: "Unified notification & remote control for DSH: one `notify()` API, 25+ channels (Telegram / DingTalk / Feishu / WeCom / QQ bot / WxPusher / PushPlus / ServerChan / Bark / Discord / Slack / ntfy / webhook...), level routing (timeSensitive / active / passive) with tiered retry, multi-channel inbound approval (Telegram buttons, Feishu cards, QQ, WxPusher, WeChat iLink), official QR login for QQ/DingTalk/Feishu, a local web admin console, multi-agent routing, desktop notifications — and a mobile command center: `!status` / `!stop` / `!retry` agent control from your phone plus actionable notifications (view result / retry / logs buttons that call back into the agent). Secrets redacted, tool rate-limited, zero runtime deps — plus an open event source: other plugins can inject the notifier service (ctx.notifier) and subscribe to dsh-notifier/sent events, reusing notification without coupling — and an identity system (v0.7): pairing codes (/pair in any DM, first redeemer becomes owner), composite-key bindings, member roles, and a guided bootstrap state when the whitelist is empty."
+links:
+  source: https://github.com/THEWOLFWALKER/dsh-notifier
+  detail_zh: https://52dsh.com/plugins/thewolfwalker-dsh-notifier/
+  tutorial_zh: https://52dsh.com/tutorials/thewolfwalker-dsh-notifier-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

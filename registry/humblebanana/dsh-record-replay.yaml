@@ -1,0 +1,53 @@
+schema_version: 1
+id: github:humblebanana/dsh-record-replay
+slug: humblebanana-dsh-record-replay
+name: dsh-record-replay
+repository:
+  url: https://github.com/humblebanana/dsh-record-replay
+  commit: 32d06f7db906914e278d1552728d1d63f191d6ad
+package:
+  ecosystem: npm
+  name: dsh-record-replay
+  version: 0.2.0
+  install_spec: github:humblebanana/dsh-record-replay#32d06f7db906
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.2.0、MIT，DSH peer 使用通配范围并依赖独立 Open Record/Replay CLI、macOS Accessibility 与 Input Monitoring 权限；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、真实桌面权限、长时间录制或生成 Skill 的端到端流程下运行
+category: agent
+topics:
+  - agent
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - filesystem_write
+    - command_execution
+    - network_access
+    - credentials
+    - session_data
+    - ui_injection
+    - plugin_management
+  notes: 调用固定的本机 Open Record/Replay CLI 录制点击、拖拽、键盘输入、窗口、URL 和可访问性信息，将原始事件写入当前 Session 工作区；可在用户指定目标创建或覆盖一个命名合法的 SKILL.md
+  data_flow: 用户在 macOS 的演示操作 → 本机录制器与 Accessibility/Input Monitoring → 工作区 session.json/events.jsonl → DSH Agent 读取和校验 → 本地 Skill 输入包或 ~/.agents/skills 下的 SKILL.md；插件自身不上传录制。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 CLI 解析、Harness Subprocess 调用、工作目录、录制工具、事件读取、Skill 骨架验证与安装逻辑。子进程使用固定 node+CLI argv、空附加环境和有界输出，但录制会捕获键入文本、窗口标题、URL、文件名和界面内容，模型工具没有额外的强制 Approval；Skill target 还允许用户或模型指定绝对目录并在 overwrite=true 时覆盖同名 SKILL.md。只在用户明确要求并已知情时开始录制，录制期间不要输入密码、OTP、API Key、财务或身份信息，结束后先人工检查并清理原始事件，再审核生成的 Skill 和安装目标。
+summary:
+  zh: 把 macOS 上的真实桌面操作录制为结构化事件证据，供 DSH 校验演示、整理工作流并生成可复用的 Skill 草稿。
+links:
+  source: https://github.com/humblebanana/dsh-record-replay
+  detail_zh: https://52dsh.com/plugins/humblebanana-dsh-record-replay/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

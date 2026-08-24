@@ -1,0 +1,48 @@
+schema_version: 1
+id: github:modusensus/dsh-mneme#path:/dsh-mneme
+slug: modusensus-dsh-mneme
+name: dsh-mneme
+repository:
+  url: https://github.com/modusensus/dsh-mneme
+  commit: ddfd18555200562dfba38a221c9286c8c2ffde35
+  subpath: dsh-mneme
+package:
+  ecosystem: npm
+  name: "@modusensus/dsh-mneme"
+  version: 0.5.2
+  install_spec: github:modusensus/dsh-mneme#path:/dsh-mneme
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.1.0-rc.6；本站尚未运行实测
+category: knowledge
+topics:
+  - memory
+  - knowledge
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取并持久化会话、项目或记忆数据；核对存储位置和清理方式
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 提供离线语义搜索、实体属性时间线、自动记忆整合和可人工编辑的 Markdown 存储。
+  en: "Cross-session memory engine for DeepSeek Harness: SQLite store + human-editable Markdown mirror, autoDream consolidation, offline semantic search (local vector/rerank/clustering), entity-attribute-timeline, Sleep Mode, custom-model autoSummarize, and 7 memory tools."
+links:
+  source: https://github.com/modusensus/dsh-mneme/tree/main/dsh-mneme
+  detail_zh: https://52dsh.com/plugins/modusensus-dsh-mneme/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

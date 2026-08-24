@@ -1,0 +1,52 @@
+schema_version: 1
+id: github:dsh-market/dsh-market
+slug: dsh-market
+name: DSH Market
+repository:
+  url: https://github.com/dsh-market/dsh-market
+  commit: f2172056fd25f4665de9b44a1983a7297f6de927
+package:
+  ecosystem: npm
+  name: dshmarket
+  version: 1.17.1
+  install_spec: dshmarket@1.17.1
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 dsh-settings ^0.1.0-rc.7；未在本站当前基线实测
+category: management
+topics:
+  - market
+  - management
+permissions:
+  status: reviewed
+  capabilities:
+    - command_execution
+    - network_access
+    - agent_orchestration
+  notes: 执行 pnpm 安装、升级和卸载，读写 Profile、Bundle、锁文件与备份；可选连接 WebDAV 和 GitHub Gist
+  data_flow: 用户在 DSH Market 发起操作 → 同源 Host 路由 → pnpm 与 Profile/Bundle 配置写入 → 安装状态、备份或同步结果返回设置页。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的入口、安装编排、HTTP 路由、来源限制和备份代码：写操作要求同源 POST，安装源限制在社区注册表，但仍会执行包管理命令、修改运行配置并可能触发重启。
+summary:
+  zh: 在 DSH 设置页浏览、筛选、安装、升级和停用社区插件，并提供配置备份入口。
+  en: Browse, search and install community plugins from inside DeepSeek Harness settings, with category filters, one-click updates, enable/disable, theme switching and configuration backup.
+links:
+  source: https://github.com/dsh-market/dsh-market
+  detail_zh: https://52dsh.com/plugins/dsh-market/
+  tutorial_zh: https://52dsh.com/tutorials/dsh-market-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

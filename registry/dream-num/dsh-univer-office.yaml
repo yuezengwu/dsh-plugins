@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:dream-num/dsh-univer-office
+slug: dream-num-dsh-univer-office
+name: dsh-univer-office
+repository:
+  url: https://github.com/dream-num/dsh-univer-office
+  commit: fc22377969d4fb92964abbf6b446a7911b66486c
+package:
+  ecosystem: npm
+  name: dsh-univer-office
+  version: 0.2.7
+  install_spec: github:dream-num/dsh-univer-office#fc22377969d4
+license:
+  spdx: Apache-2.0
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 0.1.0-rc.8；本站尚未运行实测
+category: tools
+topics:
+  - docs
+  - tools
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取用户提供的内容或调用外部工具；核对数据流、依赖和输出边界
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 基于 Univer 在 DSH 内预览、创建和编辑电子表格、文档与演示文稿。
+  en: Create, edit, inspect, and deliver spreadsheets, documents, presentations, databases, and canvases in DeepSeek Harness, with live preview and worktree review.
+links:
+  source: https://github.com/dream-num/dsh-univer-office
+  detail_zh: https://52dsh.com/plugins/dream-num-dsh-univer-office/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

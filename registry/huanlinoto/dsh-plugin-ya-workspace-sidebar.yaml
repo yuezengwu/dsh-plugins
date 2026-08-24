@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:huanlinoto/dsh-plugin-ya-workspace-sidebar
+slug: huanlinoto-dsh-plugin-ya-workspace-sidebar
+name: dsh-plugin-ya-workspace-sidebar
+repository:
+  url: https://github.com/HuanLinOTO/dsh-plugin-ya-workspace-sidebar
+  commit: e820180acd0bee151e990edebcf4cc17c58c271f
+package:
+  ecosystem: npm
+  name: "@huanlin/dsh-plugin-ya-workspace-sidebar"
+  version: 0.3.1
+  install_spec: github:HuanLinOTO/dsh-plugin-ya-workspace-sidebar#e820180acd0b
+license:
+  spdx: AGPL-3.0
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.0.1-rc.1；本站尚未运行实测
+category: interface
+topics:
+  - interface
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 注入 Web 客户端并改变界面或交互；核对浏览器侧数据访问范围
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 替换 DSH Web 工作区侧栏，提供全局最近会话、Workspace 到 Session 的二级菜单和面包屑。
+links:
+  source: https://github.com/HuanLinOTO/dsh-plugin-ya-workspace-sidebar
+  detail_zh: https://52dsh.com/plugins/huanlinoto-dsh-plugin-ya-workspace-sidebar/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

@@ -1,0 +1,55 @@
+schema_version: 1
+id: github:zseven-w/dsh-crew
+slug: zseven-w-dsh-crew
+name: dsh-crew
+repository:
+  url: https://github.com/ZSeven-W/dsh-crew
+  commit: b1cb3667dcc595e233796126a0c4427784fd9fd3
+package:
+  ecosystem: npm
+  name: "@zseven-w/dsh-crew"
+  version: 0.1.0-rc.4
+  install_spec: github:ZSeven-W/dsh-crew#b1cb3667dcc5
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.1.0-rc.4，Bundle 内使用 DSH 0.1.0-rc.6 相关组件且未声明完整 peer 范围；本站完成固定提交静态审阅，未连接 Claude Code、Codex、Grok、Antigravity 或真实 DSH Hub 运行任务
+category: agent
+topics:
+  - workflow
+  - agent
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - filesystem_write
+    - command_execution
+    - network_access
+    - credentials
+    - session_data
+    - plugin_management
+  notes: 启动本机 MCP/worker 子进程，创建 DSH Session 和 Agent，读取图片，调用本机已登录 CLI 或自定义 OpenAI 兼容 API，并修改 Claude Code/Codex 插件、MCP、权限白名单及 HUD 配置
+  data_flow: Claude Code/Codex 任务 → 本机 MCP dsh_run_worker → 可达 DSH Hub 或独立 DSH Runtime → Agent 模型、工具与工作目录 → 进度、工具调用、Token 和结果返回宿主任務面板；视觉请求可转交本机 CLI 或自定义 API。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 MCP Server、Hub 路由、任务、视觉/多模态、状态分片和安装器。Hub 模式复用 DSH 凭据，独立模式从 ~/.config/dsh-crew/.env 读取 DeepSeek Key；安装器会修改 Claude/Codex 配置并在写入前备份。该插件跨越多个 Agent、进程、凭据和配置边界，自定义命令模板还可启动本机程序。只启用必要宿主和 Provider，核对备份与绝对路径，并把派发 Agent 的工具权限限制在任务所需范围。
+summary:
+  zh: 把 DSH Agent 作为 Claude Code 或 Codex 的原生子 Agent 调用，提供实时进度、档位与失败升档、会话接入、图片理解/生成、自定义 Provider 和独立运行回退。
+  en: "Dispatch work to DSH agents from Claude Code or Codex: native subagent progress, in-host worker sessions with per-tier presets, and a multimodal bridge for vision and image generation."
+links:
+  source: https://github.com/ZSeven-W/dsh-crew
+  detail_zh: https://52dsh.com/plugins/zseven-w-dsh-crew/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:tabbit-browser/dsh-tabbit
+slug: tabbit-browser-dsh-tabbit
+name: dsh-tabbit
+repository:
+  url: https://github.com/Tabbit-Browser/dsh-tabbit
+  commit: 7b69a066973d4198d70d91368c7a5643ed7a57ce
+package:
+  ecosystem: npm
+  name: dsh-tabbit
+  version: 0.2.2
+  install_spec: github:Tabbit-Browser/dsh-tabbit#7b69a066973d
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 >=0.1.0-rc.5；本站尚未运行实测
+category: tools
+topics:
+  - tools
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取用户提供的内容或调用外部工具；核对数据流、依赖和输出边界
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 把 Tabbit Browser 的浏览器能力接入 DeepSeek Harness；可用工具范围和浏览数据边界需结合仓库说明核对。
+links:
+  source: https://github.com/Tabbit-Browser/dsh-tabbit
+  detail_zh: https://52dsh.com/plugins/tabbit-browser-dsh-tabbit/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

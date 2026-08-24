@@ -1,0 +1,50 @@
+schema_version: 1
+id: github:aitabby/dockyard-dsh
+slug: aitabby-dockyard-dsh
+name: dockyard-dsh
+repository:
+  url: https://github.com/AITabby/dockyard-dsh
+  commit: 8dca9e3087c65c6e9277b9b16a4d93640d774859
+package:
+  ecosystem: npm
+  name: "@dockyard-dsh/plugin"
+  version: 0.1.1
+  install_spec: github:AITabby/dockyard-dsh#8dca9e3087c6
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: review
+  compatibility_notes: 插件版本 0.1.1，要求 Node.js 22.19 或 24+，作者说明按 DSH 0.1.0-rc.6 验证；本站完成固定提交静态审阅，未进行真实 OAuth、Keychain、CLI fallback、DMG 或 Provider 请求测试
+category: infrastructure
+topics:
+  - infrastructure
+permissions:
+  status: reviewed
+  capabilities:
+    - network_access
+    - credentials
+    - browser_control
+    - session_data
+    - ui_injection
+  notes: 打开官方 OAuth 页面和回环回调，扫描本机官方 CLI/桌面会话，保存 refresh token 到 macOS Keychain，调用 Provider 原生 API，并在 macOS App 中启动内置 DSH 进程
+  data_flow: 官方浏览器 OAuth 或本机已登录 CLI/客户端 → PKCE/state 校验与安全凭据引用 → Dockyard 账号池和选择策略 → Codex/Claude/Grok/Cursor/Antigravity 原生模型端点 → 流式结果、模型目录与额度返回 DSH。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 DSH Bridge、账号池、Provider 模块、OAuth 说明、Keychain Helper 和 macOS App。原始 Token 不进入页面状态或账号池快照，macOS 使用 Keychain，非 macOS 安全存储缺失时失败关闭；但它同时跨越多个账号、OAuth 协议、本机客户端文件和模型请求，Provider 非公开字段与范围可能变化，DMG 还是 ad-hoc 签名预览。逐个启用账号并核对授权范围，优先固定提交安装，不在生产环境使用未经独立验证的 App 构件。
+summary:
+  zh: 把 Codex、Claude、Grok、Cursor 和 Antigravity 的官方 OAuth 或本机客户端登录态接入 DSH，统一管理多账号、模型、额度、轮换、故障转移和原生请求。
+links:
+  source: https://github.com/AITabby/dockyard-dsh
+  detail_zh: https://52dsh.com/plugins/aitabby-dockyard-dsh/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

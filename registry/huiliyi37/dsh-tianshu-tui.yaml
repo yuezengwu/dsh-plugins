@@ -1,0 +1,56 @@
+schema_version: 1
+id: github:huiliyi37/dsh-tianshu-tui
+slug: huiliyi37-dsh-tianshu-tui
+name: dsh-tianshu-tui
+repository:
+  url: https://github.com/huiliyi37/dsh-tianshu-tui
+  commit: 1ff44e3dea8c677f48022c79887849df0248bccc
+package:
+  ecosystem: npm
+  name: "@huiliyi37/dsh-tianshu-tui"
+  version: 0.1.2-rc.12
+  install_spec: github:huiliyi37/dsh-tianshu-tui#1ff44e3dea8c
+license:
+  spdx: Apache-2.0
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.1.2-rc.12，peer 依赖主要声明 DSH 0.1.0-rc.8 系列；本站完成固定提交静态审阅，未在真实 TTY、Windows、各类 LSP 或自动更新路径运行
+category: interface
+topics:
+  - ui
+  - interface
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - filesystem_write
+    - command_execution
+    - credentials
+    - session_data
+    - ui_injection
+    - agent_orchestration
+  notes: 复用 DSH 会话、Agent、工具、审批、凭据和子 Agent 服务；可读取工作区内 @ 引用文件、系统剪贴板，启动外部编辑器与语言服务器，并在 npm 安装来源下自动更新和重启宿主
+  data_flow: 终端输入、附件、工作区文件摘要与剪贴板 → Tianshu TUI 适配层 → DSH 会话、模型、工具、审批和可选视觉模型 → 流式结果与状态渲染回终端；主题和输入偏好写入 ~/.dsh-tui。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的入口、会话适配、工作区引用、外部编辑器、剪贴板、LSP、自更新和重启实现。文件引用限制在 cwd 且摘要截断，但外部编辑器、剪贴板工具和 LSP 都会启动本机程序；TypeScript LSP 默认可通过 npx -y 获取。npm 安装版本还会在启动时查询 npm/npmmirror、执行包管理器升级并重启 DSH，可用 DSH_TUI_SKIP_UPDATE=1 关闭。
+summary:
+  zh: 为 DSH 提供交互式终端界面，支持流式 Markdown、工具与审批卡片、多会话标签、主题、Slash 命令、LSP 诊断、成本统计和可选视觉问答。
+  en: A terminal UI (TUI) for DeepSeek Harness.
+links:
+  source: https://github.com/huiliyi37/dsh-tianshu-tui
+  detail_zh: https://52dsh.com/plugins/huiliyi37-dsh-tianshu-tui/
+  tutorial_zh: https://52dsh.com/tutorials/huiliyi37-dsh-tianshu-tui-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

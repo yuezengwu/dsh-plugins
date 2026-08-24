@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:wm-coder/custom-first-control-prompt
+slug: wm-coder-custom-first-control-prompt
+name: custom-first-control-prompt
+repository:
+  url: https://github.com/WM-CODER/custom-first-control-prompt
+  commit: d2c9a0535c452a9eb1928b76e6b21da5337f9eb2
+package:
+  ecosystem: npm
+  name: "@wm-coders/dsh-custom-first-control-prompt"
+  version: 0.2.3
+  install_spec: github:WM-CODER/custom-first-control-prompt#d2c9a0535c45
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 0.1.x；本站尚未运行实测
+category: development
+topics:
+  - dev
+  - development
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 可能读取或修改工作区；核对文件写入、命令执行和回滚方式
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 在 DeepSeek Harness 请求流程中插入用户自定义的首条控制提示词。
+  en: Inject deployment-configured system-prompt sections and reference exchanges into every conversation request via stream interception, with a web settings panel.
+links:
+  source: https://github.com/WM-CODER/custom-first-control-prompt
+  detail_zh: https://52dsh.com/plugins/wm-coder-custom-first-control-prompt/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

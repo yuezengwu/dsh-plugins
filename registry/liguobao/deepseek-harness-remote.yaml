@@ -1,0 +1,52 @@
+schema_version: 1
+id: github:liguobao/deepseek-harness-remote
+slug: liguobao-deepseek-harness-remote
+name: deepseek-harness-remote
+repository:
+  url: https://github.com/liguobao/deepseek-harness-remote
+  commit: c049c8eb669765f82f90266c9f9c3a0166a7d734
+package:
+  ecosystem: npm
+  name: ds-harness-remote
+  version: 0.3.27
+  install_spec: github:liguobao/deepseek-harness-remote#c049c8eb6697
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 实际发布包 ds-harness-remote 版本 0.3.27，peer 依赖要求 DSH >=0.1.0-rc.6 且 <0.2.0，开发环境使用 0.1.1-rc.2；本站完成固定提交静态审阅，未验证第三方中继、登录服务、WebRTC、移动客户端或丢失设备撤销
+category: remote
+topics:
+  - remote
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - network_access
+    - browser_control
+    - remote_control
+    - session_data
+  notes: 读取 DSH Session、Workspace、Agent 状态、审批和可选文件预览，通过远程设备发送提示、图片、回答与控制指令；依赖外部账号和当前由作者运营的中继/信令服务建立连接
+  data_flow: 本机 DSH API、Session、审批和可选允许范围内的文件 → Host 端加密与认证 → WebRTC 或中继中的密文 → 已登录并配对的远程浏览器/移动端/VS Code；远程提示、回答和审批沿加密通道返回本机 DSH。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的实际发布子包、连接协议、设备配对、X25519/HKDF/ChaCha20-Poly1305 加密、审批桥接和可选文件查看。Host 只发起出站连接且正文声称保持端到端加密，但账号登录、中继可用性和流量元数据仍依赖第三方，自建中继尚未提供；配对设备也能驱动具有真实工具权限的 Agent。只配对可信设备，丢失后立即撤销，限制文件根目录与 Profile 权限，固定版本，并把该预览服务视为远程控制面而非普通通知插件。
+summary:
+  zh: 让手机、浏览器、VS Code 或 Android 客户端远程连接同一台 DSH Host，查看工作区和会话、发送文字或图片、回答提问与审批，并以端到端加密同步任务结果。
+  en: "Multi-device remote access for DeepSeek Harness: continue an active session from your phone, tablet, browser, or another computer over an end-to-end encrypted channel (Noise IK + adaptive relay/WebRTC transport), with device authorization, ApiProxy-only remote capabilities, and read-only file preview via dsh-file-viewer — no shell, remote desktop, or write access."
+links:
+  source: https://github.com/liguobao/deepseek-harness-remote
+  detail_zh: https://52dsh.com/plugins/liguobao-deepseek-harness-remote/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

@@ -1,0 +1,39 @@
+schema_version: 1
+categories:
+  - id: management
+    label_zh: 插件管理
+    description_zh: 发现、安装、升级和维护插件。
+  - id: interface
+    label_zh: 界面交互
+    description_zh: 改善 Web UI、输入方式和操作效率。
+  - id: knowledge
+    label_zh: 知识与记忆
+    description_zh: 组织本地知识、上下文和长期记忆。
+  - id: agent
+    label_zh: Agent 与工作流
+    description_zh: 扩展任务规划、多 Agent 协作、审批和自动化流程。
+  - id: development
+    label_zh: 编程与代码开发
+    description_zh: 增强代码、Git、终端、测试和工程研发体验。
+  - id: vision
+    label_zh: 图片识别与视觉
+    description_zh: 增加图片理解、OCR、截图分析和视觉生成能力。
+  - id: browser
+    label_zh: 浏览器与联网工具
+    description_zh: 增加网页搜索、浏览器操作、抓取和联网能力。
+  - id: tools
+    label_zh: 工具能力
+    description_zh: 增加搜索、文档、多模态与外部工具。
+  - id: security
+    label_zh: 安全治理
+    description_zh: 处理凭据、遥测、权限和审计边界。
+  - id: infrastructure
+    label_zh: 模型与基建
+    description_zh: 连接模型、MCP、代理、部署和运行环境。
+  - id: remote
+    label_zh: 通知远程
+    description_zh: 通过消息平台和远程入口连接 DSH。
+  - id: integration
+    label_zh: 产品集成
+    description_zh: 把现有产品、数据和服务接入 DSH。
+

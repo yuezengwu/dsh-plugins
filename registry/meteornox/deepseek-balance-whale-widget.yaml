@@ -1,0 +1,50 @@
+schema_version: 1
+id: github:meteornox/deepseek-balance-whale-widget
+slug: meteornox-deepseek-balance-whale-widget
+name: DeepSeek-Balance-Whale-Widget
+repository:
+  url: https://github.com/MeteorNOX/DeepSeek-Balance-Whale-Widget
+  commit: 973076b4d32709a076a54cf8351f52f63e2a443e
+package:
+  ecosystem: npm
+  name: dsh-whale-widget
+  version: 0.2.5
+  install_spec: github:MeteorNOX/DeepSeek-Balance-Whale-Widget#973076b4d327
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.2.5，采用 DSH Bundle 格式且没有声明明确 peer 版本；本站完成固定提交静态审阅，未使用真实 DeepSeek 账户验证余额和用量接口
+category: interface
+topics:
+  - interface
+permissions:
+  status: reviewed
+  capabilities:
+    - network_access
+    - credentials
+    - browser_control
+    - session_data
+  notes: 读取本机 DSH Credential Provider 中的 DEEPSEEK_API_KEY；可选读取从 DeepSeek 平台网页会话复制的 DEEPSEEK_PLATFORM_TOKEN，并把两类凭据分别发送到 DeepSeek 官方余额或平台用量接口
+  data_flow: 本机 DSH 凭据 → 插件 Host → api.deepseek.com 余额接口和可选 platform.deepseek.com 用量接口 → 金额、Token 与峰谷估算 → 本机 /dsh-whale/*.json 路由和 Web 挂件；本地账本最多保留约 30 天日用量。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: "已审阅固定提交的完整打包入口、凭据解析、余额/用量请求、账本和 Web 路由。代码不把令牌返回浏览器，但 balance.json 与设置路由未做同源或身份校验，并返回 Access-Control-Allow-Origin: *；不要把 DSH Web 直接暴露到不可信网络。平台令牌来自网页会话而非普通 API Key，权限和失效机制需由用户自行承担，DeepSeek 调价后内置估算也可能过时。"
+summary:
+  zh: 在 DSH Web 右下角显示可拖拽的鲸鱼余额挂件，读取 DeepSeek API 余额，并可用平台令牌按小时 Token 分桶估算当日用量。
+links:
+  source: https://github.com/MeteorNOX/DeepSeek-Balance-Whale-Widget
+  detail_zh: https://52dsh.com/plugins/meteornox-deepseek-balance-whale-widget/
+  tutorial_zh: https://52dsh.com/tutorials/meteornox-deepseek-balance-whale-widget-install-config/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

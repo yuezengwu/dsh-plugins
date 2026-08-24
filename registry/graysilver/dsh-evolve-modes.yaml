@@ -1,0 +1,48 @@
+schema_version: 1
+id: github:graysilver/dsh-evolve-modes
+slug: graysilver-dsh-evolve-modes
+name: dsh-evolve-modes
+repository:
+  url: https://github.com/GraySilver/dsh-evolve-modes
+  commit: d1f717c8e7e6deae21e6f8e22c728c8572999cc9
+package:
+  ecosystem: npm
+  name: "@graysilver/dsh-evolve-modes"
+  version: 0.3.1
+  install_spec: github:GraySilver/dsh-evolve-modes#d1f717c8e7e6
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: review
+  compatibility_notes: 插件版本 0.3.1，要求 Node.js 22.19 或 24+，开发依赖基于 DSH rc.5/rc.6 时代组件；本站完成固定提交静态审阅，未进行长期规则学习、跨 Provider 审查、成本或提示注入对抗测试
+category: agent
+topics:
+  - agent
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - session_data
+    - agent_orchestration
+  notes: 读取近期会话内容并调用隔离的学习模型生成规则提案，人工接受后把规则持久化并注入后续系统提示词；质量模式还会创建独立审查 Agent 和额外模型请求
+  data_flow: 启用进化的已完成对话与最近消息 → 无工具的隔离学习模型 → 结构化规则提案 → 用户人工接受 → 插件存储 → 后续 Session 系统提示词；任务输出和工作区证据 → 独立审查 Agent → 质量报告返回主流程。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的模式配置、学习请求、提案证据、持久规则注入和质量审查流程。学习 Agent 不带工具、子 Agent 或工作区指令，提案不会自动生效且证据必须引用用户消息；但会话内容仍会发送给所选模型，错误或被注入的提案一旦接受会影响所有后续会话，额外审查也增加成本和延迟。默认关闭不需要的进化，逐条阅读提案及证据，及时删除有问题的全局规则，并固定 DSH 与插件版本。
+summary:
+  zh: 为 DSH 增加执行/计划、标准/第一性原理、质量复核和规则进化模式，可调用独立审查 Agent，并从已完成对话中生成需要人工批准的全局行为规则提案。
+links:
+  source: https://github.com/GraySilver/dsh-evolve-modes
+  detail_zh: https://52dsh.com/plugins/graysilver-dsh-evolve-modes/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

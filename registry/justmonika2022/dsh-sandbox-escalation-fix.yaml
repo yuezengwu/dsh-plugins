@@ -1,0 +1,47 @@
+schema_version: 1
+id: github:justmonika2022/dsh-sandbox-escalation-fix
+slug: justmonika2022-dsh-sandbox-escalation-fix
+name: dsh-sandbox-escalation-fix
+repository:
+  url: https://github.com/JUSTMONIKA2022/dsh-sandbox-escalation-fix
+  commit: ef292a7b6c97640c3cceee6f3d3bbb184c58b021
+package:
+  ecosystem: npm
+  name: dsh-sandbox-escalation-fix
+  version: 0.1.1-rc2
+  install_spec: github:JUSTMONIKA2022/dsh-sandbox-escalation-fix#ef292a7b6c97
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: review
+  compatibility_notes: 插件版本 0.1.1-rc2、MIT，要求 Node.js ^22.19 或 >=24；代码只允许 DSH 0.1.0-rc.5 至 rc.8、0.1.1-rc.1 与当前 0.1.1-rc.2 的整套同版本包，启动时发现混装或未知版本会失败关闭；本站完成固定提交静态审阅，未在真实多 Preset、热插拔工具或第三方 Wrapper 冲突下运行
+category: security
+topics:
+  - security
+permissions:
+  status: reviewed
+  capabilities:
+    - command_execution
+    - session_data
+  notes: 包装现有 Shell 和文件工具，按 Session 隐藏当前策略下不可用的 sandbox_permissions/justification，剔除无意义的同级升级参数，并清理不可能升级时的误导提示；不授予权限、不代替 Approval，也不执行文件或命令
+  data_flow: Session Sandbox/Approval 状态与工具 Schema → Agent 作用域内的协作式 Wrapper → 投影后的工具参数、描述和结果提示 → 原工具继续执行；实际扩权仍完全走 DSH 原有 approveEscalation 与宿主策略。
+risk_level: medium
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的版本门禁、目标工具验证、Schema/描述投影、参数归一化、结果清理、动态重绑与协作 Wrapper 协议。它不会把不可用权限变为可用，只删除与当前策略矛盾的模型输入和提示；但会在每个 Agent 作用域替换四个核心工具的可见定义，与其他工具包装/结果重写插件可能冲突。仅在声明支持的整套 DSH 版本使用，升级 DSH 前先禁用，并通过审计日志确认 Approval 行为未被其他插件改写。
+summary:
+  zh: 按每个 Session 的实际 Sandbox Mode 与 Approval Policy 修正 bash、pwsh、write、edit 的扩权参数和提示，避免模型在 All Access 或 approval=never 下反复提交无效升级请求。
+links:
+  source: https://github.com/JUSTMONIKA2022/dsh-sandbox-escalation-fix
+  detail_zh: https://52dsh.com/plugins/justmonika2022-dsh-sandbox-escalation-fix/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

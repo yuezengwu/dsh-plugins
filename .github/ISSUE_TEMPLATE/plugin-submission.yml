@@ -1,0 +1,48 @@
+name: Submit a DSH plugin
+description: Propose a DeepSeek Harness / DSH plugin for evidence review.
+title: "[Plugin submission] "
+labels: [submission]
+body:
+  - type: input
+    id: repository
+    attributes:
+      label: GitHub repository
+      placeholder: https://github.com/owner/repository
+    validations:
+      required: true
+  - type: input
+    id: commit
+    attributes:
+      label: Pinned 40-character commit
+    validations:
+      required: true
+  - type: input
+    id: license
+    attributes:
+      label: SPDX license and evidence URL
+    validations:
+      required: true
+  - type: textarea
+    id: plugin_identity
+    attributes:
+      label: DSH plugin identity and install target
+      description: Explain why this is a DSH plugin rather than a Skill, MCP server or generic project.
+    validations:
+      required: true
+  - type: textarea
+    id: permissions
+    attributes:
+      label: Permissions and data flow
+      description: List files, commands, network endpoints, credentials and session data involved.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Submission safety
+      options:
+        - label: I have not included credentials, tokens, cookies or private data.
+          required: true
+        - label: I understand listing is not a security endorsement or runtime verification.
+          required: true
+

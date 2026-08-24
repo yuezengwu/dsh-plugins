@@ -1,0 +1,51 @@
+schema_version: 1
+id: github:saya-ch/dsh-mobile
+slug: saya-ch-dsh-mobile
+name: dsh-mobile
+repository:
+  url: https://github.com/saya-ch/dsh-mobile
+  commit: 218cd8b470cdbd43fc44db2219fd950ab3d743b9
+package:
+  ecosystem: npm
+  name: dsh-mobile
+  version: 0.1.0-alpha.36
+  install_spec: github:saya-ch/dsh-mobile#218cd8b470cd
+license:
+  spdx: Apache-2.0
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: review
+  compatibility_notes: 清单覆盖 DSH 0.1.0-rc.5 至 rc.7 的相关 Host 组件；本站完成固定提交静态审阅，未进行真实手机配对测试
+category: remote
+topics:
+  - remote
+permissions:
+  status: reviewed
+  capabilities:
+    - network_access
+    - browser_control
+    - session_data
+  notes: 开启后监听局域网；已配对设备可操作电脑上的 DSH，host.mjs 扩展以桌面用户权限运行，移动脚本具有页面同源权限
+  data_flow: 手机 App 或浏览器 → 配对后的 HTTPS 设备会话 → DSH Mobile 网关 → 回环 DSH Web/Host → 会话、工具与事件结果返回手机。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的监听配置、配对、设备存储、请求防护、TLS Pinning 与 Android WebView 限制。设备令牌由主机状态文件和 Android Keystore 管理，但配对设备应视为完全可信；不得暴露到公网，且当前 alpha 版 CSP 仍允许 unsafe-inline/unsafe-eval。
+summary:
+  zh: 为 DSH 提供经过配对的局域网 HTTPS 网关、移动端布局和 Android WebView，让可信手机访问同一工作区与会话。
+  en: "Use DeepSeek Harness from your phone over a protected LAN: a dedicated mobile UI, secure HTTPS pairing, and /mobile conversation customization."
+links:
+  source: https://github.com/saya-ch/dsh-mobile
+  detail_zh: https://52dsh.com/plugins/saya-ch-dsh-mobile/
+  tutorial_zh: https://52dsh.com/tutorials/saya-ch-dsh-mobile-install-config/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:ewnscat-ya/dsh-client-ui-skin-denia
+slug: ewnscat-ya-dsh-client-ui-skin-denia
+name: dsh-client-ui-skin-denia
+repository:
+  url: https://github.com/Ewnscat-ya/dsh-client-ui-skin-denia
+  commit: 1b846939864137123203f1cc8db628e1331df62a
+package:
+  ecosystem: npm
+  name: "@dsh-external/dsh-client-ui-skin-denia"
+  version: 0.0.4
+  install_spec: github:Ewnscat-ya/dsh-client-ui-skin-denia#1b8469398641
+license:
+  spdx: CC-BY-NC-SA-4.0
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 包含 dsh.bundle；未声明明确 DSH peer 版本，本站尚未运行实测
+category: interface
+topics:
+  - interface
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 注入 Web 客户端并改变界面或交互；核对浏览器侧数据访问范围
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 为 DSH Web 提供达妮娅主题皮肤，包括明暗双形态、侧边立绘、玻璃卡片和可调视觉效果。
+links:
+  source: https://github.com/Ewnscat-ya/dsh-client-ui-skin-denia
+  detail_zh: https://52dsh.com/plugins/ewnscat-ya-dsh-client-ui-skin-denia/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

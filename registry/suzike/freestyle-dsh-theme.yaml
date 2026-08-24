@@ -1,0 +1,44 @@
+schema_version: 1
+id: github:suzike/freestyle-dsh-theme
+slug: suzike-freestyle-dsh-theme
+name: freestyle-dsh-theme
+repository:
+  url: https://github.com/suzike/freestyle-dsh-theme
+  commit: cd9e9eb53ccbaded4cf6123919e24392daeda0d4
+package:
+  ecosystem: npm
+  name: "@linxin666/freestyle-dsh-theme"
+  version: 0.1.0
+  install_spec: github:suzike/freestyle-dsh-theme#cd9e9eb53ccb
+license:
+  spdx: BSD-3-Clause
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 声明 DSH peer 依赖 ^0.1.0-rc.6；本站尚未运行实测
+category: interface
+topics:
+  - interface
+permissions:
+  status: inferred
+  capabilities:
+    - unspecified
+  notes: 注入 Web 客户端并改变界面或交互；核对浏览器侧数据访问范围
+risk_level: medium
+verification:
+  level: manifest_checked
+  verified_on: 2026-08-22
+  independent_review: false
+summary:
+  zh: 提供基于 OKLCH 的 DSH 主题方案和主题设计器，并跨重启保存设置。
+links:
+  source: https://github.com/suzike/freestyle-dsh-theme
+  detail_zh: https://52dsh.com/plugins/suzike-freestyle-dsh-theme/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

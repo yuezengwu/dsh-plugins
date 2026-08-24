@@ -1,0 +1,51 @@
+schema_version: 1
+id: github:aisland-sjl/dsh-usage
+slug: aisland-sjl-dsh-usage
+name: dsh-usage
+repository:
+  url: https://github.com/Aisland-SJL/dsh-usage
+  commit: 6b67e6d400dc08e4fcdc06fb384b4b2dadfa3874
+package:
+  ecosystem: npm
+  name: dsh-usage
+  version: 0.2.0
+  install_spec: github:Aisland-SJL/dsh-usage#6b67e6d400dc
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.2.0、MIT，README 声明需要 DSH 0.1.0-rc.6 或更高，但 package 未声明 Node/DSH peer 且标记 private；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、真实 Provider、Claude Code 日志或大规模 Session 数据上运行
+category: infrastructure
+topics:
+  - infrastructure
+permissions:
+  status: reviewed
+  capabilities:
+    - network_access
+    - credentials
+    - browser_control
+    - remote_control
+    - session_data
+    - ui_injection
+  notes: 读取 DSH Session 用量和 ~/.claude/projects JSONL，解析 DSH credentials 后向配置 Provider 查询余额，并向本机 Web 页面提供聚合接口；不向浏览器返回 API Key 或原始会话文本
+  data_flow: DSH Session 事件与 Claude Code JSONL → 本机增量聚合、游标和数字缓存 → 回环 GET API → 用量面板；余额刷新 → DSH Credential Ref → 经过 HTTPS、公共 DNS 与响应大小校验的 Provider API → 脱敏余额快照返回浏览器。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的三个回环 GET 端点、凭据解析、安全 fetch、DNS 固定、Token 折叠、Claude 日志聚合和客户端本地设置。Host 路由同时检查 socket remoteAddress 与 Host，上游强制 HTTPS、拒绝私网/保留地址、防 DNS rebinding、限制 1 MiB/15 秒；Claude 对话内容逐行丢弃，只缓存数字。但它仍读取本机 Session 与 Claude 日志并代表用户调用余额接口，自定义颜色/布局写入 localStorage，且 package 未声明兼容 peer。不要反向代理这些端点，使用最小权限余额 Key，升级 DSH 后先核对聚合口径。
+summary:
+  zh: 在 DSH Web 中显示 DeepSeek、OpenRouter、Moonshot/Kimi、Z.ai 等 Provider 余额、DSH 与 Claude Code Token 用量、缓存命中、活跃热力图和通道占比。
+links:
+  source: https://github.com/Aisland-SJL/dsh-usage
+  detail_zh: https://52dsh.com/plugins/aisland-sjl-dsh-usage/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

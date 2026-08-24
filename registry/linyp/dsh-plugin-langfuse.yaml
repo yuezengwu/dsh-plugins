@@ -1,0 +1,49 @@
+schema_version: 1
+id: github:linyp/dsh-plugin-langfuse
+slug: linyp-dsh-plugin-langfuse
+name: dsh-plugin-langfuse
+repository:
+  url: https://github.com/linyp/dsh-plugin-langfuse
+  commit: 42f3e20a1e8a2a90b9dde96b70c6c5ac70f8609e
+package:
+  ecosystem: npm
+  name: dsh-plugin-langfuse
+  version: 0.5.1
+  install_spec: github:linyp/dsh-plugin-langfuse#42f3e20a1e8a
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.5.1、MIT，要求 Node.js ^22.19 或 >=24，Cordis peer ^4.0.1，README 面向 DSH 0.1.1-rc.1 Telemetry Seam；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、Langfuse Cloud/自托管端、长会话、崩溃恢复或大批量遥测下运行
+category: management
+topics:
+  - management
+permissions:
+  status: reviewed
+  capabilities:
+    - network_access
+    - credentials
+    - session_data
+    - plugin_management
+  notes: 默认库模式为 DISABLED，但 Bundle 在同时配置 Langfuse Key 后默认切到 FULL；上传模式读取 Canonical Session Telemetry，并使用 Langfuse 项目 Key 向配置的 OTLP Trace/Score 地址发送内容和使用元数据
+  data_flow: DSH Canonical Session 事件与部署自定义脱敏流水线 → 本地折叠为 turn/generation/tool/compaction Trace → 携带用户与助手消息、工具参数和结果、压缩摘要、模型/Token/Session 元数据上传 Langfuse；反馈可作为 Score 发送，DISABLED 不构建传输，FEEDBACK_ONLY 在用户提交反馈后回放。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的 Telemetry 模式、Cordis Patch、内容投影、OTLP 鉴权、Score 队列、错误脱敏、响应和属性限额。插件明确记录完整外发字段，不把 Provider API Key 写入事件，并支持 turnInputMode/cwdMode/toolMetaAllowlist；但 FULL 会上传提示词、回答、工具参数与结果，插件自身不提供秘密脱敏规则，而且安装 Bundle 后只要环境存在 Key 就默认 FULL。涉及源码、个人信息或生产凭据时优先使用 DISABLED/FEEDBACK_ONLY，挂载部署级 redaction listener，核对 Langfuse 区域、保留策略和访问权限后再开启。
+summary:
+  zh: 通过 DSH Telemetry Seam 把每轮模型、工具、用量、反馈和父子 Session 关系整理成 Langfuse OpenTelemetry Trace 与 Score。
+links:
+  source: https://github.com/linyp/dsh-plugin-langfuse
+  detail_zh: https://52dsh.com/plugins/linyp-dsh-plugin-langfuse/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22

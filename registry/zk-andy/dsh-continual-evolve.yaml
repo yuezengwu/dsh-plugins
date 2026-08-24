@@ -1,0 +1,51 @@
+schema_version: 1
+id: github:zk-andy/dsh-continual-evolve
+slug: zk-andy-dsh-continual-evolve
+name: dsh-continual-evolve
+repository:
+  url: https://github.com/ZK-Andy/dsh-continual-evolve
+  commit: 95c0af3c9edbb23267f4e7961dee70197a4b4c9d
+package:
+  ecosystem: npm
+  name: dsh-continual-evolve
+  version: 0.3.0
+  install_spec: github:ZK-Andy/dsh-continual-evolve#95c0af3c9edb
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.3.0、MIT，要求 Node.js ^22.19 或 >=24，peer 依赖面向 Cordis 4.0.1 与 DSH home-paths/llm/tools ^0.1.0-rc.6；本站完成固定提交静态审阅，未在当前 0.1.1-rc.2、真实长期记忆、大规模 Skill 树、多模型评审或跨版本迁移下运行
+category: agent
+topics:
+  - dev
+  - agent
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_write
+    - session_data
+    - agent_orchestration
+  notes: 向 Agent 提供新增、更新、删除与回滚持续改进项的工具，并可把内容注入后续系统提示、写入 DSH Home 的 Skills 或挂载生成插件；跨 Session 全局新增/更新/删除默认需要用户批准，autoReview 默认关闭
+  data_flow: 任务轨迹、失败与用户反馈 → 可选评审/规划/基准 LLM 或当前 Agent → 版本化 refinement、快照和审计状态 → 后续 Session 提示、Skill 或子 Agent；日志默认写入 DSH Home 下 0600 文件，状态采用原子写入并保留历史。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-22
+  independent_review: true
+  review_notes: 已审阅固定提交的状态存储、批准门禁、注入、Skill 物化、生成插件挂载、回滚、自动评审、基准测试与日志。默认全局变更需批准且 autoReview 关闭，原子 0600 存储和历史快照便于追溯；但本地改进可由模型直接写入，已知 refinement 的全局 rollback 不再次批准，持久提示可能形成长期提示注入，日志也可能包含敏感运行信息。先在独立 Profile 使用、保持 autoReview 关闭，逐项审阅改进内容并备份 evolve/skills，限制评审模型数据范围和预算。
+summary:
+  zh: 让 DSH 从任务轨迹中生成版本化的 Prompt、记忆、Skill 与子 Agent 改进，支持审阅、批准、回滚、基准测试和跨 Session 持续演化。
+  en: "Continual self-evolution: versioned, auditable, rollback-safe harness state (prompts, memory, skills, subagent specs) refined from session trajectories, with review gates and hot-reloaded skills."
+links:
+  source: https://github.com/ZK-Andy/dsh-continual-evolve
+  detail_zh: https://52dsh.com/plugins/zk-andy-dsh-continual-evolve/
+provenance:
+  registry: awesome-dsh-plugin
+  registry_url: https://github.com/awesome-dsh-plugin/awesome-dsh-plugin
+  registry_commit: 5909d7aad5a48e1eb3dc5d47d03cd705945d6706
+  last_synced_at: 2026-08-22
+maintenance:
+  status: active
+  checked_on: 2026-08-22
