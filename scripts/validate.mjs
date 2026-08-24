@@ -19,7 +19,7 @@ for (const { record, relativeFile } of rows) {
   const secretPatterns = [
     /-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----/,
     /\bgh[pousr]_[A-Za-z0-9]{30,}\b/,
-    /\b(?:api[_-]?key|secret|token)\s*[:=]\s*["']?[A-Za-z0-9_\-]{24,}/i,
+    /\b(?:api[_-]?key|secret|token)\s*[:=]\s*["']?[A-Za-z0-9_-]{24,}/i,
   ];
   if (secretPatterns.some((pattern) => pattern.test(source))) failures.push(`${relativeFile}: 疑似包含凭据或私钥`);
 }
@@ -30,4 +30,3 @@ if (generated.count !== rows.length || generated.items?.length !== rows.length) 
 if (new Set(generated.items?.map((item) => item.id)).size !== rows.length) failures.push("generated/registry.json 包含重复 ID");
 if (failures.length) throw new Error(`注册表验证失败：\n${failures.slice(0, 30).join("\n")}${failures.length > 30 ? `\n...另有 ${failures.length - 30} 项` : ""}`);
 console.log(`注册表验证通过：${rows.length} 条稳定记录、${categoryIds.size} 个分类；未安装或执行任何第三方插件。`);
-
