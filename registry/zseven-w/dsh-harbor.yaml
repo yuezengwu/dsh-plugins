@@ -1,0 +1,49 @@
+schema_version: 1
+id: github:zseven-w/dsh-harbor
+slug: zseven-w-dsh-harbor
+name: dsh-harbor
+repository:
+  url: https://github.com/ZSeven-W/dsh-harbor
+  commit: d0609b89223fddfa3563ccf18c524b4c4094ff35
+package:
+  ecosystem: npm
+  name: "@zseven-w/dsh-harbor"
+  version: 0.1.0-rc.2
+  install_spec: github:ZSeven-W/dsh-harbor#d0609b89223f
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 插件版本 0.1.0-rc.2、MIT；作者 README 声明在 DSH 0.1.1-rc.2 上测试。本站完成固定提交静态审阅，未安装插件，也未在真实多 Profile、损坏清单、私有 Registry、反向代理或浏览器环境下运行。
+category: security
+topics:
+  - security
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - filesystem_write
+    - browser_control
+    - ui_injection
+  notes: 默认扫描会读取 DSH Home 下各 Profile 的插件清单、Bundle、部分源码与运行时注册表，写入插件自己的快照和版本缓存；只有用户显式检查更新时才访问配置的 npm Registry。Host 路由限制真实回环、loopback Host、GET，并对有状态或联网请求要求同源浏览器请求。
+  data_flow: 本机 Profile、插件清单与源码、运行时服务/Provider/工具/路由名称 → 有界静态与运行时盘点 → CLI 或本机同源设置界面；用户显式检查更新时，包名和版本范围 → 配置的 npm Registry，结果写入 ~/.config/dsh-harbor 的版本缓存。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-26
+  independent_review: true
+  review_notes: 已审阅固定提交的发现、证据、能力检测、运行时盘点、冲突、快照、版本检查、CLI、客户端和 Host 路由。默认扫描不联网，秘密形态的运行时字段会过滤，快照只写入插件自身状态目录；但所谓“只读”仅指不改其他插件，仍会保存自己的快照/缓存。静态检测可能误报或漏掉动态行为，插件清单也不能替代运行隔离；更新检查会读取用户或全局 npmrc 并访问其中配置的 Registry。首次使用先检查报告范围，私有 Registry 场景确认 URL/错误脱敏，只把结果当审计线索，不当作安全认证。
+summary:
+  zh: 为 DeepSeek Harness 建立已安装插件能力台账，按 Profile 汇总清单、源码证据、声明与检测差异、版本漂移及两次扫描之间的变化。
+links:
+  source: https://github.com/ZSeven-W/dsh-harbor
+  detail_zh: https://52dsh.com/plugins/zseven-w-dsh-harbor/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-26
+maintenance:
+  status: active
+  checked_on: 2026-08-26

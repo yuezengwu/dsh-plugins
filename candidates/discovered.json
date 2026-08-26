@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "status": "candidate_unreviewed",
-  "generated_at": "2026-08-24T02:23:54.365Z",
+  "generated_at": "2026-08-26T02:44:01.813Z",
   "warning": "Discovery leads only. These entries are not part of the stable registry and have not completed manifest or source review.",
   "count": 1618,
   "items": [

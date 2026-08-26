@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-22T00:00:00.000Z",
-  "total": 281,
+  "generated_at": "2026-08-26T00:00:00.000Z",
+  "total": 283,
   "by_category": {
     "agent": 26,
     "browser": 6,
@@ -12,16 +12,16 @@
     "knowledge": 24,
     "management": 19,
     "remote": 16,
-    "security": 12,
+    "security": 13,
     "tools": 37,
-    "vision": 2
+    "vision": 3
   },
   "by_verification": {
     "manifest_checked": 139,
-    "source_reviewed": 142
+    "source_reviewed": 144
   },
   "by_risk": {
-    "high": 117,
+    "high": 119,
     "low": 6,
     "medium": 158
   },

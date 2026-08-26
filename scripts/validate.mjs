@@ -24,7 +24,7 @@ for (const { record, relativeFile } of rows) {
   if (secretPatterns.some((pattern) => pattern.test(source))) failures.push(`${relativeFile}: 疑似包含凭据或私钥`);
 }
 
-if (rows.length !== 281) failures.push(`首发稳定记录应为 281，实际 ${rows.length}`);
+if (rows.length < 281) failures.push(`稳定记录不应低于既有基线 281，实际 ${rows.length}`);
 const generated = JSON.parse(await readFile(path.join(repositoryRoot, "generated", "registry.json"), "utf8"));
 if (generated.count !== rows.length || generated.items?.length !== rows.length) failures.push("generated/registry.json 数量与 YAML 不一致");
 if (new Set(generated.items?.map((item) => item.id)).size !== rows.length) failures.push("generated/registry.json 包含重复 ID");

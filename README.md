@@ -15,9 +15,9 @@ An open, machine-readable and evidence-graded community registry for DeepSeek Ha
 
 <!-- REGISTRY_STATS_START -->
 
-**281** 个稳定收录 · 源码审阅 **142** · 清单核验 **139** · 中文配置教程 **50** 篇 · 数据核验至 2026-08-22
+**283** 个稳定收录 · 源码审阅 **144** · 清单核验 **139** · 中文配置教程 **50** 篇 · 数据核验至 2026-08-26
 
-Stable records: **281** · source-reviewed: **142** · manifest-checked: **139** · Chinese install guides: **50** · data checked through 2026-08-22
+Stable records: **283** · source-reviewed: **144** · manifest-checked: **139** · Chinese install guides: **50** · data checked through 2026-08-26
 
 <!-- REGISTRY_STATS_END -->
 
@@ -251,10 +251,11 @@ Stable records: **281** · source-reviewed: **142** · manifest-checked: **139**
 | superpowers-dsh | 把 TDD、系统调试、任务规划和协作等 Superpowers Skills 适配到 DSH。 | `manifest_checked` | [功能、权限与配置](https://52dsh.com/plugins/laynechai-superpowers-dsh/) |
 | toolshrink | 使用 13 种内容感知规约器按语义缩减大型 Agent 工具输出，避免仅按字符位置截断。 | `manifest_checked` | [功能、权限与配置](https://52dsh.com/plugins/unclecode-toolshrink/) |
 
-### 图片识别与视觉 (2)
+### 图片识别与视觉 (3)
 
 | 插件 | 中文功能摘要 | 证据等级 | 中文详情 |
 |---|---|---|---|
+| dsh-highres-vision | 为 deepseek-v4-flash-vision-exp 放宽 DSH 图片限制，并提供 highres_read 工具，把高清图片按网格切片后交给视觉模型读取。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/azwosile-dsh-highres-vision/) |
 | dsh-media-skills | 为 DSH 提供中文读图审查与图片生成 Skills，并在未配置时补充智谱和商汤视觉模型路由；支持多家视觉服务故障转移。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/mjorgin-dsh-media-skills/) |
 | dsh-vision-proxy | 为纯文本 DeepSeek 模型增加图片附件转译：先用本地 Ollama 或用户配置的 OpenAI 兼容视觉模型把图片转为文字，再交给原 DeepSeek Adapter 回答。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/flyvhidbwo-dsh-vision-proxy/) |
 
@@ -311,7 +312,7 @@ Stable records: **281** · source-reviewed: **142** · manifest-checked: **139**
 | modsearch | 为没有原生联网能力的模型提供网页与 X 搜索，并返回包含抓取结果和引用的结构化 JSON 证据。 | `manifest_checked` | [功能、权限与配置](https://52dsh.com/plugins/liustack-modsearch/) |
 | picturereader | 为纯文本模型提供本地图像扫描、OCR 和像素采样工具，可选使用 PaddleOCR。 | `manifest_checked` | [功能、权限与配置](https://52dsh.com/plugins/jing-hy-picturereader/) |
 
-### 安全治理 (12)
+### 安全治理 (13)
 
 | 插件 | 中文功能摘要 | 证据等级 | 中文详情 |
 |---|---|---|---|
@@ -321,6 +322,7 @@ Stable records: **281** · source-reviewed: **142** · manifest-checked: **139**
 | dsh-auto-mode | 在官方 workspace-write 沙箱上增加自动权限策略，对高风险工具调用进行确定性拦截、模型分类或一次性人工审批。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/nanmicoder-dsh-auto-mode/) |
 | dsh-auto-review | 在 DSH 审批链上启动只读第二模型审查器，对指定工具请求自动给出一次允许或拒绝，并提供规则、预算、熔断、会话审计与评测工具。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/perrylink-dsh-auto-review/) |
 | dsh-clawrouter | 把 BlockRun ClawRouter 的按次付费模型路由接入 DSH，并可选用独立强模型复核高风险工具调用，返回允许、拒绝或询问用户。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/blockrunai-dsh-clawrouter/) |
+| dsh-harbor | 为 DeepSeek Harness 建立已安装插件能力台账，按 Profile 汇总清单、源码证据、声明与检测差异、版本漂移及两次扫描之间的变化。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/zseven-w-dsh-harbor/) |
 | dsh-passwords | 为 DSH Web 增加带 HTTPS、JWT、管理员与子用户权限、目录限制、用量配额、审计和消息功能的远程访问密码网关。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/slywalker2006-dsh-passwords/) |
 | dsh-permission-rules | 在每次 DSH 工具执行前按 YAML 规则匹配工具、Agent、参数、路径、环境和网络目标，执行 allow、deny 或 ask，并提供审计日志、热重载、试运行模式和本机网络代理。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/perrylink-dsh-permission-rules/) |
 | dsh-plugin-healthcheck | 检查 DSH 插件能否正常加载，并扫描作者定义的异常或恶意特征；检测范围和误报边界以仓库规则为准。 | `manifest_checked` | [功能、权限与配置](https://52dsh.com/plugins/chenw2759-wq-dsh-plugin-healthcheck/) |
