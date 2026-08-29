@@ -1,0 +1,52 @@
+schema_version: 1
+id: github:fakek0f3st/dsh-mcp-diff
+slug: fakek0f3st-dsh-mcp-diff
+name: dsh-mcp-diff
+repository:
+  url: https://github.com/Fakek0f3sT/dsh-mcp-diff
+  commit: b024c987a91c81df681bb4a0375e4a82d2a7be56
+package:
+  ecosystem: npm
+  name: dsh-mcp-diff
+  version: 0.1.1
+  install_spec: github:Fakek0f3sT/dsh-mcp-diff#b024c987a91c
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 0.1.1 作者声明在 DSH 0.1.1-rc.2 测试，未声明 0.1.2-alpha.1；52DSH 完成固定提交静态审阅，未安装或加载客户端 Bundle
+category: development
+topics:
+  - development
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_read
+    - filesystem_write
+    - network_access
+    - browser_control
+    - session_data
+    - ui_injection
+  notes: 不新增文件写入或网络能力，但会读取当前会话里 edit/write 工具的路径、参数和结果并在浏览器中展开显示，可能暴露原本已进入会话的文件内容
+  data_flow: 当前会话的 MCP 或内置文件工具调用参数与结果 → 浏览器内差异解析与 LCS → 可折叠 diff 卡片；没有独立服务端路由或外发请求。
+risk_level: low
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-29
+  independent_review: true
+  review_notes: 已审阅客户端注册、工具名匹配、参数解析、服务端 unified diff 解析和渲染。插件只消费 DSH 页面已有数据，不执行文件操作；默认仅识别 serverName=filesystem，其他 MCP serverName 需要改源码重新构建，且覆盖内置 edit/write 渲染可能受上游客户端 API 变化影响。
+summary:
+  zh: 在 DSH Web 中把 filesystem MCP 与内置 edit/write 的文件修改统一渲染为可折叠的逐行差异卡片。
+links:
+  source: https://github.com/Fakek0f3sT/dsh-mcp-diff
+  detail_zh: https://52dsh.com/plugins/fakek0f3st-dsh-mcp-diff/
+  tutorial_zh: https://52dsh.com/tutorials/fakek0f3st-dsh-mcp-diff-install-config/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-29
+maintenance:
+  status: active
+  checked_on: 2026-08-29

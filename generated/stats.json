@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-26T00:00:00.000Z",
-  "total": 283,
+  "generated_at": "2026-08-29T00:00:00.000Z",
+  "total": 287,
   "by_category": {
-    "agent": 26,
+    "agent": 27,
     "browser": 6,
-    "development": 24,
+    "development": 26,
     "infrastructure": 19,
     "integration": 12,
     "interface": 84,
     "knowledge": 24,
-    "management": 19,
+    "management": 20,
     "remote": 16,
     "security": 13,
     "tools": 37,
@@ -18,12 +18,12 @@
   },
   "by_verification": {
     "manifest_checked": 139,
-    "source_reviewed": 144
+    "source_reviewed": 148
   },
   "by_risk": {
-    "high": 119,
-    "low": 6,
-    "medium": 158
+    "high": 121,
+    "low": 7,
+    "medium": 159
   },
-  "with_chinese_tutorial": 50
+  "with_chinese_tutorial": 55
 }

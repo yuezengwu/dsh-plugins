@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-26T00:00:00.000Z",
-  "count": 283,
+  "generated_at": "2026-08-29T00:00:00.000Z",
+  "count": 287,
   "items": [
     {
       "schema_version": 1,
@@ -1196,13 +1196,13 @@
       "name": "dsh-turn-rewind",
       "repository": {
         "url": "https://github.com/Anionex/dsh-turn-rewind",
-        "commit": "b1b85f18aaaaf71d76c84613429ce04d71f69620"
+        "commit": "df0a18e565043ba48150b82f5243533099b1922d"
       },
       "package": {
         "ecosystem": "npm",
         "name": "@anionex/dsh-turn-rewind",
-        "version": "0.1.1",
-        "install_spec": "github:Anionex/dsh-turn-rewind#b1b85f18aaaa"
+        "version": "0.2.0",
+        "install_spec": "github:Anionex/dsh-turn-rewind#df0a18e56504"
       },
       "license": {
         "spdx": "BSD-3-Clause",
@@ -1211,7 +1211,7 @@
       "dsh": {
         "kind": "plugin",
         "compatibility_status": "declared",
-        "compatibility_notes": "插件版本 0.1.1，要求 Node.js 22.19 或 24+，仅显式声明 Cordis ^4.0.1；本站完成固定提交静态审阅，未在 sparse checkout、submodule、二进制大文件或恢复失败场景运行"
+        "compatibility_notes": "0.2.0 声明 DSH >=0.1.0-rc.8 <0.2.0，但作者显式验证矩阵只列出 rc.8、0.1.1-rc.1 与 rc.2，未列 0.1.2-alpha.1；52DSH 未运行恢复测试"
       },
       "category": "development",
       "topics": [
@@ -1223,21 +1223,20 @@
         "capabilities": [
           "filesystem_read",
           "filesystem_write",
-          "command_execution",
           "session_data"
         ],
-        "notes": "执行只读 Git 命令、读取和覆盖工作区 tracked/untracked 文件、创建或删除内容寻址快照，并通过同源 Web 路由执行用户确认的恢复；不修改 Git index、分支、HEAD、stash 或 commit",
-        "data_flow": "Git worktree、HEAD 和文件内容 → 本机 Change Ledger 恢复点 → 会话绑定的短期预览计划与确认码 → 用户最终确认 → 先建救援点再恢复并做哈希验证 → 可选从该 Turn 派生新会话。"
+        "notes": "执行 Git 读取并写入、覆盖、重命名或删除工作区文件，管理检查点、救援点、journal 与设置；用户确认后才执行恢复，Git index、分支和 HEAD 不在修改范围",
+        "data_flow": "Git 工作树和文件内容 → 本机 Change Ledger 或 Git-native 检查点 → 会话绑定的预览计划与确认 → 用户选择恢复或只回溯消息 → 哈希验证、救援点与新会话结果。"
       },
       "risk_level": "high",
       "verification": {
         "level": "source_reviewed",
-        "verified_on": "2026-08-22",
+        "verified_on": "2026-08-29",
         "independent_review": true,
-        "review_notes": "已审阅固定提交的 Git 边界、路径规范化、快照、恢复引擎、事务 Store 和 Web Host。实现拒绝 symlink 父路径、stale plan、特殊文件、超限内容和 Git 控制面修改，并在恢复前自动建救援点；但恢复本质上会覆盖或删除用户工作区文件，忽略文件、submodule 和 sparse checkout 也不在支持范围。使用前仍应提交或外部备份重要改动，并逐项核对恢复列表。"
+        "review_notes": "对比旧固定提交后复核了 Git-native 检查点、只回溯消息、设置卡、检查点管理、跨工作区清理和恢复失败回滚。实现包含路径、symlink、活动 Agent、stale plan 和 Git 状态检查，但恢复本质上会覆盖或删除文件；重要工作区仍需先提交或外部备份，并逐项核对预览。"
       },
       "summary": {
-        "zh": "为 Git 工作区建立 Turn 级文件恢复点，在 Web 中预览全部或部分恢复计划，并可恢复文件后从对应会话轮次继续，同时保留救援点和操作日志。",
+        "zh": "为 Git 工作区建立 Turn 级检查点，在 Web 中预览全部或部分恢复计划，并支持只恢复文件、恢复后继续或只回溯消息。",
         "en": "Rewind conversation and workspace state, powered by a persistent Change Ledger."
       },
       "links": {
@@ -1249,11 +1248,11 @@
         "registry": "awesome-dsh-plugin",
         "registry_url": "https://github.com/awesome-dsh-plugin/awesome-dsh-plugin",
         "registry_commit": "5909d7aad5a48e1eb3dc5d47d03cd705945d6706",
-        "last_synced_at": "2026-08-22"
+        "last_synced_at": "2026-08-29"
       },
       "maintenance": {
         "status": "active",
-        "checked_on": "2026-08-22"
+        "checked_on": "2026-08-29"
       }
     },
     {
@@ -2575,13 +2574,13 @@
       "name": "dsh-TUI",
       "repository": {
         "url": "https://github.com/ccch1mneyyy/dsh-TUI",
-        "commit": "bdff0afb028d50c304e4474fd40f83b0721d50fd"
+        "commit": "2dfab2794370ab2541c66e650a288d872cbc117b"
       },
       "package": {
         "ecosystem": "npm",
         "name": "@deepseek-harness-tui/dsh-tui",
-        "version": "0.8.8",
-        "install_spec": "github:ccch1mneyyy/dsh-TUI#bdff0afb028d"
+        "version": "0.9.3",
+        "install_spec": "github:ccch1mneyyy/dsh-TUI#2dfab2794370"
       },
       "license": {
         "spdx": "MIT",
@@ -2590,7 +2589,7 @@
       "dsh": {
         "kind": "plugin",
         "compatibility_status": "declared",
-        "compatibility_notes": "清单声明 DSH 0.1.0-rc.6 或 0.1.1-rc.1 系列 peer 依赖；本站完成固定提交静态审阅，未在真实 TTY、Windows 或 Herdr 中运行"
+        "compatibility_notes": "0.9.3 的 peer 依赖仍只声明 DSH 0.1.0-rc.6 或 0.1.1-rc.1 系列，未显式声明 0.1.2-alpha.1；52DSH 完成固定提交静态审阅，未在真实 TTY、Windows 或 Herdr 中运行"
       },
       "category": "interface",
       "topics": [
@@ -2601,22 +2600,23 @@
         "status": "reviewed",
         "capabilities": [
           "command_execution",
+          "network_access",
           "credentials",
           "session_data",
           "ui_injection"
         ],
-        "notes": "复用所选 DSH Profile 的模型凭据、工具、文件、Shell、审批和会话存储；Windows 组合会退回 danger-full-access 且 approval=never",
-        "data_flow": "终端输入与附件 → DSH Agent、会话日志和所选模型/工具 → session 事件与审批流 → TUI Channel 投影和 Ink 渲染返回终端。"
+        "notes": "复用所选 DSH Profile 的模型凭据、工具、文件、Shell、审批和会话存储；Windows 默认组合仍可能使用 danger-full-access 且 approval=never",
+        "data_flow": "终端输入、附件与设置 → DSH Agent、会话日志和所选模型/工具 → session 事件、审批与插件 API → TUI Channel 和 Ink 界面返回终端。"
       },
       "risk_level": "high",
       "verification": {
         "level": "source_reviewed",
-        "verified_on": "2026-08-22",
+        "verified_on": "2026-08-29",
         "independent_review": true,
-        "review_notes": "已审阅固定提交的 Bundle、适配器、宿主访问、授权、会话存储与更新说明。TUI 不自建沙箱而继承 Profile；非 Windows 默认 workspace-write/ask，但 Windows 因缺少对应后端会使用 danger-full-access/never，且剪贴板、外部编辑器和更新流程可能调用本机程序。"
+        "review_notes": "对比旧固定提交后复核了运行时主题、动态权限预设、插件 API、全屏草稿编辑、会话恢复和设置能力。TUI 不自建沙箱而继承 Profile；Windows 默认权限尤其需要先收紧，剪贴板、外部编辑器、Provider 向导、更新和调试渲染日志还可能接触本机程序、凭据或会话内容。"
       },
       "summary": {
-        "zh": "为 DeepSeek Harness 提供 Claude Code 风格的交互式终端入口，支持流式消息、工具审批、会话恢复与回退、模型切换、Skills、MCP 和子 Agent。",
+        "zh": "为 DeepSeek Harness 提供 Claude Code 风格终端入口，支持主题、流式状态、工具审批、会话恢复、草稿编辑、模型切换、Skills、MCP 和子 Agent。",
         "en": "Claude Code-style full-screen terminal UI: pixel-whale header, live status line, and streaming thought expansion."
       },
       "links": {
@@ -2628,11 +2628,11 @@
         "registry": "awesome-dsh-plugin",
         "registry_url": "https://github.com/awesome-dsh-plugin/awesome-dsh-plugin",
         "registry_commit": "5909d7aad5a48e1eb3dc5d47d03cd705945d6706",
-        "last_synced_at": "2026-08-22"
+        "last_synced_at": "2026-08-29"
       },
       "maintenance": {
         "status": "active",
-        "checked_on": "2026-08-22"
+        "checked_on": "2026-08-29"
       }
     },
     {
@@ -4186,6 +4186,72 @@
       "maintenance": {
         "status": "active",
         "checked_on": "2026-08-22"
+      }
+    },
+    {
+      "schema_version": 1,
+      "id": "github:fakek0f3st/dsh-mcp-diff",
+      "slug": "fakek0f3st-dsh-mcp-diff",
+      "name": "dsh-mcp-diff",
+      "repository": {
+        "url": "https://github.com/Fakek0f3sT/dsh-mcp-diff",
+        "commit": "b024c987a91c81df681bb4a0375e4a82d2a7be56"
+      },
+      "package": {
+        "ecosystem": "npm",
+        "name": "dsh-mcp-diff",
+        "version": "0.1.1",
+        "install_spec": "github:Fakek0f3sT/dsh-mcp-diff#b024c987a91c"
+      },
+      "license": {
+        "spdx": "MIT",
+        "status": "clear"
+      },
+      "dsh": {
+        "kind": "plugin",
+        "compatibility_status": "declared",
+        "compatibility_notes": "0.1.1 作者声明在 DSH 0.1.1-rc.2 测试，未声明 0.1.2-alpha.1；52DSH 完成固定提交静态审阅，未安装或加载客户端 Bundle"
+      },
+      "category": "development",
+      "topics": [
+        "development"
+      ],
+      "permissions": {
+        "status": "reviewed",
+        "capabilities": [
+          "filesystem_read",
+          "filesystem_write",
+          "network_access",
+          "browser_control",
+          "session_data",
+          "ui_injection"
+        ],
+        "notes": "不新增文件写入或网络能力，但会读取当前会话里 edit/write 工具的路径、参数和结果并在浏览器中展开显示，可能暴露原本已进入会话的文件内容",
+        "data_flow": "当前会话的 MCP 或内置文件工具调用参数与结果 → 浏览器内差异解析与 LCS → 可折叠 diff 卡片；没有独立服务端路由或外发请求。"
+      },
+      "risk_level": "low",
+      "verification": {
+        "level": "source_reviewed",
+        "verified_on": "2026-08-29",
+        "independent_review": true,
+        "review_notes": "已审阅客户端注册、工具名匹配、参数解析、服务端 unified diff 解析和渲染。插件只消费 DSH 页面已有数据，不执行文件操作；默认仅识别 serverName=filesystem，其他 MCP serverName 需要改源码重新构建，且覆盖内置 edit/write 渲染可能受上游客户端 API 变化影响。"
+      },
+      "summary": {
+        "zh": "在 DSH Web 中把 filesystem MCP 与内置 edit/write 的文件修改统一渲染为可折叠的逐行差异卡片。"
+      },
+      "links": {
+        "source": "https://github.com/Fakek0f3sT/dsh-mcp-diff",
+        "detail_zh": "https://52dsh.com/plugins/fakek0f3st-dsh-mcp-diff/",
+        "tutorial_zh": "https://52dsh.com/tutorials/fakek0f3st-dsh-mcp-diff-install-config/"
+      },
+      "provenance": {
+        "registry": "github-topic",
+        "registry_url": "https://github.com/topics/dsh-plugin",
+        "last_synced_at": "2026-08-29"
+      },
+      "maintenance": {
+        "status": "active",
+        "checked_on": "2026-08-29"
       }
     },
     {
@@ -6508,6 +6574,70 @@
     },
     {
       "schema_version": 1,
+      "id": "github:kannakuron/dsh-gitbash-shell",
+      "slug": "kannakuron-dsh-gitbash-shell",
+      "name": "dsh-gitbash-shell",
+      "repository": {
+        "url": "https://github.com/KannaKuron/dsh-gitbash-shell",
+        "commit": "99f2f45fca38a43f5da1e1b8c0dc7e75edfb104d"
+      },
+      "package": {
+        "ecosystem": "npm",
+        "name": "dsh-gitbash-shell",
+        "version": "0.6.0",
+        "install_spec": "github:KannaKuron/dsh-gitbash-shell#99f2f45fca38"
+      },
+      "license": {
+        "spdx": "MIT",
+        "status": "clear"
+      },
+      "dsh": {
+        "kind": "plugin",
+        "compatibility_status": "review",
+        "compatibility_notes": "0.6.0 源码分别携带 DSH 0.1.1 与 0.1.2+ 的 preset 组合并按内置 roster 选择；这属于作者实现证据，52DSH 未在 Windows 或 0.1.2-alpha.1 上运行"
+      },
+      "category": "development",
+      "topics": [
+        "development"
+      ],
+      "permissions": {
+        "status": "reviewed",
+        "capabilities": [
+          "filesystem_write",
+          "command_execution",
+          "ui_injection",
+          "plugin_management"
+        ],
+        "notes": "替换 Profile 的 Shell 执行器、启动 Git Bash 子进程、物化或清理用户 preset 目录，并可修改 Better Sidebar 的 terminalShell 设置",
+        "data_flow": "DSH Shell 工具调用与环境变量 → 指定的 Git Bash bash.exe → 官方 bash-sandbox 或 full-access 执行路径 → 命令输出返回 Agent；preset 文件写入用户信任目录。"
+      },
+      "risk_level": "high",
+      "verification": {
+        "level": "source_reviewed",
+        "verified_on": "2026-08-29",
+        "independent_review": true,
+        "review_notes": "已审阅执行器、preset 物化、版本 era 探测、清理标记、Better Sidebar 联动和组合补丁。插件对托管文件使用哈希并拒绝覆盖用户修改，但 danger-full-access 仍会直接执行 Git Bash；只适合已安装 Git for Windows、能理解 Profile 权限并愿意核对 bashPath 的用户。"
+      },
+      "summary": {
+        "zh": "在 Windows 上用明确的 Git for Windows bash.exe 替代 PowerShell 执行器，并生成四种 Git Bash Agent Preset。"
+      },
+      "links": {
+        "source": "https://github.com/KannaKuron/dsh-gitbash-shell",
+        "detail_zh": "https://52dsh.com/plugins/kannakuron-dsh-gitbash-shell/",
+        "tutorial_zh": "https://52dsh.com/tutorials/kannakuron-dsh-gitbash-shell-install-config/"
+      },
+      "provenance": {
+        "registry": "github-topic",
+        "registry_url": "https://github.com/topics/dsh-plugin",
+        "last_synced_at": "2026-08-29"
+      },
+      "maintenance": {
+        "status": "active",
+        "checked_on": "2026-08-29"
+      }
+    },
+    {
+      "schema_version": 1,
       "id": "github:kanneiren/dsh-network-settings",
       "slug": "kanneiren-dsh-network-settings",
       "name": "dsh-network-settings",
@@ -6628,6 +6758,70 @@
       "maintenance": {
         "status": "active",
         "checked_on": "2026-08-22"
+      }
+    },
+    {
+      "schema_version": 1,
+      "id": "github:kevinzhangnothing/dsh-task-graph",
+      "slug": "kevinzhangnothing-dsh-task-graph",
+      "name": "dsh-task-graph",
+      "repository": {
+        "url": "https://github.com/KevinZhangNothing/dsh-task-graph",
+        "commit": "7c230e0fe0af8103cfc2d1ee6ecf74a4f0c872aa"
+      },
+      "package": {
+        "ecosystem": "npm",
+        "name": "dsh-task-graph",
+        "version": "0.1.0",
+        "install_spec": "github:KevinZhangNothing/dsh-task-graph#7c230e0fe0af"
+      },
+      "license": {
+        "spdx": "MIT",
+        "status": "clear"
+      },
+      "dsh": {
+        "kind": "plugin",
+        "compatibility_status": "declared",
+        "compatibility_notes": "0.1.0 声明 DSH >=0.1.1-rc.1，服务端要求 Node.js >=22.15 解码 zstd；未显式声明 0.1.2-alpha.1，52DSH 未加载 Web 插件或验证真实会话"
+      },
+      "category": "agent",
+      "topics": [
+        "agent"
+      ],
+      "permissions": {
+        "status": "reviewed",
+        "capabilities": [
+          "network_access",
+          "browser_control",
+          "session_data",
+          "ui_injection"
+        ],
+        "notes": "只读扫描 DSH_HOME 下的完整会话轨迹，向同源 Web 客户端提供任务、事件明细和 SSE；事件可能包含提示词、工具参数、文件路径、输出或错误",
+        "data_flow": "DSH_HOME/sessions 中的 zstd 会话日志 → 本机解码、缓存和图谱分析 → /task-graph/api 只读路由与 SSE → 浏览器图谱、详情和轨迹面板。"
+      },
+      "risk_level": "medium",
+      "verification": {
+        "level": "source_reviewed",
+        "verified_on": "2026-08-29",
+        "independent_review": true,
+        "review_notes": "已审阅会话发现、zstd 解码、缓存、只读路由、事件查询和客户端实时请求。路由拒绝非 GET/HEAD 且会话引用由已发现目录匹配，未看到任意文件路径入口；但完整事件接口会把会话中的敏感工具输入输出交给同源页面，使用前应保护 DSH Web 访问边界。"
+      },
+      "summary": {
+        "zh": "把单个 DSH 任务的 Turn、Agent、Skill、Tool、子任务、代码改动、测试、失败和重试整理为交互式执行图谱。"
+      },
+      "links": {
+        "source": "https://github.com/KevinZhangNothing/dsh-task-graph",
+        "detail_zh": "https://52dsh.com/plugins/kevinzhangnothing-dsh-task-graph/",
+        "tutorial_zh": "https://52dsh.com/tutorials/kevinzhangnothing-dsh-task-graph-install-config/"
+      },
+      "provenance": {
+        "registry": "github-topic",
+        "registry_url": "https://github.com/topics/dsh-plugin",
+        "last_synced_at": "2026-08-29"
+      },
+      "maintenance": {
+        "status": "active",
+        "checked_on": "2026-08-29"
       }
     },
     {
@@ -12048,6 +12242,68 @@
     },
     {
       "schema_version": 1,
+      "id": "github:qinyre/dsh-plugin-capabilities",
+      "slug": "qinyre-dsh-plugin-capabilities",
+      "name": "dsh-plugin-capabilities",
+      "repository": {
+        "url": "https://github.com/qinyre/dsh-plugin-capabilities",
+        "commit": "2536727964f336d6c4b958a6e95847bd59d4e4bb"
+      },
+      "package": {
+        "ecosystem": "npm",
+        "name": "dsh-plugin-capabilities",
+        "version": "0.3.9",
+        "install_spec": "github:qinyre/dsh-plugin-capabilities#2536727964f3"
+      },
+      "license": {
+        "spdx": "MIT",
+        "status": "clear"
+      },
+      "dsh": {
+        "kind": "plugin",
+        "compatibility_status": "declared",
+        "compatibility_notes": "0.3.9 未声明明确 DSH peer 版本；README 描述适用于 dsh web 与 DSH Desktop，52DSH 只审阅固定提交，未写入真实配置、下载技能仓库或重启 DSH"
+      },
+      "category": "management",
+      "topics": [
+        "management"
+      ],
+      "permissions": {
+        "status": "reviewed",
+        "capabilities": [
+          "command_execution",
+          "credentials"
+        ],
+        "notes": "可读写 SKILL.md、settings 与 cordis.patch.yml，下载并解包 GitHub 技能仓库，扫描其他 Agent 配置，探测 MCP URL，打开目录并重启 DSH",
+        "data_flow": "设置页请求 → 同源 Web 路由 → DSH Skills、其他 Agent 配置、GitHub tarball、MCP 配置与本机文件系统 → 更新后的目录和状态返回设置页。"
+      },
+      "risk_level": "high",
+      "verification": {
+        "level": "source_reviewed",
+        "verified_on": "2026-08-29",
+        "independent_review": true,
+        "review_notes": "已审阅同源检查、服务端路径解析、Skill 可写范围、仓库解包、MCP YAML 文档写入、导入扫描、连接检查和重启路径。实现对写操作做同源与输入校验，并限制可写 Skill 来源，但市场安装仍会下载第三方代码、MCP 配置可包含命令和凭据；应先备份配置并逐项核对来源。"
+      },
+      "summary": {
+        "zh": "在 DSH 设置页集中查看、编辑和导入 Skills 与 MCP，管理本地或 GitHub 技能仓库，并支持 profile 与全局配置层。"
+      },
+      "links": {
+        "source": "https://github.com/qinyre/dsh-plugin-capabilities",
+        "detail_zh": "https://52dsh.com/plugins/qinyre-dsh-plugin-capabilities/",
+        "tutorial_zh": "https://52dsh.com/tutorials/qinyre-dsh-plugin-capabilities-install-config/"
+      },
+      "provenance": {
+        "registry": "github-topic",
+        "registry_url": "https://github.com/topics/dsh-plugin",
+        "last_synced_at": "2026-08-29"
+      },
+      "maintenance": {
+        "status": "active",
+        "checked_on": "2026-08-29"
+      }
+    },
+    {
+      "schema_version": 1,
       "id": "github:raullenchai/rapid-mlx-dsh-provider",
       "slug": "raullenchai-rapid-mlx-dsh-provider",
       "name": "rapid-mlx-dsh-provider",
@@ -15321,13 +15577,13 @@
       "name": "pi2dsh",
       "repository": {
         "url": "https://github.com/weijiafu14/pi2dsh",
-        "commit": "91e5611347ca69e13487de752a46b4ce0b513302"
+        "commit": "2f3ced97d0d19d9ed1e8f8c5cba6d160b7aa7339"
       },
       "package": {
         "ecosystem": "npm",
         "name": "pi2dsh",
-        "version": "0.14.1",
-        "install_spec": "github:weijiafu14/pi2dsh#91e5611347ca"
+        "version": "0.23.0",
+        "install_spec": "github:weijiafu14/pi2dsh#2f3ced97d0d1"
       },
       "license": {
         "spdx": "MIT",
@@ -15336,7 +15592,7 @@
       "dsh": {
         "kind": "plugin",
         "compatibility_status": "declared",
-        "compatibility_notes": "清单声明 DSH 0.1.0-rc.8 系列 peer 依赖；本站完成固定提交静态审阅，未安装第三方依赖或运行端到端测试"
+        "compatibility_notes": "0.23.0 的 peer 依赖显式覆盖 DSH 0.1.0-rc.8、0.1.1-rc.1 与 0.1.2-alpha.1；52DSH 只完成固定提交静态审阅，未安装第三方扩展或运行端到端测试"
       },
       "category": "infrastructure",
       "topics": [
@@ -15349,34 +15605,34 @@
           "network_access",
           "credentials",
           "session_data",
-          "agent_orchestration",
-          "plugin_management"
+          "agent_orchestration"
         ],
-        "notes": "会动态加载用户配置的 Pi npm 扩展；扩展可进入 DSH 工具、命令、模型与凭据链路，并与宿主进程共享权限",
-        "data_flow": "DSH 会话与宿主配置 → pi2dsh 兼容运行时 → 已安装的 Pi 扩展、MCP 或模型 Provider → 工具结果与子会话事件返回 DSH。"
+        "notes": "会动态加载用户选择的 Pi npm 扩展；扩展可进入 DSH 工具、命令、模型、凭据、MCP、文件与子 Agent 链路，并与宿主进程共享权限",
+        "data_flow": "DSH 会话、Profile 与凭据引用 → pi2dsh 兼容运行时 → 已安装的 Pi 扩展、MCP 或模型 Provider → 工具结果、附件与子会话事件返回 DSH。"
       },
       "risk_level": "high",
       "verification": {
         "level": "source_reviewed",
-        "verified_on": "2026-08-22",
+        "verified_on": "2026-08-29",
         "independent_review": true,
-        "review_notes": "已审阅固定提交的插件入口、扩展加载、凭据/OAuth、MCP 与子 Agent 桥接代码。Pi 扩展会作为宿主代码运行，可能读写文件、执行命令或访问外部服务；只应安装可信扩展，并先使用仓库提供的兼容性检查。"
+        "review_notes": "对比旧固定提交后复核了 0.23.0 新增的双版本预检、模型登录卡、OAuth、MCP、代码导航、展示面和子 Agent 桥接。peer 范围包含 0.1.2-alpha.1 只代表作者声明兼容；Pi 扩展仍会作为宿主代码运行，可能读写文件、执行命令或访问外部服务，安装前应逐个审查扩展并先运行作者的 inspect 检查。"
       },
       "summary": {
-        "zh": "连接 Pi 与 DSH 插件生态，让符合 Pi Host ABI 的扩展作为 DSH 原生插件运行，并桥接工具、命令、模型、MCP 与子 Agent 能力。"
+        "zh": "连接 Pi 与 DSH 插件生态，让符合 Pi Host ABI 的扩展作为 DSH 原生插件运行，并桥接工具、命令、模型、MCP、OAuth 与子 Agent 能力。"
       },
       "links": {
         "source": "https://github.com/weijiafu14/pi2dsh",
-        "detail_zh": "https://52dsh.com/plugins/weijiafu14-pi2dsh/"
+        "detail_zh": "https://52dsh.com/plugins/weijiafu14-pi2dsh/",
+        "tutorial_zh": "https://52dsh.com/tutorials/weijiafu14-pi2dsh-install-config/"
       },
       "provenance": {
         "registry": "github-topic",
         "registry_url": "https://github.com/topics/dsh-plugin",
-        "last_synced_at": "2026-08-22"
+        "last_synced_at": "2026-08-29"
       },
       "maintenance": {
         "status": "active",
-        "checked_on": "2026-08-22"
+        "checked_on": "2026-08-29"
       }
     },
     {

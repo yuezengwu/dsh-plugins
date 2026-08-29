@@ -1,4 +1,4 @@
-### 插件管理 (19)
+### 插件管理 (20)
 
 | 插件 | 中文功能摘要 | 证据等级 | 中文详情 |
 |---|---|---|---|
@@ -6,6 +6,7 @@
 | DSH Find Plugin | 在 Agent 会话中按关键词或类别查询社区插件，并返回安装目标与来源。 | `manifest_checked` | [功能、权限与配置](https://52dsh.com/plugins/dsh-find-plugin/) |
 | DSH Market | 在 DSH 设置页浏览、筛选、安装、升级和停用社区插件，并提供配置备份入口。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/dsh-market/) |
 | dsh-balance-monitor | 在 DSH Web 中显示 DeepSeek 账户可用余额、今日估算消耗和最近刷新时间，并在本地维护每日余额基线。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/jelly-000-dsh-balance-monitor/) |
+| dsh-plugin-capabilities | 在 DSH 设置页集中查看、编辑和导入 Skills 与 MCP，管理本地或 GitHub 技能仓库，并支持 profile 与全局配置层。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/qinyre-dsh-plugin-capabilities/) |
 | dsh-plugin-check | 以只读方式扫描插件仓库的清单协议、Patch 格式、构建陷阱和 Hub 收录状态，并注册 plugin_check 工具。 | `manifest_checked` | [功能、权限与配置](https://52dsh.com/plugins/omdsh-dev-dsh-plugin-check/) |
 | dsh-plugin-hub | 在 DSH 内浏览、搜索并安装社区插件目录，支持安装、更新、卸载、任务队列、进度日志、安装前入口校验和宿主重启。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/dshplugin-dsh-plugin-hub/) |
 | dsh-plugin-hub | 在 DSH Web 中管理插件、Skills 与套装，聚合 GitHub、Gitee 和自定义市场源，并支持安装、更新、启停、卸载、AI 安装兜底、框架升级、备份和重启。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/noob-stupid-dsh-plugin-hub/) |
@@ -93,7 +94,7 @@
 | dsh-theme-plugin | 为 DeepSeek Harness 提供一组中华传统色主题。 | `manifest_checked` | [功能、权限与配置](https://52dsh.com/plugins/nevertoday-dsh-theme-plugin/) |
 | dsh-tianshu-tui | 为 DSH 提供交互式终端界面，支持流式 Markdown、工具与审批卡片、多会话标签、主题、Slash 命令、LSP 诊断、成本统计和可选视觉问答。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/huiliyi37-dsh-tianshu-tui/) |
 | dsh-tui | 为 DeepSeek Harness 提供 Claude Code/Codex 风格的交互式终端界面，复用官方 Agent、Session、工具、Skills、子 Agent、工作流、Sandbox、审批和提问能力。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/dsh-tui-dsh-tui/) |
-| dsh-TUI | 为 DeepSeek Harness 提供 Claude Code 风格的交互式终端入口，支持流式消息、工具审批、会话恢复与回退、模型切换、Skills、MCP 和子 Agent。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/ccch1mneyyy-dsh-tui/) |
+| dsh-TUI | 为 DeepSeek Harness 提供 Claude Code 风格终端入口，支持主题、流式状态、工具审批、会话恢复、草稿编辑、模型切换、Skills、MCP 和子 Agent。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/ccch1mneyyy-dsh-tui/) |
 | dsh-turn-delete | 在 DSH Web 的已完成顶层回合旁提供确认删除按钮，用零内容 replacement 从当前模型可见上下文移除该回合，同时保留原始追加式事件日志、Session 和后续回合。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/hanshenmesen-dsh-turn-delete/) |
 | dsh-ui-appearance | 自定义 DSH 的主题色、背景图片、透明度、模糊和玻璃效果。 | `manifest_checked` | [功能、权限与配置](https://52dsh.com/plugins/tqsy114514-dsh-ui-appearance/) |
 | dsh-usage-stats | 在 DSH Web 中展示多供应商余额、订阅配额和 Token 用量，提供今日、月度、累计、缓存命中率和日历热图，并支持声明式余额适配器。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/ychris12138-dsh-usage-stats/) |
@@ -140,7 +141,7 @@
 | sandbase-skills | 为 DSH 挂载 88 个研究、社交情报、商业、营销、SEO 与实用工具 Skill，既可复用宿主搜索能力，也可选接 SandBase MCP 的模型和数据 Provider。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/sandbaseai-sandbase-skills/) |
 | Wenmai 文脉 | 把本地 Markdown 整理为带双向链接的概念、实体、索引和日志知识库。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/dsh-wenmai-knowledge-base/) |
 
-### Agent 与工作流 (26)
+### Agent 与工作流 (27)
 
 | 插件 | 中文功能摘要 | 证据等级 | 中文详情 |
 |---|---|---|---|
@@ -167,11 +168,12 @@
 | dsh-router-flash | 分发一个面向 opencode-go DeepSeek V4 Flash 的 Agent Preset，通过固定 Persona、任务分类和首轮精简工具集改善规划深度与执行收敛。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/xiaoxianyu-office-dsh-router-flash/) |
 | dsh-routing-suite | 提供一个可选 DSH Agent Preset，根据首个真实用户任务把工作模式分为先检查再修改或直接实现，并把简短路由建议注入系统提示。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/dragonbaba-dsh-routing-suite/) |
 | dsh-solo-thinking | 提供隔离的独立头脑风暴分支和 Handoff，让探索过程不直接污染主会话上下文。 | `manifest_checked` | [功能、权限与配置](https://52dsh.com/plugins/fredalxin-dsh-solo-thinking/) |
+| dsh-task-graph | 把单个 DSH 任务的 Turn、Agent、Skill、Tool、子任务、代码改动、测试、失败和重试整理为交互式执行图谱。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/kevinzhangnothing-dsh-task-graph/) |
 | DSH-taskboard | 提供 SQLite 本地任务看板、Agent 认领与复核流程，以及原生 DSH Web UI。 | `manifest_checked` | [功能、权限与配置](https://52dsh.com/plugins/shengsheng90-dsh-taskboard/) |
 | dsh-trace-compare | 从历史日志或实时会话可视化 Agent 的主要路径、绕行和回退，用于比较任务探索过程。 | `manifest_checked` | [功能、权限与配置](https://52dsh.com/plugins/lamost423-dsh-trace-compare/) |
 | oh-my-dsh | 为 DSH 提供带租约、任务拆分、子 Agent、验证、恢复、交付和持久记忆的 Autopilot 工作模式，用于长时间推进有明确验收条件的复杂目标。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/liumengxuan04-oh-my-dsh/) |
 
-### 编程与代码开发 (24)
+### 编程与代码开发 (26)
 
 | 插件 | 中文功能摘要 | 证据等级 | 中文详情 |
 |---|---|---|---|
@@ -188,11 +190,13 @@
 | dsh-file-review | 在 Agent 修改文件后立即查看差异并进行人工审查。 | `manifest_checked` | [功能、权限与配置](https://52dsh.com/plugins/left0ver-dsh-file-review/) |
 | dsh-git-graph | 在 DSH Web GUI 中嵌入 Git 仓库图谱，展示提交历史、分支筛选、文件差异和未提交修改。 | `manifest_checked` | [功能、权限与配置](https://52dsh.com/plugins/1841220388zzzcccxxx-star-dsh-git-graph/) |
 | dsh-gitbash-preset | 为 Windows 安装 Git Bash 版极简 Agent Preset，把 DSH 的 bash 工具映射到 Git for Windows，并保留编辑器工具和单次命令超时控制。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/liceses-dsh-gitbash-preset/) |
+| dsh-gitbash-shell | 在 Windows 上用明确的 Git for Windows bash.exe 替代 PowerShell 执行器，并生成四种 Git Bash Agent Preset。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/kannakuron-dsh-gitbash-shell/) |
 | dsh-ios | 把 iOS 模拟器或 USB iPhone 接入 DSH 会话，提供启动、构建、界面操作、OCR 和流式侧栏等工具。 | `manifest_checked` | [功能、权限与配置](https://52dsh.com/plugins/zseven-w-dsh-ios/) |
+| dsh-mcp-diff | 在 DSH Web 中把 filesystem MCP 与内置 edit/write 的文件修改统一渲染为可折叠的逐行差异卡片。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/fakek0f3st-dsh-mcp-diff/) |
 | dsh-open-in-vscode | 从 DSH Web GUI 直接在 VS Code 中打开当前工作区目录。 | `manifest_checked` | [功能、权限与配置](https://52dsh.com/plugins/omdsh-dev-dsh-open-in-vscode/) |
 | dsh-pentest | 为 DSH 提供面向授权安全测试场景的渗透测试模式；使用前需核对工具范围与目标授权。 | `manifest_checked` | [功能、权限与配置](https://52dsh.com/plugins/howmp-dsh-pentest/) |
 | dsh-plugin-development | 提供用于开发和审计 DeepSeek Harness 插件的可移植 Agent Skill，并包含可选的 Profile Bundle 适配入口。 | `manifest_checked` | [功能、权限与配置](https://52dsh.com/plugins/w2112515-dsh-plugin-development/) |
-| dsh-turn-rewind | 为 Git 工作区建立 Turn 级文件恢复点，在 Web 中预览全部或部分恢复计划，并可恢复文件后从对应会话轮次继续，同时保留救援点和操作日志。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/anionex-dsh-turn-rewind/) |
+| dsh-turn-rewind | 为 Git 工作区建立 Turn 级检查点，在 Web 中预览全部或部分恢复计划，并支持只恢复文件、恢复后继续或只回溯消息。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/anionex-dsh-turn-rewind/) |
 | dsh-undo-savepoint | 为 DSH 配置和插件代码建立自动或手动快照，支持预览差异、撤销、重做、安全模式、崩溃急救、导入导出以及 DSH 无法启动时的离线 CLI/GUI。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/lire1131-dsh-undo-savepoint/) |
 | dsh-user-experience | 按用户画像遍历 React 与 TypeScript 项目的使用流程，定位体验问题并给出改进建议。 | `manifest_checked` | [功能、权限与配置](https://52dsh.com/plugins/dietcokewithsugar-dsh-user-experience/) |
 | dsh-win32 | 为 Windows 上的 DSH 补充进程树检查、PTY 信号、GBK/UTF-16 文件解码和受限文件系统，并提供 Git Bash 与 BusyBox 沙箱 Preset。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/sjh9714-dsh-win32/) |
@@ -300,7 +304,7 @@
 | dsh-provider-model-configurator | 在 DSH 设置页集中查看、新建、复制、编辑和删除 llm-pi-ai Provider 的显式模型条目，包括上下文、输出上限、输入模态和推理兼容参数。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/liangyin233-dsh-provider-model-configurator/) |
 | dsh-reasoning-effort | 为 DSH 的不同模型和 OpenAI 兼容路由提供可配置的推理强度档位，把 off、minimal、low、medium、high、xhigh 映射成端点实际接受的 reasoning_effort 值。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/hanaayane-dsh-reasoning-effort/) |
 | dsh-usage | 在 DSH Web 中显示 DeepSeek、OpenRouter、Moonshot/Kimi、Z.ai 等 Provider 余额、DSH 与 Claude Code Token 用量、缓存命中、活跃热力图和通道占比。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/aisland-sjl-dsh-usage/) |
-| pi2dsh | 连接 Pi 与 DSH 插件生态，让符合 Pi Host ABI 的扩展作为 DSH 原生插件运行，并桥接工具、命令、模型、MCP 与子 Agent 能力。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/weijiafu14-pi2dsh/) |
+| pi2dsh | 连接 Pi 与 DSH 插件生态，让符合 Pi Host ABI 的扩展作为 DSH 原生插件运行，并桥接工具、命令、模型、MCP、OAuth 与子 Agent 能力。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/weijiafu14-pi2dsh/) |
 | rapid-mlx-dsh-provider | 把本机 Rapid-MLX 服务接入 DSH，自动发现已服务模型，并提供健康检查、缓存状态、模型拉取和删除工具。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/raullenchai-rapid-mlx-dsh-provider/) |
 
 ### 通知远程 (16)

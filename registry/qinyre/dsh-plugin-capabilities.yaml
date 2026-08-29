@@ -1,0 +1,48 @@
+schema_version: 1
+id: github:qinyre/dsh-plugin-capabilities
+slug: qinyre-dsh-plugin-capabilities
+name: dsh-plugin-capabilities
+repository:
+  url: https://github.com/qinyre/dsh-plugin-capabilities
+  commit: 2536727964f336d6c4b958a6e95847bd59d4e4bb
+package:
+  ecosystem: npm
+  name: dsh-plugin-capabilities
+  version: 0.3.9
+  install_spec: github:qinyre/dsh-plugin-capabilities#2536727964f3
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 0.3.9 未声明明确 DSH peer 版本；README 描述适用于 dsh web 与 DSH Desktop，52DSH 只审阅固定提交，未写入真实配置、下载技能仓库或重启 DSH
+category: management
+topics:
+  - management
+permissions:
+  status: reviewed
+  capabilities:
+    - command_execution
+    - credentials
+  notes: 可读写 SKILL.md、settings 与 cordis.patch.yml，下载并解包 GitHub 技能仓库，扫描其他 Agent 配置，探测 MCP URL，打开目录并重启 DSH
+  data_flow: 设置页请求 → 同源 Web 路由 → DSH Skills、其他 Agent 配置、GitHub tarball、MCP 配置与本机文件系统 → 更新后的目录和状态返回设置页。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-29
+  independent_review: true
+  review_notes: 已审阅同源检查、服务端路径解析、Skill 可写范围、仓库解包、MCP YAML 文档写入、导入扫描、连接检查和重启路径。实现对写操作做同源与输入校验，并限制可写 Skill 来源，但市场安装仍会下载第三方代码、MCP 配置可包含命令和凭据；应先备份配置并逐项核对来源。
+summary:
+  zh: 在 DSH 设置页集中查看、编辑和导入 Skills 与 MCP，管理本地或 GitHub 技能仓库，并支持 profile 与全局配置层。
+links:
+  source: https://github.com/qinyre/dsh-plugin-capabilities
+  detail_zh: https://52dsh.com/plugins/qinyre-dsh-plugin-capabilities/
+  tutorial_zh: https://52dsh.com/tutorials/qinyre-dsh-plugin-capabilities-install-config/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-29
+maintenance:
+  status: active
+  checked_on: 2026-08-29

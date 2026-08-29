@@ -1,0 +1,50 @@
+schema_version: 1
+id: github:kevinzhangnothing/dsh-task-graph
+slug: kevinzhangnothing-dsh-task-graph
+name: dsh-task-graph
+repository:
+  url: https://github.com/KevinZhangNothing/dsh-task-graph
+  commit: 7c230e0fe0af8103cfc2d1ee6ecf74a4f0c872aa
+package:
+  ecosystem: npm
+  name: dsh-task-graph
+  version: 0.1.0
+  install_spec: github:KevinZhangNothing/dsh-task-graph#7c230e0fe0af
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: declared
+  compatibility_notes: 0.1.0 声明 DSH >=0.1.1-rc.1，服务端要求 Node.js >=22.15 解码 zstd；未显式声明 0.1.2-alpha.1，52DSH 未加载 Web 插件或验证真实会话
+category: agent
+topics:
+  - agent
+permissions:
+  status: reviewed
+  capabilities:
+    - network_access
+    - browser_control
+    - session_data
+    - ui_injection
+  notes: 只读扫描 DSH_HOME 下的完整会话轨迹，向同源 Web 客户端提供任务、事件明细和 SSE；事件可能包含提示词、工具参数、文件路径、输出或错误
+  data_flow: DSH_HOME/sessions 中的 zstd 会话日志 → 本机解码、缓存和图谱分析 → /task-graph/api 只读路由与 SSE → 浏览器图谱、详情和轨迹面板。
+risk_level: medium
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-29
+  independent_review: true
+  review_notes: 已审阅会话发现、zstd 解码、缓存、只读路由、事件查询和客户端实时请求。路由拒绝非 GET/HEAD 且会话引用由已发现目录匹配，未看到任意文件路径入口；但完整事件接口会把会话中的敏感工具输入输出交给同源页面，使用前应保护 DSH Web 访问边界。
+summary:
+  zh: 把单个 DSH 任务的 Turn、Agent、Skill、Tool、子任务、代码改动、测试、失败和重试整理为交互式执行图谱。
+links:
+  source: https://github.com/KevinZhangNothing/dsh-task-graph
+  detail_zh: https://52dsh.com/plugins/kevinzhangnothing-dsh-task-graph/
+  tutorial_zh: https://52dsh.com/tutorials/kevinzhangnothing-dsh-task-graph-install-config/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-29
+maintenance:
+  status: active
+  checked_on: 2026-08-29

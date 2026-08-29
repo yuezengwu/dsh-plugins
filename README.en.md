@@ -13,9 +13,9 @@ Each stable record pins a repository commit, records the license, compatibility 
 
 <!-- REGISTRY_STATS_START -->
 
-Stable records: **283** · source-reviewed: **144** · manifest-checked: **139** · Chinese install guides: **50** · data checked through 2026-08-26
+Stable records: **287** · source-reviewed: **148** · manifest-checked: **139** · Chinese install guides: **55** · data checked through 2026-08-29
 
-**283** 个稳定收录 · 源码审阅 **144** · 清单核验 **139** · 中文配置教程 **50** 篇 · 数据核验至 2026-08-26
+**287** 个稳定收录 · 源码审阅 **148** · 清单核验 **139** · 中文配置教程 **55** 篇 · 数据核验至 2026-08-29
 
 <!-- REGISTRY_STATS_END -->
 
@@ -47,11 +47,11 @@ No level equals a security certification. Full definitions: [docs/verification-l
 
 | Category | 中文分类 | Plugins |
 |---|---|---:|
-| Plugin management | 插件管理 | 19 |
+| Plugin management | 插件管理 | 20 |
 | UI & interaction | 界面交互 | 84 |
 | Knowledge & memory | 知识与记忆 | 24 |
-| Agents & workflows | Agent 与工作流 | 26 |
-| Coding & development | 编程与代码开发 | 24 |
+| Agents & workflows | Agent 与工作流 | 27 |
+| Coding & development | 编程与代码开发 | 26 |
 | Vision & OCR | 图片识别与视觉 | 3 |
 | Browser & web access | 浏览器与联网工具 | 6 |
 | Tools & utilities | 工具能力 | 37 |

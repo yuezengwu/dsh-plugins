@@ -1,0 +1,50 @@
+schema_version: 1
+id: github:kannakuron/dsh-gitbash-shell
+slug: kannakuron-dsh-gitbash-shell
+name: dsh-gitbash-shell
+repository:
+  url: https://github.com/KannaKuron/dsh-gitbash-shell
+  commit: 99f2f45fca38a43f5da1e1b8c0dc7e75edfb104d
+package:
+  ecosystem: npm
+  name: dsh-gitbash-shell
+  version: 0.6.0
+  install_spec: github:KannaKuron/dsh-gitbash-shell#99f2f45fca38
+license:
+  spdx: MIT
+  status: clear
+dsh:
+  kind: plugin
+  compatibility_status: review
+  compatibility_notes: 0.6.0 源码分别携带 DSH 0.1.1 与 0.1.2+ 的 preset 组合并按内置 roster 选择；这属于作者实现证据，52DSH 未在 Windows 或 0.1.2-alpha.1 上运行
+category: development
+topics:
+  - development
+permissions:
+  status: reviewed
+  capabilities:
+    - filesystem_write
+    - command_execution
+    - ui_injection
+    - plugin_management
+  notes: 替换 Profile 的 Shell 执行器、启动 Git Bash 子进程、物化或清理用户 preset 目录，并可修改 Better Sidebar 的 terminalShell 设置
+  data_flow: DSH Shell 工具调用与环境变量 → 指定的 Git Bash bash.exe → 官方 bash-sandbox 或 full-access 执行路径 → 命令输出返回 Agent；preset 文件写入用户信任目录。
+risk_level: high
+verification:
+  level: source_reviewed
+  verified_on: 2026-08-29
+  independent_review: true
+  review_notes: 已审阅执行器、preset 物化、版本 era 探测、清理标记、Better Sidebar 联动和组合补丁。插件对托管文件使用哈希并拒绝覆盖用户修改，但 danger-full-access 仍会直接执行 Git Bash；只适合已安装 Git for Windows、能理解 Profile 权限并愿意核对 bashPath 的用户。
+summary:
+  zh: 在 Windows 上用明确的 Git for Windows bash.exe 替代 PowerShell 执行器，并生成四种 Git Bash Agent Preset。
+links:
+  source: https://github.com/KannaKuron/dsh-gitbash-shell
+  detail_zh: https://52dsh.com/plugins/kannakuron-dsh-gitbash-shell/
+  tutorial_zh: https://52dsh.com/tutorials/kannakuron-dsh-gitbash-shell-install-config/
+provenance:
+  registry: github-topic
+  registry_url: https://github.com/topics/dsh-plugin
+  last_synced_at: 2026-08-29
+maintenance:
+  status: active
+  checked_on: 2026-08-29
