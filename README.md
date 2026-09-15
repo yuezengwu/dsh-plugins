@@ -15,9 +15,9 @@ An open, machine-readable and evidence-graded community registry for DeepSeek Ha
 
 <!-- REGISTRY_STATS_START -->
 
-**287** 个稳定收录 · 源码审阅 **148** · 清单核验 **139** · 中文配置教程 **55** 篇 · 数据核验至 2026-08-29
+**287** 个稳定收录 · 源码审阅 **148** · 清单核验 **139** · 中文配置教程 **55** 篇 · 数据核验至 2026-09-15
 
-Stable records: **287** · source-reviewed: **148** · manifest-checked: **139** · Chinese install guides: **55** · data checked through 2026-08-29
+Stable records: **287** · source-reviewed: **148** · manifest-checked: **139** · Chinese install guides: **55** · data checked through 2026-09-15
 
 <!-- REGISTRY_STATS_END -->
 
@@ -174,7 +174,7 @@ Stable records: **287** · source-reviewed: **148** · manifest-checked: **139**
 | dsh-bookmarks | 为助手消息添加书签、备注和标签，在跨会话中心统一查看，并可一键导出 Markdown。 | `manifest_checked` | [功能、权限与配置](https://52dsh.com/plugins/penguin-oo-dsh-bookmarks/) |
 | dsh-context | 通过 Context 面板、浏览器和命令查看上下文组成、统计、压缩、剪枝及演进过程。 | `manifest_checked` | [功能、权限与配置](https://52dsh.com/plugins/bowenliang123-dsh-context/) |
 | dsh-deepread | 对文章、书籍和 PDF 进行证据优先的深度阅读，记录论断、证据、置信度和知识关系。 | `manifest_checked` | [功能、权限与配置](https://52dsh.com/plugins/xiehuan123-dsh-deepread/) |
-| dsh-explain | 提供本地优先的学习模式，包括跨会话全局学习线程、按来源讲解、上下文压缩和诊断设置。 | `manifest_checked` | [功能、权限与配置](https://52dsh.com/plugins/yuezengwu-dsh-explain/) |
+| dsh-explain | 本地优先的学习模式：跨会话全局学习线程、按来源讲解、间隔复习、可修正学习偏好与导出清空。 | `manifest_checked` | [功能、权限与配置](https://52dsh.com/plugins/yuezengwu-dsh-explain/) |
 | dsh-LorebookMD | 导入 Tavern 或 SillyTavern 角色卡与世界书，把设置保存为本地 Markdown，并在生成小说内容时引用世界设定。 | `manifest_checked` | [功能、权限与配置](https://52dsh.com/plugins/609476965-dsh-lorebookmd/) |
 | dsh-memento | 为 DSH 提供有字符预算、分用户/Agent 与全局/工作区层级、可审批和可审计的跨会话记忆，并把冻结快照注入后续会话。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/perrylink-dsh-memento/) |
 | dsh-memoir | 为 DSH 增加项目持久记忆：记录、检索、更新和归档工作结论，将精选 Hot Memory 注入后续会话，并可在有实际工具活动的回合结束时提醒自动沉淀。 | `source_reviewed` | [功能、权限与配置](https://52dsh.com/plugins/qinling-melon-farmers-dsh-memoir/) |

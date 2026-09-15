@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-29T00:00:00.000Z",
+  "generated_at": "2026-09-15T00:00:00.000Z",
   "count": 287,
   "items": [
     {
@@ -17067,13 +17067,13 @@
       "name": "dsh-explain",
       "repository": {
         "url": "https://github.com/yuezengwu/dsh-explain",
-        "commit": "99239d4aab7cec2073293514c8b910eb47c981c4"
+        "commit": "de416e535ced1ee7e786effec9328986aefc0f90"
       },
       "package": {
         "ecosystem": "npm",
         "name": "dsh-explain",
-        "version": "0.1.0",
-        "install_spec": "github:yuezengwu/dsh-explain#99239d4aab7c"
+        "version": "0.3.0",
+        "install_spec": "github:yuezengwu/dsh-explain#de416e535ced1ee7e786effec9328986aefc0f90"
       },
       "license": {
         "spdx": "MIT",
@@ -17082,7 +17082,7 @@
       "dsh": {
         "kind": "plugin",
         "compatibility_status": "declared",
-        "compatibility_notes": "声明 DSH peer 依赖 ^0.1.0-rc.8；本站尚未运行实测"
+        "compatibility_notes": "作者验证 DSH 0.1.6-alpha.1，以及 0.1.2-rc.1、0.1.3-alpha.1/alpha.2、0.1.5-alpha.1/alpha.2/rc.1/rc.2；固定提交的 package.json 版本为 0.3.0，最新正式标签仍为 v0.2.0。本站尚未独立运行复验。"
       },
       "category": "knowledge",
       "topics": [
@@ -17092,19 +17092,24 @@
       "permissions": {
         "status": "inferred",
         "capabilities": [
-          "unspecified"
+          "filesystem_read",
+          "filesystem_write",
+          "network_access",
+          "session_data",
+          "ui_injection"
         ],
-        "notes": "可能读取并持久化会话、项目或记忆数据；核对存储位置和清理方式"
+        "notes": "读取已完成回合或用户显式选择的来源；在 DSH_HOME/dsh-explain/v1/thread.sqlite 保存有界学习摘要、反馈、复习与偏好，提供导出和清空。启用并配置模型后，通过宿主 LLM 服务发送有界来源与学习上下文；不向主 Agent 注入学习上下文。权限说明来自作者，未经本站独立运行审查。"
       },
       "risk_level": "medium",
       "verification": {
         "level": "manifest_checked",
         "verified_on": "2026-08-22",
-        "independent_review": false
+        "independent_review": false,
+        "review_notes": "作者提供固定源码证据：https://github.com/yuezengwu/dsh-explain/blob/de416e535ced1ee7e786effec9328986aefc0f90/package.json；https://github.com/yuezengwu/dsh-explain/blob/de416e535ced1ee7e786effec9328986aefc0f90/LICENSE；https://github.com/yuezengwu/dsh-explain/blob/de416e535ced1ee7e786effec9328986aefc0f90/docs/COMPATIBILITY.md。保留既有 manifest_checked 等级；independent_review=false，不代表本站复验或安全背书。"
       },
       "summary": {
-        "zh": "提供本地优先的学习模式，包括跨会话全局学习线程、按来源讲解、上下文压缩和诊断设置。",
-        "en": "Local-first learning mode: cross-session learning threads with per-source explanations."
+        "zh": "本地优先的学习模式：跨会话全局学习线程、按来源讲解、间隔复习、可修正学习偏好与导出清空。",
+        "en": "Local-first learning thread with source-linked explanations, spaced review, editable learner preferences, export and clear."
       },
       "links": {
         "source": "https://github.com/yuezengwu/dsh-explain",
@@ -17114,11 +17119,16 @@
         "registry": "awesome-dsh-plugin",
         "registry_url": "https://github.com/awesome-dsh-plugin/awesome-dsh-plugin",
         "registry_commit": "5909d7aad5a48e1eb3dc5d47d03cd705945d6706",
-        "last_synced_at": "2026-08-22"
+        "last_synced_at": "2026-08-22",
+        "maintainer_update": {
+          "author": "yuezengwu",
+          "date": "2026-09-15",
+          "source_commit": "de416e535ced1ee7e786effec9328986aefc0f90"
+        }
       },
       "maintenance": {
         "status": "active",
-        "checked_on": "2026-08-22"
+        "checked_on": "2026-09-15"
       }
     },
     {

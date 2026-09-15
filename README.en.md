@@ -13,9 +13,9 @@ Each stable record pins a repository commit, records the license, compatibility 
 
 <!-- REGISTRY_STATS_START -->
 
-Stable records: **287** · source-reviewed: **148** · manifest-checked: **139** · Chinese install guides: **55** · data checked through 2026-08-29
+Stable records: **287** · source-reviewed: **148** · manifest-checked: **139** · Chinese install guides: **55** · data checked through 2026-09-15
 
-**287** 个稳定收录 · 源码审阅 **148** · 清单核验 **139** · 中文配置教程 **55** 篇 · 数据核验至 2026-08-29
+**287** 个稳定收录 · 源码审阅 **148** · 清单核验 **139** · 中文配置教程 **55** 篇 · 数据核验至 2026-09-15
 
 <!-- REGISTRY_STATS_END -->
 
