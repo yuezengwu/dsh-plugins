@@ -4,19 +4,19 @@ slug: yuezengwu-dsh-explain
 name: dsh-explain
 repository:
   url: https://github.com/yuezengwu/dsh-explain
-  commit: c747ab4e318bd7d6d333e4488c2d2e89425f698d
+  commit: add65031db18b8be7faba05cc9a49a22f0b54329
 package:
   ecosystem: npm
   name: dsh-explain
-  version: 0.3.0
-  install_spec: github:yuezengwu/dsh-explain#c747ab4e318bd7d6d333e4488c2d2e89425f698d
+  version: 0.3.1
+  install_spec: github:yuezengwu/dsh-explain#add65031db18b8be7faba05cc9a49a22f0b54329
 license:
   spdx: MIT
   status: clear
 dsh:
   kind: plugin
   compatibility_status: declared
-  compatibility_notes: 作者验证 DSH 0.1.6-alpha.2 及八个既有宿主；87 项测试、7 Web 和 3 M6 场景，新版另验证插件管理页实时停用与重新启用。固定提交为 v0.3.0 发布后的兼容修复，不是新标签；原 v0.3.0 标签支持截至 0.1.6-alpha.1。真实模型证据仅属于 9 月 15 日的 alpha.1 验收。本站尚未独立运行复验。
+  compatibility_notes: 作者验证 DSH 0.1.6-alpha.2 及八个既有宿主；87 项测试、7 Web 和 3 M6 场景，新版另验证插件管理页实时停用与重新启用。固定提交对应已发布的 v0.3.1 标签，包含 alpha.2 兼容修复；原 v0.3.0 标签支持截至 0.1.6-alpha.1。真实模型证据仅属于 9 月 15 日的 alpha.1 验收。本站尚未独立运行复验。
 category: knowledge
 topics:
   - session
@@ -35,7 +35,7 @@ verification:
   level: manifest_checked
   verified_on: 2026-08-22
   independent_review: false
-  review_notes: 作者提供固定源码证据：https://github.com/yuezengwu/dsh-explain/blob/c747ab4e318bd7d6d333e4488c2d2e89425f698d/package.json；https://github.com/yuezengwu/dsh-explain/blob/c747ab4e318bd7d6d333e4488c2d2e89425f698d/LICENSE；https://github.com/yuezengwu/dsh-explain/blob/c747ab4e318bd7d6d333e4488c2d2e89425f698d/docs/COMPATIBILITY.md。保留既有 manifest_checked 等级；independent_review=false，不代表本站复验或安全背书。
+  review_notes: 作者提供固定源码证据：https://github.com/yuezengwu/dsh-explain/blob/add65031db18b8be7faba05cc9a49a22f0b54329/package.json；https://github.com/yuezengwu/dsh-explain/blob/add65031db18b8be7faba05cc9a49a22f0b54329/LICENSE；https://github.com/yuezengwu/dsh-explain/blob/add65031db18b8be7faba05cc9a49a22f0b54329/docs/COMPATIBILITY.md。保留既有 manifest_checked 等级；independent_review=false，不代表本站复验或安全背书。
 summary:
   zh: 本地优先的学习模式：跨会话全局学习线程、按来源讲解、间隔复习、可修正学习偏好与导出清空。
   en: Local-first learning thread with source-linked explanations, spaced review, editable learner preferences, export and clear.
@@ -50,7 +50,7 @@ provenance:
   maintainer_update:
     author: yuezengwu
     date: 2026-09-18
-    source_commit: c747ab4e318bd7d6d333e4488c2d2e89425f698d
+    source_commit: add65031db18b8be7faba05cc9a49a22f0b54329
 maintenance:
   status: active
   checked_on: 2026-09-18
